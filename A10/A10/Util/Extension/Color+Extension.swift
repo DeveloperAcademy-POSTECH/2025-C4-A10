@@ -5,3 +5,8 @@
 //  Created by 김민석 on 7/8/25.
 //
 
+import SwiftUI
+
+extension Color {
+    
+}
