@@ -1,0 +1,51 @@
+#
+#  .swiftlint.yml
+#  GimiFeedback
+#
+
+trailing_whitespace:
+    ignores_empty_lines: true
+
+trailing_comma:
+    mandatory_comma: true
+
+nesting:
+    type_level:
+        warning: 2
+        
+file_length:
+    warning: 500
+
+line_length:
+    warning: 120
+
+function_body_length:
+    warning: 30
+
+force_unwrapping:
+    severity: error
+  
+force_cast:
+    severity: error
+    
+identifier_name:
+    allowed_symbols: "_"
+
+  
+opt_in_rules:
+    - force_unwrapping
+    - force_cast
+    - empty_count
+    - unused_closure_parameter
+    - explicit_init
+    - discouraged_optional_boolean
+    - switch_case_on_newline
+    - closure_end_indentation
+
+# MARK 관련 커스텀 룰
+custom_rules:
+  mark_empty_lines:
+    name: "Empty Line Around MARK"
+    regex: "(?<!\\n)\\n// MARK:"
+    message: "Add an empty line above and below each MARK section for clarity."
+    severity: warning
