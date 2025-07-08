@@ -1,6 +1,6 @@
 //
 //  FeedbackListViewModel.swift
-//  A10
+//  GimiFeedback
 //
 //  Created by 김민석 on 7/8/25.
 //
@@ -13,7 +13,7 @@ final class FeedbackListViewModel: ViewModelable {
         case load
     }
     
-    @Published private(set) var Feedbacks: [String] = []
+    @Published private(set) var feedbacks: [String] = []
     
     func send(_ action: Action) {
         switch action {
