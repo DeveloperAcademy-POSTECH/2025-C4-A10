@@ -18,6 +18,8 @@
 		EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A532E1CE5B0006820B9 /* ViewModelable.swift */; };
 		EE856A562E1CE604006820B9 /* FeedbackListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A552E1CE5FF006820B9 /* FeedbackListViewModel.swift */; };
 		EE856A5B2E1CEA98006820B9 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A5A2E1CEA98006820B9 /* OnboardingView.swift */; };
+		EE856CA72E1D6D32006820B9 /* NavigaitionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA62E1D6D31006820B9 /* NavigaitionRouter.swift */; };
+		EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		EE856A532E1CE5B0006820B9 /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		EE856A552E1CE5FF006820B9 /* FeedbackListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackListViewModel.swift; sourceTree = "<group>"; };
 		EE856A5A2E1CEA98006820B9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		EE856CA62E1D6D31006820B9 /* NavigaitionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigaitionRouter.swift; sourceTree = "<group>"; };
+		EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestination.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 		EE856A3C2E1CD102006820B9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				EE856A5C2E1CF631006820B9 /* Common */,
 				EE856A4F2E1CD401006820B9 /* Onboarding */,
 				EE856A522E1CD41C006820B9 /* FeedbackList */,
 				EE856A532E1CE5B0006820B9 /* ViewModelable.swift */,
@@ -105,6 +110,7 @@
 		EE856A3E2E1CD111006820B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EE856CA52E1D6D28006820B9 /* Navigation */,
 				EE856A482E1CD2D1006820B9 /* Feedback.swift */,
 			);
 			path = Model;
@@ -162,10 +168,34 @@
 		EE856A522E1CD41C006820B9 /* FeedbackList */ = {
 			isa = PBXGroup;
 			children = (
+				EE856A5D2E1CF63F006820B9 /* SubView */,
 				EE856A552E1CE5FF006820B9 /* FeedbackListViewModel.swift */,
 				EE856A502E1CD409006820B9 /* FeedbackListView.swift */,
 			);
 			path = FeedbackList;
+			sourceTree = "<group>";
+		};
+		EE856A5C2E1CF631006820B9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EE856A5D2E1CF63F006820B9 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		EE856CA52E1D6D28006820B9 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */,
+				EE856CA62E1D6D31006820B9 /* NavigaitionRouter.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,12 +271,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE856A4C2E1CD3AD006820B9 /* FirestoreManager.swift in Sources */,
+				EE856CA72E1D6D32006820B9 /* NavigaitionRouter.swift in Sources */,
 				EE856A472E1CD2AD006820B9 /* Font.swift in Sources */,
 				EE856A392E1CD0F6006820B9 /* A10App.swift in Sources */,
 				EE856A5B2E1CEA98006820B9 /* OnboardingView.swift in Sources */,
 				EE856A562E1CE604006820B9 /* FeedbackListViewModel.swift in Sources */,
 				EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */,
 				EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */,
+				EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */,
 				EE856A492E1CD2D7006820B9 /* Feedback.swift in Sources */,
 				EE856A512E1CD418006820B9 /* FeedbackListView.swift in Sources */,
 				EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */,

@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct FeedbackListView: View {
+    @StateObject var viewModel: FeedbackListViewModel
+    
+    init() {
+        _viewModel = StateObject(wrappedValue: FeedbackListViewModel())
+    }
+    
     var body: some View {
-        Text("hello")
     }
 }
 
