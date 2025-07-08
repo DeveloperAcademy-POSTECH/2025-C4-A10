@@ -13,7 +13,7 @@ final class FeedbackListViewModel: ViewModelable {
         case load
     }
     
-    @Published private(set) var Feedbacks: [String] = []
+    @Published private(set) var feedbacks: [String] = []
     
     func send(_ action: Action) {
         switch action {
