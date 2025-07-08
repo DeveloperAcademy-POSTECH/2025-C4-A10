@@ -110,7 +110,7 @@
 		EE856A3E2E1CD111006820B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EE856CA52E1D6D28006820B9 /* Path */,
+				EE856CA52E1D6D28006820B9 /* Navigation */,
 				EE856A482E1CD2D1006820B9 /* Feedback.swift */,
 			);
 			path = Model;
@@ -189,13 +189,13 @@
 			path = SubView;
 			sourceTree = "<group>";
 		};
-		EE856CA52E1D6D28006820B9 /* Path */ = {
+		EE856CA52E1D6D28006820B9 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
 				EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */,
 				EE856CA62E1D6D31006820B9 /* NavigaitionRouter.swift */,
 			);
-			path = Path;
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
