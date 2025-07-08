@@ -1,6 +1,6 @@
 //
 //  Feedback.swift
-//  A10
+//  GimiFeedback
 //
 //  Created by 김민석 on 7/8/25.
 //

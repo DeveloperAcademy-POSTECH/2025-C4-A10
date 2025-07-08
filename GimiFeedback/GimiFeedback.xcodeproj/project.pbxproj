@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		EE3754AF2E1D7B36009AD262 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */; };
 		EE856A382E1CD0F6006820B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE856A352E1CD0F6006820B9 /* Assets.xcassets */; };
-		EE856A392E1CD0F6006820B9 /* A10App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A342E1CD0F6006820B9 /* A10App.swift */; };
+		EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */; };
 		EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A432E1CD23E006820B9 /* Color+Extension.swift */; };
 		EE856A472E1CD2AD006820B9 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A462E1CD2AA006820B9 /* Font.swift */; };
 		EE856A492E1CD2D7006820B9 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A482E1CD2D1006820B9 /* Feedback.swift */; };
@@ -25,8 +25,8 @@
 
 /* Begin PBXFileReference section */
 		EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		EE856A262E1CD093006820B9 /* A10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = A10.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE856A342E1CD0F6006820B9 /* A10App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A10App.swift; sourceTree = "<group>"; };
+		EE856A262E1CD093006820B9 /* GimiFeedback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimiFeedback.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiFeedbackApp.swift; sourceTree = "<group>"; };
 		EE856A352E1CD0F6006820B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE856A432E1CD23E006820B9 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		EE856A462E1CD2AA006820B9 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */,
-				EE856A372E1CD0F6006820B9 /* A10 */,
+				EE856A372E1CD0F6006820B9 /* GimiFeedback */,
 				EE856A272E1CD093006820B9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,12 +64,12 @@
 		EE856A272E1CD093006820B9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EE856A262E1CD093006820B9 /* A10.app */,
+				EE856A262E1CD093006820B9 /* GimiFeedback.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EE856A372E1CD0F6006820B9 /* A10 */ = {
+		EE856A372E1CD0F6006820B9 /* GimiFeedback */ = {
 			isa = PBXGroup;
 			children = (
 				EE856A3B2E1CD0FC006820B9 /* App */,
@@ -80,13 +80,13 @@
 				EE856A402E1CD129006820B9 /* Util */,
 				EE856A412E1CD13E006820B9 /* Resources */,
 			);
-			path = A10;
+			path = GimiFeedback;
 			sourceTree = "<group>";
 		};
 		EE856A3B2E1CD0FC006820B9 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				EE856A342E1CD0F6006820B9 /* A10App.swift */,
+				EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -204,9 +204,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EE856A252E1CD093006820B9 /* A10 */ = {
+		EE856A252E1CD093006820B9 /* GimiFeedback */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EE856A312E1CD095006820B9 /* Build configuration list for PBXNativeTarget "A10" */;
+			buildConfigurationList = EE856A312E1CD095006820B9 /* Build configuration list for PBXNativeTarget "GimiFeedback" */;
 			buildPhases = (
 				EE856A222E1CD093006820B9 /* Sources */,
 				EE856A232E1CD093006820B9 /* Frameworks */,
@@ -217,11 +217,11 @@
 			dependencies = (
 				EE9743B22E1D7A58009B4C91 /* PBXTargetDependency */,
 			);
-			name = A10;
+			name = GimiFeedback;
 			packageProductDependencies = (
 			);
 			productName = A10;
-			productReference = EE856A262E1CD093006820B9 /* A10.app */;
+			productReference = EE856A262E1CD093006820B9 /* GimiFeedback.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -239,7 +239,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EE856A212E1CD093006820B9 /* Build configuration list for PBXProject "A10" */;
+			buildConfigurationList = EE856A212E1CD093006820B9 /* Build configuration list for PBXProject "GimiFeedback" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -256,7 +256,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EE856A252E1CD093006820B9 /* A10 */,
+				EE856A252E1CD093006820B9 /* GimiFeedback */,
 			);
 		};
 /* End PBXProject section */
@@ -281,7 +281,7 @@
 				EE856A4C2E1CD3AD006820B9 /* FirestoreManager.swift in Sources */,
 				EE856CA72E1D6D32006820B9 /* NavigaitionRouter.swift in Sources */,
 				EE856A472E1CD2AD006820B9 /* Font.swift in Sources */,
-				EE856A392E1CD0F6006820B9 /* A10App.swift in Sources */,
+				EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */,
 				EE856A5B2E1CEA98006820B9 /* OnboardingView.swift in Sources */,
 				EE856A562E1CE604006820B9 /* FeedbackListViewModel.swift in Sources */,
 				EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */,
@@ -445,7 +445,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = naturalBeauty.A10;
+				PRODUCT_BUNDLE_IDENTIFIER = naturalBeauty.GimiFeedback;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -480,7 +480,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = naturalBeauty.A10;
+				PRODUCT_BUNDLE_IDENTIFIER = naturalBeauty.GimiFeedback;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -495,7 +495,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EE856A212E1CD093006820B9 /* Build configuration list for PBXProject "A10" */ = {
+		EE856A212E1CD093006820B9 /* Build configuration list for PBXProject "GimiFeedback" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EE856A2F2E1CD095006820B9 /* Debug */,
@@ -504,7 +504,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EE856A312E1CD095006820B9 /* Build configuration list for PBXNativeTarget "A10" */ = {
+		EE856A312E1CD095006820B9 /* Build configuration list for PBXNativeTarget "GimiFeedback" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EE856A322E1CD095006820B9 /* Debug */,
