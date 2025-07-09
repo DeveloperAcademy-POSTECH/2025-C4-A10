@@ -12,6 +12,9 @@
 		EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */; };
 		EE3755412E1E1105009AD262 /* FeedbackCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3755402E1E1102009AD262 /* FeedbackCategory.swift */; };
 		EE3755432E1E5A26009AD262 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE3755422E1E5A26009AD262 /* GoogleService-Info.plist */; };
+		EE3755462E1E5B8D009AD262 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EE3755452E1E5B8D009AD262 /* FirebaseAuth */; };
+		EE3755482E1E5B8D009AD262 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EE3755472E1E5B8D009AD262 /* FirebaseFirestore */; };
+		EE37554A2E1E5BBD009AD262 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3755492E1E5BB9009AD262 /* AppDelegate.swift */; };
 		EE856A382E1CD0F6006820B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE856A352E1CD0F6006820B9 /* Assets.xcassets */; };
 		EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */; };
 		EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A432E1CD23E006820B9 /* Color+Extension.swift */; };
@@ -33,6 +36,7 @@
 		EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContent.swift; sourceTree = "<group>"; };
 		EE3755402E1E1102009AD262 /* FeedbackCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackCategory.swift; sourceTree = "<group>"; };
 		EE3755422E1E5A26009AD262 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EE3755492E1E5BB9009AD262 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE856A262E1CD093006820B9 /* GimiFeedback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimiFeedback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiFeedbackApp.swift; sourceTree = "<group>"; };
 		EE856A352E1CD0F6006820B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE3755462E1E5B8D009AD262 /* FirebaseAuth in Frameworks */,
+				EE3755482E1E5B8D009AD262 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +100,7 @@
 		EE856A3B2E1CD0FC006820B9 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				EE3755492E1E5BB9009AD262 /* AppDelegate.swift */,
 				EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */,
 				EE3755422E1E5A26009AD262 /* GoogleService-Info.plist */,
 			);
@@ -231,6 +238,8 @@
 			);
 			name = GimiFeedback;
 			packageProductDependencies = (
+				EE3755452E1E5B8D009AD262 /* FirebaseAuth */,
+				EE3755472E1E5B8D009AD262 /* FirebaseFirestore */,
 			);
 			productName = A10;
 			productReference = EE856A262E1CD093006820B9 /* GimiFeedback.app */;
@@ -262,6 +271,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				EE9743B02E1D7A06009B4C91 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+				EE3755442E1E5B8D009AD262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EE856A272E1CD093006820B9 /* Products */;
@@ -299,6 +309,7 @@
 				EE856A562E1CE604006820B9 /* FeedbackListViewModel.swift in Sources */,
 				EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */,
 				EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */,
+				EE37554A2E1E5BBD009AD262 /* AppDelegate.swift in Sources */,
 				EE3755412E1E1105009AD262 /* FeedbackCategory.swift in Sources */,
 				EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */,
 				EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */,
@@ -532,6 +543,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EE3755442E1E5B8D009AD262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.15.0;
+			};
+		};
 		EE9743B02E1D7A06009B4C91 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
@@ -543,6 +562,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EE3755452E1E5B8D009AD262 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE3755442E1E5B8D009AD262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		EE3755472E1E5B8D009AD262 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE3755442E1E5B8D009AD262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		EE9743B12E1D7A58009B4C91 /* SwiftLintBuildToolPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EE9743B02E1D7A06009B4C91 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
