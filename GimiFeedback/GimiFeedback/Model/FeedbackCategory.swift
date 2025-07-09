@@ -12,5 +12,19 @@ struct FeedbackCategory {
     let userID: UUID
     var feedback: [Feedback]
     let title: String
-    let content: String
+    var content: String
+    
+    init(
+        id: UUID = UUID(),
+        userID: UUID,
+        feedback: [Feedback] = [],
+        title: String,
+        content: String
+    ) {
+        self.id = id
+        self.userID = userID
+        self.feedback = feedback
+        self.title = title
+        self.content = content
+    }
 }
