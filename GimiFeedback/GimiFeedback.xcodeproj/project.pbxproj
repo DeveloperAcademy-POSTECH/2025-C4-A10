@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		EE3754AF2E1D7B36009AD262 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */; };
+		EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */; };
+		EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */; };
+		EE3755412E1E1105009AD262 /* FeedbackCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3755402E1E1102009AD262 /* FeedbackCategory.swift */; };
 		EE856A382E1CD0F6006820B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE856A352E1CD0F6006820B9 /* Assets.xcassets */; };
 		EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */; };
 		EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A432E1CD23E006820B9 /* Color+Extension.swift */; };
@@ -25,6 +28,9 @@
 
 /* Begin PBXFileReference section */
 		EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContentType.swift; sourceTree = "<group>"; };
+		EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContent.swift; sourceTree = "<group>"; };
+		EE3755402E1E1102009AD262 /* FeedbackCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackCategory.swift; sourceTree = "<group>"; };
 		EE856A262E1CD093006820B9 /* GimiFeedback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimiFeedback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiFeedbackApp.swift; sourceTree = "<group>"; };
 		EE856A352E1CD0F6006820B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,8 +119,11 @@
 		EE856A3E2E1CD111006820B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EE856CA52E1D6D28006820B9 /* Navigation */,
+				EE3755402E1E1102009AD262 /* FeedbackCategory.swift */,
 				EE856A482E1CD2D1006820B9 /* Feedback.swift */,
+				EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */,
+				EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */,
+				EE856CA52E1D6D28006820B9 /* Navigation */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -285,6 +294,9 @@
 				EE856A5B2E1CEA98006820B9 /* OnboardingView.swift in Sources */,
 				EE856A562E1CE604006820B9 /* FeedbackListViewModel.swift in Sources */,
 				EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */,
+				EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */,
+				EE3755412E1E1105009AD262 /* FeedbackCategory.swift in Sources */,
+				EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */,
 				EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */,
 				EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */,
 				EE856A492E1CD2D7006820B9 /* Feedback.swift in Sources */,
