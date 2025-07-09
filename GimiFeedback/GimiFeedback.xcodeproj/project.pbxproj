@@ -11,6 +11,7 @@
 		EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */; };
 		EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */; };
 		EE3755412E1E1105009AD262 /* FeedbackCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3755402E1E1102009AD262 /* FeedbackCategory.swift */; };
+		EE3755432E1E5A26009AD262 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE3755422E1E5A26009AD262 /* GoogleService-Info.plist */; };
 		EE856A382E1CD0F6006820B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE856A352E1CD0F6006820B9 /* Assets.xcassets */; };
 		EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */; };
 		EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A432E1CD23E006820B9 /* Color+Extension.swift */; };
@@ -31,6 +32,7 @@
 		EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContentType.swift; sourceTree = "<group>"; };
 		EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContent.swift; sourceTree = "<group>"; };
 		EE3755402E1E1102009AD262 /* FeedbackCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackCategory.swift; sourceTree = "<group>"; };
+		EE3755422E1E5A26009AD262 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE856A262E1CD093006820B9 /* GimiFeedback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimiFeedback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiFeedbackApp.swift; sourceTree = "<group>"; };
 		EE856A352E1CD0F6006820B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */,
+				EE3755422E1E5A26009AD262 /* GoogleService-Info.plist */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			files = (
 				EE3754AF2E1D7B36009AD262 /* .swiftlint.yml in Resources */,
 				EE856A382E1CD0F6006820B9 /* Assets.xcassets in Resources */,
+				EE3755432E1E5A26009AD262 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
