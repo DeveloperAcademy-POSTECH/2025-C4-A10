@@ -15,6 +15,8 @@
 		EE3755462E1E5B8D009AD262 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EE3755452E1E5B8D009AD262 /* FirebaseAuth */; };
 		EE3755482E1E5B8D009AD262 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EE3755472E1E5B8D009AD262 /* FirebaseFirestore */; };
 		EE37554A2E1E5BBD009AD262 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3755492E1E5BB9009AD262 /* AppDelegate.swift */; };
+		EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3756A22E1E602C009AD262 /* EntityRepresentable.swift */; };
+		EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3756A42E1E6060009AD262 /* CollectionType.swift */; };
 		EE856A382E1CD0F6006820B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE856A352E1CD0F6006820B9 /* Assets.xcassets */; };
 		EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */; };
 		EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A432E1CD23E006820B9 /* Color+Extension.swift */; };
@@ -37,6 +39,8 @@
 		EE3755402E1E1102009AD262 /* FeedbackCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackCategory.swift; sourceTree = "<group>"; };
 		EE3755422E1E5A26009AD262 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE3755492E1E5BB9009AD262 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EE3756A22E1E602C009AD262 /* EntityRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityRepresentable.swift; sourceTree = "<group>"; };
+		EE3756A42E1E6060009AD262 /* CollectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
 		EE856A262E1CD093006820B9 /* GimiFeedback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimiFeedback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiFeedbackApp.swift; sourceTree = "<group>"; };
 		EE856A352E1CD0F6006820B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,6 +70,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE3756A12E1E601E009AD262 /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				EE3756A42E1E6060009AD262 /* CollectionType.swift */,
+				EE3756A22E1E602C009AD262 /* EntityRepresentable.swift */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
 		EE856A1D2E1CD093006820B9 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +187,7 @@
 		EE856A4A2E1CD399006820B9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				EE3756A12E1E601E009AD262 /* Firestore */,
 				EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */,
 			);
 			path = Network;
@@ -303,8 +317,10 @@
 			files = (
 				EE856A4C2E1CD3AD006820B9 /* FirestoreManager.swift in Sources */,
 				EE856CA72E1D6D32006820B9 /* NavigaitionRouter.swift in Sources */,
+				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
 				EE856A472E1CD2AD006820B9 /* Font.swift in Sources */,
 				EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */,
+				EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */,
 				EE856A5B2E1CEA98006820B9 /* OnboardingView.swift in Sources */,
 				EE856A562E1CE604006820B9 /* FeedbackListViewModel.swift in Sources */,
 				EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */,
