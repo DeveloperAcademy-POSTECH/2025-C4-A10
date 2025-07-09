@@ -9,8 +9,8 @@ import Foundation
 
 struct Feedback {
     let id: UUID
-    let read: UUID  // 받는 사람
-    let write: String   // 작성한 사람 닉네임
+    let readPerson: UUID  // 받는 사람
+    let writePerson: String   // 작성한 사람 닉네임
     var content: [FeedbackContent]
     let date: Date
     let title: String   // Category의 title
@@ -26,8 +26,8 @@ struct Feedback {
         visiable: Bool = false
     ) {
         self.id = id
-        self.read = read
-        self.write = write
+        self.readPerson = read
+        self.writePerson = write
         self.content = content
         self.date = date
         self.title = title
