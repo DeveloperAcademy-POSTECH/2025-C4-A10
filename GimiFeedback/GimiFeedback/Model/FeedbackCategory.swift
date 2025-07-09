@@ -7,24 +7,24 @@
 
 import Foundation
 
-struct FeedbackCategory {
+struct FeedbackChannel {
     let id: UUID
     let userID: UUID
     var feedback: [Feedback]
-    let title: String
+    let channelTitle: String
     var content: String
     
     init(
         id: UUID = UUID(),
         userID: UUID,
         feedback: [Feedback] = [],
-        title: String,
+        channelTitle: String,
         content: String
     ) {
         self.id = id
         self.userID = userID
         self.feedback = feedback
-        self.title = title
+        self.channelTitle = channelTitle
         self.content = content
     }
 }
