@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FeedbackChannel {
+struct FeedbackChannel: Codable, Identifiable {
     let id: UUID
     let userID: UUID
     var feedback: [Feedback]
@@ -27,4 +27,9 @@ struct FeedbackChannel {
         self.channelTitle = channelTitle
         self.content = content
     }
+}
+
+extension FeedbackChannel: EntityRepresentable {
+    var entityName: CollectionType { .feedbackContentType }
+    var documentID: String { id.uuidString }
 }

@@ -17,6 +17,7 @@
 		EE37554A2E1E5BBD009AD262 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3755492E1E5BB9009AD262 /* AppDelegate.swift */; };
 		EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3756A22E1E602C009AD262 /* EntityRepresentable.swift */; };
 		EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3756A42E1E6060009AD262 /* CollectionType.swift */; };
+		EE37582C2E1F80F3009AD262 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */; };
 		EE856A382E1CD0F6006820B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE856A352E1CD0F6006820B9 /* Assets.xcassets */; };
 		EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */; };
 		EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A432E1CD23E006820B9 /* Color+Extension.swift */; };
@@ -41,6 +42,7 @@
 		EE3755492E1E5BB9009AD262 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE3756A22E1E602C009AD262 /* EntityRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityRepresentable.swift; sourceTree = "<group>"; };
 		EE3756A42E1E6060009AD262 /* CollectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
+		EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		EE856A262E1CD093006820B9 /* GimiFeedback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimiFeedback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiFeedbackApp.swift; sourceTree = "<group>"; };
 		EE856A352E1CD0F6006820B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		EE856A422E1CD22B006820B9 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */,
 				EE856A432E1CD23E006820B9 /* Color+Extension.swift */,
 			);
 			path = Extension;
@@ -323,6 +326,7 @@
 				EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */,
 				EE856A5B2E1CEA98006820B9 /* OnboardingView.swift in Sources */,
 				EE856A562E1CE604006820B9 /* FeedbackListViewModel.swift in Sources */,
+				EE37582C2E1F80F3009AD262 /* Encodable+Extension.swift in Sources */,
 				EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */,
 				EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */,
 				EE37554A2E1E5BBD009AD262 /* AppDelegate.swift in Sources */,

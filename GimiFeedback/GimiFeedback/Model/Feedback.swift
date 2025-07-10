@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Feedback {
+struct Feedback: Codable, Identifiable {
     let id: UUID
     let readPerson: UUID  // 받는 사람
     let writePerson: String   // 작성한 사람 닉네임
@@ -33,4 +33,9 @@ struct Feedback {
         self.title = title
         self.visiable = visiable
     }
+}
+
+extension Feedback: EntityRepresentable {
+    var entityName: CollectionType { .feedback }
+    var documentID: String { id.uuidString }
 }
