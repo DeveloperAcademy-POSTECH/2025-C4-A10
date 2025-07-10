@@ -9,9 +9,8 @@
 /// 해당 부분으로 데이터 식별
 /// User -> User 부분으로 가서 데이터를 검색
 enum CollectionType: String {
-    case user = "User"
-    case party = "Party"
-    case partyComment = "PartyComment"
-    case review = "Review"
-    case chat = "Chat"
+    case feedbackCategory = "FeedbackCategory"
+    case feedback = "Feedback"
+    case feedbackContent = "FeedbackContent"
+    case feedbackContentType = "FeedbackContentType"
 }
