@@ -9,28 +9,28 @@ import Foundation
 
 struct Feedback: Codable, Identifiable {
     let id: UUID
+    let feedbackChannelID: UUID
     let readPerson: UUID  // 받는 사람
     let writePerson: String   // 작성한 사람 닉네임
     var content: [FeedbackContent]
     let date: Date
-    let title: String   // Category의 title
     var visiable: Bool
     
     init(
         id: UUID = UUID(),
-        read: UUID,
-        write: String,
+        feedbackChannelID: UUID,
+        readPerson: UUID,
+        writePerson: String,
         content: [FeedbackContent],
         date: Date = Date(),
-        title: String,
         visiable: Bool = false
     ) {
         self.id = id
-        self.readPerson = read
-        self.writePerson = write
+        self.feedbackChannelID = feedbackChannelID
+        self.readPerson = readPerson
+        self.writePerson = writePerson
         self.content = content
         self.date = date
-        self.title = title
         self.visiable = visiable
     }
 }
