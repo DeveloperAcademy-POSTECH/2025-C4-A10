@@ -10,7 +10,7 @@
 		EE3754AF2E1D7B36009AD262 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */; };
 		EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */; };
 		EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */; };
-		EE3755412E1E1105009AD262 /* FeedbackCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3755402E1E1102009AD262 /* FeedbackCategory.swift */; };
+		EE3755412E1E1105009AD262 /* FeedbackChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3755402E1E1102009AD262 /* FeedbackChannel.swift */; };
 		EE3755432E1E5A26009AD262 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE3755422E1E5A26009AD262 /* GoogleService-Info.plist */; };
 		EE3755462E1E5B8D009AD262 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EE3755452E1E5B8D009AD262 /* FirebaseAuth */; };
 		EE3755482E1E5B8D009AD262 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EE3755472E1E5B8D009AD262 /* FirebaseFirestore */; };
@@ -37,7 +37,7 @@
 		EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContentType.swift; sourceTree = "<group>"; };
 		EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContent.swift; sourceTree = "<group>"; };
-		EE3755402E1E1102009AD262 /* FeedbackCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackCategory.swift; sourceTree = "<group>"; };
+		EE3755402E1E1102009AD262 /* FeedbackChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackChannel.swift; sourceTree = "<group>"; };
 		EE3755422E1E5A26009AD262 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE3755492E1E5BB9009AD262 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE3756A22E1E602C009AD262 /* EntityRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityRepresentable.swift; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		EE856A3E2E1CD111006820B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EE3755402E1E1102009AD262 /* FeedbackCategory.swift */,
+				EE3755402E1E1102009AD262 /* FeedbackChannel.swift */,
 				EE856A482E1CD2D1006820B9 /* Feedback.swift */,
 				EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */,
 				EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */,
@@ -330,7 +330,7 @@
 				EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */,
 				EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */,
 				EE37554A2E1E5BBD009AD262 /* AppDelegate.swift in Sources */,
-				EE3755412E1E1105009AD262 /* FeedbackCategory.swift in Sources */,
+				EE3755412E1E1105009AD262 /* FeedbackChannel.swift in Sources */,
 				EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */,
 				EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */,
 				EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */,
