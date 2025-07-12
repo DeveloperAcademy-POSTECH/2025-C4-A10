@@ -7,14 +7,14 @@
 
 import Foundation
 
-class NavigaitionRouter: ObservableObject {
-    @Published var destinations: [NavigationDestination]
+class NavigaitionRouter<T: Hashable>: ObservableObject {
+    @Published var destinations: [T]
     
-    init(destinations: [NavigationDestination] = []) {
+    init(destinations: [T] = []) {
         self.destinations = destinations
     }
     
-    func push(to view: NavigationDestination) {
+    func push(to view: T) {
         destinations.append(view)
     }
     
