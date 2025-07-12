@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct OnboardingLoginView: View {
-    @EnvironmentObject var router: NavigaitionRouter<NavigationOnboardingDestination>
-    
+    @EnvironmentObject var router: OnboardingNavigationRouter
     var body: some View {
         Text("솔직한 피드백, 더 나은 나를 위한 성장")
         

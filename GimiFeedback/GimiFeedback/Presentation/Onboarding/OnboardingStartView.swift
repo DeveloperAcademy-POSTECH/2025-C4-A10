@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct OnboardingStartView: View {
-    @StateObject var router: NavigaitionRouter<NavigationOnboardingDestination>
+    @StateObject var router: OnboardingNavigationRouter
     
     init() {
-        _router = StateObject(wrappedValue: NavigaitionRouter<NavigationOnboardingDestination>())
+        _router = StateObject(wrappedValue: OnboardingNavigationRouter())
     }
     
     var body: some View {
         NavigationStack(path: $router.destinations) {
             ContentView()
-                .navigationDestination(for: NavigationOnboardingDestination.self) { destination in
+                .navigationDestination(for: OnboardingNavigationDestination.self) { destination in
                     switch destination {
                     case .inputCode:
                         InputCodeView()
@@ -25,10 +25,10 @@ struct OnboardingStartView: View {
                         OnboardingLoginView()
                     case .feedbackWriteComplete:
                         // TODO: 피드백 완료 이동
-                        FeedbackListView()
-                    case .feedbackWrite(code: _):
+                        EmptyView()
+                    case .feedbackWrite:
                         // TODO: 피드백 생성 이동
-                        FeedbackListView()
+                        EmptyView()
                     }
                 }
         }
@@ -39,7 +39,7 @@ struct OnboardingStartView: View {
 
 extension OnboardingStartView {
     private struct ContentView: View {
-        @EnvironmentObject var router: NavigaitionRouter<NavigationOnboardingDestination>
+        @EnvironmentObject var router: OnboardingNavigationRouter
         
         var body: some View {
             VStack {

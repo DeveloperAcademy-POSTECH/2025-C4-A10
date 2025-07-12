@@ -1,5 +1,5 @@
 //
-//  Path.swift
+//  NavigationRouter.swift
 //  GimiFeedback
 //
 //  Created by 김민석 on 7/9/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NavigaitionRouter<T: Hashable>: ObservableObject {
+final class NavigationRouter<T: NavigationDestination>: ObservableObject {
     @Published var destinations: [T]
     
     init(destinations: [T] = []) {
@@ -26,3 +26,6 @@ class NavigaitionRouter<T: Hashable>: ObservableObject {
         destinations = []
     }
 }
+
+typealias OnboardingNavigationRouter = NavigationRouter<OnboardingNavigationDestination>
+typealias MainNavigationRouter = NavigationRouter<MainNavigationDestination>
