@@ -50,7 +50,7 @@
 		EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		EE41FD7C2E223CFD0002E595 /* OnboardingLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginView.swift; sourceTree = "<group>"; };
 		EE41FD812E223D720002E595 /* InputCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCodeView.swift; sourceTree = "<group>"; };
-		EE41FEE12E22511D0002E595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EE41FEE12E22511D0002E595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE856A262E1CD093006820B9 /* GimiFeedback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimiFeedback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiFeedbackApp.swift; sourceTree = "<group>"; };
 		EE856A352E1CD0F6006820B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,7 +120,6 @@
 		EE856A372E1CD0F6006820B9 /* GimiFeedback */ = {
 			isa = PBXGroup;
 			children = (
-				EE41FEE12E22511D0002E595 /* Info.plist */,
 				EE856A3B2E1CD0FC006820B9 /* App */,
 				EE856A3E2E1CD111006820B9 /* Model */,
 				EE856A3D2E1CD10E006820B9 /* Data */,
@@ -138,6 +137,7 @@
 				EE3755492E1E5BB9009AD262 /* AppDelegate.swift */,
 				EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */,
 				EE3755422E1E5A26009AD262 /* GoogleService-Info.plist */,
+				EE41FEE12E22511D0002E595 /* Info.plist */,
 			);
 			path = App;
 			sourceTree = "<group>";
