@@ -9,7 +9,19 @@ import SwiftUI
 
 struct OnboardingLoginView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("솔직한 피드백, 더 나은 나를 위한 성장")
+        
+        Button {
+            // TODO: 카카오 로그인 동작
+        } label: {
+            Text("카카오로 계속하기")
+        }
+        
+        Button {
+            // TODO: 코드 입력 뷰 전환
+        } label: {
+            Text("로그인하지 않고 피드백 주기")
+        }
     }
 }
 
