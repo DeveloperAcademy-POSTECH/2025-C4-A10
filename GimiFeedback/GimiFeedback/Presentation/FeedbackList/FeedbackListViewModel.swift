@@ -15,6 +15,8 @@ final class FeedbackListViewModel: ViewModelable {
     @Published private(set) var feedbackCount: [UUID: Int] = [:]
     @Published private(set) var visibleFeedbackCount: [UUID: Int] = [:]
     
+    @Published private(set) var totalFeedbackCount: Int = .zero
+    
     func send(_ action: Action) {
         switch action {
         case .load:
@@ -33,6 +35,9 @@ extension FeedbackListViewModel {
     private func fetchFeedbackChannelList() {
         Task {
             isFeedbackChannelListLoading = true
+            
+            totalFeedbackCount = .zero
+            
             do {
                 feedbackChannelList = try await FirestoreManager.shared.fetch(
                     as: FeedbackChannel.self,
@@ -49,8 +54,9 @@ extension FeedbackListViewModel {
                     
                     feedbackCount[channel.id] = feedbackList.count
                     visibleFeedbackCount[channel.id] = feedbackList.filter { !$0.visiable }.count
+                    
+                    totalFeedbackCount += feedbackList.count
                 }
-                
             } catch {
                 errorMessage = error.localizedDescription
             }
