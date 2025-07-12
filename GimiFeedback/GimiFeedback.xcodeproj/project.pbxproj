@@ -25,6 +25,9 @@
 		EE41FEE02E2250DF0002E595 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = EE41FEDF2E2250DF0002E595 /* KakaoSDKUser */; };
 		EE41FEE52E2256280002E595 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EE41FEE42E2256280002E595 /* Config.xcconfig */; };
 		EE41FEE72E22572C0002E595 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FEE62E2257260002E595 /* Bundle+Extension.swift */; };
+		EE41FEE92E2259350002E595 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FEE82E2259310002E595 /* LoginViewModel.swift */; };
+		EE41FEEB2E22599C0002E595 /* KakaoAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FEEA2E2259980002E595 /* KakaoAuthManager.swift */; };
+		EE41FEED2E225A250002E595 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FEEC2E225A1C0002E595 /* FirebaseAuthManager.swift */; };
 		EE856A382E1CD0F6006820B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE856A352E1CD0F6006820B9 /* Assets.xcassets */; };
 		EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */; };
 		EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A432E1CD23E006820B9 /* Color+Extension.swift */; };
@@ -55,6 +58,9 @@
 		EE41FEE12E22511D0002E595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE41FEE42E2256280002E595 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		EE41FEE62E2257260002E595 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		EE41FEE82E2259310002E595 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		EE41FEEA2E2259980002E595 /* KakaoAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthManager.swift; sourceTree = "<group>"; };
+		EE41FEEC2E225A1C0002E595 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		EE856A262E1CD093006820B9 /* GimiFeedback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimiFeedback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiFeedbackApp.swift; sourceTree = "<group>"; };
 		EE856A352E1CD0F6006820B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -219,6 +225,8 @@
 			children = (
 				EE3756A12E1E601E009AD262 /* Firestore */,
 				EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */,
+				EE41FEEC2E225A1C0002E595 /* FirebaseAuthManager.swift */,
+				EE41FEEA2E2259980002E595 /* KakaoAuthManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -226,6 +234,7 @@
 		EE856A4F2E1CD401006820B9 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				EE41FEE82E2259310002E595 /* LoginViewModel.swift */,
 				EE41FD7C2E223CFD0002E595 /* OnboardingLoginView.swift */,
 				EE856A5A2E1CEA98006820B9 /* OnboardingStartView.swift */,
 			);
@@ -351,8 +360,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE41FEE92E2259350002E595 /* LoginViewModel.swift in Sources */,
 				EE856A4C2E1CD3AD006820B9 /* FirestoreManager.swift in Sources */,
 				EE856CA72E1D6D32006820B9 /* NavigationRouter.swift in Sources */,
+				EE41FEEB2E22599C0002E595 /* KakaoAuthManager.swift in Sources */,
 				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
 				EE41FEE72E22572C0002E595 /* Bundle+Extension.swift in Sources */,
 				EE41FD7D2E223D050002E595 /* OnboardingLoginView.swift in Sources */,
@@ -373,6 +384,7 @@
 				EE856A492E1CD2D7006820B9 /* Feedback.swift in Sources */,
 				EE856A512E1CD418006820B9 /* FeedbackListView.swift in Sources */,
 				EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */,
+				EE41FEED2E225A250002E595 /* FirebaseAuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +400,7 @@
 /* Begin XCBuildConfiguration section */
 		EE856A2F2E1CD095006820B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE41FEE42E2256280002E595 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -451,6 +464,7 @@
 		};
 		EE856A302E1CD095006820B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE41FEE42E2256280002E595 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -512,6 +526,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34X3BT977M;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -548,6 +563,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34X3BT977M;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
