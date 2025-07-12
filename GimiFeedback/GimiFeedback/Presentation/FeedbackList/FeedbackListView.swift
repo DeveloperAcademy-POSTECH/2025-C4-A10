@@ -50,14 +50,12 @@ struct FeedbackListView: View {
             }
             .padding(.top, 32)
             .navigationTitle("기미 피드백")
-            .toolbar {    
+            .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     HStack {
                         Spacer()
                         
-                        Button(action: { }) {
-                            Text("\(viewModel.totalFeedbackCount)개")
-                        }
+                        Text("\(viewModel.totalFeedbackCount)개")
                         
                         Spacer()
                         
@@ -69,7 +67,6 @@ struct FeedbackListView: View {
             }
             .toolbarBackground(Color.gray.opacity(0.1), for: .bottomBar)
             .toolbarBackground(.visible, for: .bottomBar)
-
             .onAppear {
                 viewModel.send(.fetchFeedbackChannelList)
             }
