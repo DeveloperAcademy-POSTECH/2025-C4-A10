@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnboardingLoginView: View {
+    @EnvironmentObject var router: NavigaitionRouter<NavigationOnboardingDestination>
+    
     var body: some View {
         Text("솔직한 피드백, 더 나은 나를 위한 성장")
         
@@ -18,7 +20,7 @@ struct OnboardingLoginView: View {
         }
         
         Button {
-            // TODO: 코드 입력 뷰 전환
+            router.push(to: .inputCode)
         } label: {
             Text("로그인하지 않고 피드백 주기")
         }
