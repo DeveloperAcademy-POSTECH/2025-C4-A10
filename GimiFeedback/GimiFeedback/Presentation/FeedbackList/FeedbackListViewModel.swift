@@ -3,7 +3,6 @@ import Foundation
 final class FeedbackListViewModel: ViewModelable {
     
     enum Action {
-        case load
         case fetchFeedbackChannelList
         case clearError
     }
@@ -19,9 +18,6 @@ final class FeedbackListViewModel: ViewModelable {
     
     func send(_ action: Action) {
         switch action {
-        case .load:
-            print("hello")
-            
         case .fetchFeedbackChannelList:
             fetchFeedbackChannelList()
             
