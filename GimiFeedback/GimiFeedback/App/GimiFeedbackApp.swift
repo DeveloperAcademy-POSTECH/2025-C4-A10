@@ -14,7 +14,7 @@ struct GimiFeedbackApp: App {
     
     var body: some Scene {
         WindowGroup {
-            OnboardingView()
+            OnboardingStartView()
         }
     }
 }
