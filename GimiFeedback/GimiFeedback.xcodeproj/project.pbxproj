@@ -20,6 +20,10 @@
 		EE37582C2E1F80F3009AD262 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */; };
 		EE41FD7D2E223D050002E595 /* OnboardingLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FD7C2E223CFD0002E595 /* OnboardingLoginView.swift */; };
 		EE41FD822E223D720002E595 /* InputCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FD812E223D720002E595 /* InputCodeView.swift */; };
+		EE82DF9B2E24D5CD00EC1AFF /* ChannelCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82DF9A2E24D5C900EC1AFF /* ChannelCreateView.swift */; };
+		EE82DF9D2E24D5DA00EC1AFF /* ChannelCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82DF9C2E24D5D400EC1AFF /* ChannelCreateViewModel.swift */; };
+		EE82DFA12E24D63A00EC1AFF /* ChannelCreateCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82DFA02E24D63A00EC1AFF /* ChannelCreateCompleteView.swift */; };
+		EE82DFA22E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */; };
 		EE856A382E1CD0F6006820B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE856A352E1CD0F6006820B9 /* Assets.xcassets */; };
 		EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */; };
 		EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A432E1CD23E006820B9 /* Color+Extension.swift */; };
@@ -47,6 +51,10 @@
 		EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		EE41FD7C2E223CFD0002E595 /* OnboardingLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginView.swift; sourceTree = "<group>"; };
 		EE41FD812E223D720002E595 /* InputCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCodeView.swift; sourceTree = "<group>"; };
+		EE82DF9A2E24D5C900EC1AFF /* ChannelCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCreateView.swift; sourceTree = "<group>"; };
+		EE82DF9C2E24D5D400EC1AFF /* ChannelCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCreateViewModel.swift; sourceTree = "<group>"; };
+		EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCreateCompleteViewModel.swift; sourceTree = "<group>"; };
+		EE82DFA02E24D63A00EC1AFF /* ChannelCreateCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCreateCompleteView.swift; sourceTree = "<group>"; };
 		EE856A262E1CD093006820B9 /* GimiFeedback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimiFeedback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiFeedbackApp.swift; sourceTree = "<group>"; };
 		EE856A352E1CD0F6006820B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +101,24 @@
 			path = InputCode;
 			sourceTree = "<group>";
 		};
+		EE82DF992E24D5B500EC1AFF /* ChannelCreate */ = {
+			isa = PBXGroup;
+			children = (
+				EE82DF9C2E24D5D400EC1AFF /* ChannelCreateViewModel.swift */,
+				EE82DF9A2E24D5C900EC1AFF /* ChannelCreateView.swift */,
+			);
+			path = ChannelCreate;
+			sourceTree = "<group>";
+		};
+		EE82DF9E2E24D5FC00EC1AFF /* ChannelCraeteComplete */ = {
+			isa = PBXGroup;
+			children = (
+				EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */,
+				EE82DFA02E24D63A00EC1AFF /* ChannelCreateCompleteView.swift */,
+			);
+			path = ChannelCraeteComplete;
+			sourceTree = "<group>";
+		};
 		EE856A1D2E1CD093006820B9 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +163,8 @@
 		EE856A3C2E1CD102006820B9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				EE82DF9E2E24D5FC00EC1AFF /* ChannelCraeteComplete */,
+				EE82DF992E24D5B500EC1AFF /* ChannelCreate */,
 				EE856A5C2E1CF631006820B9 /* Common */,
 				EE856A4F2E1CD401006820B9 /* Onboarding */,
 				EE41FD7E2E223D180002E595 /* InputCode */,
@@ -337,10 +365,13 @@
 				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
 				EE41FD7D2E223D050002E595 /* OnboardingLoginView.swift in Sources */,
 				EE856A472E1CD2AD006820B9 /* Font.swift in Sources */,
+				EE82DF9B2E24D5CD00EC1AFF /* ChannelCreateView.swift in Sources */,
 				EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */,
 				EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */,
 				EE41FD822E223D720002E595 /* InputCodeView.swift in Sources */,
 				EE856A5B2E1CEA98006820B9 /* OnboardingStartView.swift in Sources */,
+				EE82DFA12E24D63A00EC1AFF /* ChannelCreateCompleteView.swift in Sources */,
+				EE82DFA22E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift in Sources */,
 				EE856A562E1CE604006820B9 /* FeedbackListViewModel.swift in Sources */,
 				EE37582C2E1F80F3009AD262 /* Encodable+Extension.swift in Sources */,
 				EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */,
@@ -348,6 +379,7 @@
 				EE37554A2E1E5BBD009AD262 /* AppDelegate.swift in Sources */,
 				EE3755412E1E1105009AD262 /* FeedbackChannel.swift in Sources */,
 				EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */,
+				EE82DF9D2E24D5DA00EC1AFF /* ChannelCreateViewModel.swift in Sources */,
 				EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */,
 				EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */,
 				EE856A492E1CD2D7006820B9 /* Feedback.swift in Sources */,
