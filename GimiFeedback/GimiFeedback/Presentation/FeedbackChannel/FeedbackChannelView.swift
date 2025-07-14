@@ -13,7 +13,6 @@ struct FeedbackChannelView: View {
     
     var body: some View {
         ScrollView {
-            
             VStack {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("내가 작성한 설명")
@@ -85,10 +84,7 @@ struct FeedbackChannelView: View {
             }
             
             Button(action: {
-                viewModel.send(.deleteFedebackChannel(completion: {
-                    dismiss()
-                }))
-                
+                viewModel.send(.deleteFeedbackChannel)
                 isShowDeleteAlert = false
                 
             }) {
@@ -97,6 +93,11 @@ struct FeedbackChannelView: View {
             
         } message: {
             Text("정말 삭제하시겠습니까?\n이 작업은 되돌릴 수 없습니다.")
+        }
+        .onChange(of: viewModel.isDelete) { new in
+            if new {
+                dismiss()
+            }
         }
         .onAppear {
             viewModel.send(.fetchFeedbackList)

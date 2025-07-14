@@ -4,8 +4,7 @@ final class FeedbackChannelViewModel: ViewModelable {
     
     enum Action {
         case fetchFeedbackList
-        case deleteFedebackChannel(completion: () -> Void)
-        
+        case deleteFeedbackChannel
         case clearError
     }
     
@@ -15,6 +14,8 @@ final class FeedbackChannelViewModel: ViewModelable {
     @Published private(set) var errorMessage: String?
     @Published private(set) var isLoading: Bool = false
     
+    @Published var isDelete = false
+    
     init(channelItem: FeedbackChannel) {
         self.channelItem = channelItem
     }
@@ -23,9 +24,9 @@ final class FeedbackChannelViewModel: ViewModelable {
         switch action {
         case .fetchFeedbackList:
             fetchFeedbackList(channelID: channelItem.id)
-            
-        case .deleteFedebackChannel(let completion):
-            deleteFeedbackChannel(channelItem: channelItem, completionHandler: completion)
+
+        case .deleteFeedbackChannel:
+            deleteFeedbackChannel(channelItem: channelItem)
             
         case .clearError:
             errorMessage = nil
@@ -51,7 +52,7 @@ extension FeedbackChannelViewModel {
         }
     }
     
-    func deleteFeedbackChannel(channelItem: FeedbackChannel, completionHandler: (() -> Void)?) {
+    func deleteFeedbackChannel(channelItem: FeedbackChannel) {
         
         Task {
             isLoading = true
@@ -61,12 +62,12 @@ extension FeedbackChannelViewModel {
                 }
                 
                 try await FirestoreManager.shared.delete(channelItem)
-                completionHandler?()
-                
+                isDelete = true
             } catch {
                 errorMessage = error.localizedDescription
             }
             isLoading = false
+            
         }
     }
 }
