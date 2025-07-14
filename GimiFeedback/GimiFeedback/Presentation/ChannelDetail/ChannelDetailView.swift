@@ -1,14 +1,14 @@
 import SwiftUI
 
-struct FeedbackChannelView: View {
+struct ChannelDetailView: View {
     
-    @StateObject var viewModel: FeedbackChannelViewModel
+    @StateObject var viewModel: ChannelDetailViewModel
     
     @State private var isShowDeleteAlert: Bool = false
     @Environment(\.dismiss) var dismiss
     
     init(channelItem: FeedbackChannel) {
-        _viewModel = StateObject(wrappedValue: FeedbackChannelViewModel(channelItem: channelItem))
+        _viewModel = StateObject(wrappedValue: ChannelDetailViewModel(channelItem: channelItem))
     }
     
     var body: some View {
@@ -84,7 +84,7 @@ struct FeedbackChannelView: View {
             }
             
             Button(action: {
-                viewModel.send(.deleteFeedbackChannel)
+                viewModel.send(.deleteChannel)
                 isShowDeleteAlert = false
                 
             }) {

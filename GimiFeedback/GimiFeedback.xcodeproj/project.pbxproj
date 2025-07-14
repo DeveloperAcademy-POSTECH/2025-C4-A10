@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */; };
-		EC9959B22E24E646001555B1 /* FeedbackChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AF2E24E646001555B1 /* FeedbackChannelView.swift */; };
-		EC9959B32E24E646001555B1 /* FeedbackChannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959B02E24E646001555B1 /* FeedbackChannelViewModel.swift */; };
+		EC9959B22E24E646001555B1 /* ChannelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */; };
+		EC9959B32E24E646001555B1 /* ChannelDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */; };
+		EC9959B72E251371001555B1 /* ChannelEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959B62E251371001555B1 /* ChannelEditView.swift */; };
+		EC9959BA2E25145B001555B1 /* FeedbackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959B92E25145B001555B1 /* FeedbackDetailView.swift */; };
+		EC9959BD2E2518BA001555B1 /* FeedbackWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959BC2E2518BA001555B1 /* FeedbackWriteView.swift */; };
+		EC9959C02E2518C6001555B1 /* FeedbackWriteCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959BF2E2518C6001555B1 /* FeedbackWriteCompleteView.swift */; };
 		ECCD43BD2E21239E00EDF069 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECCD43BC2E21239E00EDF069 /* GoogleService-Info.plist */; };
 		EE3754AF2E1D7B36009AD262 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */; };
 		EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */; };
@@ -34,9 +38,9 @@
 		EE856A492E1CD2D7006820B9 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A482E1CD2D1006820B9 /* Feedback.swift */; };
 		EE856A4C2E1CD3AD006820B9 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */; };
 		EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A4D2E1CD3BF006820B9 /* DummyData.swift */; };
-		EE856A512E1CD418006820B9 /* FeedbackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A502E1CD409006820B9 /* FeedbackListView.swift */; };
+		EE856A512E1CD418006820B9 /* ChannelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A502E1CD409006820B9 /* ChannelListView.swift */; };
 		EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A532E1CE5B0006820B9 /* ViewModelable.swift */; };
-		EE856A562E1CE604006820B9 /* FeedbackListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A552E1CE5FF006820B9 /* FeedbackListViewModel.swift */; };
+		EE856A562E1CE604006820B9 /* ChannelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A552E1CE5FF006820B9 /* ChannelListViewModel.swift */; };
 		EE856A5B2E1CEA98006820B9 /* OnboardingStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A5A2E1CEA98006820B9 /* OnboardingStartView.swift */; };
 		EE856CA72E1D6D32006820B9 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */; };
 		EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */; };
@@ -44,8 +48,12 @@
 
 /* Begin PBXFileReference section */
 		EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		EC9959AF2E24E646001555B1 /* FeedbackChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackChannelView.swift; sourceTree = "<group>"; };
-		EC9959B02E24E646001555B1 /* FeedbackChannelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackChannelViewModel.swift; sourceTree = "<group>"; };
+		EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailView.swift; sourceTree = "<group>"; };
+		EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailViewModel.swift; sourceTree = "<group>"; };
+		EC9959B62E251371001555B1 /* ChannelEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelEditView.swift; sourceTree = "<group>"; };
+		EC9959B92E25145B001555B1 /* FeedbackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailView.swift; sourceTree = "<group>"; };
+		EC9959BC2E2518BA001555B1 /* FeedbackWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteView.swift; sourceTree = "<group>"; };
+		EC9959BF2E2518C6001555B1 /* FeedbackWriteCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteCompleteView.swift; sourceTree = "<group>"; };
 		ECCD43BC2E21239E00EDF069 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContentType.swift; sourceTree = "<group>"; };
@@ -69,9 +77,9 @@
 		EE856A482E1CD2D1006820B9 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		EE856A4D2E1CD3BF006820B9 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
-		EE856A502E1CD409006820B9 /* FeedbackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackListView.swift; sourceTree = "<group>"; };
+		EE856A502E1CD409006820B9 /* ChannelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListView.swift; sourceTree = "<group>"; };
 		EE856A532E1CE5B0006820B9 /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
-		EE856A552E1CE5FF006820B9 /* FeedbackListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackListViewModel.swift; sourceTree = "<group>"; };
+		EE856A552E1CE5FF006820B9 /* ChannelListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListViewModel.swift; sourceTree = "<group>"; };
 		EE856A5A2E1CEA98006820B9 /* OnboardingStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStartView.swift; sourceTree = "<group>"; };
 		EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestination.swift; sourceTree = "<group>"; };
@@ -90,13 +98,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EC9959B12E24E646001555B1 /* FeedbackChannel */ = {
+		EC9959B12E24E646001555B1 /* ChannelDetail */ = {
 			isa = PBXGroup;
 			children = (
-				EC9959AF2E24E646001555B1 /* FeedbackChannelView.swift */,
-				EC9959B02E24E646001555B1 /* FeedbackChannelViewModel.swift */,
+				EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */,
+				EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */,
 			);
-			path = FeedbackChannel;
+			path = ChannelDetail;
+			sourceTree = "<group>";
+		};
+		EC9959B42E24FDE0001555B1 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		EC9959B52E251368001555B1 /* ChannelEdit */ = {
+			isa = PBXGroup;
+			children = (
+				EC9959B62E251371001555B1 /* ChannelEditView.swift */,
+			);
+			path = ChannelEdit;
+			sourceTree = "<group>";
+		};
+		EC9959B82E251453001555B1 /* FeedbackDetail */ = {
+			isa = PBXGroup;
+			children = (
+				EC9959B92E25145B001555B1 /* FeedbackDetailView.swift */,
+			);
+			path = FeedbackDetail;
+			sourceTree = "<group>";
+		};
+		EC9959BB2E2518AF001555B1 /* FeedbackWrite */ = {
+			isa = PBXGroup;
+			children = (
+				EC9959BC2E2518BA001555B1 /* FeedbackWriteView.swift */,
+			);
+			path = FeedbackWrite;
+			sourceTree = "<group>";
+		};
+		EC9959BE2E2518BE001555B1 /* FeedbackWriteComplete */ = {
+			isa = PBXGroup;
+			children = (
+				EC9959BF2E2518C6001555B1 /* FeedbackWriteCompleteView.swift */,
+			);
+			path = FeedbackWriteComplete;
 			sourceTree = "<group>";
 		};
 		EE3756A12E1E601E009AD262 /* Firestore */ = {
@@ -128,6 +175,7 @@
 		EE82DF9E2E24D5FC00EC1AFF /* ChannelCraeteComplete */ = {
 			isa = PBXGroup;
 			children = (
+				EC9959B42E24FDE0001555B1 /* SubView */,
 				EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */,
 				EE82DFA02E24D63A00EC1AFF /* ChannelCreateCompleteView.swift */,
 			);
@@ -178,13 +226,16 @@
 		EE856A3C2E1CD102006820B9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				EC9959BE2E2518BE001555B1 /* FeedbackWriteComplete */,
+				EC9959BB2E2518AF001555B1 /* FeedbackWrite */,
+				EC9959B82E251453001555B1 /* FeedbackDetail */,
+				EC9959B52E251368001555B1 /* ChannelEdit */,
 				EE82DF9E2E24D5FC00EC1AFF /* ChannelCraeteComplete */,
 				EE82DF992E24D5B500EC1AFF /* ChannelCreate */,
-				EC9959B12E24E646001555B1 /* FeedbackChannel */,
-				EE856A5C2E1CF631006820B9 /* Common */,
+				EC9959B12E24E646001555B1 /* ChannelDetail */,
 				EE856A4F2E1CD401006820B9 /* Onboarding */,
 				EE41FD7E2E223D180002E595 /* InputCode */,
-				EE856A522E1CD41C006820B9 /* FeedbackList */,
+				EE856A522E1CD41C006820B9 /* ChannelList */,
 				EE856A532E1CE5B0006820B9 /* ViewModelable.swift */,
 			);
 			path = Presentation;
@@ -263,28 +314,13 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		EE856A522E1CD41C006820B9 /* FeedbackList */ = {
+		EE856A522E1CD41C006820B9 /* ChannelList */ = {
 			isa = PBXGroup;
 			children = (
-				EE856A5D2E1CF63F006820B9 /* SubView */,
-				EE856A552E1CE5FF006820B9 /* FeedbackListViewModel.swift */,
-				EE856A502E1CD409006820B9 /* FeedbackListView.swift */,
+				EE856A552E1CE5FF006820B9 /* ChannelListViewModel.swift */,
+				EE856A502E1CD409006820B9 /* ChannelListView.swift */,
 			);
-			path = FeedbackList;
-			sourceTree = "<group>";
-		};
-		EE856A5C2E1CF631006820B9 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		EE856A5D2E1CF63F006820B9 /* SubView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SubView;
+			path = ChannelList;
 			sourceTree = "<group>";
 		};
 		EE856CA52E1D6D28006820B9 /* Navigation */ = {
@@ -377,11 +413,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC9959B22E24E646001555B1 /* FeedbackChannelView.swift in Sources */,
-				EC9959B32E24E646001555B1 /* FeedbackChannelViewModel.swift in Sources */,
+				EC9959B22E24E646001555B1 /* ChannelDetailView.swift in Sources */,
+				EC9959B32E24E646001555B1 /* ChannelDetailViewModel.swift in Sources */,
 				EE856A4C2E1CD3AD006820B9 /* FirestoreManager.swift in Sources */,
 				EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */,
-				EE856CA72E1D6D32006820B9 /* NavigaitionRouter.swift in Sources */,
+				EE856CA72E1D6D32006820B9 /* NavigationRouter.swift in Sources */,
+				EC9959B72E251371001555B1 /* ChannelEditView.swift in Sources */,
+				EC9959BA2E25145B001555B1 /* FeedbackDetailView.swift in Sources */,
 				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
 				EE41FD7D2E223D050002E595 /* OnboardingLoginView.swift in Sources */,
 				EE856A472E1CD2AD006820B9 /* Font.swift in Sources */,
@@ -392,7 +430,7 @@
 				EE856A5B2E1CEA98006820B9 /* OnboardingStartView.swift in Sources */,
 				EE82DFA12E24D63A00EC1AFF /* ChannelCreateCompleteView.swift in Sources */,
 				EE82DFA22E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift in Sources */,
-				EE856A562E1CE604006820B9 /* FeedbackListViewModel.swift in Sources */,
+				EE856A562E1CE604006820B9 /* ChannelListViewModel.swift in Sources */,
 				EE37582C2E1F80F3009AD262 /* Encodable+Extension.swift in Sources */,
 				EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */,
 				EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */,
@@ -403,8 +441,10 @@
 				EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */,
 				EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */,
 				EE856A492E1CD2D7006820B9 /* Feedback.swift in Sources */,
-				EE856A512E1CD418006820B9 /* FeedbackListView.swift in Sources */,
+				EE856A512E1CD418006820B9 /* ChannelListView.swift in Sources */,
 				EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */,
+				EC9959BD2E2518BA001555B1 /* FeedbackWriteView.swift in Sources */,
+				EC9959C02E2518C6001555B1 /* FeedbackWriteCompleteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
