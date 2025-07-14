@@ -49,3 +49,6 @@ custom_rules:
     regex: "(?<!\\n)\\n// MARK:"
     message: "Add an empty line above and below each MARK section for clarity."
     severity: warning
+
+disabled_rules:
+  - multiple_closures_with_trailing_closure

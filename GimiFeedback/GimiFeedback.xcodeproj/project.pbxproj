@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */; };
+		EC9959B22E24E646001555B1 /* FeedbackChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AF2E24E646001555B1 /* FeedbackChannelView.swift */; };
+		EC9959B32E24E646001555B1 /* FeedbackChannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959B02E24E646001555B1 /* FeedbackChannelViewModel.swift */; };
+		ECCD43BD2E21239E00EDF069 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECCD43BC2E21239E00EDF069 /* GoogleService-Info.plist */; };
 		EE3754AF2E1D7B36009AD262 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */; };
 		EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */; };
 		EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */; };
 		EE3755412E1E1105009AD262 /* FeedbackChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3755402E1E1102009AD262 /* FeedbackChannel.swift */; };
-		EE3755432E1E5A26009AD262 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE3755422E1E5A26009AD262 /* GoogleService-Info.plist */; };
 		EE3755462E1E5B8D009AD262 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EE3755452E1E5B8D009AD262 /* FirebaseAuth */; };
 		EE3755482E1E5B8D009AD262 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EE3755472E1E5B8D009AD262 /* FirebaseFirestore */; };
 		EE37554A2E1E5BBD009AD262 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3755492E1E5BB9009AD262 /* AppDelegate.swift */; };
@@ -36,11 +39,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		EC9959AF2E24E646001555B1 /* FeedbackChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackChannelView.swift; sourceTree = "<group>"; };
+		EC9959B02E24E646001555B1 /* FeedbackChannelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackChannelViewModel.swift; sourceTree = "<group>"; };
+		ECCD43BC2E21239E00EDF069 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContentType.swift; sourceTree = "<group>"; };
 		EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContent.swift; sourceTree = "<group>"; };
 		EE3755402E1E1102009AD262 /* FeedbackChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackChannel.swift; sourceTree = "<group>"; };
-		EE3755422E1E5A26009AD262 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE3755492E1E5BB9009AD262 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE3756A22E1E602C009AD262 /* EntityRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityRepresentable.swift; sourceTree = "<group>"; };
 		EE3756A42E1E6060009AD262 /* CollectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
@@ -76,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC9959B12E24E646001555B1 /* FeedbackChannel */ = {
+			isa = PBXGroup;
+			children = (
+				EC9959AF2E24E646001555B1 /* FeedbackChannelView.swift */,
+				EC9959B02E24E646001555B1 /* FeedbackChannelViewModel.swift */,
+			);
+			path = FeedbackChannel;
+			sourceTree = "<group>";
+		};
 		EE3756A12E1E601E009AD262 /* Firestore */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +144,7 @@
 			children = (
 				EE3755492E1E5BB9009AD262 /* AppDelegate.swift */,
 				EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */,
-				EE3755422E1E5A26009AD262 /* GoogleService-Info.plist */,
+				ECCD43BC2E21239E00EDF069 /* GoogleService-Info.plist */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -137,6 +152,7 @@
 		EE856A3C2E1CD102006820B9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				EC9959B12E24E646001555B1 /* FeedbackChannel */,
 				EE856A5C2E1CF631006820B9 /* Common */,
 				EE856A4F2E1CD401006820B9 /* Onboarding */,
 				EE41FD7E2E223D180002E595 /* InputCode */,
@@ -188,6 +204,7 @@
 			children = (
 				EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */,
 				EE856A432E1CD23E006820B9 /* Color+Extension.swift */,
+				EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -321,7 +338,7 @@
 			files = (
 				EE3754AF2E1D7B36009AD262 /* .swiftlint.yml in Resources */,
 				EE856A382E1CD0F6006820B9 /* Assets.xcassets in Resources */,
-				EE3755432E1E5A26009AD262 /* GoogleService-Info.plist in Resources */,
+				ECCD43BD2E21239E00EDF069 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,8 +349,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC9959B22E24E646001555B1 /* FeedbackChannelView.swift in Sources */,
+				EC9959B32E24E646001555B1 /* FeedbackChannelViewModel.swift in Sources */,
 				EE856A4C2E1CD3AD006820B9 /* FirestoreManager.swift in Sources */,
-				EE856CA72E1D6D32006820B9 /* NavigationRouter.swift in Sources */,
+				EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */,
+				EE856CA72E1D6D32006820B9 /* NavigaitionRouter.swift in Sources */,
 				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
 				EE41FD7D2E223D050002E595 /* OnboardingLoginView.swift in Sources */,
 				EE856A472E1CD2AD006820B9 /* Font.swift in Sources */,

@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 protocol ViewModelable: ObservableObject {
     associatedtype Action
     
