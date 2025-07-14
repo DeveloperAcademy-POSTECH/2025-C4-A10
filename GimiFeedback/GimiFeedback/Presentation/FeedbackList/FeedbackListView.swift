@@ -19,9 +19,8 @@ struct FeedbackListView: View {
                 LazyVGrid(columns: columns, alignment: .center, spacing: 32) {
                     ForEach(viewModel.feedbackChannelList) { item in
                         NavigationLink(destination: {
-                            FeedbackChannelView(channelItem: item)
+                            FeedbackChannelView(channelItem: item.channel)
                         }) {
-                            
                             VStack(alignment: .center) {
                                 Image(systemName: "folder.fill")
                                     .resizable()
@@ -31,18 +30,16 @@ struct FeedbackListView: View {
                                             .fill(.red)
                                             .frame(width: 28, height: 28)
                                             .overlay {
-                                                if let visibleFeedbackCount = viewModel.visibleFeedbackCount[item.id] {
-                                                    Text("\(visibleFeedbackCount)")
-                                                        .foregroundStyle(Color.white)
-                                                }
+                                                
+                                                Text("\(item.visibleFeedbackCount)")
+                                                    .foregroundStyle(Color.white)
                                             }
                                     }
                                 
-                                Text("title: \(item.channelTitle)")
+                                Text("title: \(item.channel.channelTitle)")
                                 
-                                if let total = viewModel.feedbackCount[item.id] {
-                                    Text("총 피드백 \(total)개")
-                                }
+                                Text("총 피드백 \(item.feedbackCount)개")
+                                    .foregroundStyle(Color.white)
                             }
                         }
                     }
