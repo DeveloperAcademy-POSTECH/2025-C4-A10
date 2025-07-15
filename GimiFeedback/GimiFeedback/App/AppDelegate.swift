@@ -20,7 +20,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     }
 }
 
-// MARK: - 백버튼 관련 통합 세팅
 extension AppDelegate {
     /// 백버튼 기본 설정
     /// apperance: NavigationBar의 기본 설정
