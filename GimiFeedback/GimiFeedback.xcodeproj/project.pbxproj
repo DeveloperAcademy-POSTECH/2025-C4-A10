@@ -10,10 +10,7 @@
 		EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */; };
 		EC9959B22E24E646001555B1 /* ChannelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */; };
 		EC9959B32E24E646001555B1 /* ChannelDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */; };
-		EC9959B72E251371001555B1 /* ChannelEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959B62E251371001555B1 /* ChannelEditView.swift */; };
 		EC9959BA2E25145B001555B1 /* FeedbackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959B92E25145B001555B1 /* FeedbackDetailView.swift */; };
-		EC9959BD2E2518BA001555B1 /* FeedbackWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959BC2E2518BA001555B1 /* FeedbackWriteView.swift */; };
-		EC9959C02E2518C6001555B1 /* FeedbackWriteCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959BF2E2518C6001555B1 /* FeedbackWriteCompleteView.swift */; };
 		EE3754AF2E1D7B36009AD262 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */; };
 		EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */; };
 		EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */; };
@@ -35,9 +32,13 @@
 		EE41FEEB2E22599C0002E595 /* KakaoAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FEEA2E2259980002E595 /* KakaoAuthManager.swift */; };
 		EE41FEED2E225A250002E595 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FEEC2E225A1C0002E595 /* FirebaseAuthManager.swift */; };
 		EE465EE92E26205D0096109A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE465EE82E26205D0096109A /* GoogleService-Info.plist */; };
+		EE465EEC2E262EDB0096109A /* MainNavigationRoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EEB2E262ECA0096109A /* MainNavigationRoutingView.swift */; };
+		EE465EEE2E2630F20096109A /* ChannelEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EED2E2630F20096109A /* ChannelEditView.swift */; };
+		EE465EF02E26317A0096109A /* FeedbackWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EEF2E26317A0096109A /* FeedbackWriteView.swift */; };
+		EE465EF22E2631840096109A /* FeedbackWriteCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EF12E2631840096109A /* FeedbackWriteCompleteView.swift */; };
+		EE465EF82E2632B20096109A /* ChannelCraeteCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EF72E2632B20096109A /* ChannelCraeteCompleteView.swift */; };
 		EE82DF9B2E24D5CD00EC1AFF /* ChannelCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82DF9A2E24D5C900EC1AFF /* ChannelCreateView.swift */; };
 		EE82DF9D2E24D5DA00EC1AFF /* ChannelCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82DF9C2E24D5D400EC1AFF /* ChannelCreateViewModel.swift */; };
-		EE82DFA12E24D63A00EC1AFF /* ChannelCreateCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82DFA02E24D63A00EC1AFF /* ChannelCreateCompleteView.swift */; };
 		EE82DFA22E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */; };
 		EE856A382E1CD0F6006820B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE856A352E1CD0F6006820B9 /* Assets.xcassets */; };
 		EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */; };
@@ -59,10 +60,7 @@
 		EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailView.swift; sourceTree = "<group>"; };
 		EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailViewModel.swift; sourceTree = "<group>"; };
-		EC9959B62E251371001555B1 /* ChannelEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelEditView.swift; sourceTree = "<group>"; };
 		EC9959B92E25145B001555B1 /* FeedbackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailView.swift; sourceTree = "<group>"; };
-		EC9959BC2E2518BA001555B1 /* FeedbackWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteView.swift; sourceTree = "<group>"; };
-		EC9959BF2E2518C6001555B1 /* FeedbackWriteCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteCompleteView.swift; sourceTree = "<group>"; };
 		EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContentType.swift; sourceTree = "<group>"; };
 		EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContent.swift; sourceTree = "<group>"; };
@@ -80,10 +78,14 @@
 		EE41FEEA2E2259980002E595 /* KakaoAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthManager.swift; sourceTree = "<group>"; };
 		EE41FEEC2E225A1C0002E595 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		EE465EE82E26205D0096109A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EE465EEB2E262ECA0096109A /* MainNavigationRoutingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationRoutingView.swift; sourceTree = "<group>"; };
+		EE465EED2E2630F20096109A /* ChannelEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelEditView.swift; sourceTree = "<group>"; };
+		EE465EEF2E26317A0096109A /* FeedbackWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteView.swift; sourceTree = "<group>"; };
+		EE465EF12E2631840096109A /* FeedbackWriteCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteCompleteView.swift; sourceTree = "<group>"; };
+		EE465EF72E2632B20096109A /* ChannelCraeteCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCraeteCompleteView.swift; sourceTree = "<group>"; };
 		EE82DF9A2E24D5C900EC1AFF /* ChannelCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCreateView.swift; sourceTree = "<group>"; };
 		EE82DF9C2E24D5D400EC1AFF /* ChannelCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCreateViewModel.swift; sourceTree = "<group>"; };
 		EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCreateCompleteViewModel.swift; sourceTree = "<group>"; };
-		EE82DFA02E24D63A00EC1AFF /* ChannelCreateCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCreateCompleteView.swift; sourceTree = "<group>"; };
 		EE856A262E1CD093006820B9 /* GimiFeedback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimiFeedback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiFeedbackApp.swift; sourceTree = "<group>"; };
 		EE856A352E1CD0F6006820B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,7 +138,7 @@
 		EC9959B52E251368001555B1 /* ChannelEdit */ = {
 			isa = PBXGroup;
 			children = (
-				EC9959B62E251371001555B1 /* ChannelEditView.swift */,
+				EE465EED2E2630F20096109A /* ChannelEditView.swift */,
 			);
 			path = ChannelEdit;
 			sourceTree = "<group>";
@@ -152,7 +154,7 @@
 		EC9959BB2E2518AF001555B1 /* FeedbackWrite */ = {
 			isa = PBXGroup;
 			children = (
-				EC9959BC2E2518BA001555B1 /* FeedbackWriteView.swift */,
+				EE465EEF2E26317A0096109A /* FeedbackWriteView.swift */,
 			);
 			path = FeedbackWrite;
 			sourceTree = "<group>";
@@ -160,7 +162,7 @@
 		EC9959BE2E2518BE001555B1 /* FeedbackWriteComplete */ = {
 			isa = PBXGroup;
 			children = (
-				EC9959BF2E2518C6001555B1 /* FeedbackWriteCompleteView.swift */,
+				EE465EF12E2631840096109A /* FeedbackWriteCompleteView.swift */,
 			);
 			path = FeedbackWriteComplete;
 			sourceTree = "<group>";
@@ -196,7 +198,7 @@
 			children = (
 				EC9959B42E24FDE0001555B1 /* SubView */,
 				EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */,
-				EE82DFA02E24D63A00EC1AFF /* ChannelCreateCompleteView.swift */,
+				EE465EF72E2632B20096109A /* ChannelCraeteCompleteView.swift */,
 			);
 			path = ChannelCraeteComplete;
 			sourceTree = "<group>";
@@ -351,6 +353,7 @@
 		EE856CA52E1D6D28006820B9 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				EE465EEB2E262ECA0096109A /* MainNavigationRoutingView.swift */,
 				EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */,
 				EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */,
 				EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */,
@@ -449,16 +452,18 @@
 				EE856CA72E1D6D32006820B9 /* NavigationRouter.swift in Sources */,
 				EE41FEEB2E22599C0002E595 /* KakaoAuthManager.swift in Sources */,
 				EC9959B22E24E646001555B1 /* ChannelDetailView.swift in Sources */,
+				EE465EEE2E2630F20096109A /* ChannelEditView.swift in Sources */,
 				EC9959B32E24E646001555B1 /* ChannelDetailViewModel.swift in Sources */,
 				EE856A4C2E1CD3AD006820B9 /* FirestoreManager.swift in Sources */,
 				EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */,
 				EE856CA72E1D6D32006820B9 /* NavigationRouter.swift in Sources */,
-				EC9959B72E251371001555B1 /* ChannelEditView.swift in Sources */,
+				EE465EF82E2632B20096109A /* ChannelCraeteCompleteView.swift in Sources */,
 				EC9959BA2E25145B001555B1 /* FeedbackDetailView.swift in Sources */,
 				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
 				EE41FEE72E22572C0002E595 /* Bundle+Extension.swift in Sources */,
 				EE41FD7D2E223D050002E595 /* LoginView.swift in Sources */,
 				EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */,
+				EE465EF22E2631840096109A /* FeedbackWriteCompleteView.swift in Sources */,
 				EE856A472E1CD2AD006820B9 /* Font.swift in Sources */,
 				EE82DF9B2E24D5CD00EC1AFF /* ChannelCreateView.swift in Sources */,
 				EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */,
@@ -466,8 +471,9 @@
 				EE41FD822E223D720002E595 /* InputCodeView.swift in Sources */,
 				EE856A5B2E1CEA98006820B9 /* StartView.swift in Sources */,
 				EE856A5B2E1CEA98006820B9 /* StartView.swift in Sources */,
-				EE82DFA12E24D63A00EC1AFF /* ChannelCreateCompleteView.swift in Sources */,
+				EE465EF02E26317A0096109A /* FeedbackWriteView.swift in Sources */,
 				EE82DFA22E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift in Sources */,
+				EE465EEC2E262EDB0096109A /* MainNavigationRoutingView.swift in Sources */,
 				EE856A562E1CE604006820B9 /* ChannelListViewModel.swift in Sources */,
 				EE37582C2E1F80F3009AD262 /* Encodable+Extension.swift in Sources */,
 				EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */,
@@ -482,8 +488,6 @@
 				EE856A512E1CD418006820B9 /* ChannelListView.swift in Sources */,
 				EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */,
 				EE41FEED2E225A250002E595 /* FirebaseAuthManager.swift in Sources */,
-				EC9959BD2E2518BA001555B1 /* FeedbackWriteView.swift in Sources */,
-				EC9959C02E2518C6001555B1 /* FeedbackWriteCompleteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
