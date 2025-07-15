@@ -60,6 +60,7 @@ extension ChannelListViewModel {
                 channelList = result
                 
             } catch {
+                print(error.localizedDescription)
                 errorMessage = error.localizedDescription
             }
             isChannelListLoading = false
