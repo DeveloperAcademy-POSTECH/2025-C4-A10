@@ -17,19 +17,10 @@ struct StartView: View {
     var body: some View {
         NavigationStack(path: $router.destinations) {
             ContentView()
-                .navigationDestination(for: OnboardingNavigationDestination.self) { destination in
-                    switch destination {
-                    case .inputCode:
-                        InputCodeView()
-                    case .login:
-                        LoginView()
-                    case .feedbackWriteComplete:
-                        // TODO: 피드백 완료 이동
-                        EmptyView()
-                    case .feedbackWrite:
-                        // TODO: 피드백 생성 이동
-                        EmptyView()
-                    }
+                .navigationDestination(
+                    for: StartNavigationDestination.self
+                ) { destination in
+                    StartNavigationRoutingView(destination: destination)
                 }
         }
         .environmentObject(router)

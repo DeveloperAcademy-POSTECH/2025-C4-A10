@@ -41,6 +41,7 @@
 		EE856A5B2E1CEA98006820B9 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A5A2E1CEA98006820B9 /* StartView.swift */; };
 		EE856CA72E1D6D32006820B9 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */; };
 		EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */; };
+		EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		EE856A5A2E1CEA98006820B9 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestination.swift; sourceTree = "<group>"; };
+		EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNavigationRoutingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +270,7 @@
 		EE856CA52E1D6D28006820B9 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */,
 				EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */,
 				EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */,
 			);
@@ -367,6 +370,7 @@
 				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
 				EE41FEE72E22572C0002E595 /* Bundle+Extension.swift in Sources */,
 				EE41FD7D2E223D050002E595 /* LoginView.swift in Sources */,
+				EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */,
 				EE856A472E1CD2AD006820B9 /* Font.swift in Sources */,
 				EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */,
 				EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */,

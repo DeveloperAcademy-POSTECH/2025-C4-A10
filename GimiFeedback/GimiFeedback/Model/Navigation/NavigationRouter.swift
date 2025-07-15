@@ -27,5 +27,5 @@ final class NavigationRouter<T: NavigationDestination>: ObservableObject {
     }
 }
 
-typealias OnboardingNavigationRouter = NavigationRouter<OnboardingNavigationDestination>
+typealias OnboardingNavigationRouter = NavigationRouter<StartNavigationDestination>
 typealias MainNavigationRouter = NavigationRouter<MainNavigationDestination>
