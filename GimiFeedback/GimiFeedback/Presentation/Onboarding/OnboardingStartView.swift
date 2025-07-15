@@ -33,7 +33,6 @@ struct OnboardingStartView: View {
                 }
         }
         .environmentObject(router)
-        
     }
 }
 
