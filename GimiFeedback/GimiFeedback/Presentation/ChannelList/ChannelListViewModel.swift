@@ -1,22 +1,22 @@
 import Foundation
 
-final class FeedbackListViewModel: ViewModelable {
+final class ChannelListViewModel: ViewModelable {
     
     enum Action {
-        case fetchFeedbackChannelList
+        case fetchChannelList
         case clearError
     }
     
-    @Published private(set) var feedbackChannelList: [FeedbackChannelInfo] = []
+    @Published private(set) var channelList: [FeedbackChannelInfo] = []
     @Published private(set) var totalFeedbackCount: Int = .zero
     
     @Published private(set) var errorMessage: String?
-    @Published private(set) var isFeedbackChannelListLoading: Bool = false
+    @Published private(set) var isChannelListLoading: Bool = false
     
     func send(_ action: Action) {
         switch action {
-        case .fetchFeedbackChannelList:
-            fetchFeedbackChannelList()
+        case .fetchChannelList:
+            fetchChannelList()
             
         case .clearError:
             errorMessage = nil
@@ -24,22 +24,22 @@ final class FeedbackListViewModel: ViewModelable {
     }
 }
 
-extension FeedbackListViewModel {
-    private func fetchFeedbackChannelList(){
+extension ChannelListViewModel {
+    private func fetchChannelList() {
         Task {
-            isFeedbackChannelListLoading = true
+            isChannelListLoading = true
             
             totalFeedbackCount = .zero
             
             do {
-                let channelList = try await FirestoreManager.shared.fetch(
+                let channels = try await FirestoreManager.shared.fetch(
                     as: FeedbackChannel.self,
                     .feedbackChannel
                 )
                 
                 var result: [FeedbackChannelInfo] = []
                 
-                for channel in channelList {
+                for channel in channels {
                     let feedbackList = try await FirestoreManager.shared.fetch(
                         as: Feedback.self,
                         .feedback,
@@ -57,12 +57,12 @@ extension FeedbackListViewModel {
                     totalFeedbackCount += feedbackList.count
                 }
                 
-                feedbackChannelList = result
+                channelList = result
                 
             } catch {
                 errorMessage = error.localizedDescription
             }
-            isFeedbackChannelListLoading = false
+            isChannelListLoading = false
         }
     }
 }
