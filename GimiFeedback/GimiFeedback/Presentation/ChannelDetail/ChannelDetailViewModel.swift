@@ -1,10 +1,10 @@
 import Foundation
 
-final class FeedbackChannelViewModel: ViewModelable {
+final class ChannelDetailViewModel: ViewModelable {
     
     enum Action {
         case fetchFeedbackList
-        case deleteFeedbackChannel
+        case deleteChannel
         case clearError
     }
     
@@ -25,8 +25,8 @@ final class FeedbackChannelViewModel: ViewModelable {
         case .fetchFeedbackList:
             fetchFeedbackList(channelID: channelItem.id)
 
-        case .deleteFeedbackChannel:
-            deleteFeedbackChannel(channelItem: channelItem)
+        case .deleteChannel:
+            deleteChannel(channelItem: channelItem)
             
         case .clearError:
             errorMessage = nil
@@ -35,7 +35,7 @@ final class FeedbackChannelViewModel: ViewModelable {
     }
 }
 
-extension FeedbackChannelViewModel {
+extension ChannelDetailViewModel {
     private func fetchFeedbackList(channelID: UUID) {
         Task {
             isLoading = true
@@ -52,8 +52,7 @@ extension FeedbackChannelViewModel {
         }
     }
     
-    func deleteFeedbackChannel(channelItem: FeedbackChannel) {
-        
+    private func deleteChannel(channelItem: FeedbackChannel) {
         Task {
             isLoading = true
             do {
@@ -67,7 +66,6 @@ extension FeedbackChannelViewModel {
                 errorMessage = error.localizedDescription
             }
             isLoading = false
-            
         }
     }
 }
