@@ -13,19 +13,28 @@ import KakaoSDKAuth
 @main
 struct GimiFeedbackApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject private var userViewModel: UserViewModel
     
     init() {
         KakaoSDK.initSDK(appKey: Bundle.kakaoNativeAppKey)
+        _userViewModel = StateObject(wrappedValue: UserViewModel())
     }
     
     var body: some Scene {
         WindowGroup {
-            OnboardingStartView()
-                .onOpenURL { url in
-                    if AuthApi.isKakaoTalkLoginUrl(url) {
-                        _ = AuthController.handleOpenUrl(url: url)
-                    }
+            Group {
+                if userViewModel.isLoggedIn {
+                    FeedbackListView()
+                } else {
+                    OnboardingStartView()
+                        .onOpenURL { url in
+                            if AuthApi.isKakaoTalkLoginUrl(url) {
+                                _ = AuthController.handleOpenUrl(url: url)
+                            }
+                        }
                 }
+            }
+            .environmentObject(userViewModel)
         }
     }
 }

@@ -9,12 +9,18 @@ import SwiftUI
 
 struct FeedbackListView: View {
     @StateObject var viewModel: FeedbackListViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
     
     init() {
         _viewModel = StateObject(wrappedValue: FeedbackListViewModel())
     }
     
     var body: some View {
+        Button {
+            userViewModel.send(.kakaoLogout)
+        } label: {
+            Text("로그아웃")
+        }
     }
 }
 
