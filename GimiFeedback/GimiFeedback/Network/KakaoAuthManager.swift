@@ -71,7 +71,7 @@ extension KakaoAuthManager {
         }
     }
     
-    /// 사용자 정보 불러오기 (email, user ID 기반 password 반환)
+    /// 사용자 정보 불러오기 (email,  password)
     private func fetchUserInfo() async throws -> (email: String, password: String) {
         try await withCheckedThrowingContinuation { continuation in
             UserApi.shared.me { user, error in
@@ -97,7 +97,7 @@ extension KakaoAuthManager {
         }
     }
 
-    /// 카카오톡 앱 또는 계정 로그인 시도 후 사용자 정보 반환
+    /// 로그인 시도 후 정보 반환
     private func loginThroughKakao() async throws -> (email: String, password: String) {
         if UserApi.isKakaoTalkLoginAvailable() {
             _ = try await loginWithKakaoTalk()
@@ -107,7 +107,7 @@ extension KakaoAuthManager {
         return try await fetchUserInfo()
     }
 
-    /// 카카오톡 앱 로그인
+    /// 앱 로그인
     @MainActor
     private func loginWithKakaoTalk() async throws -> OAuthToken {
         try await withCheckedThrowingContinuation { continuation in
@@ -121,7 +121,7 @@ extension KakaoAuthManager {
         }
     }
 
-    /// 카카오 계정(웹) 로그인
+    /// 웹 로그인
     @MainActor
     private func loginWithKakaoAccount() async throws -> OAuthToken {
         try await withCheckedThrowingContinuation { continuation in

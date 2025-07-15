@@ -41,6 +41,8 @@ final class FirebaseAuthManager {
     }
 }
 
+// MARK: - Private Helpers
+
 extension FirebaseAuthManager {
     /// 이미 회원가입 된 유저 처리
     private func isEmailAlreadyInUseError(_ error: Error) -> Bool {

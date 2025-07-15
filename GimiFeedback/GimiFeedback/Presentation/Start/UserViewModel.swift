@@ -38,7 +38,7 @@ final class UserViewModel: ViewModelable {
     }
 }
 
-// MARK: - Private 로직 함수
+// MARK: - Private Helpers
 
 extension UserViewModel {
     
