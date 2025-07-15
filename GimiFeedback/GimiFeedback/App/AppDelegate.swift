@@ -14,7 +14,30 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
         FirebaseApp.configure()
+        setBackButtonColor()
         
         return true
+    }
+}
+
+// MARK: - 백버튼 관련 통합 세팅
+extension AppDelegate {
+    /// 백버튼 기본 설정
+    /// apperance: NavigationBar의 기본 설정
+    /// BarButtonItem: BarButtonItem의 기본 설정
+    /// 뒤로가기 clear, Button Color black으로
+    private func setBackButtonColor() {
+        let backButtonAppearance = UIBarButtonItemAppearance()
+        let appearance = UINavigationBarAppearance()
+
+        backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+//        appearance.configureWithOpaqueBackground()
+        appearance.backButtonAppearance = backButtonAppearance
+        appearance.configureWithTransparentBackground()
+
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UIBarButtonItem.appearance().tintColor = UIColor(.black)
     }
 }
