@@ -28,31 +28,28 @@ extension ChannelListViewModel {
     private func fetchChannelList() {
         Task {
             isChannelListLoading = true
-            
             totalFeedbackCount = .zero
             
             do {
-                let channels = try await FirestoreManager.shared.fetch(
-                    as: FeedbackChannel.self,
-                    .feedbackChannel
-                )
+                let filteredChannels = try await FirestoreManager.shared.fetch(
+                    as: FeedbackChannel.self, .feedbackChannel,
+                    whereFeild: "userID",
+                    equalData: FirebaseAuthManager.currentUserID)
                 
                 var result: [FeedbackChannelInfo] = []
                 
-                for channel in channels {
+                for channel in filteredChannels {
                     let feedbackList = try await FirestoreManager.shared.fetch(
                         as: Feedback.self,
                         .feedback,
                         whereFeild: "feedbackChannelID",
-                        equalData: channel.id.uuidString
-                    )
+                        equalData: channel.id.uuidString)
                     
                     result.append(
                         FeedbackChannelInfo(
                             channel: channel,
                             feedbackCount: feedbackList.count,
-                            visibleFeedbackCount: feedbackList.filter({ !$0.visiable }).count)
-                    )
+                            visibleFeedbackCount: feedbackList.filter({ !$0.visiable }).count))
                     
                     totalFeedbackCount += feedbackList.count
                 }
