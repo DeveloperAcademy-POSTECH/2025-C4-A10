@@ -10,6 +10,9 @@ import FirebaseAuth
 final class FirebaseAuthManager {
     
     static let shared = FirebaseAuthManager()
+    static var currentUser: Bool {
+        return Auth.auth().currentUser != nil
+    }
     
     private init() {}
     
@@ -34,5 +37,9 @@ final class FirebaseAuthManager {
             return true
         }
         return false
+    }
+
+    func logout() throws {
+        try Auth.auth().signOut()
     }
 }

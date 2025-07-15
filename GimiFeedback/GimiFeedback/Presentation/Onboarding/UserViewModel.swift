@@ -1,15 +1,19 @@
 //
-//  LoginViewModel.swift
+//  UserViewModel.swift
 //  GimiFeedback
 //
 //  Created by 김민석 on 7/12/25.
 //
 
-final class LoginViewModel: ViewModelable {
+import Foundation
+
+final class UserViewModel: ViewModelable {
     enum Action {
         case kakaoLogin
         case kakaoLogout
     }
+    
+    @Published var isLoggedIn: Bool = FirebaseAuthManager.currentUser
     
     func send(_ action: Action) {
         switch action {
@@ -20,17 +24,20 @@ final class LoginViewModel: ViewModelable {
                         email: result.email,
                         password: result.password
                     )
+                    isLoggedIn = FirebaseAuthManager.currentUser
                 }
             }
         case .kakaoLogout:
             kakaoLogout()
+            firebaseAuthLogout()
+            isLoggedIn = FirebaseAuthManager.currentUser
         }
     }
 }
 
 // MARK: - Private 로직 함수
 
-extension LoginViewModel {
+extension UserViewModel {
     /// 카카오 로그인
     private func kakaoLogin() async -> (email: String, password: String)? {
         do {
@@ -81,10 +88,20 @@ extension LoginViewModel {
         Task {
             do {
                 try await KakaoAuthManager.shared.logout()
-                print("로그아웃 성공")
+                print("카카오 로그아웃 성공")
             } catch {
-                print("로그아웃 실패: \(error.localizedDescription)")
+                print("카카오 로그아웃 실패: \(error.localizedDescription)")
             }
+        }
+    }
+    
+    /// 파이어베이스 로그아웃 로직
+    private func firebaseAuthLogout() {
+        do {
+            try FirebaseAuthManager.shared.logout()
+            print("파이어베이스 로그아웃 성공")
+        } catch {
+            print("파이어베이스 로그아웃 실패: \(error.localizedDescription)")
         }
     }
 }
