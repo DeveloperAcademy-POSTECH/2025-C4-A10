@@ -18,7 +18,7 @@ final class KakaoAuthManager {
     /// 카카오 로그인  함수
     /// 토큰 유효시 -> 사용자 정보 반환
     /// 유효 X -> 카카오톡 로그인 시도 후 사용자 정보 반환
-    func kakaoAuthSignIn() async throws -> (email: String, password: String) {
+    func signIn() async throws -> (email: String, password: String) {
         if AuthApi.hasToken() {
             do {
                 _ = try await getAccessTokenInfo()
@@ -50,6 +50,27 @@ final class KakaoAuthManager {
 
 extension KakaoAuthManager {
     
+    /// 액세스 토큰이 유효한지 확인
+    private func getAccessTokenInfo() async throws -> AccessTokenInfo {
+        try await withCheckedThrowingContinuation { continuation in
+            UserApi.shared.accessTokenInfo { info, error in
+                if let error = error {
+                    continuation.resume(throwing: error)
+                } else if let info = info {
+                    continuation.resume(returning: info)
+                } else {
+                    continuation.resume(
+                        throwing: NSError(
+                            domain: "KakaoAuthError",
+                            code: 1,
+                            userInfo: [NSLocalizedDescriptionKey: "토큰 정보 없음"]
+                        )
+                    )
+                }
+            }
+        }
+    }
+    
     /// 사용자 정보 불러오기 (email, user ID 기반 password 반환)
     private func fetchUserInfo() async throws -> (email: String, password: String) {
         try await withCheckedThrowingContinuation { continuation in
@@ -76,27 +97,6 @@ extension KakaoAuthManager {
         }
     }
 
-    /// 액세스 토큰이 유효한지 확인
-    private func getAccessTokenInfo() async throws -> AccessTokenInfo {
-        try await withCheckedThrowingContinuation { continuation in
-            UserApi.shared.accessTokenInfo { info, error in
-                if let error = error {
-                    continuation.resume(throwing: error)
-                } else if let info = info {
-                    continuation.resume(returning: info)
-                } else {
-                    continuation.resume(
-                        throwing: NSError(
-                            domain: "KakaoAuthError",
-                            code: 1,
-                            userInfo: [NSLocalizedDescriptionKey: "토큰 정보 없음"]
-                        )
-                    )
-                }
-            }
-        }
-    }
-
     /// 카카오톡 앱 또는 계정 로그인 시도 후 사용자 정보 반환
     private func loginThroughKakao() async throws -> (email: String, password: String) {
         if UserApi.isKakaoTalkLoginAvailable() {
@@ -108,6 +108,7 @@ extension KakaoAuthManager {
     }
 
     /// 카카오톡 앱 로그인
+    @MainActor
     private func loginWithKakaoTalk() async throws -> OAuthToken {
         try await withCheckedThrowingContinuation { continuation in
             UserApi.shared.loginWithKakaoTalk { token, error in
@@ -121,6 +122,7 @@ extension KakaoAuthManager {
     }
 
     /// 카카오 계정(웹) 로그인
+    @MainActor
     private func loginWithKakaoAccount() async throws -> OAuthToken {
         try await withCheckedThrowingContinuation { continuation in
             UserApi.shared.loginWithKakaoAccount { token, error in
