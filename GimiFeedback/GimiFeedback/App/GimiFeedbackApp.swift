@@ -24,7 +24,7 @@ struct GimiFeedbackApp: App {
         WindowGroup {
             Group {
                 if userViewModel.isLoggedIn {
-                    FeedbackListView()
+                    ChannelListView()
                 } else {
                     StartView()
                         .onOpenURL { url in
