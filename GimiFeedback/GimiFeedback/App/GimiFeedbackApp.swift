@@ -7,14 +7,34 @@
 
 import SwiftUI
 import FirebaseCore
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 @main
 struct GimiFeedbackApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject private var userViewModel: UserViewModel
+    
+    init() {
+        KakaoSDK.initSDK(appKey: Bundle.kakaoNativeAppKey)
+        _userViewModel = StateObject(wrappedValue: UserViewModel())
+    }
     
     var body: some Scene {
         WindowGroup {
-            OnboardingStartView()
+            Group {
+                if userViewModel.isLoggedIn {
+                    FeedbackListView()
+                } else {
+                    StartView()
+                        .onOpenURL { url in
+                            if AuthApi.isKakaoTalkLoginUrl(url) {
+                                _ = AuthController.handleOpenUrl(url: url)
+                            }
+                        }
+                }
+            }
+            .environmentObject(userViewModel)
         }
     }
 }

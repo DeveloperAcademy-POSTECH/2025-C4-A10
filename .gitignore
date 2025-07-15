@@ -141,6 +141,7 @@ iOSInjectionProject/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,swift,xcode
-**/GoogleService-Info.plist
+*/Config.xcconfig
 **/Config.xcconfig
 */GoogleService-Info.plist
+**/GoogleService-Info.plist

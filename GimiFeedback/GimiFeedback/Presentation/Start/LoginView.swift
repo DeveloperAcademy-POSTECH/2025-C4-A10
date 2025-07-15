@@ -1,5 +1,5 @@
 //
-//  OnboardingLoginView.swift
+//  LoginView.swift
 //  GimiFeedback
 //
 //  Created by 김민석 on 7/12/25.
@@ -7,15 +7,23 @@
 
 import SwiftUI
 
-struct OnboardingLoginView: View {
+struct LoginView: View {
     @EnvironmentObject var router: OnboardingNavigationRouter
+    @EnvironmentObject var viewModel: UserViewModel
+    
     var body: some View {
         Text("솔직한 피드백, 더 나은 나를 위한 성장")
         
         Button {
-            // TODO: 카카오 로그인 동작
+            viewModel.send(.kakaoLogin)
         } label: {
             Text("카카오로 계속하기")
+        }
+        
+        Button {
+            viewModel.send(.kakaoLogout)
+        } label: {
+            Text("로그아웃")
         }
         
         Button {
@@ -27,5 +35,5 @@ struct OnboardingLoginView: View {
 }
 
 #Preview {
-    OnboardingLoginView()
+    LoginView()
 }

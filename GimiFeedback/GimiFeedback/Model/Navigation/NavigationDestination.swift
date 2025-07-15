@@ -8,7 +8,7 @@
 protocol NavigationDestination: Hashable {}
 
 // MARK: Onboarding
-enum OnboardingNavigationDestination: NavigationDestination {
+enum StartNavigationDestination: NavigationDestination {
     case login
     case inputCode
     case feedbackWrite(code: String)
