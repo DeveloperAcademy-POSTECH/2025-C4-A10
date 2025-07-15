@@ -18,7 +18,7 @@
 		EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3756A22E1E602C009AD262 /* EntityRepresentable.swift */; };
 		EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3756A42E1E6060009AD262 /* CollectionType.swift */; };
 		EE37582C2E1F80F3009AD262 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */; };
-		EE41FD7D2E223D050002E595 /* OnboardingLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FD7C2E223CFD0002E595 /* OnboardingLoginView.swift */; };
+		EE41FD7D2E223D050002E595 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FD7C2E223CFD0002E595 /* LoginView.swift */; };
 		EE41FD822E223D720002E595 /* InputCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FD812E223D720002E595 /* InputCodeView.swift */; };
 		EE41FEDC2E2250DF0002E595 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EE41FEDB2E2250DF0002E595 /* KakaoSDKAuth */; };
 		EE41FEDE2E2250DF0002E595 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = EE41FEDD2E2250DF0002E595 /* KakaoSDKCommon */; };
@@ -38,7 +38,7 @@
 		EE856A512E1CD418006820B9 /* FeedbackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A502E1CD409006820B9 /* FeedbackListView.swift */; };
 		EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A532E1CE5B0006820B9 /* ViewModelable.swift */; };
 		EE856A562E1CE604006820B9 /* FeedbackListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A552E1CE5FF006820B9 /* FeedbackListViewModel.swift */; };
-		EE856A5B2E1CEA98006820B9 /* OnboardingStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A5A2E1CEA98006820B9 /* OnboardingStartView.swift */; };
+		EE856A5B2E1CEA98006820B9 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A5A2E1CEA98006820B9 /* StartView.swift */; };
 		EE856CA72E1D6D32006820B9 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */; };
 		EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */; };
 /* End PBXBuildFile section */
@@ -53,7 +53,7 @@
 		EE3756A22E1E602C009AD262 /* EntityRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityRepresentable.swift; sourceTree = "<group>"; };
 		EE3756A42E1E6060009AD262 /* CollectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
 		EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
-		EE41FD7C2E223CFD0002E595 /* OnboardingLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginView.swift; sourceTree = "<group>"; };
+		EE41FD7C2E223CFD0002E595 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		EE41FD812E223D720002E595 /* InputCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCodeView.swift; sourceTree = "<group>"; };
 		EE41FEE12E22511D0002E595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE41FEE42E2256280002E595 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		EE856A502E1CD409006820B9 /* FeedbackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackListView.swift; sourceTree = "<group>"; };
 		EE856A532E1CE5B0006820B9 /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		EE856A552E1CE5FF006820B9 /* FeedbackListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackListViewModel.swift; sourceTree = "<group>"; };
-		EE856A5A2E1CEA98006820B9 /* OnboardingStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStartView.swift; sourceTree = "<group>"; };
+		EE856A5A2E1CEA98006820B9 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestination.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,7 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				EE856A5C2E1CF631006820B9 /* Common */,
-				EE856A4F2E1CD401006820B9 /* Onboarding */,
+				EE856A4F2E1CD401006820B9 /* Start */,
 				EE41FD7E2E223D180002E595 /* InputCode */,
 				EE856A522E1CD41C006820B9 /* FeedbackList */,
 				EE856A532E1CE5B0006820B9 /* ViewModelable.swift */,
@@ -231,14 +231,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		EE856A4F2E1CD401006820B9 /* Onboarding */ = {
+		EE856A4F2E1CD401006820B9 /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				EE856A5A2E1CEA98006820B9 /* StartView.swift */,
+				EE41FD7C2E223CFD0002E595 /* LoginView.swift */,
 				EE41FEE82E2259310002E595 /* UserViewModel.swift */,
-				EE41FD7C2E223CFD0002E595 /* OnboardingLoginView.swift */,
-				EE856A5A2E1CEA98006820B9 /* OnboardingStartView.swift */,
 			);
-			path = Onboarding;
+			path = Start;
 			sourceTree = "<group>";
 		};
 		EE856A522E1CD41C006820B9 /* FeedbackList */ = {
@@ -366,12 +366,12 @@
 				EE41FEEB2E22599C0002E595 /* KakaoAuthManager.swift in Sources */,
 				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
 				EE41FEE72E22572C0002E595 /* Bundle+Extension.swift in Sources */,
-				EE41FD7D2E223D050002E595 /* OnboardingLoginView.swift in Sources */,
+				EE41FD7D2E223D050002E595 /* LoginView.swift in Sources */,
 				EE856A472E1CD2AD006820B9 /* Font.swift in Sources */,
 				EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */,
 				EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */,
 				EE41FD822E223D720002E595 /* InputCodeView.swift in Sources */,
-				EE856A5B2E1CEA98006820B9 /* OnboardingStartView.swift in Sources */,
+				EE856A5B2E1CEA98006820B9 /* StartView.swift in Sources */,
 				EE856A562E1CE604006820B9 /* FeedbackListViewModel.swift in Sources */,
 				EE37582C2E1F80F3009AD262 /* Encodable+Extension.swift in Sources */,
 				EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */,

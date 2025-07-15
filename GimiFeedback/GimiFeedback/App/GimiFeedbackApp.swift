@@ -26,7 +26,7 @@ struct GimiFeedbackApp: App {
                 if userViewModel.isLoggedIn {
                     FeedbackListView()
                 } else {
-                    OnboardingStartView()
+                    StartView()
                         .onOpenURL { url in
                             if AuthApi.isKakaoTalkLoginUrl(url) {
                                 _ = AuthController.handleOpenUrl(url: url)

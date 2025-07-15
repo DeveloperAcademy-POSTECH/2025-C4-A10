@@ -1,5 +1,5 @@
 //
-//  OnboardingLoginView.swift
+//  LoginView.swift
 //  GimiFeedback
 //
 //  Created by 김민석 on 7/12/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OnboardingLoginView: View {
+struct LoginView: View {
     @EnvironmentObject var router: OnboardingNavigationRouter
     @EnvironmentObject var viewModel: UserViewModel
     
@@ -35,5 +35,5 @@ struct OnboardingLoginView: View {
 }
 
 #Preview {
-    OnboardingLoginView()
+    LoginView()
 }

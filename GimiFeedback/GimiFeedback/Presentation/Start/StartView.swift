@@ -1,5 +1,5 @@
 //
-//  OnboardingStartView.swift
+//  StartView.swift
 //  GimiFeedback
 //
 //  Created by 김민석 on 7/8/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OnboardingStartView: View {
+struct StartView: View {
     @StateObject var router: OnboardingNavigationRouter
     
     init() {
@@ -22,7 +22,7 @@ struct OnboardingStartView: View {
                     case .inputCode:
                         InputCodeView()
                     case .login:
-                        OnboardingLoginView()
+                        LoginView()
                     case .feedbackWriteComplete:
                         // TODO: 피드백 완료 이동
                         EmptyView()
@@ -36,7 +36,7 @@ struct OnboardingStartView: View {
     }
 }
 
-extension OnboardingStartView {
+extension StartView {
     private struct ContentView: View {
         @EnvironmentObject var router: OnboardingNavigationRouter
         
@@ -62,5 +62,5 @@ extension OnboardingStartView {
 }
 
 #Preview {
-    OnboardingStartView()
+    StartView()
 }
