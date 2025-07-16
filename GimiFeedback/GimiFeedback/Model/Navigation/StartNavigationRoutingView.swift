@@ -10,12 +10,15 @@ import SwiftUI
 struct StartNavigationRoutingView: View {
     
     @State var destination: StartNavigationDestination
+    @EnvironmentObject var router: OnboardingNavigationRouter
     
     var body: some View {
         Group {
             switch destination {
             case .inputCode:
-                InputCodeView()
+                InputCodeView { feedbackChannel in
+                    router.push(to: .feedbackWrite(channel: feedbackChannel))
+                }
             case .login:
                 LoginView()
             case .feedbackWriteComplete:

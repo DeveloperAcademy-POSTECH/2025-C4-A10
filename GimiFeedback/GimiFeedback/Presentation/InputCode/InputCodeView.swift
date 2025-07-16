@@ -9,10 +9,11 @@ import SwiftUI
 
 struct InputCodeView: View {
     @StateObject var viewModel: InputCodeViewModel
-    @EnvironmentObject var router: MainNavigationRouter
+    var onComplete: (FeedbackChannel) -> Void
     
-    init() {
+    init(onComplete: @escaping (FeedbackChannel) -> Void) {
         _viewModel = StateObject(wrappedValue: .init())
+        self.onComplete = onComplete
     }
     
     var body: some View {
@@ -54,12 +55,14 @@ struct InputCodeView: View {
         .padding()
         .onChange(of: viewModel.feedbackChannel) { newValue in
             if let feedbackChannel = newValue {
-                router.push(to: .feedbackWrite(channel: feedbackChannel))
+                onComplete(feedbackChannel)
             }
         }
     }
 }
 
 #Preview {
-    InputCodeView()
+    InputCodeView { feedbackChannel in
+        print("Test - \(feedbackChannel)")
+    }
 }
