@@ -9,6 +9,7 @@ import SwiftUI
 
 struct InputCodeView: View {
     @StateObject var viewModel: InputCodeViewModel
+    @EnvironmentObject var router: MainNavigationRouter
     
     init() {
         _viewModel = StateObject(wrappedValue: .init())
@@ -27,6 +28,15 @@ struct InputCodeView: View {
                     alignment: .bottom
                 )
             
+            if let errorMessage = viewModel.errorMessage {
+                HStack(spacing: 4) {
+                    Image(systemName: "xmark.circle")
+                    Text(errorMessage)
+                }
+                .foregroundColor(.red)
+                .padding(.top, 4)
+            }
+            
             Spacer()
             
             Button(action: {
@@ -40,7 +50,13 @@ struct InputCodeView: View {
                     .cornerRadius(20)
             })
             .disabled(viewModel.code.isEmpty)
-        }.padding()
+        }
+        .padding()
+        .onChange(of: viewModel.feedbackChannel) { newValue in
+            if let feedbackChannel = newValue {
+                router.push(to: .feedbackWrite(channel: feedbackChannel))
+            }
+        }
     }
 }
 
