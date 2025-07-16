@@ -34,6 +34,7 @@ final class InputCodeViewModel: ViewModelable {
                 }
             } catch {
                 print("코드 검증 실패: \(error.localizedDescription)")
+                errorMessage = error.localizedDescription
             }
         }
     }
