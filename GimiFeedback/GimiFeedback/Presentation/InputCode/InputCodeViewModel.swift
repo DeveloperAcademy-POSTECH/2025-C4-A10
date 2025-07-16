@@ -26,6 +26,8 @@ final class InputCodeViewModel: ViewModelable {
     private func verifyCode() {
         Task {
             do {
+                errorMessage = nil
+                
                 if let getFeedbackChannel: FeedbackChannel = try await
                     FirestoreManager.shared.get(
                         code, collectionType: .feedbackChannel

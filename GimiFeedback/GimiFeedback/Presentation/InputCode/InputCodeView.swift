@@ -58,6 +58,12 @@ struct InputCodeView: View {
                 onComplete(feedbackChannel)
             }
         }
+        .onChange(of: viewModel.errorMessage) { newValue in
+            if newValue != nil {
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.error)
+            }
+        }
     }
 }
 
