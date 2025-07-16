@@ -15,7 +15,9 @@ final class FeedbackDetailViewModel: ViewModelable {
     }
     
     var feedbackItem: Feedback
-    @Published private(set) var feedbackDetails: [FeedbackContent]
+    @Published var keepFeedback: [FeedbackContent]
+    @Published var problemFeedback: [FeedbackContent]
+    @Published var tryFeedback: [FeedbackContent]
     @Published private(set) var errorMessage: String?
     @Published private(set) var isLoading: Bool = false
     
@@ -23,7 +25,9 @@ final class FeedbackDetailViewModel: ViewModelable {
     
     init(feedbackItem: Feedback) {
         self.feedbackItem = feedbackItem
-        self.feedbackDetails = feedbackItem.content
+        self.keepFeedback = feedbackItem.content.filter { $0.type == .keep }
+        self.problemFeedback = feedbackItem.content.filter { $0.type == .problem }
+        self.tryFeedback = feedbackItem.content.filter { $0.type == .try }
     }
     
     func send(_ action: Action) {
