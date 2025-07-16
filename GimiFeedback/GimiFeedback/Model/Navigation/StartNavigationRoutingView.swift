@@ -21,9 +21,9 @@ struct StartNavigationRoutingView: View {
             case .feedbackWriteComplete:
                 // TODO: 피드백 완료 이동
                 EmptyView()
-            case .feedbackWrite:
+            case .feedbackWrite(let feedbackChannel):
                 // TODO: 피드백 생성 이동
-                EmptyView()
+                FeedbackWriteView(feedbackChannel: feedbackChannel)
             }
         }
     }

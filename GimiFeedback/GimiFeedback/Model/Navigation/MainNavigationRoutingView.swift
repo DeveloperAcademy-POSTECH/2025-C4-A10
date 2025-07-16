@@ -22,8 +22,8 @@ struct MainNavigationRoutingView: View {
                 FeedbackDetailView()
             case .inputCode:
                 InputCodeView()
-            case .feedbackWrite:
-                FeedbackWriteView()
+            case .feedbackWrite(let feedbackChannel):
+                FeedbackWriteView(feedbackChannel: feedbackChannel)
             case .feedbackWriteComplete:
                 FeedbackWriteCompleteView()
             case .feedbackChannelCreate:
