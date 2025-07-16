@@ -10,42 +10,57 @@ import Foundation
 final class FeedbackDetailViewModel: ViewModelable {
     
     enum Action {
-        case fetchDetails
         case deleteFeedback
-        case visualizeDetail
+        case createDummyDetails
     }
     
-    var feedback: Feedback
+    var feedbackItem: Feedback
+    @Published private(set) var feedbackDetails: [FeedbackContent]
+    @Published private(set) var errorMessage: String?
+    @Published private(set) var isLoading: Bool = false
     
-    init(feedback: Feedback) {
-        self.feedback = feedback
+    @Published var isDeleted = false
+    
+    init(feedbackItem: Feedback) {
+        self.feedbackItem = feedbackItem
+        self.feedbackDetails = feedbackItem.content
     }
     
     func send(_ action: Action) {
         switch action {
-        case .fetchDetails:
-            fetchDetails(feedbackID: feedback.id)
-            
         case .deleteFeedback:
-            deleteFeedback(feedbackID: feedback.id)
-            
-        case .visualizeDetail:
-            
-            
+            deleteFeedback(feedbackItem: feedbackItem)
+        case .createDummyDetails:
+            createDummyDetails()
         }
     }
 }
 
 extension FeedbackDetailViewModel {
-    func fetchDetails(feedbackID: UUID) {
-        
+    private func deleteFeedback(feedbackItem: Feedback) {
+        Task {
+            isLoading = true
+            do {
+                try await FirestoreManager.shared.delete(feedbackItem)
+                print("피드백 삭제 성공")
+                isDeleted = true
+            } catch {
+                errorMessage = "삭제 실패: \(error.localizedDescription)"
+                print("삭제 실패: \(error.localizedDescription)")
+            }
+            isLoading = false
+        }
     }
     
-    func deleteFeedback(feedbackID: UUID) {
-        
-    }
-    
-    func visualizeDetail(detailID: UUID) {
-        
+    // MARK: 테스트용 데이터 넣기
+    private func createDummyDetails() {
+        Task {
+            do {
+                let saved = try await FirestoreManager.shared.create(sampleFeedback)
+                print("저장 성공: \(saved.id)")
+            } catch {
+                print("저장 실패: \(error.localizedDescription)")
+            }
+        }
     }
 }
