@@ -12,9 +12,6 @@ struct ChannelListView: View {
     @StateObject var viewModel: ChannelListViewModel
     
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
-    private var isLoading: Bool {
-        !viewModel.isChannelListLoading
-    }
     
     init() {
         _viewModel = StateObject(wrappedValue: ChannelListViewModel())
