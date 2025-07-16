@@ -28,39 +28,44 @@ extension ChannelListViewModel {
     private func fetchChannelList() {
         Task {
             isChannelListLoading = true
-            totalFeedbackCount = .zero
-            
             do {
                 let filteredChannels = try await FirestoreManager.shared.fetch(
                     as: FeedbackChannel.self, .feedbackChannel,
                     whereFeild: "userID",
                     equalData: FirebaseAuthManager.currentUserID)
                 
-                var result: [FeedbackChannelInfo] = []
+                let filteredItemList = try await fetchFilteredChannelList(itemList: filteredChannels)
                 
-                for channel in filteredChannels {
-                    let feedbackList = try await FirestoreManager.shared.fetch(
-                        as: Feedback.self,
-                        .feedback,
-                        whereFeild: "feedbackChannelID",
-                        equalData: channel.id.uuidString)
-                    
-                    result.append(
-                        FeedbackChannelInfo(
-                            channel: channel,
-                            feedbackCount: feedbackList.count,
-                            visibleFeedbackCount: feedbackList.filter({ !$0.visiable }).count))
-                    
-                    totalFeedbackCount += feedbackList.count
-                }
-                
-                channelList = result
+                channelList = filteredItemList
                 
             } catch {
                 errorMessage = error.localizedDescription
             }
             isChannelListLoading = false
         }
+    }
+    
+    private func fetchFilteredChannelList(itemList: [FeedbackChannel]) async throws -> [FeedbackChannelInfo] {
+        var result: [FeedbackChannelInfo] = []
+        totalFeedbackCount = .zero
+        
+        for channel in itemList {
+            let feedbackList = try await FirestoreManager.shared.fetch(
+                as: Feedback.self,
+                .feedback,
+                whereFeild: "feedbackChannelID",
+                equalData: channel.id.uuidString)
+            
+            result.append(
+                FeedbackChannelInfo(
+                    channel: channel,
+                    feedbackCount: feedbackList.count,
+                    visibleFeedbackCount: feedbackList.filter({ !$0.visiable }).count))
+            
+            totalFeedbackCount += feedbackList.count
+        }
+        
+        return result
     }
 }
 
