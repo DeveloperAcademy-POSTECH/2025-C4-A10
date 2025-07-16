@@ -17,12 +17,12 @@ enum StartNavigationDestination: NavigationDestination {
 
 // MARK: Main
 enum MainNavigationDestination: NavigationDestination {
-    case feedbackList
-    case channelEdit
-    case feedbackDetail
+    case channelDetail(channelItem: FeedbackChannel)
+    case channelEdit(channelItem: FeedbackChannel)
+    case feedbackDetail(feedback: Feedback)
     case inputCode
     case feedbackWrite(code: String)
     case feedbackWriteComplete
     case feedbackChannelCreate
-    case feedbackChannelCreateComplete
+    case feedbackChannelCreateComplete(channelID: String)
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FeedbackContent: Codable, Identifiable {
+struct FeedbackContent: Codable, Identifiable, Hashable {
     let id: UUID
     let content: String
     let spicy: Int // 매운 맛 단계

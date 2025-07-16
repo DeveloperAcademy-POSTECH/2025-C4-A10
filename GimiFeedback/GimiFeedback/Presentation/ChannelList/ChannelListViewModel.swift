@@ -39,6 +39,7 @@ extension ChannelListViewModel {
                 channelList = filteredItemList
                 
             } catch {
+                print(error.localizedDescription)
                 errorMessage = error.localizedDescription
             }
             isChannelListLoading = false

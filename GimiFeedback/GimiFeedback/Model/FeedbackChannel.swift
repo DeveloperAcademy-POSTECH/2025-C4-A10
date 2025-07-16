@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FeedbackChannel: Codable, Identifiable {
+struct FeedbackChannel: Codable, Identifiable, Hashable {
     let id: UUID
     let userID: String
     let channelTitle: String
