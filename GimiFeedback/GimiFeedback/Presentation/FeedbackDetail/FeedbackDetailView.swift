@@ -2,7 +2,7 @@ import SwiftUI
 
 struct FeedbackDetailView: View {
     @StateObject var viewModel: FeedbackDetailViewModel
-    
+    @EnvironmentObject var router: MainNavigationRouter
     @State private var showDeleteAlert = false
     
     init(feedbackItem: Feedback) {
@@ -48,15 +48,6 @@ struct FeedbackDetailView: View {
         .navigationTitle("\(viewModel.feedbackItem.writePerson)의 피드백")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button(action: {
-                    // TODO: 뒤로가기
-                }) {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.black)
-                }
-            }
-            
             ToolbarItem(placement: .topBarTrailing) {
                 Button(action: {
                     showDeleteAlert = true
@@ -66,6 +57,10 @@ struct FeedbackDetailView: View {
                 }
             }
         }
-
+        .onChange(of: viewModel.isDeleted) { new in
+            if new == true {
+                router.pop()
+            }
+        }
     }
 }
