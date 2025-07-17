@@ -67,9 +67,6 @@ struct FeedbackDetailView: View {
                     }
                 }
             }
-            .onAppear {
-                viewModel.send(.createDummyDetails)
-            }
         }
     }
 }
