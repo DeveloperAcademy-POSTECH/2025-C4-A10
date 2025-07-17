@@ -60,7 +60,7 @@
 		EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */; };
 		EEDBB1B82E28D45700F16407 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1B72E28D45700F16407 /* FirebaseMessaging */; };
 		EEDBB1BA2E28DA9200F16407 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1B92E28DA9100F16407 /* Token.swift */; };
-		EEDBB1BC2E28DEC100F16407 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1BB2E28DEB900F16407 /* NotificationManager.swift */; };
+		EEDBB1BC2E28DEC100F16407 /* FCMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */; };
 		EEDBB1BE2E2913CE00F16407 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1BD2E2913CE00F16407 /* FirebaseFunctions */; };
 /* End PBXBuildFile section */
 
@@ -115,7 +115,7 @@
 		EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNavigationRoutingView.swift; sourceTree = "<group>"; };
 		EEDBB1B62E28D2E900F16407 /* GimiFeedback.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GimiFeedback.entitlements; sourceTree = "<group>"; };
 		EEDBB1B92E28DA9100F16407 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		EEDBB1BB2E28DEB900F16407 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,7 +361,7 @@
 		EE856A4A2E1CD399006820B9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				EEDBB1BB2E28DEB900F16407 /* NotificationManager.swift */,
+				EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */,
 				EE3756A12E1E601E009AD262 /* Firestore */,
 				EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */,
 				EE41FEEC2E225A1C0002E595 /* FirebaseAuthManager.swift */,
@@ -531,7 +531,7 @@
 				EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */,
 				EE856A492E1CD2D7006820B9 /* Feedback.swift in Sources */,
 				EE856A512E1CD418006820B9 /* ChannelListView.swift in Sources */,
-				EEDBB1BC2E28DEC100F16407 /* NotificationManager.swift in Sources */,
+				EEDBB1BC2E28DEC100F16407 /* FCMManager.swift in Sources */,
 				EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */,
 				EE465F062E27B2420096109A /* InputCodeViewModel.swift in Sources */,
 				EE41FEED2E225A250002E595 /* FirebaseAuthManager.swift in Sources */,

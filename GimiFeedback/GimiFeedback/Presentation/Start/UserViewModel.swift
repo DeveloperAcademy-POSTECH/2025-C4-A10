@@ -103,7 +103,7 @@ extension UserViewModel {
     
     private func saveFCMToken(userID: String) async {
         do {
-            let tokenString = try await NotificationManager.shared.getTokenString()
+            let tokenString = try await FCMManager.shared.getTokenString()
             let token = Token(userID: userID, fcmToken: tokenString, badgeCount: 0)
             
             _ = try await FirestoreManager.shared.create(token)

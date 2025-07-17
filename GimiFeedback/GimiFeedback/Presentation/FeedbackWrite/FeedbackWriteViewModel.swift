@@ -57,6 +57,11 @@ final class FeedbackWriteViewModel: ViewModelable {
             
             saveFeedbackToFirestore(to: createdFeedback)
             
+            FCMManager.shared.sendNotification(
+                to: feedbackChannel.userID,
+                from: nickName,
+                title: feedbackChannel.channelTitle
+            )
         }
     }
     
