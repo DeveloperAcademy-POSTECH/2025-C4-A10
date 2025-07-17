@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ChannelCreateCompleteView: View {
+    @EnvironmentObject var router: MainNavigationRouter
+    
     let channelID: String
     var onClose: () -> Void = {}
 
@@ -68,7 +70,20 @@ struct ChannelCreateCompleteView: View {
             }
 
             Spacer()
+            
+            Button {
+                router.popToRootView()
+            } label: {
+                Text("완료하기")
+                    .font(Font.system(size: 20, weight: .bold))
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, maxHeight: 66)
+                    .background(Color.black)
+                    .cornerRadius(20)
+                    .padding()
+            }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 

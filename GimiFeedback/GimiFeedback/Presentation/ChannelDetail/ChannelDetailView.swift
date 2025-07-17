@@ -3,9 +3,8 @@ import SwiftUI
 struct ChannelDetailView: View {
     
     @StateObject var viewModel: ChannelDetailViewModel
-    
+    @EnvironmentObject var router: MainNavigationRouter
     @State private var isShowDeleteAlert: Bool = false
-    @Environment(\.dismiss) var dismiss
     
     init(channelItem: FeedbackChannel) {
         _viewModel = StateObject(wrappedValue: ChannelDetailViewModel(channelItem: channelItem))
@@ -95,8 +94,8 @@ struct ChannelDetailView: View {
             Text("정말 삭제하시겠습니까?\n이 작업은 되돌릴 수 없습니다.")
         }
         .onChange(of: viewModel.isDelete) { new in
-            if new {
-                dismiss()
+            if new == true {
+                router.pop()
             }
         }
         .onAppear {

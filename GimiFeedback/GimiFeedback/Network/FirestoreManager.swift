@@ -42,13 +42,7 @@ final class FirestoreManager {
 
         // 첫 번째 문서를 가져와서 데이터 디코딩
         guard let document = snapshot.documents.first else {
-            throw Error.fetchFailed(
-                underlying: NSError(
-                    domain: "",
-                    code: -1,
-                    userInfo: [NSLocalizedDescriptionKey: "문서가 존재하지 않습니다."]
-                )
-            )
+            throw Error.notfoundCode
         }
 
         guard let jsonData = try? JSONSerialization.data(withJSONObject: document.data()),
@@ -134,6 +128,8 @@ extension FirestoreManager {
         case decodingFailed
         case encodingFailed
         
+        case notfoundCode
+        
         var errorDescription: String? {
             switch self {
             case .addFailed(let error):
@@ -148,6 +144,8 @@ extension FirestoreManager {
                 "데이터를 encoding하는데 실패했습니다"
             case .decodingFailed:
                 "데이터를 decoding하는데 실패했습니다"
+            case .notfoundCode:
+                "해당하는 코드가 없어요. 다시 한번 확인해주세요."
             }
         }
     }
