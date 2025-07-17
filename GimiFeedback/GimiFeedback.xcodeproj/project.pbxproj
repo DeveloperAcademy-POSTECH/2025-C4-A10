@@ -12,6 +12,8 @@
 		EC9959B32E24E646001555B1 /* ChannelDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */; };
 		EC9959BA2E25145B001555B1 /* FeedbackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959B92E25145B001555B1 /* FeedbackDetailView.swift */; };
 		ECC980AC2E28E91E004A483B /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC980AB2E28E91E004A483B /* DeepLinkManager.swift */; };
+		ECC980AF2E290DC4004A483B /* KakaoSDKShare in Frameworks */ = {isa = PBXBuildFile; productRef = ECC980AE2E290DC4004A483B /* KakaoSDKShare */; };
+		ECC980B12E290DC4004A483B /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = ECC980B02E290DC4004A483B /* KakaoSDKTemplate */; };
 		EE3754AF2E1D7B36009AD262 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */; };
 		EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */; };
 		EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */; };
@@ -120,9 +122,11 @@
 			files = (
 				EE41FEDE2E2250DF0002E595 /* KakaoSDKCommon in Frameworks */,
 				EE3755462E1E5B8D009AD262 /* FirebaseAuth in Frameworks */,
+				ECC980B12E290DC4004A483B /* KakaoSDKTemplate in Frameworks */,
 				EE3755482E1E5B8D009AD262 /* FirebaseFirestore in Frameworks */,
 				EE41FEE02E2250DF0002E595 /* KakaoSDKUser in Frameworks */,
 				EE41FEDC2E2250DF0002E595 /* KakaoSDKAuth in Frameworks */,
+				ECC980AF2E290DC4004A483B /* KakaoSDKShare in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +180,13 @@
 				EE465EF12E2631840096109A /* FeedbackWriteCompleteView.swift */,
 			);
 			path = FeedbackWriteComplete;
+			sourceTree = "<group>";
+		};
+		ECC980AD2E290DC4004A483B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		EE3756A12E1E601E009AD262 /* Firestore */ = {
@@ -236,6 +247,7 @@
 			children = (
 				EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */,
 				EE856A372E1CD0F6006820B9 /* GimiFeedback */,
+				ECC980AD2E290DC4004A483B /* Frameworks */,
 				EE856A272E1CD093006820B9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -415,6 +427,8 @@
 				EE41FEDB2E2250DF0002E595 /* KakaoSDKAuth */,
 				EE41FEDD2E2250DF0002E595 /* KakaoSDKCommon */,
 				EE41FEDF2E2250DF0002E595 /* KakaoSDKUser */,
+				ECC980AE2E290DC4004A483B /* KakaoSDKShare */,
+				ECC980B02E290DC4004A483B /* KakaoSDKTemplate */,
 			);
 			productName = A10;
 			productReference = EE856A262E1CD093006820B9 /* GimiFeedback.app */;
@@ -665,7 +679,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 34X3BT977M;
+				DEVELOPMENT_TEAM = D22ZM93S77;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -702,7 +716,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 34X3BT977M;
+				DEVELOPMENT_TEAM = D22ZM93S77;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -783,6 +797,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		ECC980AE2E290DC4004A483B /* KakaoSDKShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE41FEDA2E2250DF0002E595 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKShare;
+		};
+		ECC980B02E290DC4004A483B /* KakaoSDKTemplate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE41FEDA2E2250DF0002E595 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKTemplate;
+		};
 		EE3755452E1E5B8D009AD262 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EE3755442E1E5B8D009AD262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
