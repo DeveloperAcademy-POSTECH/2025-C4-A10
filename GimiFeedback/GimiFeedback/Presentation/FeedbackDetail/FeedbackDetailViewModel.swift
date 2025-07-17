@@ -11,7 +11,6 @@ final class FeedbackDetailViewModel: ViewModelable {
     
     enum Action {
         case deleteFeedback
-        case createDummyDetails
         case visualizeDetail(detail: FeedbackContent)
     }
     
@@ -35,8 +34,6 @@ final class FeedbackDetailViewModel: ViewModelable {
         switch action {
         case .deleteFeedback:
             deleteFeedback(feedbackItem: feedbackItem)
-        case .createDummyDetails:
-            createDummyDetails()
         case .visualizeDetail(let detail):
             updateVisibility(detail: detail)
         }
@@ -77,18 +74,6 @@ extension FeedbackDetailViewModel {
                 print("원문 표시 실패: \(error.localizedDescription)")
             }
             isLoading = false
-        }
-    }
-    
-    // MARK: 테스트용 데이터 넣기
-    private func createDummyDetails() {
-        Task {
-            do {
-                let saved = try await FirestoreManager.shared.create(sampleFeedback)
-                print("저장 성공: \(saved.id)")
-            } catch {
-                print("저장 실패: \(error.localizedDescription)")
-            }
         }
     }
 }
