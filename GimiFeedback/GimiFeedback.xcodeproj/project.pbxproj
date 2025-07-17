@@ -49,19 +49,19 @@
 		EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A432E1CD23E006820B9 /* Color+Extension.swift */; };
 		EE856A472E1CD2AD006820B9 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A462E1CD2AA006820B9 /* Font.swift */; };
 		EE856A492E1CD2D7006820B9 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A482E1CD2D1006820B9 /* Feedback.swift */; };
-		EE856A4C2E1CD3AD006820B9 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */; };
 		EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A4D2E1CD3BF006820B9 /* DummyData.swift */; };
 		EE856A512E1CD418006820B9 /* ChannelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A502E1CD409006820B9 /* ChannelListView.swift */; };
 		EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A532E1CE5B0006820B9 /* ViewModelable.swift */; };
 		EE856A562E1CE604006820B9 /* ChannelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A552E1CE5FF006820B9 /* ChannelListViewModel.swift */; };
-		EE856A5B2E1CEA98006820B9 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A5A2E1CEA98006820B9 /* StartView.swift */; };
-		EE856CA72E1D6D32006820B9 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */; };
 		EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */; };
 		EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */; };
 		EEDBB1B82E28D45700F16407 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1B72E28D45700F16407 /* FirebaseMessaging */; };
 		EEDBB1BA2E28DA9200F16407 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1B92E28DA9100F16407 /* Token.swift */; };
 		EEDBB1BC2E28DEC100F16407 /* FCMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */; };
 		EEDBB1BE2E2913CE00F16407 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1BD2E2913CE00F16407 /* FirebaseFunctions */; };
+		EEE689122E2943C00008012D /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */; };
+		EEE689132E2943FB0008012D /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */; };
+		EEE689142E2944110008012D /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A5A2E1CEA98006820B9 /* StartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -489,16 +489,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEE689142E2944110008012D /* StartView.swift in Sources */,
+				EEE689132E2943FB0008012D /* NavigationRouter.swift in Sources */,
+				EEE689122E2943C00008012D /* FirestoreManager.swift in Sources */,
 				EE41FEE92E2259350002E595 /* UserViewModel.swift in Sources */,
-				EE856A4C2E1CD3AD006820B9 /* FirestoreManager.swift in Sources */,
-				EE856CA72E1D6D32006820B9 /* NavigationRouter.swift in Sources */,
 				EE41FEEB2E22599C0002E595 /* KakaoAuthManager.swift in Sources */,
 				EC9959B22E24E646001555B1 /* ChannelDetailView.swift in Sources */,
 				EE465EEE2E2630F20096109A /* ChannelEditView.swift in Sources */,
 				EC9959B32E24E646001555B1 /* ChannelDetailViewModel.swift in Sources */,
-				EE856A4C2E1CD3AD006820B9 /* FirestoreManager.swift in Sources */,
 				EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */,
-				EE856CA72E1D6D32006820B9 /* NavigationRouter.swift in Sources */,
 				EE465EF82E2632B20096109A /* ChannelCraeteCompleteView.swift in Sources */,
 				EE465F022E26510A0096109A /* ChannelListItemView.swift in Sources */,
 				EC9959BA2E25145B001555B1 /* FeedbackDetailView.swift in Sources */,
@@ -514,8 +513,6 @@
 				EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */,
 				EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */,
 				EE41FD822E223D720002E595 /* InputCodeView.swift in Sources */,
-				EE856A5B2E1CEA98006820B9 /* StartView.swift in Sources */,
-				EE856A5B2E1CEA98006820B9 /* StartView.swift in Sources */,
 				EE465EF02E26317A0096109A /* FeedbackWriteView.swift in Sources */,
 				EE82DFA22E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift in Sources */,
 				EE465EEC2E262EDB0096109A /* MainNavigationRoutingView.swift in Sources */,
