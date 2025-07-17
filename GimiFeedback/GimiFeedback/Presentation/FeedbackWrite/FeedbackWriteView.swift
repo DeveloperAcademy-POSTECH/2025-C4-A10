@@ -52,21 +52,26 @@ extension FeedbackWriteView {
         var body: some View {
             Text(contentType.title)
             Text(contentType.content)
-            TextField("", text: $content[0])
-                .frame(height: 102)
-                .padding()
-                .background(Color(UIColor.systemGray6))
-                .cornerRadius(5)
+            ForEach(content.indices, id: \.self) { index in
+                TextField("", text: $content[index])
+                    .frame(height: 102)
+                    .padding()
+                    .background(Color(UIColor.systemGray6))
+                    .cornerRadius(5)
+            }
             
-            Button {
-                // TODO: 항목 추가하기 버튼 동작
-            } label: {
-                Text("+ 항목 추가하기")
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 56)
-                    .foregroundColor(.black)
-                    .background(.gray)
-                    .cornerRadius(12)
+            if content.count < 3 {
+                Button {
+                    content.append("")
+                } label: {
+                    Text("+ 항목 추가하기")
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 56)
+                        .foregroundColor(.black)
+                        .background(Color.gray.opacity(0.3))
+                        .cornerRadius(12)
+                }
+                .padding(.top, 8)
             }
         }
     }
