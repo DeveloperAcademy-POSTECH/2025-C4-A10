@@ -13,7 +13,7 @@ struct Token: Codable, Hashable {
     let badgeCount: Int
     
     init(
-        userID: String = FirebaseAuthManager.currentUserID ?? "",
+        userID: String,
         fcmToken: String,
         badgeCount: Int
     ) {

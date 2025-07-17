@@ -62,37 +62,12 @@ extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("FCM 등록 토큰: \(String(describing: fcmToken))")
         
-        saveToken()
-        
         let dataDict: [String: String] = ["token": fcmToken ?? ""]
         NotificationCenter.default.post(
             name: Notification.Name("FCMToken"),
             object: nil,
             userInfo: dataDict
         )
-    }
-    
-    func saveToken() {
-        Messaging.messaging().token { token, error in
-            if error != nil {
-                print("토큰 가져오기 실패 : \(error?.localizedDescription ?? "")")
-                return
-            } else if let token = token {
-                let newToken = Token(fcmToken: token, badgeCount: 0)
-                if FirebaseAuthManager.currentUser {
-                    
-                    Task {
-                        do {
-                            let savedToken = try await FirestoreManager.shared.create(newToken)
-                            print(savedToken)
-                        } catch {
-                            print("Token 저장 에러")
-                        }
-                    }
-                    
-                }
-            }
-        }
     }
 }
 
