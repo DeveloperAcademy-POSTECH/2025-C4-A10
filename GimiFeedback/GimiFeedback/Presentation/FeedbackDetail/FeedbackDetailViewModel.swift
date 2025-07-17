@@ -12,6 +12,7 @@ final class FeedbackDetailViewModel: ViewModelable {
     enum Action {
         case deleteFeedback
         case visualizeDetail(detail: FeedbackContent)
+        case updateFeedbackVisibility
     }
     
     var feedbackItem: Feedback
@@ -38,6 +39,8 @@ final class FeedbackDetailViewModel: ViewModelable {
             deleteFeedback(feedbackItem: feedbackItem)
         case .visualizeDetail(let detail):
             updateVisibility(detail: detail)
+        case .updateFeedbackVisibility:
+            feedbackItem.visiable = true
         }
     }
 }

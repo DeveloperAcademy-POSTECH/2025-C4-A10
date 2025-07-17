@@ -69,5 +69,8 @@ struct FeedbackDetailView: View {
                 router.pop()
             }
         }
+        .onAppear {
+            viewModel.send(.updateFeedbackVisibility)
+        }
     }
 }
