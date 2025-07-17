@@ -10,6 +10,7 @@ import SwiftUI
 struct MainNavigationRoutingView: View {
     
     @State var destination: MainNavigationDestination
+    @EnvironmentObject var router: MainNavigationRouter
     
     var body: some View {
         Group {
@@ -21,9 +22,11 @@ struct MainNavigationRoutingView: View {
             case .feedbackDetail:
                 FeedbackDetailView()
             case .inputCode:
-                InputCodeView()
-            case .feedbackWrite:
-                FeedbackWriteView()
+                InputCodeView { feedbackChannel in
+                    router.push(to: .feedbackWrite(channel: feedbackChannel))
+                }
+            case .feedbackWrite(let feedbackChannel):
+                FeedbackWriteView(feedbackChannel: feedbackChannel)
             case .feedbackWriteComplete:
                 FeedbackWriteCompleteView()
             case .feedbackChannelCreate:

@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct FeedbackWriteView: View {
+    @StateObject var viewModel: FeedbackWriteViewModel
+    
+    init(feedbackChannel: FeedbackChannel) {
+        _viewModel = StateObject(
+            wrappedValue: .init(
+                feedbackChannel: feedbackChannel
+            )
+        )
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(viewModel.feedbackChannel.channelTitle)
+        Text(viewModel.feedbackChannel.content)
     }
 }
 
 #Preview {
-    FeedbackWriteView()
+    let feedbackChannel = FeedbackChannel(
+        userID: "Test",
+        channelTitle: "Test",
+        content: "Test"
+    )
+    
+    FeedbackWriteView(feedbackChannel: feedbackChannel)
 }

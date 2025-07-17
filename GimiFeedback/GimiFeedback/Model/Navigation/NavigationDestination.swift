@@ -11,7 +11,7 @@ protocol NavigationDestination: Hashable {}
 enum StartNavigationDestination: NavigationDestination {
     case login
     case inputCode
-    case feedbackWrite(code: String)
+    case feedbackWrite(channel: FeedbackChannel)
     case feedbackWriteComplete
 }
 
@@ -21,7 +21,7 @@ enum MainNavigationDestination: NavigationDestination {
     case channelEdit(channelItem: FeedbackChannel)
     case feedbackDetail(feedback: Feedback)
     case inputCode
-    case feedbackWrite(code: String)
+    case feedbackWrite(channel: FeedbackChannel)
     case feedbackWriteComplete
     case feedbackChannelCreate
     case feedbackChannelCreateComplete(channelID: String)
