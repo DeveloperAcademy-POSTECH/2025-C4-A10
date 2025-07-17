@@ -27,7 +27,12 @@ final class FeedbackWriteViewModel: ViewModelable {
     var canCreate: Bool {
         let isNickNameFilled = !nickName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         let isAnyFieldFilled = keeps.contains(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }) ||
-                               problems.contains(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }) ||
+        problems.contains(
+            where: {
+                !$0.trimmingCharacters(
+                    in: .whitespacesAndNewlines
+                ).isEmpty
+            }) ||
                                trys.contains(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
         return isNickNameFilled && isAnyFieldFilled
     }

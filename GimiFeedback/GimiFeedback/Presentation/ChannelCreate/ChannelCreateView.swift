@@ -70,7 +70,7 @@ struct ChannelCreateView: View {
         } message: {
             Text("이대로 생성하겠습니까?")
         }
-        .onChange(of: viewModel.createdChannelID) { newValue in
+        .onChange(of: viewModel.createdChannelID) { _, newValue in
             if let id = newValue {
                 router.push(
                     to: .feedbackChannelCreateComplete(channelID: id)

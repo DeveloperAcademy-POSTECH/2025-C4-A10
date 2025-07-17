@@ -78,7 +78,7 @@ struct FeedbackWriteView: View {
             Text("이대로 피드백을 전송하시겠습니까?\n이 작업은 취소할 수 없습니다.")
         }
         .onChange(of: viewModel.createdFeedback) { _, newValue in
-            if let feedback = newValue {
+            if newValue != nil {
                 onComplete()
             }
         }
