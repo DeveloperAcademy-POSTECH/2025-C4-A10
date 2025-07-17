@@ -10,13 +10,18 @@ import SwiftUI
 struct FeedbackWriteView: View {
     @StateObject var viewModel: FeedbackWriteViewModel
     @State private var isShowCreateAlert: Bool = false
+    var onComplete: () -> Void
     
-    init(feedbackChannel: FeedbackChannel) {
+    init(
+        feedbackChannel: FeedbackChannel,
+        onComplete: @escaping () -> Void
+    ) {
         _viewModel = StateObject(
             wrappedValue: .init(
                 feedbackChannel: feedbackChannel
             )
         )
+        self.onComplete = onComplete
     }
     
     var body: some View {
@@ -72,6 +77,11 @@ struct FeedbackWriteView: View {
         } message: {
             Text("이대로 피드백을 전송하시겠습니까?\n이 작업은 취소할 수 없습니다.")
         }
+        .onChange(of: viewModel.createdFeedback) { _, newValue in
+            if let feedback = newValue {
+                onComplete()
+            }
+        }
     }
 }
 
@@ -119,5 +129,7 @@ extension FeedbackWriteView {
         content: "Test용 내용입니다"
     )
     
-    FeedbackWriteView(feedbackChannel: feedbackChannel)
+    FeedbackWriteView(feedbackChannel: feedbackChannel) {
+        print("Test")
+    }
 }
