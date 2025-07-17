@@ -86,7 +86,8 @@ extension FeedbackWriteView {
                 Text(contentType.title)
                 Text(contentType.content)
                 ForEach(content.indices, id: \.self) { index in
-                    TextField("", text: $content[index])
+                    TextEditor(text: $content[index])
+                        .scrollContentBackground(.hidden)
                         .frame(height: 102)
                         .padding()
                         .background(Color(UIColor.systemGray6))
@@ -114,8 +115,8 @@ extension FeedbackWriteView {
 #Preview {
     let feedbackChannel = FeedbackChannel(
         userID: "Test",
-        channelTitle: "Test",
-        content: "Test"
+        channelTitle: "Test용 피드백입니다.",
+        content: "Test용 내용입니다"
     )
     
     FeedbackWriteView(feedbackChannel: feedbackChannel)
