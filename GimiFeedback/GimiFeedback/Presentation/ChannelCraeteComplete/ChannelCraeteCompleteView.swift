@@ -67,7 +67,7 @@ struct ChannelCreateCompleteView: View {
                             .cornerRadius(10)
                     })
                     
-                    ShareLink(item: channelID) {
+                    ShareLink(item: "gimifeedback://feedbackWrite/\(channelID)") {
                         Image(systemName: "square.and.arrow.up")
                             .font(.system(size: 20))
                             .padding()
