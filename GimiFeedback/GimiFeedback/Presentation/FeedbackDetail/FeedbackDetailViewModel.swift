@@ -18,6 +18,7 @@ final class FeedbackDetailViewModel: ViewModelable {
     @Published var keepFeedback: [FeedbackContent]
     @Published var problemFeedback: [FeedbackContent]
     @Published var tryFeedback: [FeedbackContent]
+    @Published var otherFeedback: [FeedbackContent]
     @Published private(set) var errorMessage: String?
     @Published private(set) var isLoading: Bool = false
     
@@ -28,6 +29,7 @@ final class FeedbackDetailViewModel: ViewModelable {
         self.keepFeedback = feedbackItem.content.filter { $0.type == .keep }
         self.problemFeedback = feedbackItem.content.filter { $0.type == .problem }
         self.tryFeedback = feedbackItem.content.filter { $0.type == .try }
+        self.otherFeedback = feedbackItem.content.filter { $0.type == .other }
     }
     
     func send(_ action: Action) {
@@ -64,6 +66,7 @@ extension FeedbackDetailViewModel {
         keepFeedback = feedbackItem.content.filter { $0.type == .keep }
         problemFeedback = feedbackItem.content.filter { $0.type == .problem }
         tryFeedback = feedbackItem.content.filter { $0.type == .try }
+        otherFeedback = feedbackItem.content.filter { $0.type == .other }
         
         Task {
             isLoading = true
