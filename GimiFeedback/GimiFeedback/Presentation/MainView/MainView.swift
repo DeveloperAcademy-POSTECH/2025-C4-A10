@@ -20,6 +20,13 @@ struct MainView: View {
                 .navigationDestination(for: MainNavigationDestination.self) { destination in
                     MainNavigationRoutingView(destination: destination)
                 }
+                .onOpenURL { url in
+                    DeepLinkManager.shared.handleFeedbackWriteDeepLink(
+                        url: url,
+                        router: router,
+                        destination: { .feedbackWrite(channel: $0) }
+                    )
+                }
         }
         .environmentObject(router)
     }

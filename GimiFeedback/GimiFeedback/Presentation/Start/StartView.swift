@@ -22,6 +22,13 @@ struct StartView: View {
                 ) { destination in
                     StartNavigationRoutingView(destination: destination)
                 }
+                .onOpenURL { url in
+                    DeepLinkManager.shared.handleFeedbackWriteDeepLink(
+                        url: url,
+                        router: router,
+                        destination: { .feedbackWrite(channel: $0) }
+                    )
+                }
         }
         .environmentObject(router)
     }
