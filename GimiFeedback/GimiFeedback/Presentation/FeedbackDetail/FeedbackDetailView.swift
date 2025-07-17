@@ -15,21 +15,28 @@ struct FeedbackDetailView: View {
             
             VStack(spacing: 8) {
                 FeedbackSectionView(
-                    title: "Keep",
+                    type: .keep,
                     details: $viewModel.keepFeedback,
                     onReveal: { detail in
                         viewModel.send(.visualizeDetail(detail: detail))
                     }
                 )
                 FeedbackSectionView(
-                    title: "Problem",
+                    type: .problem,
                     details: $viewModel.problemFeedback,
                     onReveal: { detail in
                         viewModel.send(.visualizeDetail(detail: detail))
                     }
                 )
                 FeedbackSectionView(
-                    title: "try",
+                    type: .try,
+                    details: $viewModel.tryFeedback,
+                    onReveal: { detail in
+                        viewModel.send(.visualizeDetail(detail: detail))
+                    }
+                )
+                FeedbackSectionView(
+                    type: .other,
                     details: $viewModel.tryFeedback,
                     onReveal: { detail in
                         viewModel.send(.visualizeDetail(detail: detail))
