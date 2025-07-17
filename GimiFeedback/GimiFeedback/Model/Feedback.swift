@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Feedback: Codable, Identifiable {
+struct Feedback: Codable, Identifiable, Hashable {
     let id: UUID
     let feedbackChannelID: UUID
     let readPerson: UUID  // 받는 사람

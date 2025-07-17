@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct FeedbackChannel: Codable, Identifiable {
+struct FeedbackChannel: Codable, Identifiable, Hashable {
     let id: UUID
-    let userID: UUID
+    let userID: String
     let channelTitle: String
     var content: String
     
     init(
         id: UUID = UUID(),
-        userID: UUID,
+        userID: String,
         channelTitle: String,
         content: String
     ) {
