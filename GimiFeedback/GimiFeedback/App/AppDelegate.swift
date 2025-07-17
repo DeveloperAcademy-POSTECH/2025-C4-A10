@@ -52,7 +52,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
     ) {
-        completionHandler([.list, .banner])
+        completionHandler([.badge, .list, .banner, .sound])
     }
 }
 
@@ -60,8 +60,6 @@ extension AppDelegate: MessagingDelegate {
     
     // 파이어베이스 MessagingDelegate 설정
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("FCM 등록 토큰: \(String(describing: fcmToken))")
-        
         let dataDict: [String: String] = ["token": fcmToken ?? ""]
         NotificationCenter.default.post(
             name: Notification.Name("FCMToken"),

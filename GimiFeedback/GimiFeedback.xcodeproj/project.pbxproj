@@ -361,9 +361,9 @@
 		EE856A4A2E1CD399006820B9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */,
 				EE3756A12E1E601E009AD262 /* Firestore */,
 				EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */,
+				EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */,
 				EE41FEEC2E225A1C0002E595 /* FirebaseAuthManager.swift */,
 				EE41FEEA2E2259980002E595 /* KakaoAuthManager.swift */,
 			);
