@@ -28,7 +28,6 @@ final class DeepLinkManager {
         }
 }
 
-
 extension DeepLinkManager {
     
     /// 딥링크 URL에서 피드백 채널 UUID를 추출

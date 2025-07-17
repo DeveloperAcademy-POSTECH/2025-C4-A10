@@ -46,7 +46,7 @@ extension KakaoShareManager {
             description: "피드백을 남겨주세요",
             link: .init(
                 webUrl: URL(string: "https://developers.kakao.com/"),
-                mobileWebUrl: URL(string: "https://developers.kakao.com/"),)
+                mobileWebUrl: URL(string: "https://developers.kakao.com/"))
         )
         
         let buttons = [
