@@ -55,15 +55,23 @@ struct FeedbackWriteView: View {
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .frame(height: 64)
-                        .background(viewModel.canCreate ? Color.black : Color.gray.opacity(0.5))
+                        .background(!viewModel.canCreate ? Color.black : Color.gray.opacity(0.5))
                         .cornerRadius(16)
                 })
-                .disabled(viewModel.canCreate)
+                .disabled(!viewModel.canCreate)
             }
         }
         .contentMargins(.horizontal, 20, for: .scrollContent)
         .navigationTitle("피드백 작성하기")
         .navigationBarTitleDisplayMode(.inline)
+        .alert("작성 완료하기", isPresented: $isShowCreateAlert) {
+            Button("취소", role: .cancel) { }
+            Button("확인") {
+                viewModel.send(.feedbackWrite)
+            }
+        } message: {
+            Text("이대로 피드백을 전송하시겠습니까?\n이 작업은 취소할 수 없습니다.")
+        }
     }
 }
 
