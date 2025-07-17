@@ -37,7 +37,7 @@
 		EE465EEE2E2630F20096109A /* ChannelEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EED2E2630F20096109A /* ChannelEditView.swift */; };
 		EE465EF02E26317A0096109A /* FeedbackWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EEF2E26317A0096109A /* FeedbackWriteView.swift */; };
 		EE465EF22E2631840096109A /* FeedbackWriteCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EF12E2631840096109A /* FeedbackWriteCompleteView.swift */; };
-		EE465EF82E2632B20096109A /* ChannelCraeteCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EF72E2632B20096109A /* ChannelCraeteCompleteView.swift */; };
+		EE465EF82E2632B20096109A /* ChannelCreateCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EF72E2632B20096109A /* ChannelCreateCompleteView.swift */; };
 		EE465EFC2E2650970096109A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EFB2E2650970096109A /* HomeView.swift */; };
 		EE465F022E26510A0096109A /* ChannelListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465F012E2651070096109A /* ChannelListItemView.swift */; };
 		EE465F062E27B2420096109A /* InputCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465F052E27B23D0096109A /* InputCodeViewModel.swift */; };
@@ -88,7 +88,7 @@
 		EE465EED2E2630F20096109A /* ChannelEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelEditView.swift; sourceTree = "<group>"; };
 		EE465EEF2E26317A0096109A /* FeedbackWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteView.swift; sourceTree = "<group>"; };
 		EE465EF12E2631840096109A /* FeedbackWriteCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteCompleteView.swift; sourceTree = "<group>"; };
-		EE465EF72E2632B20096109A /* ChannelCraeteCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCraeteCompleteView.swift; sourceTree = "<group>"; };
+		EE465EF72E2632B20096109A /* ChannelCreateCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCreateCompleteView.swift; sourceTree = "<group>"; };
 		EE465EFB2E2650970096109A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EE465F012E2651070096109A /* ChannelListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListItemView.swift; sourceTree = "<group>"; };
 		EE465F052E27B23D0096109A /* InputCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCodeViewModel.swift; sourceTree = "<group>"; };
@@ -231,14 +231,14 @@
 			path = ChannelCreate;
 			sourceTree = "<group>";
 		};
-		EE82DF9E2E24D5FC00EC1AFF /* ChannelCraeteComplete */ = {
+		EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */ = {
 			isa = PBXGroup;
 			children = (
 				EC9959B42E24FDE0001555B1 /* SubView */,
 				EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */,
-				EE465EF72E2632B20096109A /* ChannelCraeteCompleteView.swift */,
+				EE465EF72E2632B20096109A /* ChannelCreateCompleteView.swift */,
 			);
-			path = ChannelCraeteComplete;
+			path = ChannelCreateComplete;
 			sourceTree = "<group>";
 		};
 		EE856A1D2E1CD093006820B9 = {
@@ -292,7 +292,7 @@
 				EC9959BB2E2518AF001555B1 /* FeedbackWrite */,
 				EC9959B82E251453001555B1 /* FeedbackDetail */,
 				EC9959B52E251368001555B1 /* ChannelEdit */,
-				EE82DF9E2E24D5FC00EC1AFF /* ChannelCraeteComplete */,
+				EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */,
 				EE82DF992E24D5B500EC1AFF /* ChannelCreate */,
 				EC9959B12E24E646001555B1 /* ChannelDetail */,
 				EE856A4F2E1CD401006820B9 /* Start */,
@@ -500,7 +500,7 @@
 				EE856A4C2E1CD3AD006820B9 /* FirestoreManager.swift in Sources */,
 				EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */,
 				EE856CA72E1D6D32006820B9 /* NavigationRouter.swift in Sources */,
-				EE465EF82E2632B20096109A /* ChannelCraeteCompleteView.swift in Sources */,
+				EE465EF82E2632B20096109A /* ChannelCreateCompleteView.swift in Sources */,
 				EE465F022E26510A0096109A /* ChannelListItemView.swift in Sources */,
 				EC9959BA2E25145B001555B1 /* FeedbackDetailView.swift in Sources */,
 				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
