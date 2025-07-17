@@ -58,6 +58,9 @@
 		EE856CA72E1D6D32006820B9 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */; };
 		EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */; };
 		EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */; };
+		EEDBB1B82E28D45700F16407 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1B72E28D45700F16407 /* FirebaseMessaging */; };
+		EEDBB1BA2E28DA9200F16407 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1B92E28DA9100F16407 /* Token.swift */; };
+		EEDBB1BC2E28DEC100F16407 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1BB2E28DEB900F16407 /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +113,8 @@
 		EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestination.swift; sourceTree = "<group>"; };
 		EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNavigationRoutingView.swift; sourceTree = "<group>"; };
 		EEDBB1B62E28D2E900F16407 /* GimiFeedback.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GimiFeedback.entitlements; sourceTree = "<group>"; };
+		EEDBB1B92E28DA9100F16407 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		EEDBB1BB2E28DEB900F16407 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEDBB1B82E28D45700F16407 /* FirebaseMessaging in Frameworks */,
 				EE41FEDE2E2250DF0002E595 /* KakaoSDKCommon in Frameworks */,
 				EE3755462E1E5B8D009AD262 /* FirebaseAuth in Frameworks */,
 				EE3755482E1E5B8D009AD262 /* FirebaseFirestore in Frameworks */,
@@ -304,6 +310,7 @@
 		EE856A3E2E1CD111006820B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EEDBB1B92E28DA9100F16407 /* Token.swift */,
 				EE3755402E1E1102009AD262 /* FeedbackChannel.swift */,
 				EE856A482E1CD2D1006820B9 /* Feedback.swift */,
 				EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */,
@@ -352,6 +359,7 @@
 		EE856A4A2E1CD399006820B9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				EEDBB1BB2E28DEB900F16407 /* NotificationManager.swift */,
 				EE3756A12E1E601E009AD262 /* Firestore */,
 				EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */,
 				EE41FEEC2E225A1C0002E595 /* FirebaseAuthManager.swift */,
@@ -414,6 +422,7 @@
 				EE41FEDB2E2250DF0002E595 /* KakaoSDKAuth */,
 				EE41FEDD2E2250DF0002E595 /* KakaoSDKCommon */,
 				EE41FEDF2E2250DF0002E595 /* KakaoSDKUser */,
+				EEDBB1B72E28D45700F16407 /* FirebaseMessaging */,
 			);
 			productName = A10;
 			productReference = EE856A262E1CD093006820B9 /* GimiFeedback.app */;
@@ -496,6 +505,7 @@
 				EE465EFC2E2650970096109A /* HomeView.swift in Sources */,
 				EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */,
 				EE465EF22E2631840096109A /* FeedbackWriteCompleteView.swift in Sources */,
+				EEDBB1BA2E28DA9200F16407 /* Token.swift in Sources */,
 				EE856A472E1CD2AD006820B9 /* Font.swift in Sources */,
 				EE82DF9B2E24D5CD00EC1AFF /* ChannelCreateView.swift in Sources */,
 				EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */,
@@ -518,6 +528,7 @@
 				EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */,
 				EE856A492E1CD2D7006820B9 /* Feedback.swift in Sources */,
 				EE856A512E1CD418006820B9 /* ChannelListView.swift in Sources */,
+				EEDBB1BC2E28DEC100F16407 /* NotificationManager.swift in Sources */,
 				EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */,
 				EE465F062E27B2420096109A /* InputCodeViewModel.swift in Sources */,
 				EE41FEED2E225A250002E595 /* FirebaseAuthManager.swift in Sources */,
@@ -812,6 +823,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EE9743B02E1D7A06009B4C91 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
 			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		EEDBB1B72E28D45700F16407 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE3755442E1E5B8D009AD262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
