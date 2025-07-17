@@ -12,6 +12,7 @@ final class FeedbackDetailViewModel: ViewModelable {
     enum Action {
         case deleteFeedback
         case createDummyDetails
+        case visualizeDetail(detail: FeedbackContent)
     }
     
     var feedbackItem: Feedback
@@ -36,6 +37,8 @@ final class FeedbackDetailViewModel: ViewModelable {
             deleteFeedback(feedbackItem: feedbackItem)
         case .createDummyDetails:
             createDummyDetails()
+        case .visualizeDetail(let detail):
+            updateVisibility(detail: detail)
         }
     }
 }
@@ -51,6 +54,27 @@ extension FeedbackDetailViewModel {
             } catch {
                 errorMessage = "삭제 실패: \(error.localizedDescription)"
                 print("삭제 실패: \(error.localizedDescription)")
+            }
+            isLoading = false
+        }
+    }
+    
+    private func updateVisibility(detail: FeedbackContent) {
+        guard let index = feedbackItem.content.firstIndex(where: { $0.id == detail.id }) else { return }
+        
+        feedbackItem.content[index].visiable = true
+        
+        keepFeedback = feedbackItem.content.filter { $0.type == .keep }
+        problemFeedback = feedbackItem.content.filter { $0.type == .problem }
+        tryFeedback = feedbackItem.content.filter { $0.type == .try }
+        
+        Task {
+            isLoading = true
+            do {
+                try await FirestoreManager.shared.update(feedbackItem)
+            } catch {
+                errorMessage = "원문 표시 실패: \(error.localizedDescription)"
+                print("원문 표시 실패: \(error.localizedDescription)")
             }
             isLoading = false
         }

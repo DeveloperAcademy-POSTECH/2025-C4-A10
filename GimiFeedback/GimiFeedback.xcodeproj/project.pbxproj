@@ -103,6 +103,14 @@
 		EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNavigationRoutingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		0DC2A3D62E27FD2700FF91BC /* SubView */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SubView;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		EE856A232E1CD093006820B9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -146,6 +154,7 @@
 		EC9959B82E251453001555B1 /* FeedbackDetail */ = {
 			isa = PBXGroup;
 			children = (
+				0DC2A3D62E27FD2700FF91BC /* SubView */,
 				EC9959B92E25145B001555B1 /* FeedbackDetailView.swift */,
 				0DC2A3D42E263E1500FF91BC /* FeedbackDetailViewModel.swift */,
 			);
@@ -376,6 +385,9 @@
 			);
 			dependencies = (
 				EE9743B22E1D7A58009B4C91 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				0DC2A3D62E27FD2700FF91BC /* SubView */,
 			);
 			name = GimiFeedback;
 			packageProductDependencies = (
