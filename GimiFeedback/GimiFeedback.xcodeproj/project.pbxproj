@@ -61,6 +61,7 @@
 		EEDBB1B82E28D45700F16407 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1B72E28D45700F16407 /* FirebaseMessaging */; };
 		EEDBB1BA2E28DA9200F16407 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1B92E28DA9100F16407 /* Token.swift */; };
 		EEDBB1BC2E28DEC100F16407 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1BB2E28DEB900F16407 /* NotificationManager.swift */; };
+		EEDBB1BE2E2913CE00F16407 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1BD2E2913CE00F16407 /* FirebaseFunctions */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEDBB1B82E28D45700F16407 /* FirebaseMessaging in Frameworks */,
+				EEDBB1BE2E2913CE00F16407 /* FirebaseFunctions in Frameworks */,
 				EE41FEDE2E2250DF0002E595 /* KakaoSDKCommon in Frameworks */,
 				EE3755462E1E5B8D009AD262 /* FirebaseAuth in Frameworks */,
 				EE3755482E1E5B8D009AD262 /* FirebaseFirestore in Frameworks */,
@@ -423,6 +425,7 @@
 				EE41FEDD2E2250DF0002E595 /* KakaoSDKCommon */,
 				EE41FEDF2E2250DF0002E595 /* KakaoSDKUser */,
 				EEDBB1B72E28D45700F16407 /* FirebaseMessaging */,
+				EEDBB1BD2E2913CE00F16407 /* FirebaseFunctions */,
 			);
 			productName = A10;
 			productReference = EE856A262E1CD093006820B9 /* GimiFeedback.app */;
@@ -828,6 +831,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EE3755442E1E5B8D009AD262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		EEDBB1BD2E2913CE00F16407 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE3755442E1E5B8D009AD262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -35,7 +35,7 @@ extension ChannelCreateViewModel {
             isLoading = true
             
             let newChannel = FeedbackChannel(
-                userID: FirebaseAuthManager.currentUserID ?? "",
+                userID: FirebaseAuthManager.currentUserID,
                 channelTitle: title,
                 content: description
             )
