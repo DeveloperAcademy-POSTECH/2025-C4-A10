@@ -62,7 +62,7 @@ struct FeedbackSectionView: View {
 }
 
 #Preview {
-    var sampleFeedbackContents: [FeedbackContent] = [
+    let sampleFeedbackContents: [FeedbackContent] = [
         FeedbackContent(
             content: "사용자 온보딩 플로우가 명확해서 이해하기 쉬웠어요.",
             spicy: 1,
@@ -110,7 +110,7 @@ struct FeedbackSectionView: View {
             spicy: 1,
             visiable: false,
             type: .try
-        )
+        ),
     ]
     
     @State var feedbacks = sampleFeedbackContents
