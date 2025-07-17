@@ -56,6 +56,7 @@ struct ChannelCreateCompleteView: View {
                 HStack(spacing: 8) {
                     Button(action: {
                         // TODO: 카카오 공유
+                        KakaoShareManager.shared.shareToKakao(channelID: channelID)
                     }, label: {
                         Text("카카오로 초대장 보내기")
                             .fontWeight(.semibold)
