@@ -101,6 +101,9 @@ extension UserViewModel {
         }
     }
     
+    // MARK: 토큰 관련 함수
+    
+    /// 토큰 저장 (로그인시)
     private func saveFCMToken(userID: String) async {
         do {
             let tokenString = try await FCMManager.shared.getTokenString()
@@ -112,6 +115,7 @@ extension UserViewModel {
         }
     }
     
+    /// 토큰 저장 삭제 (로그아웃시)
     private func deleteFCMToken(userID: String) async {
         do {
             if let token: Token = try await FirestoreManager.shared.get(
