@@ -9,9 +9,12 @@ import SwiftUI
 
 struct StartView: View {
     @StateObject var router: OnboardingNavigationRouter
+    @StateObject private var viewModel: StartViewModel
     
     init() {
-        _router = StateObject(wrappedValue: OnboardingNavigationRouter())
+        let router = OnboardingNavigationRouter()
+        _router = StateObject(wrappedValue: router)
+        _viewModel = StateObject(wrappedValue: StartViewModel(router: router))
     }
     
     var body: some View {
@@ -23,11 +26,7 @@ struct StartView: View {
                     StartNavigationRoutingView(destination: destination)
                 }
                 .onOpenURL { url in
-                    DeepLinkManager.shared.handleFeedbackWriteDeepLink(
-                        url: url,
-                        router: router,
-                        destination: { .feedbackWrite(channel: $0) }
-                    )
+                    viewModel.send(.handleDeepLink(url))
                 }
         }
         .environmentObject(router)

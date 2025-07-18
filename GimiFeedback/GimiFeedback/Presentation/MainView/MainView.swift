@@ -9,11 +9,14 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var router: MainNavigationRouter
+    @StateObject private var viewModel: MainViewModel
     
     init() {
-        _router = StateObject(wrappedValue: MainNavigationRouter())
+        let router = MainNavigationRouter()
+        _router = StateObject(wrappedValue: router)
+        _viewModel = StateObject(wrappedValue: MainViewModel(router: router))
     }
-    
+
     var body: some View {
         NavigationStack(path: $router.destinations) {
             ChannelListView()
@@ -21,11 +24,7 @@ struct MainView: View {
                     MainNavigationRoutingView(destination: destination)
                 }
                 .onOpenURL { url in
-                    DeepLinkManager.shared.handleFeedbackWriteDeepLink(
-                        url: url,
-                        router: router,
-                        destination: { .feedbackWrite(channel: $0) }
-                    )
+                    viewModel.send(.handleDeepLink(url))
                 }
         }
         .environmentObject(router)
