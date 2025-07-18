@@ -39,7 +39,7 @@
 		EE465EF02E26317A0096109A /* FeedbackWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EEF2E26317A0096109A /* FeedbackWriteView.swift */; };
 		EE465EF22E2631840096109A /* FeedbackWriteCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EF12E2631840096109A /* FeedbackWriteCompleteView.swift */; };
 		EE465EF82E2632B20096109A /* ChannelCreateCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EF72E2632B20096109A /* ChannelCreateCompleteView.swift */; };
-		EE465EFC2E2650970096109A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EFB2E2650970096109A /* HomeView.swift */; };
+		EE465EFC2E2650970096109A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465EFB2E2650970096109A /* MainView.swift */; };
 		EE465F022E26510A0096109A /* ChannelListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465F012E2651070096109A /* ChannelListItemView.swift */; };
 		EE465F062E27B2420096109A /* InputCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465F052E27B23D0096109A /* InputCodeViewModel.swift */; };
 		EE465F6D2E27E8CD0096109A /* FeedbackWriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465F6C2E27E8CC0096109A /* FeedbackWriteViewModel.swift */; };
@@ -64,6 +64,7 @@
 		EEE689122E2943C00008012D /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */; };
 		EEE689132E2943FB0008012D /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */; };
 		EEE689142E2944110008012D /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A5A2E1CEA98006820B9 /* StartView.swift */; };
+		EEE6891A2E2A2CF50008012D /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE689192E2A2CF00008012D /* NavigationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,7 +96,7 @@
 		EE465EEF2E26317A0096109A /* FeedbackWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteView.swift; sourceTree = "<group>"; };
 		EE465EF12E2631840096109A /* FeedbackWriteCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteCompleteView.swift; sourceTree = "<group>"; };
 		EE465EF72E2632B20096109A /* ChannelCreateCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCreateCompleteView.swift; sourceTree = "<group>"; };
-		EE465EFB2E2650970096109A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EE465EFB2E2650970096109A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EE465F012E2651070096109A /* ChannelListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListItemView.swift; sourceTree = "<group>"; };
 		EE465F052E27B23D0096109A /* InputCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCodeViewModel.swift; sourceTree = "<group>"; };
 		EE465F6C2E27E8CC0096109A /* FeedbackWriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteViewModel.swift; sourceTree = "<group>"; };
@@ -120,6 +121,7 @@
 		EEDBB1B62E28D2E900F16407 /* GimiFeedback.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GimiFeedback.entitlements; sourceTree = "<group>"; };
 		EEDBB1B92E28DA9100F16407 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMManager.swift; sourceTree = "<group>"; };
+		EEE689192E2A2CF00008012D /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,12 +219,13 @@
 			path = InputCode;
 			sourceTree = "<group>";
 		};
-		EE465EFA2E26508E0096109A /* HomeView */ = {
+		EE465EFA2E26508E0096109A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				EE465EFB2E2650970096109A /* HomeView.swift */,
+				EEE689192E2A2CF00008012D /* NavigationViewModel.swift */,
+				EE465EFB2E2650970096109A /* MainView.swift */,
 			);
-			path = HomeView;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		EE465F002E2651000096109A /* SubView */ = {
@@ -299,7 +302,7 @@
 		EE856A3C2E1CD102006820B9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				EE465EFA2E26508E0096109A /* HomeView */,
+				EE465EFA2E26508E0096109A /* Main */,
 				EC9959BE2E2518BE001555B1 /* FeedbackWriteComplete */,
 				EC9959BB2E2518AF001555B1 /* FeedbackWrite */,
 				EC9959B82E251453001555B1 /* FeedbackDetail */,
@@ -503,6 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEE6891A2E2A2CF50008012D /* NavigationViewModel.swift in Sources */,
 				EEE689142E2944110008012D /* StartView.swift in Sources */,
 				EEE689132E2943FB0008012D /* NavigationRouter.swift in Sources */,
 				EEE689122E2943C00008012D /* FirestoreManager.swift in Sources */,
@@ -512,14 +516,13 @@
 				EE465EEE2E2630F20096109A /* ChannelEditView.swift in Sources */,
 				EC9959B32E24E646001555B1 /* ChannelDetailViewModel.swift in Sources */,
 				EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */,
-				EE856CA72E1D6D32006820B9 /* NavigationRouter.swift in Sources */,
 				EE465EF82E2632B20096109A /* ChannelCreateCompleteView.swift in Sources */,
 				EE465F022E26510A0096109A /* ChannelListItemView.swift in Sources */,
 				EC9959BA2E25145B001555B1 /* FeedbackDetailView.swift in Sources */,
 				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
 				EE41FEE72E22572C0002E595 /* Bundle+Extension.swift in Sources */,
 				EE41FD7D2E223D050002E595 /* LoginView.swift in Sources */,
-				EE465EFC2E2650970096109A /* HomeView.swift in Sources */,
+				EE465EFC2E2650970096109A /* MainView.swift in Sources */,
 				EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */,
 				EE465EF22E2631840096109A /* FeedbackWriteCompleteView.swift in Sources */,
 				EEDBB1BA2E28DA9200F16407 /* Token.swift in Sources */,

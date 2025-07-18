@@ -60,7 +60,8 @@ final class FeedbackWriteViewModel: ViewModelable {
             FCMManager.shared.sendNotification(
                 to: feedbackChannel.userID,
                 from: nickName,
-                title: feedbackChannel.channelTitle
+                title: feedbackChannel.channelTitle,
+                feedbackId: createdFeedback.id.uuidString
             )
         }
     }
