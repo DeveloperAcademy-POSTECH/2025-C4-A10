@@ -1,0 +1,15 @@
+*.pt
+*.textClipping
+*/*.bin
+*.bin
+*.pth
+*/*.pth
+
+__pycache__
+.vscode
+
+code/
+jupyter/
+save/*
+wandb/
+*.ipynb
