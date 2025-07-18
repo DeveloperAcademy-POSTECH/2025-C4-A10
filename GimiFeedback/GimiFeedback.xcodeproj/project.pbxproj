@@ -15,6 +15,8 @@
 		ECC980AF2E290DC4004A483B /* KakaoSDKShare in Frameworks */ = {isa = PBXBuildFile; productRef = ECC980AE2E290DC4004A483B /* KakaoSDKShare */; };
 		ECC980B12E290DC4004A483B /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = ECC980B02E290DC4004A483B /* KakaoSDKTemplate */; };
 		ECC980B52E294835004A483B /* KakaoShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC980B42E294835004A483B /* KakaoShareManager.swift */; };
+		ECC980B92E2A3217004A483B /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC980B82E2A3217004A483B /* StartViewModel.swift */; };
+		ECC980BB2E2A35C6004A483B /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC980BA2E2A35C6004A483B /* MainViewModel.swift */; };
 		EE3754AF2E1D7B36009AD262 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */; };
 		EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */; };
 		EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */; };
@@ -71,6 +73,8 @@
 		EC9959B92E25145B001555B1 /* FeedbackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailView.swift; sourceTree = "<group>"; };
 		ECC980AB2E28E91E004A483B /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
 		ECC980B42E294835004A483B /* KakaoShareManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoShareManager.swift; sourceTree = "<group>"; };
+		ECC980B82E2A3217004A483B /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		ECC980BA2E2A35C6004A483B /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContentType.swift; sourceTree = "<group>"; };
 		EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContent.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				EE465EFB2E2650970096109A /* MainView.swift */,
+				ECC980BA2E2A35C6004A483B /* MainViewModel.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				EE856A5A2E1CEA98006820B9 /* StartView.swift */,
+				ECC980B82E2A3217004A483B /* StartViewModel.swift */,
 				EE41FD7C2E223CFD0002E595 /* LoginView.swift */,
 				EE41FEE82E2259310002E595 /* UserViewModel.swift */,
 			);
@@ -495,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC980BB2E2A35C6004A483B /* MainViewModel.swift in Sources */,
 				EE41FEE92E2259350002E595 /* UserViewModel.swift in Sources */,
 				EE856A4C2E1CD3AD006820B9 /* FirestoreManager.swift in Sources */,
 				EE856CA72E1D6D32006820B9 /* NavigationRouter.swift in Sources */,
@@ -520,6 +527,7 @@
 				EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */,
 				EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */,
 				EE41FD822E223D720002E595 /* InputCodeView.swift in Sources */,
+				ECC980B92E2A3217004A483B /* StartViewModel.swift in Sources */,
 				EE856A5B2E1CEA98006820B9 /* StartView.swift in Sources */,
 				EE856A5B2E1CEA98006820B9 /* StartView.swift in Sources */,
 				EE465EF02E26317A0096109A /* FeedbackWriteView.swift in Sources */,

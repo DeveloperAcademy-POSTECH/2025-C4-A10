@@ -5,7 +5,6 @@
 //  Created by 승찬 on 7/18/25.
 //
 
-import Foundation
 import KakaoSDKTemplate
 import KakaoSDKShare
 import UIKit
