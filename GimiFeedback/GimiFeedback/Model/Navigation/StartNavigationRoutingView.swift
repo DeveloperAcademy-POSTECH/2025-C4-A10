@@ -21,12 +21,12 @@ struct StartNavigationRoutingView: View {
                 }
             case .login:
                 LoginView()
-            case .feedbackWriteComplete:
-                // TODO: 피드백 완료 이동
-                EmptyView()
             case .feedbackWrite(let feedbackChannel):
-                // TODO: 피드백 생성 이동
-                FeedbackWriteView(feedbackChannel: feedbackChannel)
+                FeedbackWriteView(feedbackChannel: feedbackChannel) {
+                    router.push(to: .feedbackWriteComplete)
+                }
+            case .feedbackWriteComplete:
+                FeedbackWriteCompleteView()
             }
         }
     }

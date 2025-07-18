@@ -13,4 +13,5 @@ enum CollectionType: String {
     case feedback = "Feedback"
     case feedbackContent = "FeedbackContent"
     case feedbackContentType = "FeedbackContentType"
+    case token = "Token"
 }

@@ -15,8 +15,8 @@ final class FirebaseAuthManager {
         return Auth.auth().currentUser != nil
     }
     
-    static var currentUserID: String? {
-        return Auth.auth().currentUser?.uid
+    static var currentUserID: String {
+        return Auth.auth().currentUser?.uid ?? ""
     }
     
     private init() {}

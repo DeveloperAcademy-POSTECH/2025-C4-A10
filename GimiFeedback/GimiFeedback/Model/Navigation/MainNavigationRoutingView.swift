@@ -26,7 +26,9 @@ struct MainNavigationRoutingView: View {
                     router.push(to: .feedbackWrite(channel: feedbackChannel))
                 }
             case .feedbackWrite(let feedbackChannel):
-                FeedbackWriteView(feedbackChannel: feedbackChannel)
+                FeedbackWriteView(feedbackChannel: feedbackChannel) {
+                    router.push(to: .feedbackWriteComplete)
+                }
             case .feedbackWriteComplete:
                 FeedbackWriteCompleteView()
             case .feedbackChannelCreate:

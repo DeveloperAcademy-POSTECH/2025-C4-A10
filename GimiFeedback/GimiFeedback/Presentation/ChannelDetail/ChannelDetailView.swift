@@ -97,7 +97,7 @@ struct ChannelDetailView: View {
         } message: {
             Text("정말 삭제하시겠습니까?\n이 작업은 되돌릴 수 없습니다.")
         }
-        .onChange(of: viewModel.isDelete) { new in
+        .onChange(of: viewModel.isDelete) { _, new in
             if new == true {
                 router.pop()
             }
