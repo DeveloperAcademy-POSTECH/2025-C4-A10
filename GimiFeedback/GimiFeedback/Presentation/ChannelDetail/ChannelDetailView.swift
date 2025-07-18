@@ -41,16 +41,20 @@ struct ChannelDetailView: View {
                 } else {
                     ForEach(viewModel.feedbackList.sorted(by: { $0.date > $1.date })) { item in
                         LazyVStack(alignment: .leading, spacing: 8) {
-                            VStack(alignment: .leading) {
-                                Text(item.date.formattedDate)
-                                
-                                Text("\(item.writePerson)의 피드백")
+                            Button {
+                                router.push(to: .feedbackDetail(feedback: item))
+                            } label: {
+                                VStack(alignment: .leading) {
+                                    Text(item.date.formattedDate)
+                                    
+                                    Text("\(item.writePerson)의 피드백")
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(Color.gray.opacity(0.1))
+                                .clipShape(.rect(cornerRadius: 20))
+                                .padding(.horizontal)
                             }
-                            .padding()
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .background(Color.gray.opacity(0.1))
-                            .clipShape(.rect(cornerRadius: 20))
-                            .padding(.horizontal)
                         }
                         
                     }
