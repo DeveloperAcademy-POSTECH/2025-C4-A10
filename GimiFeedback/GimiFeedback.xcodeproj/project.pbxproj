@@ -64,7 +64,7 @@
 		EEE689122E2943C00008012D /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */; };
 		EEE689132E2943FB0008012D /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */; };
 		EEE689142E2944110008012D /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A5A2E1CEA98006820B9 /* StartView.swift */; };
-		EEE6891A2E2A2CF50008012D /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE689192E2A2CF00008012D /* NavigationViewModel.swift */; };
+		EEE6891A2E2A2CF50008012D /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE689192E2A2CF00008012D /* NotificationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,7 +121,7 @@
 		EEDBB1B62E28D2E900F16407 /* GimiFeedback.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GimiFeedback.entitlements; sourceTree = "<group>"; };
 		EEDBB1B92E28DA9100F16407 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMManager.swift; sourceTree = "<group>"; };
-		EEE689192E2A2CF00008012D /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
+		EEE689192E2A2CF00008012D /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,7 +222,7 @@
 		EE465EFA2E26508E0096109A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				EEE689192E2A2CF00008012D /* NavigationViewModel.swift */,
+				EEE689192E2A2CF00008012D /* NotificationViewModel.swift */,
 				EE465EFB2E2650970096109A /* MainView.swift */,
 			);
 			path = Main;
@@ -506,7 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEE6891A2E2A2CF50008012D /* NavigationViewModel.swift in Sources */,
+				EEE6891A2E2A2CF50008012D /* NotificationViewModel.swift in Sources */,
 				EEE689142E2944110008012D /* StartView.swift in Sources */,
 				EEE689132E2943FB0008012D /* NavigationRouter.swift in Sources */,
 				EEE689122E2943C00008012D /* FirestoreManager.swift in Sources */,
