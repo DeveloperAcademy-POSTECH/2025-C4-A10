@@ -35,7 +35,7 @@ final class FCMManager {
             "targetUid": userId,
             "title": title,
             "body": "\(sendUserName)님이 피드백을 보냈습니다!",
-            "feedbackId": feedbackId
+            "feedbackId": feedbackId,
         ]
         
         functions.httpsCallable("sendNotification").call(data) { result, error in
