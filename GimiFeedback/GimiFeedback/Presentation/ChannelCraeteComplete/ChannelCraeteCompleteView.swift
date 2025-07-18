@@ -10,6 +10,14 @@ import SwiftUI
 struct ChannelCreateCompleteView: View {
     @EnvironmentObject var router: MainNavigationRouter
     
+    @StateObject private var viewModel: ChannelCreateCompleteViewModel
+    
+    init(channelID: String, onClose: @escaping () -> Void = {}) {
+        _viewModel = StateObject(wrappedValue: ChannelCreateCompleteViewModel())
+        self.channelID = channelID
+        self.onClose = onClose
+    }
+    
     let channelID: String
     var onClose: () -> Void = {}
     
@@ -55,7 +63,7 @@ struct ChannelCreateCompleteView: View {
                 
                 HStack(spacing: 8) {
                     Button(action: {
-                        KakaoShareManager.shared.shareToKakao(channelID: channelID)
+                        viewModel.send(.shareToKakao(channelID))
                     }, label: {
                         Text("카카오로 초대장 보내기")
                             .fontWeight(.semibold)
