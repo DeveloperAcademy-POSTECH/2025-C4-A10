@@ -9,9 +9,11 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var router: MainNavigationRouter
+    @ObservedObject var notificationRouter: NotificationViewModel
     
-    init() {
+    init(notificationRouter: NotificationViewModel) {
         _router = StateObject(wrappedValue: MainNavigationRouter())
+        self.notificationRouter = notificationRouter
     }
     
     var body: some View {
@@ -22,9 +24,18 @@ struct MainView: View {
                 }
         }
         .environmentObject(router)
+        .onAppear {
+            notificationRouter.send(.fetchFeedback)
+        }
+        .onChange(of: notificationRouter.feedback) { _, newValue in
+            if let feedback = newValue {
+                router.push(to: .feedbackDetail(feedback: feedback))
+                notificationRouter.send(.resetFeedback)
+            }
+        }
     }
 }
 
 #Preview {
-    MainView()
+    MainView(notificationRouter: NotificationViewModel())
 }

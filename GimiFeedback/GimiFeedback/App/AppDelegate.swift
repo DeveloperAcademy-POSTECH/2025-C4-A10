@@ -11,6 +11,8 @@ import UserNotifications
 import FirebaseMessaging
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
+    var saveUserInfo: [AnyHashable: Any]?
+    
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
@@ -56,6 +58,16 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     ) {
         completionHandler([.badge, .list, .banner, .sound])
     }
+    
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse,
+        withCompletionHandler completionHandler: @escaping () -> Void
+    ) {
+        let userInfo = response.notification.request.content.userInfo
+        handlePushNotification(userInfo: userInfo)
+        completionHandler()
+    }
 }
 
 extension AppDelegate: MessagingDelegate {
@@ -92,5 +104,19 @@ extension AppDelegate {
         UINavigationBar.appearance().compactAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
         UIBarButtonItem.appearance().tintColor = UIColor(.black)
+    }
+    
+    private func handlePushNotification(userInfo: [AnyHashable: Any]) {
+        guard let type = userInfo["type"] as? String,
+              type == "feedback",
+              let feedbackId = userInfo["feedbackId"] as? String else { return }
+        
+        saveUserInfo = ["destination": "feedbackDetail", "feedbackId": feedbackId]
+        
+        NotificationCenter.default.post(
+            name: Notification.Name("PushNavigation"),
+            object: nil,
+            userInfo: ["destination": "feedbackDetail", "feedbackId": feedbackId]
+        )
     }
 }
