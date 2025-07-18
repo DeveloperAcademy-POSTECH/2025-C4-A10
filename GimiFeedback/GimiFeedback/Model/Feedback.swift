@@ -10,7 +10,7 @@ import Foundation
 struct Feedback: Codable, Identifiable, Hashable {
     let id: UUID
     let feedbackChannelID: UUID
-    let readPerson: UUID  // 받는 사람
+    let readPerson: String  // 받는 사람
     let writePerson: String   // 작성한 사람 닉네임
     var content: [FeedbackContent]
     let date: Date
@@ -19,7 +19,7 @@ struct Feedback: Codable, Identifiable, Hashable {
     init(
         id: UUID = UUID(),
         feedbackChannelID: UUID,
-        readPerson: UUID,
+        readPerson: String,
         writePerson: String,
         content: [FeedbackContent],
         date: Date = Date(),

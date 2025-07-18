@@ -53,12 +53,12 @@ struct InputCodeView: View {
             .disabled(viewModel.code.isEmpty)
         }
         .padding()
-        .onChange(of: viewModel.feedbackChannel) { newValue in
+        .onChange(of: viewModel.feedbackChannel) { _, newValue in
             if let feedbackChannel = newValue {
                 onComplete(feedbackChannel)
             }
         }
-        .onChange(of: viewModel.errorMessage) { newValue in
+        .onChange(of: viewModel.errorMessage) { _, newValue in
             if newValue != nil {
                 let generator = UINotificationFeedbackGenerator()
                 generator.notificationOccurred(.error)

@@ -19,14 +19,16 @@ struct MainNavigationRoutingView: View {
                 ChannelDetailView(channelItem: channelItem)
             case .channelEdit:
                 ChannelEditView()
-            case .feedbackDetail:
-                FeedbackDetailView()
+            case .feedbackDetail(let feedbackItem):
+                FeedbackDetailView(feedbackItem: feedbackItem)
             case .inputCode:
                 InputCodeView { feedbackChannel in
                     router.push(to: .feedbackWrite(channel: feedbackChannel))
                 }
             case .feedbackWrite(let feedbackChannel):
-                FeedbackWriteView(feedbackChannel: feedbackChannel)
+                FeedbackWriteView(feedbackChannel: feedbackChannel) {
+                    router.push(to: .feedbackWriteComplete)
+                }
             case .feedbackWriteComplete:
                 FeedbackWriteCompleteView()
             case .feedbackChannelCreate:

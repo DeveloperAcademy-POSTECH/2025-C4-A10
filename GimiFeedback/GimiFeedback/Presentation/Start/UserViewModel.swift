@@ -14,9 +14,6 @@ final class UserViewModel: ViewModelable {
     }
     
     @Published private(set) var isLoggedIn: Bool = FirebaseAuthManager.currentUser
-    var userID: String {
-        FirebaseAuthManager.currentUserID ?? ""
-    }
     
     func send(_ action: Action) {
         switch action {
@@ -28,12 +25,19 @@ final class UserViewModel: ViewModelable {
                         password: result.password
                     )
                     isLoggedIn = FirebaseAuthManager.currentUser
+                    
+                    await saveFCMToken(userID: FirebaseAuthManager.currentUserID)
                 }
             }
         case .kakaoLogout:
-            kakaoLogout()
-            firebaseAuthLogout()
-            isLoggedIn = FirebaseAuthManager.currentUser
+            Task {
+                await kakaoLogout()
+                if let logoutUserID = firebaseAuthLogout() {
+                    await deleteFCMToken(userID: logoutUserID)
+                }
+                isLoggedIn = FirebaseAuthManager.currentUser
+                
+            }
         }
     }
 }
@@ -73,24 +77,56 @@ extension UserViewModel {
     // MARK: 로그아웃
     
     /// 카카오 로그아웃 로직
-    private func kakaoLogout() {
-        Task {
-            do {
-                try await KakaoAuthManager.shared.logout()
-                print("카카오 로그아웃 성공")
-            } catch {
-                print("카카오 로그아웃 실패: \(error.localizedDescription)")
-            }
+    private func kakaoLogout() async {
+        do {
+            try await KakaoAuthManager.shared.logout()
+            print("카카오 로그아웃 성공")
+        } catch {
+            print("카카오 로그아웃 실패: \(error.localizedDescription)")
         }
     }
     
     /// 파이어베이스 로그아웃 로직
-    private func firebaseAuthLogout() {
+    private func firebaseAuthLogout() -> String? {
         do {
+            let userID = FirebaseAuthManager.currentUserID
             try FirebaseAuthManager.shared.logout()
             print("파이어베이스 로그아웃 성공")
+            
+            return userID
         } catch {
             print("파이어베이스 로그아웃 실패: \(error.localizedDescription)")
+            
+            return nil
+        }
+    }
+    
+    // MARK: 토큰 관련 함수
+    
+    /// 토큰 저장 (로그인시)
+    private func saveFCMToken(userID: String) async {
+        do {
+            let tokenString = try await FCMManager.shared.getTokenString()
+            let token = Token(userID: userID, fcmToken: tokenString, badgeCount: 0)
+            
+            _ = try await FirestoreManager.shared.create(token)
+        } catch {
+            print("Token 저장 실패")
+        }
+    }
+    
+    /// 토큰 저장 삭제 (로그아웃시)
+    private func deleteFCMToken(userID: String) async {
+        do {
+            if let token: Token = try await FirestoreManager.shared.get(
+                userID,
+                collectionType: .token
+            ) {
+                try await FirestoreManager.shared.delete(token)
+                print("FCM Token 삭제 성공")
+            }
+        } catch {
+            print("FCM Token 삭제 실패")
         }
     }
 }
