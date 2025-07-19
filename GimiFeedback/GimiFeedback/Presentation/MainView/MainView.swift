@@ -9,16 +9,22 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var router: MainNavigationRouter
+    @StateObject private var viewModel: MainViewModel
     
     init() {
-        _router = StateObject(wrappedValue: MainNavigationRouter())
+        let router = MainNavigationRouter()
+        _router = StateObject(wrappedValue: router)
+        _viewModel = StateObject(wrappedValue: MainViewModel(router: router))
     }
-    
+
     var body: some View {
         NavigationStack(path: $router.destinations) {
             ChannelListView()
                 .navigationDestination(for: MainNavigationDestination.self) { destination in
                     MainNavigationRoutingView(destination: destination)
+                }
+                .onOpenURL { url in
+                    viewModel.send(.handleDeepLink(url))
                 }
         }
         .environmentObject(router)
