@@ -3,7 +3,11 @@ from transformers import PreTrainedModel, AutoModel, AutoConfig
 
 
 class ModelForSequenceClassification(PreTrainedModel):
-    def __init__(self, config: AutoConfig, labels: list[str]) -> None:
+    def __init__(
+        self: "ModelForSequenceClassification",
+        config: AutoConfig,
+        labels: list[str],
+    ) -> None:
         super().__init__(config)
         self.num_labels = len(labels)
         self.classifier = nn.Sequential(
@@ -13,7 +17,7 @@ class ModelForSequenceClassification(PreTrainedModel):
         self.model = AutoModel.from_pretrained(config._name_or_path)
 
     def forward(
-        self,
+        self: "ModelForSequenceClassification",
         input_ids=None,
         attention_mask=None,
         token_type_ids=None,
