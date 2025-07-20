@@ -64,7 +64,7 @@ struct FeedbackDetailView: View {
                 }
             }
         }
-        .onChange(of: viewModel.isDeleted) { new in
+        .onChange(of: viewModel.isDeleted) { _, new in
             if new == true {
                 router.pop()
             }

@@ -29,12 +29,13 @@ final class FCMManager {
         to userId: String,
         from sendUserName: String,
         title: String = "Gimi Feedback",
-        messageContent: String? = nil
+        feedbackId: String,
     ) {
         let data: [String: Any] = [
             "targetUid": userId,
             "title": title,
             "body": "\(sendUserName)님이 피드백을 보냈습니다!",
+            "feedbackId": feedbackId,
         ]
         
         functions.httpsCallable("sendNotification").call(data) { result, error in
