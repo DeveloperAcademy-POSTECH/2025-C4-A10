@@ -36,6 +36,7 @@ final class NotificationViewModel: ViewModelable {
             self.userInfo = userInfo
         case .resetFeedback:
             feedback = nil
+            userInfo = nil
         }
     }
     
