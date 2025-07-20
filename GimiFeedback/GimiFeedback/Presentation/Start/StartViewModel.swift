@@ -10,24 +10,23 @@ import Foundation
 final class StartViewModel: ViewModelable {
     enum Action {
         case handleDeepLink(URL)
+        case resetChannel
     }
     
-    let router: OnboardingNavigationRouter
-    
-    init(router: OnboardingNavigationRouter) {
-        self.router = router
-    }
+    @Published private(set) var channel: FeedbackChannel?
     
     func send(_ action: Action) {
         switch action {
         case .handleDeepLink(let url):
             Task {
-                if let channel = await DeepLinkManager.shared.handleFeedbackWriteDeepLink(url: url) {
-                    await MainActor.run {
-                        router.push(to: .feedbackWrite(channel: channel))
-                    }
+                if let getChannel = await DeepLinkManager.shared.handleFeedbackWriteDeepLink(
+                    url: url
+                ) {
+                    channel = getChannel
                 }
             }
+        case .resetChannel:
+            channel = nil
         }
     }
 }

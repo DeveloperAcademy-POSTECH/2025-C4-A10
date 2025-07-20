@@ -13,7 +13,7 @@ final class MainViewModel: ViewModelable {
         case resetChannel
     }
     
-    @Published private(set) var channel: FeedbackChannel? = nil
+    @Published private(set) var channel: FeedbackChannel?
     
     func send(_ action: Action) {
         switch action {

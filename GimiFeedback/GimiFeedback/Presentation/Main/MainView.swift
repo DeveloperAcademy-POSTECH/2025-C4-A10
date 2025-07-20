@@ -29,7 +29,7 @@ struct MainView: View {
                 }
                 .onChange(of: viewModel.channel) { _, newValue in
                     if let channel = newValue {
-                        router.push(to: .channelDetail(channelItem: channel))
+                        router.push(to: .feedbackWrite(channel: channel))
                         viewModel.send(.resetChannel)
                     }
                 }

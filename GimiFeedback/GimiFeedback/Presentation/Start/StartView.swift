@@ -14,7 +14,7 @@ struct StartView: View {
     init() {
         let router = OnboardingNavigationRouter()
         _router = StateObject(wrappedValue: router)
-        _viewModel = StateObject(wrappedValue: StartViewModel(router: router))
+        _viewModel = StateObject(wrappedValue: .init())
     }
     
     var body: some View {
@@ -27,6 +27,12 @@ struct StartView: View {
                 }
                 .onOpenURL { url in
                     viewModel.send(.handleDeepLink(url))
+                }
+                .onChange(of: viewModel.channel) { _, newValue in
+                    if let channel = newValue {
+                        router.push(to: .feedbackWrite(channel: channel))
+                        viewModel.send(.resetChannel)
+                    }
                 }
         }
         .environmentObject(router)
