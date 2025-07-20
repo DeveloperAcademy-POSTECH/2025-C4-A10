@@ -3,6 +3,7 @@ from typing import Literal
 import json
 import numpy as np
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
+from datetime import datetime
 
 
 class Evaluator:
@@ -12,17 +13,14 @@ class Evaluator:
         self: "Evaluator",
         labels: list[str],
         save_dir: str = "evaluate_results",
-        data_dir: str = "data/",
     ):
-        self.save_dir = self._set_save_dir(save_dir)
         self.labels: dict[int, str] = {i: label for i, label in enumerate(labels)}
-        self.data_dir: str = data_dir
 
     def evaluate(
         self: "Evaluator",
-        golds: np.ndarray,
-        preds: np.ndarray,
-        split: Literal["valid", "test"] = "test",
+        golds: np.ndarray | list,
+        preds: np.ndarray | list,
+        mode: Literal["valid", "test"] = "test",
     ) -> dict[str, float]:
         """split에 맞춰 valid_eval / test_eval 호출"""
         assert len(golds) == len(preds), ValueError(
@@ -30,9 +28,13 @@ class Evaluator:
         )
         assert None not in golds, ValueError("None value is not allowed in golds")
         assert None not in preds, ValueError("None value is not allowed in preds")
+        if isinstance(golds, list):
+            golds = np.array(golds)
+        if isinstance(preds, list):
+            preds = np.array(preds)
 
-        results = self._eval(preds, golds)
-        with open(self.save_dir / f"{split}_evaluate_results.json", "w") as f:
+        results = self._eval(golds, preds)
+        with open(self.save_dir / f"{mode}_evaluate_results.json", "w") as f:
             json.dump(results, f, indent=4, ensure_ascii=False)
         return results
 
@@ -54,23 +56,21 @@ class Evaluator:
             "recall_weighted": recall_score(golds, preds, average="weighted"),
         }
 
-    @staticmethod
-    def _set_save_dir(save_dir: str) -> Path:
+    def set_save_dir(self: "Evaluator", save_dir: str) -> None:
         """평가 결과 저장 폴더 생성/중복 처리"""
         base = Path(save_dir)
         if not base.exists():
             base.mkdir(parents=True)
-            return base
+            self.save_dir = base
+            return
 
         # 이미 존재할 경우 → 비어 있으면 그대로, 아니면 뒤에 _1, _2 …
         if any(base.iterdir()):
-            i = 1
-            while Path(f"{base.name}_{i}").exists():
-                i += 1
-            base = Path(f"{base.name}_{i}")
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            base = base.parent / f"{base.name}_{timestamp}"
             base.mkdir(parents=True)
 
-        return base
+        self.save_dir = base
 
 
 if __name__ == "__main__":

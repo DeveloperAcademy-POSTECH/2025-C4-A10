@@ -11,9 +11,6 @@ class SequenceClassificationDataset(Dataset):
         dataset: list[TextInput],
         tokenizer: Type[PreTrainedTokenizer],
         labels: list[str],
-        preprocessor: Type[
-            SequenceClassificationPreprocessor
-        ] = SequenceClassificationPreprocessor,
         max_seq_length: int = 512,
         padding: Literal["max_length"] | bool = "max_length",
         padding_side: Literal["left", "right"] = "right",
@@ -21,7 +18,7 @@ class SequenceClassificationDataset(Dataset):
         mode: Literal["train", "val", "test"] = "test",
     ) -> None:
         self.dataset = dataset
-        self.preprocessor = preprocessor(
+        self.preprocessor = SequenceClassificationPreprocessor(
             tokenizer=tokenizer,
             labels=labels,
             max_seq_length=max_seq_length,

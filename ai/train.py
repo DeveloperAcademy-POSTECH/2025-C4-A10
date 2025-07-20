@@ -1,121 +1,106 @@
 import torch
 import argparse
-from omegaconf import OmegaConf
+from omegaconf import DictConfig, OmegaConf
 
 from transformers import AutoTokenizer, AutoConfig
 from datasets import load_dataset
 from utils.seed import seed_everything
 
-import data_process as Data_process
-import trainer as Trainer
-import model as Model
+from data.dataset import SequenceClassificationDataset
+from trainer.trainer import Trainer
+from model.sequence_classification import ModelForSequenceClassification
+from data.evaluator import Evaluator
 
 import torch.optim as optim
-import utils.metric as Metric
-import os
+from os import environ, getenv
+from dotenv import load_dotenv
+from huggingface_hub import login, whoami
+
+# login huggingface hub
+load_dotenv(".envs")
+login(token=getenv("HF_TOKEN"))
+user_info = whoami()
+print(f"Logged in as: {user_info['name']}")
+
+environ["TOKENIZERS_PARALLELISM"] = "false"
+environ["NCCL_P2P_DISABLE"] = "1"
 
 
-os.environ["TOKENIZERS_PARALLELISM"] = "false"
-os.environ["NCCL_P2P_DISABLE"] = "1"
-
-
-def main(config):
+def main(config: DictConfig) -> None:
     seed_everything(config.train.seed)
     assert torch.backends.mps.is_available(), ValueError(
         "This training code only supports MacOS."
-        "Please fix this error if you are using other OS."
+        "Please delete this error if you are using other OS."
+    )
+    # load huggingface dataset
+    dataset = load_dataset(f"{config.organization}/{config.dataset}")
+    labels = list(dataset["train"].features["label"].names)
+    print(
+        "=" * 50,
+        f"labels : {labels}",
+        "=" * 50,
+        sep="\n",
     )
 
-    tokenizer = AutoTokenizer.from_pretrained(config.model.model_name)
-    preprocess_fn = getattr(Data_process, config.data.preprocess)(
-        tokenizer=tokenizer,
-        max_seq_length=config.train.max_length,
-        is_split_into_words=config.data.is_split_into_words,
-    ).convert_examples_to_features
+    tokenizer = AutoTokenizer.from_pretrained(config.model)
 
     # data initialize
-    dataset = load_dataset(config.data.dataset)
-    train_data, val_data, test_data = dataset["train"], dataset["val"], dataset["test"]
-    train_dataset = train_data.map(
-        preprocess_fn,
-        remove_columns=train_data.column_names,
-        num_proc=config.train.num_workers,
-        batched=True,
-    )
-    val_dataset = val_data.map(
-        preprocess_fn,
-        remove_columns=val_data.column_names,
-        num_proc=config.train.num_workers,
-        batched=True,
-    )
-    test_dataset = test_data.map(
-        preprocess_fn,
-        remove_columns=test_data.column_names,
-        num_proc=config.train.num_workers,
-        batched=True,
-    )
-    (
-        train_dataset.set_format("torch"),
-        val_dataset.set_format("torch"),
-        test_dataset.set_format("torch"),
-    )
-
-    print(
-        "=" * 50,
-        f"현재 적용되고 있는 메트릭 클래스는 {config.model.metric_class}입니다.",
-        "=" * 50,
-        sep="\n\n",
-    )
-    compute_metrics = getattr(Metric, config.model.metric_class)(
-        test_data=test_data,
+    train_dataset = SequenceClassificationDataset(
+        dataset=dataset["train"].select(range(100)),
+        tokenizer=tokenizer,
         labels=labels,
-        data_dir=config.data.path,
-        is_sequence=config.data.is_split_into_words,
+        max_seq_length=config.train.max_length,
+        mode="train",
+    )
+    val_dataset = SequenceClassificationDataset(
+        dataset=dataset["validation"].select(range(10)),
+        tokenizer=tokenizer,
+        labels=labels,
+        max_seq_length=config.train.max_length,
+        mode="val",
+    )
+    test_dataset = SequenceClassificationDataset(
+        dataset=dataset["test"].select(range(10)),
+        tokenizer=tokenizer,
+        labels=labels,
+        max_seq_length=config.train.max_length,
+        mode="test",
     )
 
-    print(
-        "=" * 50,
-        f"현재 적용되고 있는 모델 클래스는 {config.model.model_class}입니다.",
-        "=" * 50,
-        sep="\n\n",
-    )
-    model_config = AutoConfig.from_pretrained(config.model.model_name)
-    model = getattr(Model, config.model.model_class)(
+    evaluator = Evaluator(labels=labels)
+
+    model_config = AutoConfig.from_pretrained(config.model)
+    if "_name_or_path" not in model_config:
+        model_config._name_or_path = config.model
+    model = ModelForSequenceClassification(
         config=model_config,
-        num_labels=config.train.num_labels,
-        dropout_rate=config.train.dropout_rate,
+        labels=labels,
     )
 
-    optimizer = getattr(optim, config.model.optimizer)(
+    optimizer = getattr(optim, config.train.optimizer)(
         model.parameters(), lr=config.train.learning_rate
     )
     lr_scheduler = None
 
-    print(
-        "=" * 50,
-        f"현재 적용되고 있는 트레이너는 {config.model.trainer_class}입니다.",
-        "=" * 50,
-        sep="\n\n",
-    )
-    trainer = getattr(Trainer, config.model.trainer_class)(
+    trainer = Trainer(
         config=config,
         model=model,
         train_dataset=train_dataset,
         val_dataset=val_dataset,
         test_dataset=test_dataset,
         tokenizer=tokenizer,
-        compute_metrics=compute_metrics,
+        compute_metrics=evaluator,
         optimizers=(optimizer, lr_scheduler),
         labels=labels,
     )
 
-    if not config.only_predict:
+    if not config.only_test:
         trainer.loop()  # train + predict
     else:
-        trainer.predict(config.only_predict)  # only predict
+        trainer.test(config.only_test)  # only predict
 
 
-def arg_parser():
+def arg_parsing() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--config",
@@ -124,7 +109,7 @@ def arg_parser():
         help="write configuration yaml file name",
     )
     parser.add_argument(
-        "--only_predict", type=str, default="", help="write best model directory path"
+        "--only_test", type=str, default="", help="write best model directory path"
     )
     args, _ = parser.parse_known_args()
 
@@ -133,9 +118,10 @@ def arg_parser():
 
 if __name__ == "__main__":
     # ex) python3 train.py --config baseline
-    args = arg_parser()
+    args = arg_parsing()
     config = OmegaConf.load(f"./configs/{args.config}.yaml")
-    config["only_predict"] = args.only_predict
-    print(f"사용할 수 있는 GPU는 {torch.cuda.device_count()}개 입니다.")
+    config["original_filename"] = args.config
+    if args.only_test:
+        config["only_test"] = args.only_test
 
     main(config)
