@@ -9,9 +9,12 @@ import SwiftUI
 
 struct StartView: View {
     @StateObject var router: OnboardingNavigationRouter
+    @StateObject private var viewModel: StartViewModel
     
     init() {
-        _router = StateObject(wrappedValue: OnboardingNavigationRouter())
+        let router = OnboardingNavigationRouter()
+        _router = StateObject(wrappedValue: router)
+        _viewModel = StateObject(wrappedValue: StartViewModel(router: router))
     }
     
     var body: some View {
@@ -21,6 +24,9 @@ struct StartView: View {
                     for: StartNavigationDestination.self
                 ) { destination in
                     StartNavigationRoutingView(destination: destination)
+                }
+                .onOpenURL { url in
+                    viewModel.send(.handleDeepLink(url))
                 }
         }
         .environmentObject(router)
