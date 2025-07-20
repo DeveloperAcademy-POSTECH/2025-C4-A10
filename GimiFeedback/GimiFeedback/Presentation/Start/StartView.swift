@@ -12,8 +12,7 @@ struct StartView: View {
     @StateObject private var viewModel: StartViewModel
     
     init() {
-        let router = OnboardingNavigationRouter()
-        _router = StateObject(wrappedValue: router)
+        _router = StateObject(wrappedValue: .init())
         _viewModel = StateObject(wrappedValue: .init())
     }
     

@@ -14,7 +14,7 @@ struct ChannelCreateView: View {
     @EnvironmentObject var router: MainNavigationRouter
     
     init() {
-        _viewModel = StateObject(wrappedValue: ChannelCreateViewModel())
+        _viewModel = StateObject(wrappedValue: .init())
     }
     
     var body: some View {

@@ -17,9 +17,7 @@ struct FeedbackWriteView: View {
         onComplete: @escaping () -> Void
     ) {
         _viewModel = StateObject(
-            wrappedValue: .init(
-                feedbackChannel: feedbackChannel
-            )
+            wrappedValue: .init(feedbackChannel: feedbackChannel)
         )
         self.onComplete = onComplete
     }

@@ -13,7 +13,7 @@ struct MainView: View {
     @ObservedObject var notificationRouter: NotificationViewModel
     
     init(notificationRouter: NotificationViewModel) {
-        _router = StateObject(wrappedValue: MainNavigationRouter())
+        _router = StateObject(wrappedValue: .init())
         _viewModel = StateObject(wrappedValue: .init())
         self.notificationRouter = notificationRouter
     }

@@ -6,7 +6,7 @@ struct FeedbackDetailView: View {
     @State private var showDeleteAlert = false
     
     init(feedbackItem: Feedback) {
-        _viewModel = StateObject(wrappedValue: FeedbackDetailViewModel(feedbackItem: feedbackItem))
+        _viewModel = StateObject(wrappedValue: .init(feedbackItem: feedbackItem))
     }
     
     var body: some View {
