@@ -2,13 +2,12 @@ import torch
 import argparse
 from omegaconf import DictConfig, OmegaConf
 
-from transformers import AutoTokenizer, AutoConfig
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from datasets import load_dataset
 from utils.seed import seed_everything
 
 from data.dataset import SequenceClassificationDataset
 from trainer.trainer import Trainer
-from model.sequence_classification import ModelForSequenceClassification
 from data.evaluator import Evaluator
 
 import torch.optim as optim
@@ -69,12 +68,11 @@ def main(config: DictConfig) -> None:
 
     evaluator = Evaluator(labels=labels)
 
-    model_config = AutoConfig.from_pretrained(config.model)
-    if "_name_or_path" not in model_config:
-        model_config._name_or_path = config.model
-    model = ModelForSequenceClassification(
-        config=model_config,
-        labels=labels,
+    model = AutoModelForSequenceClassification.from_pretrained(
+        config.model,
+        num_labels=len(labels),
+        id2label={i: label for i, label in enumerate(labels)},
+        label2id={label: i for i, label in enumerate(labels)},
     )
 
     optimizer = getattr(optim, config.train.optimizer)(

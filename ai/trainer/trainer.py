@@ -115,7 +115,7 @@ class Trainer:
             }
             outputs = self.model(**inputs)
 
-            loss = outputs[0]
+            loss = outputs.loss
             loss.backward()
             epoch_loss += loss.clone().detach().cpu().numpy().item()
 
@@ -158,7 +158,8 @@ class Trainer:
 
                 outputs = self.model(**inputs)
 
-            loss, logits = outputs
+            loss = outputs.loss
+            logits = outputs.logits
 
             val_steps += 1
             val_loss += loss.clone().detach().cpu().numpy().item()
@@ -243,7 +244,7 @@ class Trainer:
                 }
 
                 outputs = self.model(**inputs)
-            logits = outputs[0]
+            logits = outputs.logits
 
             pred_labels = logits.argmax(dim=-1).clone().detach().cpu().numpy()
             true_labels = test_batch["label_texts"]

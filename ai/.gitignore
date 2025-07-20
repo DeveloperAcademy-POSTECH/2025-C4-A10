@@ -152,3 +152,4 @@ jupyter/
 save/*
 wandb/
 results/
+*.mlpackage
