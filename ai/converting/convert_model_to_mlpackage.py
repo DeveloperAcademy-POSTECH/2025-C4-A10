@@ -1,6 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 import coremltools as ct
 import numpy
 
@@ -15,16 +16,16 @@ class WrappedModel(nn.Module):
         super().__init__()
         self.base_model = base_model
 
-    def forward(self, input_ids, attention_mask, token_type_ids=None) -> int:
+    def forward(self, input_ids, attention_mask, token_type_ids=None) -> torch.Tensor:
         outputs = self.base_model(
             input_ids=input_ids,
             attention_mask=attention_mask,
             token_type_ids=token_type_ids,
         )
         logits = outputs.logits
-        class_id = logits.argmax(dim=-1)
+        probs = F.softmax(logits, dim=-1)
 
-        return class_id
+        return probs
 
 
 wrapped_model = WrappedModel(model)
@@ -70,7 +71,14 @@ if "token_type_ids" in inputs:
     )
 
 # 변환 진행
-mlmodel = ct.convert(traced_model, inputs=coreml_inputs, source="pytorch")
+mlmodel = ct.convert(
+    traced_model,
+    inputs=coreml_inputs,
+    classifier_config=ct.ClassifierConfig(
+        class_labels=list(model.config.id2label.values()),
+    ),
+    source="pytorch",
+)
 
 # 모델 저장
 mlmodel.save("klue_roberta_base.mlpackage")

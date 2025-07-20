@@ -72,7 +72,11 @@ class SequenceClassificationPreprocessor:
             return_tensors="pt",
         )
         batch = {k: v.squeeze() for k, v in batch.items()}
-        batch["label_texts"] = text_input["label"]
+        batch["label_texts"] = self.labels[text_input["label"]]
+        batch["labels"] = torch.tensor(
+            text_input["label"],
+            dtype=torch.long,
+        ).unsqueeze(0)
 
         return batch
 
@@ -100,9 +104,9 @@ class SequenceClassificationPreprocessor:
             return_tensors="pt",
         )
         batch = {k: v.squeeze() for k, v in batch.items()}
-        batch["label_texts"] = text_input["label"]
+        batch["label_texts"] = self.labels[text_input["label"]]
         batch["labels"] = torch.tensor(
-            self.labels.index(text_input["label"]),
+            text_input["label"],
             dtype=torch.long,
         ).unsqueeze(0)
 

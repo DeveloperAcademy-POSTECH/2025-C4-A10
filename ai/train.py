@@ -40,26 +40,25 @@ def main(config: DictConfig) -> None:
         "=" * 50,
         sep="\n",
     )
-
     tokenizer = AutoTokenizer.from_pretrained(config.model)
 
     # data initialize
     train_dataset = SequenceClassificationDataset(
-        dataset=dataset["train"],
+        dataset=dataset["train"].select(range(100)),
         tokenizer=tokenizer,
         labels=labels,
         max_seq_length=config.train.max_length,
         mode="train",
     )
     val_dataset = SequenceClassificationDataset(
-        dataset=dataset["validation"],
+        dataset=dataset["validation"].select(range(10)),
         tokenizer=tokenizer,
         labels=labels,
         max_seq_length=config.train.max_length,
         mode="val",
     )
     test_dataset = SequenceClassificationDataset(
-        dataset=dataset["test"],
+        dataset=dataset["test"].select(range(10)),
         tokenizer=tokenizer,
         labels=labels,
         max_seq_length=config.train.max_length,

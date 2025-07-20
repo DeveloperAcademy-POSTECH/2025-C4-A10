@@ -164,7 +164,7 @@ class Trainer:
             val_steps += 1
             val_loss += loss.clone().detach().cpu().numpy().item()
             pred_labels = logits.argmax(dim=-1).clone().detach().cpu().numpy()
-            true_labels = valid_batch["label_texts"]
+            true_labels = valid_batch["labels"].clone().detach().cpu().numpy()
             preds.extend(pred_labels.tolist())
             golds.extend(true_labels.tolist())
             pbar.update(1)
@@ -247,7 +247,7 @@ class Trainer:
             logits = outputs.logits
 
             pred_labels = logits.argmax(dim=-1).clone().detach().cpu().numpy()
-            true_labels = test_batch["label_texts"]
+            true_labels = test_batch["labels"].clone().detach().cpu().numpy()
             preds.extend(pred_labels.tolist())
             golds.extend(true_labels.tolist())
             pbar.update(1)
