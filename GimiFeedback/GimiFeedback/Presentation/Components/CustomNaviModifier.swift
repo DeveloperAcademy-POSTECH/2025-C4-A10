@@ -11,6 +11,10 @@ struct CustomNaviModifier<TrailingItems: View>: ViewModifier {
     let title: String?
     let trailingItems: TrailingItems
 
+    var hasTrailingItems: Bool {
+        !(trailingItems is EmptyView)
+    }
+
     func body(content: Content) -> some View {
         content
             .navigationBarTitleDisplayMode(.inline)
@@ -21,8 +25,12 @@ struct CustomNaviModifier<TrailingItems: View>: ViewModifier {
                             .font(.headline)
                     }
                 }
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    trailingItems
+
+                // trailingItems가 있을 때만 표시
+                if hasTrailingItems {
+                    ToolbarItemGroup(placement: .topBarTrailing) {
+                        trailingItems
+                    }
                 }
             }
     }
@@ -34,5 +42,10 @@ extension View {
         @ViewBuilder trailingItems: () -> TrailingItems
     ) -> some View {
         self.modifier(CustomNaviModifier(title: title, trailingItems: trailingItems()))
+    }
+
+    // trailingItems 생략 가능 버전
+    func gimifeedbackNavi(title: String? = nil) -> some View {
+        self.modifier(CustomNaviModifier(title: title, trailingItems: EmptyView()))
     }
 }

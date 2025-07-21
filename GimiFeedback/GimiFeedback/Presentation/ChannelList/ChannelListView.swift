@@ -29,6 +29,27 @@ struct ChannelListView: View {
                 }
             }
         }
+        .gimifeedbackNavi {
+            Button(action: {
+                router.push(to: .inputCode)
+            }) {
+                Text("코드 입력하기")
+                    .font(.system(size: 14, weight: .semibold))
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 16)
+                    .background(Color.green.opacity(0.2))
+                    .foregroundColor(.green)
+                    .clipShape(Capsule())
+            }
+            Button(action: {
+                // TODO: Profile 만들기
+            }) {
+                Image(systemName: "person.crop.circle.fill")
+                    .resizable()
+                    .frame(width: 32, height: 32)
+                    .foregroundColor(.green)
+            }
+        }
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
                 HStack {
@@ -45,33 +66,10 @@ struct ChannelListView: View {
                     }
                 }
             }
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button(action: {
-                    router.push(to: .inputCode)
-                }) {
-                    Text("코드 입력하기")
-                        .font(.system(size: 14, weight: .semibold))
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 16)
-                        .background(Color.green.opacity(0.2))
-                        .foregroundColor(.green)
-                        .clipShape(Capsule())
-                }
-
-                Button(action: {
-                    // TODO: Profile 만들기
-                }) {
-                    Image(systemName: "person.crop.circle.fill")
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                        .foregroundColor(.green)
-                }
-            }
         }
         .toolbarBackground(Color.gray.opacity(0.1), for: .bottomBar)
         .toolbarBackground(.visible, for: .bottomBar)
         .padding(.top, 32)
-        .navigationTitle("기미 피드백")
         .onAppear {
             viewModel.send(.fetchChannelList)
         }
