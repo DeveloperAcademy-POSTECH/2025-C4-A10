@@ -19,10 +19,18 @@ final class MainViewModel: ViewModelable {
         switch action {
         case .handleDeepLink(let url):
             Task {
-                if let getChannel = await DeepLinkManager.shared.handleFeedbackWriteDeepLink(
-                    url: url
-                ) {
-                    channel = getChannel
+                do {
+                    if let channelId = DeepLinkManager.shared.handleFeedbackWriteDeepLink(
+                        url: url
+                    ) {
+                        let getChannel: FeedbackChannel? = try await FirestoreManager.shared.get(
+                            channelId.uuidString,
+                            collectionType: .feedbackChannel
+                        )
+                        channel = getChannel
+                    }
+                } catch {
+                    print("Get 에러: \(error.localizedDescription)")
                 }
             }
         case .resetChannel:
