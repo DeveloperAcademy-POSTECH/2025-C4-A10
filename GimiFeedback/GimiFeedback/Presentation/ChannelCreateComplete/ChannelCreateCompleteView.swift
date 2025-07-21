@@ -13,7 +13,7 @@ struct ChannelCreateCompleteView: View {
     @StateObject private var viewModel: ChannelCreateCompleteViewModel
     
     init(channelID: String, onClose: @escaping () -> Void = {}) {
-        _viewModel = StateObject(wrappedValue: ChannelCreateCompleteViewModel())
+        _viewModel = StateObject(wrappedValue: .init())
         self.channelID = channelID
         self.onClose = onClose
     }

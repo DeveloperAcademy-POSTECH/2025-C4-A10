@@ -18,7 +18,7 @@ struct GimiFeedbackApp: App {
     
     init() {
         KakaoSDK.initSDK(appKey: Bundle.kakaoNativeAppKey)
-        _userViewModel = StateObject(wrappedValue: UserViewModel())
+        _userViewModel = StateObject(wrappedValue: .init())
         _notificationRouter = StateObject(wrappedValue: .init())
     }
     

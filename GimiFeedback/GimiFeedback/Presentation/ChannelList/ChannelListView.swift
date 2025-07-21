@@ -14,7 +14,7 @@ struct ChannelListView: View {
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
     
     init() {
-        _viewModel = StateObject(wrappedValue: ChannelListViewModel())
+        _viewModel = StateObject(wrappedValue: .init())
     }
     
     var body: some View {

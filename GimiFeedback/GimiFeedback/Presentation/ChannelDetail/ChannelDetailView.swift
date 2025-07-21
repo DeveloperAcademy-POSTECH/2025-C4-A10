@@ -7,7 +7,7 @@ struct ChannelDetailView: View {
     @State private var isShowDeleteAlert: Bool = false
     
     init(channelItem: FeedbackChannel) {
-        _viewModel = StateObject(wrappedValue: ChannelDetailViewModel(channelItem: channelItem))
+        _viewModel = StateObject(wrappedValue: .init(channelItem: channelItem))
     }
     
     var body: some View {
