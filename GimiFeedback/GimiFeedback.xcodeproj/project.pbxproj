@@ -61,6 +61,7 @@
 		EE856A562E1CE604006820B9 /* ChannelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A552E1CE5FF006820B9 /* ChannelListViewModel.swift */; };
 		EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */; };
 		EEA0BBB62E2D41C6009A25D8 /* DeepLinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA0BBB52E2D41C6009A25D8 /* DeepLinkViewModel.swift */; };
+		EEA0BD112E2DF6E2009A25D8 /* SUIT-Variable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEA0BD102E2DF6E2009A25D8 /* SUIT-Variable.ttf */; };
 		EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */; };
 		EEDBB1B82E28D45700F16407 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1B72E28D45700F16407 /* FirebaseMessaging */; };
 		EEDBB1BA2E28DA9200F16407 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1B92E28DA9100F16407 /* Token.swift */; };
@@ -454,6 +455,7 @@
 			children = (
 				EEA0BD102E2DF6E2009A25D8 /* SUIT-Variable.ttf */,
 			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
