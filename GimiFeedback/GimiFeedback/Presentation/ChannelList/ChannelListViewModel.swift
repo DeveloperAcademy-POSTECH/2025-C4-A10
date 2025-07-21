@@ -61,7 +61,9 @@ extension ChannelListViewModel {
                 FeedbackChannelInfo(
                     channel: channel,
                     feedbackCount: feedbackList.count,
-                    visibleFeedbackCount: feedbackList.filter({ !$0.visiable }).count))
+                    visiableFeedback: feedbackList.contains(where: { !$0.visiable })
+                )
+            )
             
             totalFeedbackCount += feedbackList.count
         }
@@ -73,9 +75,15 @@ extension ChannelListViewModel {
 struct FeedbackChannelInfo: Identifiable {
     let channel: FeedbackChannel
     let feedbackCount: Int
-    let visibleFeedbackCount: Int
+    let visiableFeedback: Bool
     
     var id: UUID {
         channel.id
+    }
+    
+    var folderImageString: String {
+        let count = max(0, min(feedbackCount, 4))
+        let visiable = visiableFeedback ? "False" : "True"
+        return "Folder-\(count)-\(visiable)"
     }
 }

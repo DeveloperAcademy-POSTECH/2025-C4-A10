@@ -13,18 +13,9 @@ extension ChannelListView {
         
         var body: some View {
             VStack(alignment: .center) {
-                Image(systemName: "folder.fill")
+                Image(item.folderImageString)
                     .resizable()
                     .frame(width: 85, height: 67)
-                    .overlay(alignment: .topTrailing) {
-                        Circle()
-                            .fill(.red)
-                            .frame(width: 28, height: 28)
-                            .overlay {
-                                Text("\(item.visibleFeedbackCount)")
-                                    .foregroundStyle(Color.white)
-                            }
-                    }
                 
                 Text("title: \(item.channel.channelTitle)")
                 Text("총 피드백 \(item.feedbackCount)개")
