@@ -109,5 +109,5 @@ struct GimiButtonStyle: ButtonStyle {
     }
     .padding()
     .frame(width: 351)
-    .background(Color.gray.opacity(0.1)) // 배경색은 시각적 구분용
+    .background(Color.gray.opacity(0.1))
 }
