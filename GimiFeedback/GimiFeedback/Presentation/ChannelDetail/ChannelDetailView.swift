@@ -37,11 +37,9 @@ struct ChannelDetailView: View {
                 if viewModel.feedbackList.isEmpty {
                     Text("등록된 피드백이 없습니다.")
                     
-                    Button(action: { }) {
+                    ShareLink(item: "gimifeedback://feedbackWrite/\(viewModel.channelItem.id)") {
                         Text("채널 공유하기")
                     }
-                    .buttonStyle(.borderedProminent)
-                    
                 } else {
                     ForEach(viewModel.feedbackList.sorted(by: { $0.date > $1.date })) { item in
                         LazyVStack(alignment: .leading, spacing: 8) {
@@ -72,7 +70,7 @@ struct ChannelDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .topBarTrailing) {
-                Button(action: { }) {
+                ShareLink(item: "gimifeedback://feedbackWrite/\(viewModel.channelItem.id)") {
                     Image(systemName: "square.and.arrow.up")
                 }
                 

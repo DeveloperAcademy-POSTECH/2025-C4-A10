@@ -6,6 +6,7 @@ final class ChannelDetailViewModel: ViewModelable {
         case getFeedbackChannelItem
         case fetchFeedbackList
         case deleteChannel
+        case shareToKakao(String)
         case clearError
     }
     
@@ -31,6 +32,9 @@ final class ChannelDetailViewModel: ViewModelable {
             
         case .deleteChannel:
             deleteChannel(channelItem: channelItem)
+            
+        case .shareToKakao(let channelID):
+            KakaoShareManager.shared.shareToKakao(channelID: channelID)
             
         case .clearError:
             errorMessage = nil
