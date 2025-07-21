@@ -15,6 +15,8 @@ struct MainNavigationRoutingView: View {
     var body: some View {
         Group {
             switch destination {
+            case .profile:
+                ProfileView()
             case .channelDetail(let channelItem):
                 ChannelDetailView(channelItem: channelItem)
             case .channelEdit(let channelItem):
