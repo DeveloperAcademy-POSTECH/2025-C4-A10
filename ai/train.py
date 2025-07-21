@@ -44,21 +44,21 @@ def main(config: DictConfig) -> None:
 
     # data initialize
     train_dataset = SequenceClassificationDataset(
-        dataset=dataset["train"].select(range(100)),
+        dataset=dataset["train"],
         tokenizer=tokenizer,
         labels=labels,
         max_seq_length=config.train.max_length,
         mode="train",
     )
     val_dataset = SequenceClassificationDataset(
-        dataset=dataset["validation"].select(range(10)),
+        dataset=dataset["validation"],
         tokenizer=tokenizer,
         labels=labels,
         max_seq_length=config.train.max_length,
         mode="val",
     )
     test_dataset = SequenceClassificationDataset(
-        dataset=dataset["test"].select(range(10)),
+        dataset=dataset["test"],
         tokenizer=tokenizer,
         labels=labels,
         max_seq_length=config.train.max_length,
