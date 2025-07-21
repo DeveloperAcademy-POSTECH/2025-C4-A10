@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MainViewModel: ViewModelable {
+final class DeepLinkViewModel: ViewModelable {
     enum Action {
         case handleDeepLink(URL)
         case resetChannel

@@ -9,12 +9,12 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var router: MainNavigationRouter
-    @StateObject private var viewModel: MainViewModel
+    @StateObject private var deepLinkViewModel: DeepLinkViewModel
     @ObservedObject var notificationRouter: NotificationViewModel
     
     init(notificationRouter: NotificationViewModel) {
         _router = StateObject(wrappedValue: .init())
-        _viewModel = StateObject(wrappedValue: .init())
+        _deepLinkViewModel = StateObject(wrappedValue: .init())
         self.notificationRouter = notificationRouter
     }
     
@@ -25,12 +25,12 @@ struct MainView: View {
                     MainNavigationRoutingView(destination: destination)
                 }
                 .onOpenURL { url in
-                    viewModel.send(.handleDeepLink(url))
+                    deepLinkViewModel.send(.handleDeepLink(url))
                 }
-                .onChange(of: viewModel.channel) { _, newValue in
+                .onChange(of: deepLinkViewModel.channel) { _, newValue in
                     if let channel = newValue {
                         router.push(to: .feedbackWrite(channel: channel))
-                        viewModel.send(.resetChannel)
+                        deepLinkViewModel.send(.resetChannel)
                     }
                 }
                 .onAppear {
