@@ -18,7 +18,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
         FirebaseApp.configure()
-        setBackButtonColor()
+        setUIAppearance()
         
         // 앱 실행 시 사용자에게 알림 허용 권한을 받음
         UNUserNotificationCenter.current().delegate = self
@@ -87,23 +87,33 @@ extension AppDelegate: MessagingDelegate {
 }
 
 extension AppDelegate {
+    /// UI에 필요한 기본 컴포넌트들 수정하는 함수
     /// 백버튼 기본 설정
-    /// apperance: NavigationBar의 기본 설정
-    /// BarButtonItem: BarButtonItem의 기본 설정
-    /// 뒤로가기 clear, Button Color black으로
-    private func setBackButtonColor() {
-        let backButtonAppearance = UIBarButtonItemAppearance()
-        let appearance = UINavigationBarAppearance()
+    /// navigationAppearance: NavigationBar의 기본 설정
+    /// backButtonAppearance: BarButtonItem의 기본 설정
+    /// UITextView: TextEditor 기본 설정
+    private func setUIAppearance() {
+        let navigationAppearance = UINavigationBarAppearance()
+        let buttonItemAppearance = UIBarButtonItemAppearance()
         
-        backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
-        //        appearance.configureWithOpaqueBackground()
-        appearance.backButtonAppearance = backButtonAppearance
-        appearance.configureWithTransparentBackground()
+        // Navigaton Appearance 설정
+        navigationAppearance.configureWithTransparentBackground()
+        UINavigationBar.appearance().standardAppearance = navigationAppearance
+        UINavigationBar.appearance().compactAppearance = navigationAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationAppearance
         
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().compactAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        // ButtonItem Appearance 설정
+        buttonItemAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        navigationAppearance.backButtonAppearance = buttonItemAppearance
         UIBarButtonItem.appearance().tintColor = UIColor(.black)
+        
+        // TextEditor 입력 부분 위치 조정
+        UITextView.appearance().textContainerInset = UIEdgeInsets(
+            top: 2,
+            left: 0,
+            bottom: 0,
+            right: 0,
+        )
     }
     
     private func handlePushNotification(userInfo: [AnyHashable: Any]) {

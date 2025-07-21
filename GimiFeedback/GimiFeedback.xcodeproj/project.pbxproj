@@ -65,6 +65,7 @@
 		EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */; };
 		EEC0471A2E2E1D3B00918BAA /* GimiButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC047192E2E1D3A00918BAA /* GimiButtonStyle.swift */; };
 		EEC048712E2E1E6100918BAA /* CustomNaviModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048702E2E1E6100918BAA /* CustomNaviModifier.swift */; };
+		EEC048732E2E331400918BAA /* GimiTextEditorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048722E2E330D00918BAA /* GimiTextEditorStyle.swift */; };
 		EEDBB1B82E28D45700F16407 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1B72E28D45700F16407 /* FirebaseMessaging */; };
 		EEDBB1BA2E28DA9200F16407 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1B92E28DA9100F16407 /* Token.swift */; };
 		EEDBB1BC2E28DEC100F16407 /* FCMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */; };
@@ -132,6 +133,7 @@
 		EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNavigationRoutingView.swift; sourceTree = "<group>"; };
 		EEC047192E2E1D3A00918BAA /* GimiButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiButtonStyle.swift; sourceTree = "<group>"; };
 		EEC048702E2E1E6100918BAA /* CustomNaviModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNaviModifier.swift; sourceTree = "<group>"; };
+		EEC048722E2E330D00918BAA /* GimiTextEditorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiTextEditorStyle.swift; sourceTree = "<group>"; };
 		EEDBB1B62E28D2E900F16407 /* GimiFeedback.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GimiFeedback.entitlements; sourceTree = "<group>"; };
 		EEDBB1B92E28DA9100F16407 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMManager.swift; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 		EEC047172E2E1CF900918BAA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EEC048722E2E330D00918BAA /* GimiTextEditorStyle.swift */,
 				EEC047192E2E1D3A00918BAA /* GimiButtonStyle.swift */,
 				EEC048702E2E1E6100918BAA /* CustomNaviModifier.swift */,
 			);
@@ -604,6 +607,7 @@
 				EE3755412E1E1105009AD262 /* FeedbackChannel.swift in Sources */,
 				EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */,
 				EE82DF9D2E24D5DA00EC1AFF /* ChannelCreateViewModel.swift in Sources */,
+				EEC048732E2E331400918BAA /* GimiTextEditorStyle.swift in Sources */,
 				EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */,
 				EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */,
 				ECC980AC2E28E91E004A483B /* DeepLinkManager.swift in Sources */,
