@@ -1,9 +1,9 @@
 from pathlib import Path
-from typing import Literal
+from typing import Literal, Dict, Any
 import json
 import numpy as np
-from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
 from datetime import datetime
+import torch
 
 
 class Evaluator:
@@ -20,6 +20,8 @@ class Evaluator:
         self: "Evaluator",
         golds: np.ndarray | list,
         preds: np.ndarray | list,
+        texts: list[str],
+        ids: list[int | str | torch.Tensor] | None,
         mode: Literal["valid", "test"] = "test",
     ) -> dict[str, float]:
         """split에 맞춰 valid_eval / test_eval 호출"""
@@ -33,7 +35,10 @@ class Evaluator:
         if isinstance(preds, list):
             preds = np.array(preds)
 
-        results = self._eval(golds, preds)
+        results = self._eval(golds, preds, texts, ids)
+        import pdb
+
+        pdb.set_trace()
         with open(self.save_dir / f"{mode}_evaluate_results.json", "w") as f:
             json.dump(results, f, indent=4, ensure_ascii=False)
         return results
@@ -42,18 +47,51 @@ class Evaluator:
         self: "Evaluator",
         golds: np.ndarray,
         preds: np.ndarray,
-    ) -> dict[str, float]:
+        texts: list[str],
+        ids: list[int | str | torch.Tensor] | None,
+    ) -> Dict[str, Any]:
+        # Custom accuracy calculation
+        total_samples = len(golds)
+        incorrect_ids = []
+        correct_count = 0
+
+        # Compare predictions with gold labels and track incorrect IDs
+        for i in range(total_samples):
+            if golds[i] == preds[i]:
+                correct_count += 1
+            else:
+                if isinstance(ids[i], torch.Tensor) or isinstance(ids[i], np.ndarray):
+                    id = ids[i].item()
+                elif isinstance(ids[i], str):
+                    id = str(ids[i])
+                else:
+                    id = ids[i]
+                text = texts[i]
+                gold_label = int(golds[i])
+                pred_label = int(preds[i])
+                gold_label_name = self.labels.get(int(gold_label), "")
+                pred_label_name = self.labels.get(int(pred_label), "")
+
+                row = {
+                    "index": i,
+                    "id": id,
+                    "text": text,
+                    "gold_label": gold_label,
+                    "gold_label_name": gold_label_name,
+                    "pred_label": pred_label,
+                    "pred_label_name": pred_label_name,
+                }
+                incorrect_ids.append(row)
+
+        # Calculate accuracy
+        accuracy = correct_count / total_samples if total_samples > 0 else 0.0
+
         return {
-            "accuracy": accuracy_score(golds, preds),
-            "f1_score_micro": f1_score(golds, preds, average="micro"),
-            "precision_micro": precision_score(golds, preds, average="micro"),
-            "recall_micro": recall_score(golds, preds, average="micro"),
-            "f1_score_macro": f1_score(golds, preds, average="macro"),
-            "precision_macro": precision_score(golds, preds, average="macro"),
-            "recall_macro": recall_score(golds, preds, average="macro"),
-            "f1_score_weighted": f1_score(golds, preds, average="weighted"),
-            "precision_weighted": precision_score(golds, preds, average="weighted"),
-            "recall_weighted": recall_score(golds, preds, average="weighted"),
+            "accuracy": accuracy,
+            "total_samples": total_samples,
+            "incorrect_count": len(incorrect_ids),
+            "correct_count": correct_count,
+            "incorrect_predictions": incorrect_ids,
         }
 
     def set_save_dir(self: "Evaluator", save_dir: str) -> None:
@@ -77,4 +115,9 @@ if __name__ == "__main__":
     evaluator = Evaluator(labels=["O", "B", "I"])
     golds = np.array([0, 1, 2, 0, 1, 2])
     preds = np.array([0, 2, 1, 1, 2, 1])
-    evaluator.evaluate(golds, preds)
+    evaluator.evaluate(
+        golds,
+        preds,
+        texts=["text1", "text2", "text3", "text4", "text5", "text6"],
+        ids=[1, 2, 3, 4, 5, 6],
+    )

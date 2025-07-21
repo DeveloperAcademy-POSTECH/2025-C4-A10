@@ -1,7 +1,7 @@
-from utils.constants import TextInput
+from utils.constants import Input
 from typing import Type, Literal
 from transformers import PreTrainedTokenizer
-from utils.constants import Tensor1D, Sequence
+from utils.constants import SequenceClassificationInputBatch
 import torch
 
 
@@ -14,7 +14,7 @@ class SequenceClassificationPreprocessor:
         padding: Literal["max_length"] | bool = "max_length",
         padding_side: Literal["left", "right"] = "right",
         ignore_id: int = -100,
-        mode: Literal["train", "val", "test"] = "test",
+        mode: Literal["train", "val", "test", "infer"] = "test",
     ):
         self.tokenizer = tokenizer
         self.labels = labels
@@ -26,43 +26,28 @@ class SequenceClassificationPreprocessor:
 
     def preprocess(
         self: "SequenceClassificationPreprocessor",
-        text_input: TextInput,
-    ) -> dict[
-        Literal[
-            "input_ids",
-            "attention_mask",
-            "token_type_ids",
-            "label_texts",
-            "labels",
-        ],
-        Tensor1D[Sequence],
-    ]:
-        assert text_input is not None and len(text_input) > 0, ValueError(
-            "text_input is None or empty\nPlease check the data"
+        input: Input,
+    ) -> SequenceClassificationInputBatch:
+        assert input is not None and len(input) > 0, ValueError(
+            "input is None or empty\nPlease check the data"
         )
 
-        if self.mode == "test":
-            return self._test_preprocess(text_input)
-        elif self.mode in ["train", "val"]:
-            assert text_input["label"] is not None, ValueError(
+        if self.mode in ["train", "val", "test"]:
+            assert input["label"] is not None, ValueError(
                 "label is None\nPlease check the data"
             )
-            return self._train_preprocess(text_input)
+            return self._preprocess(input)
+        elif self.mode == "infer":
+            return self._inference(input)
+        else:
+            raise ValueError(f"Invalid mode : {self.mode}")
 
-    def _test_preprocess(
+    def _preprocess(
         self: "SequenceClassificationPreprocessor",
-        text_input: TextInput,
-    ) -> dict[
-        Literal[
-            "input_ids",
-            "attention_mask",
-            "token_type_ids",
-            "label_texts",
-        ],
-        Tensor1D[Sequence],
-    ]:
+        input: Input,
+    ) -> SequenceClassificationInputBatch:
         batch = self.tokenizer.encode_plus(
-            text_input["text"],
+            input["text"],
             max_length=self.max_seq_length,
             padding=self.padding,
             padding_side=self.padding_side,
@@ -72,29 +57,22 @@ class SequenceClassificationPreprocessor:
             return_tensors="pt",
         )
         batch = {k: v.squeeze() for k, v in batch.items()}
-        batch["label_texts"] = self.labels[text_input["label"]]
         batch["labels"] = torch.tensor(
-            text_input["label"],
+            input["label"],
             dtype=torch.long,
         ).unsqueeze(0)
+        batch["original_texts"] = input["text"]
+        batch["label_texts"] = self.labels[input["label"]]
+        batch["ids"] = input["id"] if isinstance(input["id"], int) else int(input["id"])
 
         return batch
 
-    def _train_preprocess(
+    def _inference(
         self: "SequenceClassificationPreprocessor",
-        text_input: TextInput,
-    ) -> dict[
-        Literal[
-            "input_ids",
-            "attention_mask",
-            "token_type_ids",
-            "label_texts",
-            "labels",
-        ],
-        Tensor1D[Sequence],
-    ]:
+        input: Input,
+    ) -> SequenceClassificationInputBatch:
         batch = self.tokenizer.encode_plus(
-            text_input["text"],
+            input["text"],
             max_length=self.max_seq_length,
             padding=self.padding,
             padding_side=self.padding_side,
@@ -104,17 +82,14 @@ class SequenceClassificationPreprocessor:
             return_tensors="pt",
         )
         batch = {k: v.squeeze() for k, v in batch.items()}
-        batch["label_texts"] = self.labels[text_input["label"]]
-        batch["labels"] = torch.tensor(
-            text_input["label"],
-            dtype=torch.long,
-        ).unsqueeze(0)
+        batch["original_texts"] = input["text"]
+        batch["ids"] = input["id"] if isinstance(input["id"], int) else int(input["id"])
 
         return batch
 
 
 if __name__ == "__main__":
-    # command : python -m ai.data.preprocess
+    # command : python -m data.preprocess
     from transformers import AutoTokenizer
 
     labels = ["긍정", "부정"]
@@ -130,9 +105,9 @@ if __name__ == "__main__":
         mode="train",
     )
 
-    text_input: TextInput = TextInput(text="It's sunny today!", label="긍정")
-    print(text_input)
+    input: Input = Input(text="It's sunny today!", label=0, id=1)
+    print(input)
 
-    batch = preprocessor.preprocess(text_input)
+    batch = preprocessor.preprocess(input)
 
     print(batch)

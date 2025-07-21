@@ -139,7 +139,7 @@ class Trainer:
 
     def _val_epoch(self: "Trainer", epoch: int) -> None:
         val_loss, val_steps = 0, 0
-        preds, golds = [], []
+        preds, golds, texts, ids = [], [], [], []
         dataloader = self._get_val_dataloader()
         pbar = tqdm(
             range(len(dataloader)),
@@ -167,6 +167,8 @@ class Trainer:
             true_labels = valid_batch["labels"].clone().detach().cpu().numpy()
             preds.extend(pred_labels.tolist())
             golds.extend(true_labels.tolist())
+            texts.extend(valid_batch["original_texts"])
+            ids.extend(valid_batch["ids"])
             pbar.update(1)
             pbar.set_postfix(
                 {
@@ -177,7 +179,9 @@ class Trainer:
         clear_memory(valid_batch, dataloader)
         pbar.close()
         val_loss /= val_steps
-        scores = self.compute_metrics.evaluate(golds, preds, mode="val")
+        scores = self.compute_metrics.evaluate(
+            golds, preds, texts=texts, ids=ids, mode="val"
+        )
 
         print(f"Epoch [{epoch}/{self.config.train.max_epoch}] Val_loss :", val_loss)
         for key, value in scores.items():
@@ -188,7 +192,7 @@ class Trainer:
                 {
                     "epoch": epoch,
                     "val_loss": val_loss,
-                    "val_f1": scores["f1_score_micro"],
+                    "val_accuracy": scores["accuracy"],
                 }
             )
             for key, value in scores.items():
@@ -205,7 +209,7 @@ class Trainer:
             f"{self.save_dir}/model/epoch:{epoch}_model.pt"
         )
         self.val_loss_values.append(val_loss)
-        self.val_score_values.append(scores["f1_score_micro"])
+        self.val_score_values.append(scores["accuracy"])
 
         best_epoch = np.array(self.val_loss_values).argmin()
         best_model_path = Path(self.best_model_epoch_dir[best_epoch])
@@ -228,7 +232,7 @@ class Trainer:
         self._move_model_to_device()
         self.model.eval()
 
-        preds, golds = [], []
+        preds, golds, texts, ids = [], [], [], []
         dataloader = self._get_test_dataloader()
         pbar = tqdm(
             range(len(dataloader)),
@@ -250,11 +254,15 @@ class Trainer:
             true_labels = test_batch["labels"].clone().detach().cpu().numpy()
             preds.extend(pred_labels.tolist())
             golds.extend(true_labels.tolist())
+            texts.extend(test_batch["original_texts"])
+            ids.extend(test_batch["ids"])
             pbar.update(1)
 
         pbar.close()
 
-        scores = self.compute_metrics.evaluate(golds, preds, mode="test")
+        scores = self.compute_metrics.evaluate(
+            golds, preds, texts=texts, ids=ids, mode="test"
+        )
         if self.is_wandb:
             for key, value in scores.items():
                 wandb.log({f"{key}": value})

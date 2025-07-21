@@ -2,13 +2,13 @@ from typing import Type, Literal
 from transformers import PreTrainedTokenizer
 from torch.utils.data import Dataset
 from .preprocess import SequenceClassificationPreprocessor
-from utils.constants import TextInput, Tensor1D, Sequence
+from utils.constants import Input, SequenceClassificationInputBatch
 
 
 class SequenceClassificationDataset(Dataset):
     def __init__(
         self: "SequenceClassificationDataset",
-        dataset: list[TextInput],
+        dataset: list[Input],
         tokenizer: Type[PreTrainedTokenizer],
         labels: list[str],
         max_seq_length: int = 512,
@@ -33,23 +33,14 @@ class SequenceClassificationDataset(Dataset):
 
     def __getitem__(
         self: "SequenceClassificationDataset", idx: int
-    ) -> dict[
-        Literal[
-            "input_ids",
-            "attention_mask",
-            "token_type_ids",
-            "label_texts",
-            "labels",
-        ],
-        Tensor1D[Sequence],
-    ]:
+    ) -> SequenceClassificationInputBatch:
         batch = self.preprocessor.preprocess(self.dataset[idx])
 
         return batch
 
 
 if __name__ == "__main__":
-    # command : python -m ai.data.dataset
+    # command : python -m data.dataset
     from transformers import AutoTokenizer
     from torch.utils.data import DataLoader
 
@@ -59,8 +50,8 @@ if __name__ == "__main__":
     tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
     dataset = SequenceClassificationDataset(
         dataset=[
-            TextInput(text="It's sunny today!", label="긍정"),
-            TextInput(text="I'm so sad.", label="부정"),
+            Input(text="It's sunny today!", label="긍정"),
+            Input(text="I'm so sad.", label="부정"),
         ],
         tokenizer=tokenizer,
         labels=labels,

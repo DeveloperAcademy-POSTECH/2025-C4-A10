@@ -70,17 +70,55 @@ Text = TypeVar("Text", bound=str)
 Label = TypeVar("Label", bound=str)
 
 
-class TextInput(TypedDict):
+class Input(TypedDict):
+    """
+    Input data example
+        text: "It's sunny today!"
+        label: "긍정"
+    """
+
     text: Text
     label: Label | None
 
 
-class TextInputBatch(TypedDict):
+class InputBatch(TypedDict):
+    """
+    Input batch data example
+        texts: ["It's sunny today!", "I'm so sad."]
+        labels: ["긍정", "부정"]
+    """
+
     texts: list[Text]
     labels: list[Label | None]
 
 
 class EncoderModelInputBatch(TypedDict):
+    """
+    Encoder model input batch data example
+        input_ids: torch.Tensor([[101, 202, 303, ...], ...])
+        attention_mask: torch.Tensor([[1, 1, 1, ...], ...])
+        token_type_ids: torch.Tensor([[0, 0, 0, ...], ...])
+        labels: torch.Tensor([[0], ...]) | None
+    """
+
     input_ids: Tensor2D[Batch, Sequence]
     attention_mask: Tensor2D[Batch, Sequence]
     token_type_ids: Tensor2D[Batch, Sequence]
+    labels: Tensor2D[Batch, Sequence] | None
+
+
+class SequenceClassificationInputBatch(EncoderModelInputBatch):
+    """
+    Sequence classification input batch data example
+        input_ids: torch.Tensor([[101, 202, 303, ...], ...])
+        attention_mask: torch.Tensor([[1, 1, 1, ...], ...])
+        token_type_ids: torch.Tensor([[0, 0, 0, ...], ...])
+        labels: torch.Tensor([[0], ...]) | None
+        original_texts: ["It's sunny today!", "I'm so sad."]
+        label_texts: ["긍정", "부정"]
+        ids: ["1", "2"]
+    """
+
+    original_texts: list[Text]
+    label_texts: list[Label]
+    ids: list[int | str]
