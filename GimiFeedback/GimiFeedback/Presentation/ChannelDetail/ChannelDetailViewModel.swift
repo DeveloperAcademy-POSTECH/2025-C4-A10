@@ -3,12 +3,13 @@ import Foundation
 final class ChannelDetailViewModel: ViewModelable {
     
     enum Action {
+        case getFeedbackChannelItem
         case fetchFeedbackList
         case deleteChannel
         case clearError
     }
     
-    let channelItem: FeedbackChannel
+    @Published var channelItem: FeedbackChannel
     
     @Published private(set) var feedbackList: [Feedback] = []
     @Published private(set) var errorMessage: String?
@@ -22,9 +23,12 @@ final class ChannelDetailViewModel: ViewModelable {
     
     func send(_ action: Action) {
         switch action {
+        case .getFeedbackChannelItem:
+            getFeedbackChannelItem()
+            
         case .fetchFeedbackList:
             fetchFeedbackList(channelID: channelItem.id)
-
+            
         case .deleteChannel:
             deleteChannel(channelItem: channelItem)
             
@@ -36,6 +40,23 @@ final class ChannelDetailViewModel: ViewModelable {
 }
 
 extension ChannelDetailViewModel {
+    private func getFeedbackChannelItem() {
+        Task {
+            isLoading = true
+            do {
+                guard let update: FeedbackChannel = try await FirestoreManager.shared.get(
+                    channelItem.id.uuidString,
+                    collectionType: .feedbackChannel)
+                else { return }
+                channelItem = update
+                
+            } catch {
+                errorMessage = error.localizedDescription
+            }
+            isLoading = true
+        }
+    }
+    
     private func fetchFeedbackList(channelID: UUID) {
         Task {
             isLoading = true

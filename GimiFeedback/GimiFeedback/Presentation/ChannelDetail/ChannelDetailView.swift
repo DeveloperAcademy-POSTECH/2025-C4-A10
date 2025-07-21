@@ -23,8 +23,12 @@ struct ChannelDetailView: View {
                 .background(Color.gray.opacity(0.1))
                 .clipShape(.rect(cornerRadius: 20))
                 .overlay(alignment: .topTrailing) {
-                    Image(systemName: "pencil")
-                        .padding()
+                    Button(action: {
+                        router.push(to: .channelEdit(channelItem: viewModel.channelItem))
+                    }) {
+                        Image(systemName: "square.and.pencil")
+                    }
+                    
                 }
                 .padding(.horizontal)
                 
@@ -104,6 +108,9 @@ struct ChannelDetailView: View {
         }
         .onAppear {
             viewModel.send(.fetchFeedbackList)
+        }
+        .refreshable {
+            viewModel.send(.getFeedbackChannelItem)
         }
         
     }

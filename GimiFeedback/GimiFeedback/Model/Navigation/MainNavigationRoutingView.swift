@@ -17,8 +17,8 @@ struct MainNavigationRoutingView: View {
             switch destination {
             case .channelDetail(let channelItem):
                 ChannelDetailView(channelItem: channelItem)
-            case .channelEdit:
-                ChannelEditView()
+            case .channelEdit(let channelItem):
+                ChannelEditView(channelItem: channelItem)
             case .feedbackDetail(let feedbackItem):
                 FeedbackDetailView(feedbackItem: feedbackItem)
             case .inputCode:
