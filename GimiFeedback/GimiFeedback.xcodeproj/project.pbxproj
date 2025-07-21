@@ -66,6 +66,7 @@
 		EEC0471A2E2E1D3B00918BAA /* GimiButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC047192E2E1D3A00918BAA /* GimiButtonStyle.swift */; };
 		EEC048712E2E1E6100918BAA /* CustomNaviModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048702E2E1E6100918BAA /* CustomNaviModifier.swift */; };
 		EEC048732E2E331400918BAA /* GimiTextEditorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048722E2E330D00918BAA /* GimiTextEditorStyle.swift */; };
+		EEC048752E2E916100918BAA /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048742E2E914800918BAA /* SpeechView.swift */; };
 		EEDBB1B82E28D45700F16407 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1B72E28D45700F16407 /* FirebaseMessaging */; };
 		EEDBB1BA2E28DA9200F16407 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1B92E28DA9100F16407 /* Token.swift */; };
 		EEDBB1BC2E28DEC100F16407 /* FCMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */; };
@@ -134,6 +135,7 @@
 		EEC047192E2E1D3A00918BAA /* GimiButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiButtonStyle.swift; sourceTree = "<group>"; };
 		EEC048702E2E1E6100918BAA /* CustomNaviModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNaviModifier.swift; sourceTree = "<group>"; };
 		EEC048722E2E330D00918BAA /* GimiTextEditorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiTextEditorStyle.swift; sourceTree = "<group>"; };
+		EEC048742E2E914800918BAA /* SpeechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
 		EEDBB1B62E28D2E900F16407 /* GimiFeedback.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GimiFeedback.entitlements; sourceTree = "<group>"; };
 		EEDBB1B92E28DA9100F16407 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMManager.swift; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 		EEC047172E2E1CF900918BAA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EEC048742E2E914800918BAA /* SpeechView.swift */,
 				EEC048722E2E330D00918BAA /* GimiTextEditorStyle.swift */,
 				EEC047192E2E1D3A00918BAA /* GimiButtonStyle.swift */,
 				EEC048702E2E1E6100918BAA /* CustomNaviModifier.swift */,
@@ -582,6 +585,7 @@
 				EE465F022E26510A0096109A /* ChannelListItemView.swift in Sources */,
 				EC9959BA2E25145B001555B1 /* FeedbackDetailView.swift in Sources */,
 				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
+				EEC048752E2E916100918BAA /* SpeechView.swift in Sources */,
 				EEC0471A2E2E1D3B00918BAA /* GimiButtonStyle.swift in Sources */,
 				EE41FEE72E22572C0002E595 /* Bundle+Extension.swift in Sources */,
 				EE41FD7D2E223D050002E595 /* LoginView.swift in Sources */,
