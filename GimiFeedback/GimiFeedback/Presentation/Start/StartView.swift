@@ -29,6 +29,7 @@ struct StartView: View {
                 }
                 .onChange(of: deepLinkViewModel.channel) { _, newValue in
                     if let channel = newValue {
+                        router.push(to: .inputCode)
                         router.push(to: .feedbackWrite(channel: channel))
                         deepLinkViewModel.send(.resetChannel)
                     }
