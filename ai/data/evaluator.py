@@ -36,9 +36,6 @@ class Evaluator:
             preds = np.array(preds)
 
         results = self._eval(golds, preds, texts, ids)
-        import pdb
-
-        pdb.set_trace()
         with open(self.save_dir / f"{mode}_evaluate_results.json", "w") as f:
             json.dump(results, f, indent=4, ensure_ascii=False)
         return results
