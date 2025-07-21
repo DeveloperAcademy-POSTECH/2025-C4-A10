@@ -53,7 +53,7 @@
 		EE856A382E1CD0F6006820B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE856A352E1CD0F6006820B9 /* Assets.xcassets */; };
 		EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */; };
 		EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A432E1CD23E006820B9 /* Color+Extension.swift */; };
-		EE856A472E1CD2AD006820B9 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A462E1CD2AA006820B9 /* Font.swift */; };
+		EE856A472E1CD2AD006820B9 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A462E1CD2AA006820B9 /* Font+Extension.swift */; };
 		EE856A492E1CD2D7006820B9 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A482E1CD2D1006820B9 /* Feedback.swift */; };
 		EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A4D2E1CD3BF006820B9 /* DummyData.swift */; };
 		EE856A512E1CD418006820B9 /* ChannelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A502E1CD409006820B9 /* ChannelListView.swift */; };
@@ -114,7 +114,7 @@
 		EE856A342E1CD0F6006820B9 /* GimiFeedbackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiFeedbackApp.swift; sourceTree = "<group>"; };
 		EE856A352E1CD0F6006820B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE856A432E1CD23E006820B9 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		EE856A462E1CD2AA006820B9 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		EE856A462E1CD2AA006820B9 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		EE856A482E1CD2D1006820B9 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		EE856A4D2E1CD3BF006820B9 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
@@ -125,6 +125,7 @@
 		EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestination.swift; sourceTree = "<group>"; };
 		EEA0BBB52E2D41C6009A25D8 /* DeepLinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkViewModel.swift; sourceTree = "<group>"; };
+		EEA0BD102E2DF6E2009A25D8 /* SUIT-Variable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Variable.ttf"; sourceTree = "<group>"; };
 		EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNavigationRoutingView.swift; sourceTree = "<group>"; };
 		EEDBB1B62E28D2E900F16407 /* GimiFeedback.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GimiFeedback.entitlements; sourceTree = "<group>"; };
 		EEDBB1B92E28DA9100F16407 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -378,6 +379,7 @@
 		EE856A412E1CD13E006820B9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EEA0BD0F2E2DF6D2009A25D8 /* Fonts */,
 				EE856A352E1CD0F6006820B9 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -397,7 +399,7 @@
 		EE856A452E1CD258006820B9 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				EE856A462E1CD2AA006820B9 /* Font.swift */,
+				EE856A462E1CD2AA006820B9 /* Font+Extension.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -445,6 +447,13 @@
 				EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		EEA0BD0F2E2DF6D2009A25D8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EEA0BD102E2DF6E2009A25D8 /* SUIT-Variable.ttf */,
+			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -527,6 +536,7 @@
 				EE465EE92E26205D0096109A /* GoogleService-Info.plist in Resources */,
 				EE3754AF2E1D7B36009AD262 /* .swiftlint.yml in Resources */,
 				EE856A382E1CD0F6006820B9 /* Assets.xcassets in Resources */,
+				EEA0BD112E2DF6E2009A25D8 /* SUIT-Variable.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,7 +569,7 @@
 				EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */,
 				EE465EF22E2631840096109A /* FeedbackWriteCompleteView.swift in Sources */,
 				EEDBB1BA2E28DA9200F16407 /* Token.swift in Sources */,
-				EE856A472E1CD2AD006820B9 /* Font.swift in Sources */,
+				EE856A472E1CD2AD006820B9 /* Font+Extension.swift in Sources */,
 				EE82DF9B2E24D5CD00EC1AFF /* ChannelCreateView.swift in Sources */,
 				EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */,
 				EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */,
