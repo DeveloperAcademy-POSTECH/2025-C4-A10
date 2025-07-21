@@ -59,7 +59,7 @@ struct ChannelListView: View {
                 }
 
                 Button(action: {
-                    router.push(to: .my)
+                    router.push(to: .profile)
                 }) {
                     Image(systemName: "person.crop.circle.fill")
                         .resizable()

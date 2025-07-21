@@ -11,7 +11,6 @@ struct ChannelEditView: View {
     @StateObject var viewModel: ChannelEditViewModel
     @State private var isShowCreateAlert: Bool = false
     @EnvironmentObject var router: MainNavigationRouter
-    @EnvironmentObject var detailViewModel: ChannelDetailViewModel
     
     init(channelItem: FeedbackChannel) {
         _viewModel = StateObject(wrappedValue: .init(channelItem: channelItem))
@@ -66,7 +65,6 @@ struct ChannelEditView: View {
             Button("취소", role: .cancel) { }
             Button("확인") {
                 viewModel.send(.updateFeedbackChannel)
-                viewModel.channelItem = detailViewModel.channelItem
             }
         } message: {
             Text("이대로 수정하겠습니까?")
