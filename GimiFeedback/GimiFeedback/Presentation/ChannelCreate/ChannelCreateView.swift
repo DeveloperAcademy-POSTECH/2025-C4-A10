@@ -60,8 +60,7 @@ struct ChannelCreateView: View {
             })
             .disabled(viewModel.title.isEmpty || viewModel.description.isEmpty)
         }
-        .navigationTitle("채널 생성하기")
-        .navigationBarTitleDisplayMode(.inline)
+        .gimiNavigationBar(title: "채널 생성하기")
         .alert("채널 생성하기", isPresented: $isShowCreateAlert) {
             Button("취소", role: .cancel) { }
             Button("확인") {

@@ -59,7 +59,7 @@ struct ChannelEditView: View {
             })
 //            .disabled(viewModel.title.isEmpty || viewModel.description.isEmpty)
         }
-        .navigationTitle("채널 수정하기")
+        .gimiNavigationBar(title: "채널 수정하기")
         .navigationBarTitleDisplayMode(.inline)
         .alert("채널 수정하기", isPresented: $isShowCreateAlert) {
             Button("취소", role: .cancel) { }

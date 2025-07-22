@@ -83,6 +83,9 @@ struct FeedbackChannelInfo: Identifiable {
     
     var folderImageString: String {
         let count = max(0, min(feedbackCount, 4))
+        if count == 0 { // swiftlint:disable:this empty_count
+            return "Folder-0"
+        }
         let visiable = visiableFeedback ? "False" : "True"
         return "Folder-\(count)-\(visiable)"
     }

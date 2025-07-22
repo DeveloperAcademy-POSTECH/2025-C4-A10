@@ -8,30 +8,28 @@
 import SwiftUI
 
 extension Font {
-    private static let fontName = "SUIT-Variable"
-
     enum SuitWeight {
         case regular
         case medium
         case semibold
         case bold
 
-        var fontWeight: Font.Weight {
+        var fontName: String {
             switch self {
             case .regular:
-                return .regular
+                return "SUITVariable-Regular"
             case .medium:
-                return .medium
+                return "SUITVariable-Medium"
             case .semibold:
-                return .semibold
+                return "SUITVariable-SemiBold"
             case .bold:
-                return .bold
+                return "SUITVariable-Bold"
             }
         }
     }
 
     static func suit(_ weight: SuitWeight, size: CGFloat) -> Font {
-        return .custom(fontName, size: size).weight(weight.fontWeight)
+        return .custom(weight.fontName, size: size)
     }
 
     static var title1: Font { .suit(.bold, size: 20) }
