@@ -65,7 +65,7 @@
 		EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */; };
 		EEC0471A2E2E1D3B00918BAA /* GimiButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC047192E2E1D3A00918BAA /* GimiButtonStyle.swift */; };
 		EEC048712E2E1E6100918BAA /* CustomNaviModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048702E2E1E6100918BAA /* CustomNaviModifier.swift */; };
-		EEC048732E2E331400918BAA /* GimiTextEditorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048722E2E330D00918BAA /* GimiTextEditorStyle.swift */; };
+		EEC048732E2E331400918BAA /* GimiTextEditorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048722E2E330D00918BAA /* GimiTextEditorModifier.swift */; };
 		EEC048752E2E916100918BAA /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048742E2E914800918BAA /* SpeechView.swift */; };
 		EEC048782E2FAE8100918BAA /* GimiTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048772E2FAE7900918BAA /* GimiTextFieldStyle.swift */; };
 		EEDBB1B82E28D45700F16407 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1B72E28D45700F16407 /* FirebaseMessaging */; };
@@ -135,7 +135,7 @@
 		EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNavigationRoutingView.swift; sourceTree = "<group>"; };
 		EEC047192E2E1D3A00918BAA /* GimiButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiButtonStyle.swift; sourceTree = "<group>"; };
 		EEC048702E2E1E6100918BAA /* CustomNaviModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNaviModifier.swift; sourceTree = "<group>"; };
-		EEC048722E2E330D00918BAA /* GimiTextEditorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiTextEditorStyle.swift; sourceTree = "<group>"; };
+		EEC048722E2E330D00918BAA /* GimiTextEditorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiTextEditorModifier.swift; sourceTree = "<group>"; };
 		EEC048742E2E914800918BAA /* SpeechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
 		EEC048772E2FAE7900918BAA /* GimiTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiTextFieldStyle.swift; sourceTree = "<group>"; };
 		EEDBB1B62E28D2E900F16407 /* GimiFeedback.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GimiFeedback.entitlements; sourceTree = "<group>"; };
@@ -342,17 +342,17 @@
 			children = (
 				EEC047172E2E1CF900918BAA /* Components */,
 				EE35D54A2E2E01B8008F6A71 /* CommonViewModel */,
-				EE465EFA2E26508E0096109A /* Main */,
-				EC9959BE2E2518BE001555B1 /* FeedbackWriteComplete */,
-				EC9959BB2E2518AF001555B1 /* FeedbackWrite */,
-				EC9959B82E251453001555B1 /* FeedbackDetail */,
-				EC9959B52E251368001555B1 /* ChannelEdit */,
-				EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */,
-				EE82DF992E24D5B500EC1AFF /* ChannelCreate */,
-				EC9959B12E24E646001555B1 /* ChannelDetail */,
 				EE856A4F2E1CD401006820B9 /* Start */,
-				EE41FD7E2E223D180002E595 /* InputCode */,
+				EE465EFA2E26508E0096109A /* Main */,
 				EE856A522E1CD41C006820B9 /* ChannelList */,
+				EE82DF992E24D5B500EC1AFF /* ChannelCreate */,
+				EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */,
+				EC9959B12E24E646001555B1 /* ChannelDetail */,
+				EC9959B52E251368001555B1 /* ChannelEdit */,
+				EE41FD7E2E223D180002E595 /* InputCode */,
+				EC9959BB2E2518AF001555B1 /* FeedbackWrite */,
+				EC9959BE2E2518BE001555B1 /* FeedbackWriteComplete */,
+				EC9959B82E251453001555B1 /* FeedbackDetail */,
 				EE856A532E1CE5B0006820B9 /* ViewModelable.swift */,
 			);
 			path = Presentation;
@@ -369,11 +369,11 @@
 		EE856A3E2E1CD111006820B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EEDBB1B92E28DA9100F16407 /* Token.swift */,
 				EE3755402E1E1102009AD262 /* FeedbackChannel.swift */,
 				EE856A482E1CD2D1006820B9 /* Feedback.swift */,
 				EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */,
 				EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */,
+				EEDBB1B92E28DA9100F16407 /* Token.swift */,
 				EE856CA52E1D6D28006820B9 /* Navigation */,
 			);
 			path = Model;
@@ -421,8 +421,8 @@
 			children = (
 				EE3756A12E1E601E009AD262 /* Firestore */,
 				EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */,
-				EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */,
 				EE41FEEC2E225A1C0002E595 /* FirebaseAuthManager.swift */,
+				EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */,
 				ECC980AB2E28E91E004A483B /* DeepLinkManager.swift */,
 				ECC980B42E294835004A483B /* KakaoShareManager.swift */,
 				EE41FEEA2E2259980002E595 /* KakaoAuthManager.swift */,
@@ -453,10 +453,10 @@
 		EE856CA52E1D6D28006820B9 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				EE465EEB2E262ECA0096109A /* MainNavigationRoutingView.swift */,
-				EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */,
-				EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */,
 				EE856CA62E1D6D31006820B9 /* NavigationRouter.swift */,
+				EE856CA82E1D6D6A006820B9 /* NavigationDestination.swift */,
+				EEB902CE2E260C6700C71DF9 /* StartNavigationRoutingView.swift */,
+				EE465EEB2E262ECA0096109A /* MainNavigationRoutingView.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -472,10 +472,10 @@
 		EEC047172E2E1CF900918BAA /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				EEC048772E2FAE7900918BAA /* GimiTextFieldStyle.swift */,
 				EEC048742E2E914800918BAA /* SpeechView.swift */,
-				EEC048722E2E330D00918BAA /* GimiTextEditorStyle.swift */,
 				EEC047192E2E1D3A00918BAA /* GimiButtonStyle.swift */,
+				EEC048772E2FAE7900918BAA /* GimiTextFieldStyle.swift */,
+				EEC048722E2E330D00918BAA /* GimiTextEditorModifier.swift */,
 				EEC048702E2E1E6100918BAA /* CustomNaviModifier.swift */,
 			);
 			path = Components;
@@ -615,7 +615,7 @@
 				EE3755412E1E1105009AD262 /* FeedbackChannel.swift in Sources */,
 				EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */,
 				EE82DF9D2E24D5DA00EC1AFF /* ChannelCreateViewModel.swift in Sources */,
-				EEC048732E2E331400918BAA /* GimiTextEditorStyle.swift in Sources */,
+				EEC048732E2E331400918BAA /* GimiTextEditorModifier.swift in Sources */,
 				EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */,
 				EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */,
 				ECC980AC2E28E91E004A483B /* DeepLinkManager.swift in Sources */,
