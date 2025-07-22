@@ -66,10 +66,9 @@ struct ChannelDetailView: View {
             }
             .padding(.top, 32)
         }
-        .navigationTitle("\(viewModel.channelItem.channelTitle)")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItemGroup(placement: .topBarTrailing) {
+        .gimiNavigationBar(
+            title: "\(viewModel.channelItem.channelTitle)",
+            trailingItems: {
                 ShareLink(item: "gimifeedback://feedbackWrite/\(viewModel.channelItem.id)") {
                     Image(systemName: "square.and.arrow.up")
                 }

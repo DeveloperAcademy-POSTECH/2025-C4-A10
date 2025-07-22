@@ -354,10 +354,10 @@
 			isa = PBXGroup;
 			children = (
 				EEC047172E2E1CF900918BAA /* Components */,
-				ECDF172C2E2E8F5000964391 /* Profile */,
 				EE35D54A2E2E01B8008F6A71 /* CommonViewModel */,
 				EE856A4F2E1CD401006820B9 /* Start */,
 				EE465EFA2E26508E0096109A /* Main */,
+				ECDF172C2E2E8F5000964391 /* Profile */,
 				EE856A522E1CD41C006820B9 /* ChannelList */,
 				EE82DF992E24D5B500EC1AFF /* ChannelCreate */,
 				EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */,
