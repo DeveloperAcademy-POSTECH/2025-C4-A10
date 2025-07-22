@@ -92,20 +92,34 @@ struct GimiButtonStyle: ButtonStyle {
     }
 }
 
+extension ButtonStyle where Self == GimiButtonStyle {
+    static var gimiStroke: GimiButtonStyle {
+        GimiButtonStyle(type: .stroke)
+    }
+
+    static var gimiPrimary: GimiButtonStyle {
+        GimiButtonStyle(type: .primary)
+    }
+
+    static var gimiGreen: GimiButtonStyle {
+        GimiButtonStyle(type: .green)
+    }
+}
+
 #Preview {
     VStack(spacing: 16) {
         Button("비활성화") {}
-            .buttonStyle(GimiButtonStyle(type: .primary))
+            .buttonStyle(.gimiPrimary)
             .disabled(true)
         
         Button("스트로크 버튼") {}
-            .buttonStyle(GimiButtonStyle(type: .stroke))
+            .buttonStyle(.gimiStroke)
         
         Button("프라이머리 버튼") {}
-            .buttonStyle(GimiButtonStyle(type: .primary))
+            .buttonStyle(.gimiPrimary)
         
         Button("그린 버튼") {}
-            .buttonStyle(GimiButtonStyle(type: .green))
+            .buttonStyle(.gimiGreen)
     }
     .padding()
     .frame(width: 351)

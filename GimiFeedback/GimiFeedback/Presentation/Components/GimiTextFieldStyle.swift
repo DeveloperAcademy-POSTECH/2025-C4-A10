@@ -12,13 +12,13 @@ enum GimiTextFieldStyleType {
     case title
 }
 
-struct GimiTextFieldStyle: ViewModifier {
+struct GimiTextFieldStyle: TextFieldStyle {
     let style: GimiTextFieldStyleType
 
-    func body(content: Content) -> some View {
+    func _body(configuration: TextField<Self._Label>) -> some View {
         switch style {
         case .base:
-            content
+            configuration
                 .padding(.vertical, 8)
                 .padding(.horizontal, 4)
                 .font(.inputCode)
@@ -31,7 +31,7 @@ struct GimiTextFieldStyle: ViewModifier {
                 .tint(.primaryLighten200)
 
         case .title:
-            content
+            configuration
                 .padding()
                 .background(.gray50)
                 .cornerRadius(12)
@@ -41,9 +41,13 @@ struct GimiTextFieldStyle: ViewModifier {
     }
 }
 
-extension View {
-    func textFieldStyle(_ style: GimiTextFieldStyleType) -> some View {
-        self.modifier(GimiTextFieldStyle(style: style))
+extension TextFieldStyle where Self == GimiTextFieldStyle {
+    static var gimiBase: GimiTextFieldStyle {
+        GimiTextFieldStyle(style: .base)
+    }
+
+    static var gimiTitle: GimiTextFieldStyle {
+        GimiTextFieldStyle(style: .title)
     }
 }
 
@@ -56,10 +60,10 @@ extension View {
             VStack(spacing: 16) {
                 ForEach($texts.indices, id: \.self) { index in
                     TextField("test용 입니다.", text: $texts[index])
-                        .textFieldStyle(.base)
+                        .textFieldStyle(.gimiBase)
                 }
                 TextField("제목 입력", text: .constant(""))
-                    .textFieldStyle(.title)
+                    .textFieldStyle(.gimiTitle)
             }
             .padding()
             .background(.gray400)
