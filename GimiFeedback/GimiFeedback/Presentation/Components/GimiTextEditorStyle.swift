@@ -13,45 +13,14 @@ enum GimiTextEditorType {
     case large
 }
 
-struct GimiTextEditor: View {
-    @Binding var text: String
-    let type: GimiTextEditorType
-    let placeholder: String
+// MARK: - TextEditor 기본 생김새 부분
+
+struct TextEditorBaseModifier: ViewModifier {
     let isDisabled: Bool
-    let maximumText: Int
-    var action: (() -> Void)?
+    let type: GimiTextEditorType
 
-    @FocusState private var isFocused: Bool
-
-    var body: some View {
-        TextEditor(text: $text)
-            .overlay(alignment: .topLeading) {
-                Text(placeholder)
-                    .foregroundStyle(text.isEmpty ? .gray : .clear)
-                    .font(.callout)
-                    .padding(.leading, 6)
-            }
-            .overlay(alignment: .topTrailing) {
-                if let action {
-                    Button(action: action) {
-                        Image(systemName: "xmark")
-                            .foregroundColor(.gray700)
-                            .padding(5)
-                    }
-                }
-            }
-            .overlay(alignment: .bottomTrailing) {
-                Text("(\(text.count) / \(maximumText))")
-                    .font(.system(size: 12))
-                    .foregroundColor(Color(UIColor.systemGray2))
-                    .onChange(of: text) { _, newValue in
-                        if newValue.count > maximumText {
-                            text = String(newValue.prefix(maximumText))
-                        }
-                    }
-            }
-            .focused($isFocused)
-            .disabled(isDisabled)
+    func body(content: Content) -> some View {
+        content
             .frame(maxWidth: .infinity)
             .padding(10)
             .background(backgroundColor)
@@ -61,7 +30,7 @@ struct GimiTextEditor: View {
             .foregroundColor(textColor)
             .frame(height: editorHeight)
     }
-
+    
     private var backgroundColor: Color {
         isDisabled ? .gray400 : .gray50
     }
@@ -81,6 +50,89 @@ struct GimiTextEditor: View {
         }
     }
 }
+
+// MARK: - 글자수 제한 부분
+
+struct TextEditorLimitModifier: ViewModifier {
+    @Binding var text: String
+    let maximumText: Int
+
+    func body(content: Content) -> some View {
+        content
+            .overlay(alignment: .bottomTrailing) {
+                Text("(\(text.count) / \(maximumText))")
+                    .font(.system(size: 12))
+                    .foregroundColor(.gray700)
+                    .padding()
+            }
+            .onChange(of: text) { _, newValue in
+                if newValue.count > maximumText {
+                    text = String(newValue.prefix(maximumText))
+                }
+            }
+    }
+}
+
+// MARK: - 삭제 action 부분
+
+struct TextEditorClearButtonModifier: ViewModifier {
+    let text: String
+    let action: () -> Void
+
+    func body(content: Content) -> some View {
+        content
+            .overlay(alignment: .topTrailing) {
+                Button(action: action) {
+                    Image(systemName: "xmark")
+                        .foregroundColor(.gray700)
+                        .padding()
+                }
+            }
+    }
+}
+
+// MARK: - PlaceHolder 부분
+
+struct TextEditorPlaceholderModifier: ViewModifier {
+    let placeholder: String
+    @Binding var text: String
+
+    func body(content: Content) -> some View {
+        content
+            .overlay(alignment: .topLeading) {
+                if text.isEmpty {
+                    Text(placeholder)
+                        .foregroundStyle(.gray100)
+                        .font(.callout)
+                        .padding(.top, 12)
+                        .padding(.leading, 15)
+                    
+                }
+            }
+    }
+}
+
+// MARK: - Modifier 확장 부분
+
+extension View {
+    func textEditorBase(isDisabled: Bool, type: GimiTextEditorType) -> some View {
+        self.modifier(TextEditorBaseModifier(isDisabled: isDisabled, type: type))
+    }
+
+    func textEditorLimit(text: Binding<String>, maximumText: Int) -> some View {
+        self.modifier(TextEditorLimitModifier(text: text, maximumText: maximumText))
+    }
+
+    func textEditorClearButton(text: String, action: @escaping () -> Void) -> some View {
+        self.modifier(TextEditorClearButtonModifier(text: text, action: action))
+    }
+
+    func textEditorPlaceholder(placeholder: String, text: Binding<String>) -> some View {
+        self.modifier(TextEditorPlaceholderModifier(placeholder: placeholder, text: text))
+    }
+}
+
+// MARK: - Preview 예시 부분
 
 #Preview {
     struct PreviewContainer: View {
