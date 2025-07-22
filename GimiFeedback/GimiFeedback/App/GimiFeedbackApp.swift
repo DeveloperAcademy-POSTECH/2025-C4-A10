@@ -25,13 +25,15 @@ struct GimiFeedbackApp: App {
     var body: some Scene {
         WindowGroup {
             Group {
-                if userViewModel.isLoggedIn {
+                if !userViewModel.nickName.isEmpty {
                     MainView(notificationRouter: notificationRouter)
                         .onAppear {
                             if let userInfo = delegate.saveUserInfo {
                                 notificationRouter.send(.saveUserInfo(userInfo: userInfo))
                             }
                         }
+                } else if userViewModel.nickName.isEmpty && FirebaseAuthManager.currentUser {
+                    NickNameInputView()
                 } else {
                     StartView()
                         .onOpenURL { url in

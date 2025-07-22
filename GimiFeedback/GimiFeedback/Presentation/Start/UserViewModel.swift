@@ -11,9 +11,11 @@ final class UserViewModel: ViewModelable {
     enum Action {
         case kakaoLogin
         case kakaoLogout
+        case nickNameSave
     }
     
     @Published private(set) var isLoggedIn: Bool = FirebaseAuthManager.currentUser
+    @Published var nickName: String = ""
     
     func send(_ action: Action) {
         switch action {
@@ -38,6 +40,8 @@ final class UserViewModel: ViewModelable {
                 isLoggedIn = FirebaseAuthManager.currentUser
                 
             }
+        case .nickNameSave:
+            print("hello")
         }
     }
 }
