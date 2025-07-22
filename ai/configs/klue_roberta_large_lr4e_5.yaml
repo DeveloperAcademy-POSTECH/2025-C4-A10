@@ -2,13 +2,13 @@ wandb:
     entity: natural-beauty
     project: sentiment-analysis
     group: model-search
-    experiment: klue/roberta-base-lr4e-5
+    experiment: klue/roberta-large-lr4e-5-baselineData
     use_wandb: True # trainer에서 wandb를 사용할지 안할지
     online: True # 온라인으로 할지 오프라인으로 할지
 
 save_dir: results
 do_test: True
-model: klue/roberta-base
+model: klue/roberta-large
 organization: natural-beauty
 dataset: spicy-4class-sequence-classification-dataset
 only_test: null # 훈련을 하지 않고 테스트만 할 때 모델의 로컬 경로를 넣어주세요.
