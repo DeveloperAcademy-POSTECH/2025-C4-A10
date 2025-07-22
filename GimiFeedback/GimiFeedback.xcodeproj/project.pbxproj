@@ -72,7 +72,7 @@
 		EEC048782E2FAE8100918BAA /* GimiTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048772E2FAE7900918BAA /* GimiTextFieldStyle.swift */; };
 		EEC0487A2E2FF1BF00918BAA /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048792E2FF1B200918BAA /* UserDefaults+Extension.swift */; };
 		EEDBB1B82E28D45700F16407 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1B72E28D45700F16407 /* FirebaseMessaging */; };
-		EEDBB1BA2E28DA9200F16407 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1B92E28DA9100F16407 /* Token.swift */; };
+		EEDBB1BA2E28DA9200F16407 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1B92E28DA9100F16407 /* User.swift */; };
 		EEDBB1BC2E28DEC100F16407 /* FCMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */; };
 		EEDBB1BE2E2913CE00F16407 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1BD2E2913CE00F16407 /* FirebaseFunctions */; };
 		EEE689122E2943C00008012D /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */; };
@@ -145,7 +145,7 @@
 		EEC048772E2FAE7900918BAA /* GimiTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiTextFieldStyle.swift; sourceTree = "<group>"; };
 		EEC048792E2FF1B200918BAA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		EEDBB1B62E28D2E900F16407 /* GimiFeedback.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GimiFeedback.entitlements; sourceTree = "<group>"; };
-		EEDBB1B92E28DA9100F16407 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		EEDBB1B92E28DA9100F16407 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMManager.swift; sourceTree = "<group>"; };
 		EEE689192E2A2CF00008012D /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -389,7 +389,7 @@
 				EE856A482E1CD2D1006820B9 /* Feedback.swift */,
 				EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */,
 				EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */,
-				EEDBB1B92E28DA9100F16407 /* Token.swift */,
+				EEDBB1B92E28DA9100F16407 /* User.swift */,
 				EE856CA52E1D6D28006820B9 /* Navigation */,
 			);
 			path = Model;
@@ -613,7 +613,7 @@
 				EE465EFC2E2650970096109A /* MainView.swift in Sources */,
 				EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */,
 				EE465EF22E2631840096109A /* FeedbackWriteCompleteView.swift in Sources */,
-				EEDBB1BA2E28DA9200F16407 /* Token.swift in Sources */,
+				EEDBB1BA2E28DA9200F16407 /* User.swift in Sources */,
 				EE856A472E1CD2AD006820B9 /* Font+Extension.swift in Sources */,
 				EE82DF9B2E24D5CD00EC1AFF /* ChannelCreateView.swift in Sources */,
 				EEC048782E2FAE8100918BAA /* GimiTextFieldStyle.swift in Sources */,
@@ -789,7 +789,7 @@
 				CODE_SIGN_ENTITLEMENTS = GimiFeedback/App/GimiFeedback.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 34X3BT977M;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -827,7 +827,7 @@
 				CODE_SIGN_ENTITLEMENTS = GimiFeedback/App/GimiFeedback.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 34X3BT977M;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;

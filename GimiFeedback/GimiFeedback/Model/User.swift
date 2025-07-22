@@ -1,5 +1,5 @@
 //
-//  Token.swift
+//  User.swift
 //  GimiFeedback
 //
 //  Created by 김민석 on 7/17/25.
