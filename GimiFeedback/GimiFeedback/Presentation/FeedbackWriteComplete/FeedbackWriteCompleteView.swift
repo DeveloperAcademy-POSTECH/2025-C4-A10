@@ -27,14 +27,6 @@ struct FeedbackWriteCompleteView: View {
             } else {
                 Button(action: {
                     onboardingRouter.popToRootView()
-                    onboardingRouter.push(to: .inputCode)
-                }) {
-                    Text("처음으로 돌아가기") // 코드 입력 뷰로 들어 가기
-                }
-                .buttonStyle(.borderedProminent)
-                
-                Button(action: {
-                    onboardingRouter.popToRootView()
                 }) {
                     Text("로그인 하고 피드백 받기")
                 }

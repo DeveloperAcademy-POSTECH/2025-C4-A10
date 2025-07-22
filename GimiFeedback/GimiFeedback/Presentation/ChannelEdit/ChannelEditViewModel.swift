@@ -14,9 +14,7 @@ final class ChannelEditViewModel: ViewModelable {
     }
     
     @Published var channelItem: FeedbackChannel
-    
     @Published private(set) var isLoading: Bool = false
-    
     @Published var isUpdate = false
     
     init(channelItem: FeedbackChannel) {
