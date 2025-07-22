@@ -136,48 +136,31 @@ extension View {
 
 #Preview {
     struct PreviewContainer: View {
-        @State private var text1 = ""
-        @State private var text2 = ""
-        @State private var text3 = "test"
+        @State private var texts = ["", "", "test"]
+        private let placeHolder = "PlaceHolder"
         @State private var isDisabled = false
-
+        
         var body: some View {
             VStack(spacing: 16) {
-                GimiTextEditor(
-                    text: $text1,
-                    type: .small,
-                    placeholder: "Small",
-                    isDisabled: false,
-                    maximumText: 200
-                )
-                GimiTextEditor(
-                    text: $text2,
-                    type: .medium,
-                    placeholder: "Medium",
-                    isDisabled: false,
-                    maximumText: 100) {
-                        text1 = "hello"
-                    }
-                GimiTextEditor(
-                    text: $text3,
-                    type: .large,
-                    placeholder: "Large",
-                    isDisabled: isDisabled,
-                    maximumText: 300
-                )
-
-                Button(isDisabled ? "활성화하기" : "비활성화하기") {
-                    isDisabled.toggle()
+                ForEach($texts.indices, id: \.self) { index in
+                    TextEditor(text: $texts[index])
+                        .textEditorBase(isDisabled: false, type: .medium)
+                        .textEditorLimit(text: $texts[index], maximumText: 100)
+                        .textEditorPlaceholder(placeholder: placeHolder, text: $texts[index])
+                        .textEditorClearButton(text: texts[index]) {
+                            texts.remove(at: index)
+                        }
                 }
-                .padding()
-                .background(isDisabled ? Color.green : Color.red)
-                .foregroundColor(.white)
-                .cornerRadius(8)
+                Button {
+                    texts.append("")
+                } label: {
+                     Text("추가하기")
+                }
             }
             .padding()
             .background(Color.gray600)
         }
     }
-
+    
     return PreviewContainer()
 }
