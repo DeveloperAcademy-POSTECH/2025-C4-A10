@@ -16,8 +16,8 @@ enum GimiTextEditorType {
 // MARK: - TextEditor 기본 생김새 부분
 
 struct TextEditorBaseModifier: ViewModifier {
-    let isDisabled: Bool
     let type: GimiTextEditorType
+    @Environment(\.isEnabled) private var isEnabled
 
     func body(content: Content) -> some View {
         content
@@ -32,11 +32,11 @@ struct TextEditorBaseModifier: ViewModifier {
     }
     
     private var backgroundColor: Color {
-        isDisabled ? .gray400 : .gray50
+        isEnabled ? .gray50 : .gray400
     }
 
     private var textColor: Color {
-        isDisabled ? .white : .gray900
+        isEnabled ? .gray900 : .white
     }
 
     private var editorHeight: CGFloat {
@@ -76,7 +76,6 @@ struct TextEditorLimitModifier: ViewModifier {
 // MARK: - 삭제 action 부분
 
 struct TextEditorClearButtonModifier: ViewModifier {
-    let text: String
     let action: () -> Void
 
     func body(content: Content) -> some View {
@@ -115,16 +114,16 @@ struct TextEditorPlaceholderModifier: ViewModifier {
 // MARK: - Modifier 확장 부분
 
 extension View {
-    func textEditorBase(isDisabled: Bool, type: GimiTextEditorType) -> some View {
-        self.modifier(TextEditorBaseModifier(isDisabled: isDisabled, type: type))
+    func textEditorBase(type: GimiTextEditorType) -> some View {
+        self.modifier(TextEditorBaseModifier(type: type))
     }
 
     func textEditorLimit(text: Binding<String>, maximumText: Int) -> some View {
         self.modifier(TextEditorLimitModifier(text: text, maximumText: maximumText))
     }
 
-    func textEditorClearButton(text: String, action: @escaping () -> Void) -> some View {
-        self.modifier(TextEditorClearButtonModifier(text: text, action: action))
+    func textEditorClearButton(action: @escaping () -> Void) -> some View {
+        self.modifier(TextEditorClearButtonModifier(action: action))
     }
 
     func textEditorPlaceholder(placeholder: String, text: Binding<String>) -> some View {
@@ -144,17 +143,19 @@ extension View {
             VStack(spacing: 16) {
                 ForEach($texts.indices, id: \.self) { index in
                     TextEditor(text: $texts[index])
-                        .textEditorBase(isDisabled: false, type: .medium)
+                        .textEditorBase(type: .medium)
                         .textEditorLimit(text: $texts[index], maximumText: 100)
                         .textEditorPlaceholder(placeholder: placeHolder, text: $texts[index])
-                        .textEditorClearButton(text: texts[index]) {
+                        .textEditorClearButton {
                             texts.remove(at: index)
                         }
+                        .disabled(isDisabled)
                 }
-                Button {
+                Button("추가하기") {
                     texts.append("")
-                } label: {
-                     Text("추가하기")
+                }
+                Button("Toggle Disabled") {
+                    isDisabled.toggle()
                 }
             }
             .padding()
