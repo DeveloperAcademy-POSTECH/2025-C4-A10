@@ -8,28 +8,35 @@
 import SwiftUI
 
 struct NickNameInputView: View {
-    @EnvironmentObject var router: OnboardingNavigationRouter
     @EnvironmentObject var viewModel: UserViewModel
     
     var body: some View {
-        Text("닉네임")
-            .font(.title1)
-        
-        Text("피드백을 요청할 때 상대에게 보여질 닉네임이에요")
-            .font(.footnote)
-            .foregroundStyle(.gray600)
-
-        TextField("hello", text: $viewModel.inputNickName)
-            .textFieldStyle(.gimiBase)
-        
-        Button("시작하기") {
-            viewModel.send(.nickNameSave)
+        VStack(alignment: .leading) {
+            Text("닉네임")
+                .font(.title1)
+            
+            Text("피드백을 요청할 때 상대에게 보여질 닉네임이에요")
+                .font(.footnote)
+                .foregroundStyle(.gray600)
+            
+            TextField("", text: $viewModel.inputNickName)
+                .textFieldStyle(.gimiBase)
+            
+            Spacer()
+            
+            Button("시작하기") {
+                viewModel.send(.nickNameSave)
+            }
+            .buttonStyle(.gimiPrimary)
+            .disabled(viewModel.inputNickName.isEmpty)
         }
-        .buttonStyle(.gimiPrimary)
-        .disabled(viewModel.inputNickName.isEmpty)
+        .padding()
     }
 }
 
 #Preview {
+    let userViewModel = UserViewModel()
+    
     NickNameInputView()
+        .environmentObject(userViewModel)
 }
