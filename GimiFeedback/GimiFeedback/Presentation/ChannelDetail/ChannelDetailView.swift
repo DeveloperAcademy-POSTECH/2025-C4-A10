@@ -23,8 +23,12 @@ struct ChannelDetailView: View {
                 .background(Color.gray.opacity(0.1))
                 .clipShape(.rect(cornerRadius: 20))
                 .overlay(alignment: .topTrailing) {
-                    Image(systemName: "pencil")
-                        .padding()
+                    Button(action: {
+                        router.push(to: .channelEdit(channelItem: viewModel.channelItem))
+                    }) {
+                        Image(systemName: "square.and.pencil")
+                    }
+                    
                 }
                 .padding(.horizontal)
                 
@@ -33,11 +37,9 @@ struct ChannelDetailView: View {
                 if viewModel.feedbackList.isEmpty {
                     Text("등록된 피드백이 없습니다.")
                     
-                    Button(action: { }) {
+                    ShareLink(item: "gimifeedback://feedbackWrite/\(viewModel.channelItem.id)") {
                         Text("채널 공유하기")
                     }
-                    .buttonStyle(.borderedProminent)
-                    
                 } else {
                     ForEach(viewModel.feedbackList.sorted(by: { $0.date > $1.date })) { item in
                         LazyVStack(alignment: .leading, spacing: 8) {
@@ -64,10 +66,11 @@ struct ChannelDetailView: View {
             }
             .padding(.top, 32)
         }
-        .gimiNavigationBar(
-            title: "\(viewModel.channelItem.channelTitle)",
-            trailingItems: {
-                Button(action: { }) {
+        .navigationTitle("\(viewModel.channelItem.channelTitle)")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItemGroup(placement: .topBarTrailing) {
+                ShareLink(item: "gimifeedback://feedbackWrite/\(viewModel.channelItem.id)") {
                     Image(systemName: "square.and.arrow.up")
                 }
                 
@@ -101,6 +104,9 @@ struct ChannelDetailView: View {
         }
         .onAppear {
             viewModel.send(.fetchFeedbackList)
+        }
+        .refreshable {
+            viewModel.send(.getFeedbackChannelItem)
         }
         
     }

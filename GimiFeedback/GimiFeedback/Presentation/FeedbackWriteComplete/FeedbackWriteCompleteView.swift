@@ -8,8 +8,31 @@
 import SwiftUI
 
 struct FeedbackWriteCompleteView: View {
+    @EnvironmentObject var mainRouter: MainNavigationRouter
+    @EnvironmentObject var onboardingRouter: OnboardingNavigationRouter
+    
+    let isLoggedIn: Bool = FirebaseAuthManager.currentUser
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack {
+            Text("피드백 작성이 완료되었어요")
+            if isLoggedIn {
+                Button(action: {
+                    mainRouter.popToRootView()
+                }) {
+                    Text("홈으로 돌아가기")
+                }
+                .buttonStyle(.borderedProminent)
+            } else {
+                Button(action: {
+                    onboardingRouter.popToRootView()
+                }) {
+                    Text("로그인 하고 피드백 받기")
+                }
+                .buttonStyle(.borderedProminent)
+            }
+        }
     }
 }
 

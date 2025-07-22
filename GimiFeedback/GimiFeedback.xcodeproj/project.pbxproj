@@ -17,6 +17,8 @@
 		ECC980AF2E290DC4004A483B /* KakaoSDKShare in Frameworks */ = {isa = PBXBuildFile; productRef = ECC980AE2E290DC4004A483B /* KakaoSDKShare */; };
 		ECC980B12E290DC4004A483B /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = ECC980B02E290DC4004A483B /* KakaoSDKTemplate */; };
 		ECC980B52E294835004A483B /* KakaoShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC980B42E294835004A483B /* KakaoShareManager.swift */; };
+		ECDF17282E2E618400964391 /* ChannelEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF17272E2E618400964391 /* ChannelEditViewModel.swift */; };
+		ECDF172E2E2E8F6400964391 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF172D2E2E8F6400964391 /* ProfileView.swift */; };
 		EE3754AF2E1D7B36009AD262 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */; };
 		EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */; };
 		EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */; };
@@ -87,6 +89,8 @@
 		EC9959B92E25145B001555B1 /* FeedbackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailView.swift; sourceTree = "<group>"; };
 		ECC980AB2E28E91E004A483B /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
 		ECC980B42E294835004A483B /* KakaoShareManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoShareManager.swift; sourceTree = "<group>"; };
+		ECDF17272E2E618400964391 /* ChannelEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelEditViewModel.swift; sourceTree = "<group>"; };
+		ECDF172D2E2E8F6400964391 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContentType.swift; sourceTree = "<group>"; };
 		EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContent.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				EE465EED2E2630F20096109A /* ChannelEditView.swift */,
+				ECDF17272E2E618400964391 /* ChannelEditViewModel.swift */,
 			);
 			path = ChannelEdit;
 			sourceTree = "<group>";
@@ -228,6 +233,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECDF172C2E2E8F5000964391 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				ECDF172D2E2E8F6400964391 /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		EE35D54A2E2E01B8008F6A71 /* CommonViewModel */ = {
@@ -341,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				EEC047172E2E1CF900918BAA /* Components */,
+				ECDF172C2E2E8F5000964391 /* Profile */,
 				EE35D54A2E2E01B8008F6A71 /* CommonViewModel */,
 				EE856A4F2E1CD401006820B9 /* Start */,
 				EE465EFA2E26508E0096109A /* Main */,
@@ -577,6 +591,7 @@
 				EEE689132E2943FB0008012D /* NavigationRouter.swift in Sources */,
 				EEE689122E2943C00008012D /* FirestoreManager.swift in Sources */,
 				EE41FEE92E2259350002E595 /* UserViewModel.swift in Sources */,
+				ECDF17282E2E618400964391 /* ChannelEditViewModel.swift in Sources */,
 				EE41FEEB2E22599C0002E595 /* KakaoAuthManager.swift in Sources */,
 				EC9959B22E24E646001555B1 /* ChannelDetailView.swift in Sources */,
 				EE465EEE2E2630F20096109A /* ChannelEditView.swift in Sources */,
@@ -616,6 +631,7 @@
 				EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */,
 				EE82DF9D2E24D5DA00EC1AFF /* ChannelCreateViewModel.swift in Sources */,
 				EEC048732E2E331400918BAA /* GimiTextEditorModifier.swift in Sources */,
+				ECDF172E2E2E8F6400964391 /* ProfileView.swift in Sources */,
 				EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */,
 				EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */,
 				ECC980AC2E28E91E004A483B /* DeepLinkManager.swift in Sources */,
