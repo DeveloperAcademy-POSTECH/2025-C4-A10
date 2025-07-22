@@ -52,7 +52,7 @@ struct FeedbackDetailView: View {
         } message: {
             Text("정말 삭제하시겠습니까?\n이 작업은 되돌릴 수 없습니다.")
         }
-        .gimifeedbackNavi(
+        .gimiNavigationBar(
             title: "\(viewModel.feedbackItem.writePerson)의 피드백",
             trailingItems: {
                 Button(action: {

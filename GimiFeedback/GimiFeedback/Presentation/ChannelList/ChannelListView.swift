@@ -29,7 +29,7 @@ struct ChannelListView: View {
                 }
             }
         }
-        .gimifeedbackNavi {
+        .gimiNavigationBar {
             Button(action: {
                 router.push(to: .inputCode)
             }) {

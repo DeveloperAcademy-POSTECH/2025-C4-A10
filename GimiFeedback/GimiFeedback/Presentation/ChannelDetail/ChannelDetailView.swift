@@ -64,7 +64,7 @@ struct ChannelDetailView: View {
             }
             .padding(.top, 32)
         }
-        .gimifeedbackNavi(
+        .gimiNavigationBar(
             title: "\(viewModel.channelItem.channelTitle)",
             trailingItems: {
                 Button(action: { }) {

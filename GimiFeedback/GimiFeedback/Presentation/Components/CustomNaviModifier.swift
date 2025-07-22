@@ -37,7 +37,7 @@ struct CustomNaviModifier<TrailingItems: View>: ViewModifier {
 }
 
 extension View {
-    func gimifeedbackNavi<TrailingItems: View>(
+    func gimiNavigationBar<TrailingItems: View>(
         title: String? = nil,
         @ViewBuilder trailingItems: () -> TrailingItems
     ) -> some View {
@@ -45,7 +45,7 @@ extension View {
     }
 
     // trailingItems 생략 가능 버전
-    func gimifeedbackNavi(title: String? = nil) -> some View {
+    func gimiNavigationBar(title: String? = nil) -> some View {
         self.modifier(CustomNaviModifier(title: title, trailingItems: EmptyView()))
     }
 }

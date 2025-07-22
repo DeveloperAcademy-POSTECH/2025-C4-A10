@@ -66,7 +66,7 @@ extension TextFieldStyle where Self == GimiTextFieldStyle {
                     .textFieldStyle(.gimiTitle)
             }
             .padding()
-            .background(.gray400)
+            .background(.white)
         }
     }
     

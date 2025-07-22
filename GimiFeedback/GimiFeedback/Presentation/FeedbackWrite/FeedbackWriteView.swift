@@ -64,7 +64,7 @@ struct FeedbackWriteView: View {
                 .disabled(!viewModel.canCreate)
             }
         }
-        .gimifeedbackNavi(title: "피드백 작성하기")
+        .gimiNavigationBar(title: "피드백 작성하기")
         .contentMargins(.horizontal, 20, for: .scrollContent)
         .alert("작성 완료하기", isPresented: $isShowCreateAlert) {
             Button("취소", role: .cancel) { }
