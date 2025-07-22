@@ -19,13 +19,14 @@ struct NickNameInputView: View {
             .font(.footnote)
             .foregroundStyle(.gray600)
 
-        TextField("hello", text: $viewModel.nickName)
+        TextField("hello", text: $viewModel.inputNickName)
             .textFieldStyle(.gimiBase)
         
         Button("시작하기") {
-            
+            viewModel.send(.nickNameSave)
         }
         .buttonStyle(.gimiPrimary)
+        .disabled(viewModel.inputNickName.isEmpty)
     }
 }
 
