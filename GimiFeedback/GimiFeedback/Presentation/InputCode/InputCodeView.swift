@@ -69,7 +69,7 @@ extension InputCodeView {
                 Image(systemName: "xmark.circle")
                 Text(errorMessage)
             }
-            .foregroundColor(.red)
+            .foregroundColor(.error)
             .padding(.top, 4)
         }
     }
