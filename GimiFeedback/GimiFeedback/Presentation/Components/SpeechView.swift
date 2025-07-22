@@ -105,7 +105,7 @@ extension SpeechBubbleView {
             .padding()
             .background(Color.gray.opacity(0.2))
         
-        SpeechBubbleView(message: "여기서 채널을 생성할 수 있어요.",isTailTop: true)
+        SpeechBubbleView(message: "여기서 채널을 생성할 수 있어요.", isTailTop: true)
             .padding()
             .background(Color.gray.opacity(0.2))
     }
