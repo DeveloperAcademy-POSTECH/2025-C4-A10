@@ -18,6 +18,8 @@ struct GimiTextEditor: View {
     let type: GimiTextEditorType
     let placeholder: String
     let isDisabled: Bool
+    let maximumText: Int
+    var action: (() -> Void)?
 
     @FocusState private var isFocused: Bool
 
@@ -28,6 +30,25 @@ struct GimiTextEditor: View {
                     .foregroundStyle(text.isEmpty ? .gray : .clear)
                     .font(.callout)
                     .padding(.leading, 6)
+            }
+            .overlay(alignment: .topTrailing) {
+                if let action {
+                    Button(action: action) {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.gray700)
+                            .padding(5)
+                    }
+                }
+            }
+            .overlay(alignment: .bottomTrailing) {
+                Text("(\(text.count) / \(maximumText))")
+                    .font(.system(size: 12))
+                    .foregroundColor(Color(UIColor.systemGray2))
+                    .onChange(of: text) { _, newValue in
+                        if newValue.count > maximumText {
+                            text = String(newValue.prefix(maximumText))
+                        }
+                    }
             }
             .focused($isFocused)
             .disabled(isDisabled)
@@ -74,19 +95,23 @@ struct GimiTextEditor: View {
                     text: $text1,
                     type: .small,
                     placeholder: "Small",
-                    isDisabled: false
+                    isDisabled: false,
+                    maximumText: 200
                 )
                 GimiTextEditor(
                     text: $text2,
                     type: .medium,
                     placeholder: "Medium",
-                    isDisabled: false
-                )
+                    isDisabled: false,
+                    maximumText: 100) {
+                        text1 = "hello"
+                    }
                 GimiTextEditor(
                     text: $text3,
                     type: .large,
                     placeholder: "Large",
-                    isDisabled: isDisabled
+                    isDisabled: isDisabled,
+                    maximumText: 300
                 )
 
                 Button(isDisabled ? "활성화하기" : "비활성화하기") {

@@ -109,7 +109,7 @@ extension AppDelegate {
         
         // TextEditor 입력 부분 위치 조정
         UITextView.appearance().textContainerInset = UIEdgeInsets(
-            top: 2,
+            top: 1,
             left: 0,
             bottom: 0,
             right: 0,
