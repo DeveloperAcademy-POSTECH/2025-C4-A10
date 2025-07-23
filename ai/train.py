@@ -86,18 +86,18 @@ def main(config: DictConfig) -> None:
         lr_scheduler = None
     elif scheduler == "constant_schedule_with_warmup":
         lr_scheduler = get_constant_schedule_with_warmup(
-            optimizer, num_warmup_steps=config.train.warmup_steps
+            optimizer, num_warmup_steps=
         )
     elif scheduler == "linear_schedule_with_warmup":
         lr_scheduler = get_linear_schedule_with_warmup(
             optimizer,
-            num_warmup_steps=config.train.warmup_steps,
+            num_warmup_steps=,
             num_training_steps=config.train.max_epoch * len(train_dataset),
         )
     elif scheduler == "cosine_schedule_with_warmup":
         lr_scheduler = get_cosine_schedule_with_warmup(
             optimizer,
-            num_warmup_steps=config.train.warmup_steps,
+            num_warmup_steps=,
             num_training_steps=config.train.max_epoch * len(train_dataset),
         )
     else:
