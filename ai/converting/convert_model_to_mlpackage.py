@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import coremltools as ct
-import numpy
+import numpy as np
 
 # 모델과 토크나이저 이름 지정
 model_path = "/Users/seonjong/workspace/challenge_4/2025-C4-A10/ai/results/natural-beauty/sentiment-analysis/baseline/klue/roberta-base/serving_model"
@@ -16,12 +16,11 @@ class WrappedModel(nn.Module):
         super().__init__()
         self.base_model = base_model
 
-    def forward(self, input_ids, attention_mask, token_type_ids=None) -> torch.Tensor:
-        outputs = self.base_model(
-            input_ids=input_ids,
-            attention_mask=attention_mask,
-            token_type_ids=token_type_ids,
-        )
+    def forward(
+        self: "WrappedModel",
+        input_ids,
+    ) -> torch.Tensor:
+        outputs = self.base_model(input_ids=input_ids)
         logits = outputs.logits
         probs = F.softmax(logits, dim=-1)
 
@@ -38,37 +37,18 @@ inputs = tokenizer.encode_plus(
     padding="max_length",
     padding_side="right",
     truncation=True,
-    return_attention_mask=True,
-    return_token_type_ids=True,
     return_tensors="pt",
 )
-for k, v in inputs.items():
-    print(k, v.shape)
 
-dummy_input = (
-    inputs["input_ids"],
-    inputs["attention_mask"],
-    inputs.get("token_type_ids"),  # BERT 계열은 token_type_ids 필요
-)
+dummy_input = inputs["input_ids"]
 
 # 트레이싱
 traced_model = torch.jit.trace(wrapped_model, dummy_input)
 
 # CoreML 입력 타입 지정 (필요 시 token_type_ids 포함)
 coreml_inputs = [
-    ct.TensorType(name="input_ids", shape=inputs["input_ids"].shape, dtype=numpy.int64),
-    ct.TensorType(
-        name="attention_mask", shape=inputs["attention_mask"].shape, dtype=numpy.int64
-    ),
+    ct.TensorType(name="input_ids", shape=inputs["input_ids"].shape, dtype=np.int32),
 ]
-if "token_type_ids" in inputs:
-    coreml_inputs.append(
-        ct.TensorType(
-            name="token_type_ids",
-            shape=inputs["token_type_ids"].shape,
-            dtype=numpy.int64,
-        )
-    )
 
 # 변환 진행
 mlmodel = ct.convert(
@@ -81,4 +61,4 @@ mlmodel = ct.convert(
 )
 
 # 모델 저장
-mlmodel.save("klue_roberta_base.mlpackage")
+mlmodel.save("MyModel.mlpackage")

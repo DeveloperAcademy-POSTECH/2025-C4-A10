@@ -15,6 +15,7 @@ only_test: null # 훈련을 하지 않고 테스트만 할 때 모델의 로컬 
 
 train:
     optimizer: AdamW
+    scheduler: constant
     train_batch_size: 1
     val_batch_size: 1
     test_batch_size: 1

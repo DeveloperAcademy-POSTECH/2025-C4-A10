@@ -121,6 +121,8 @@ class Trainer:
 
             self.optimizer.step()
             self.optimizer.zero_grad()
+            if self.lr_scheduler:
+                self.lr_scheduler.step()
 
             pbar.update(1)
             pbar.set_postfix(
@@ -132,8 +134,6 @@ class Trainer:
             if self.is_wandb:
                 wandb.log({"train_loss": epoch_loss / steps})
 
-        if self.lr_scheduler:
-            self.lr_scheduler.step()
         pbar.close()
         clear_memory(batch, dataloader)
 
