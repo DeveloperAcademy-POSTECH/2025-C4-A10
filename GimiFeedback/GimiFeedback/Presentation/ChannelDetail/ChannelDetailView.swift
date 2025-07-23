@@ -11,77 +11,44 @@ struct ChannelDetailView: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("내가 작성한 설명")
-                    
-                    Text(viewModel.channelItem.content)
+        VStack(spacing: .zero) {
+            /// 콘텐츠 설명
+            DescriptionView(
+                channelItem: viewModel.channelItem,
+                onTapEdit: {
+                    router.push(
+                        to: .channelEdit(channelItem: viewModel.channelItem)
+                    )
                 }
-                .padding()
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color.gray.opacity(0.1))
-                .clipShape(.rect(cornerRadius: 20))
-                .overlay(alignment: .topTrailing) {
-                    Button(action: {
-                        router.push(to: .channelEdit(channelItem: viewModel.channelItem))
-                    }) {
-                        Image(systemName: "square.and.pencil")
-                    }
-                    
-                }
-                .padding(.horizontal)
+            )
+            
+            /// 피드백 없을 때 화면
+            if viewModel.feedbackList.isEmpty {
+                EmptyFeedbackView(channelId: viewModel.channelItem.id)
                 
-                Divider()
-                
-                if viewModel.feedbackList.isEmpty {
-                    Text("등록된 피드백이 없습니다.")
-                    
-                    ShareLink(item: "gimifeedback://feedbackWrite/\(viewModel.channelItem.id)") {
-                        Text("채널 공유하기")
+            } else {
+                /// 피드백 있을 때 화면
+                FeedbackListView(
+                    feedbackList: viewModel.feedbackList,
+                    onTapFeedbackItem: { item in
+                        router.push(to: .feedbackDetail(feedback: item))
                     }
-                } else {
-                    ForEach(viewModel.feedbackList.sorted(by: { $0.date > $1.date })) { item in
-                        LazyVStack(alignment: .leading, spacing: 8) {
-                            Button {
-                                router.push(to: .feedbackDetail(feedback: item))
-                            } label: {
-                                VStack(alignment: .leading) {
-                                    Text(item.date.formattedDate)
-                                    
-                                    Text("\(item.writePerson)의 피드백")
-                                    
-                                    if !item.contentCount.formattedText.isEmpty {
-                                        Text(item.contentCount.formattedText)
-                                    }
-                                    
-                                }
-                                .padding()
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .background(Color.gray.opacity(0.1))
-                                .clipShape(.rect(cornerRadius: 20))
-                                .padding(.horizontal)
-                            }
-                        }
-                        
-                    }
-                    
-                }
-                
+                )
             }
-            .padding(.top, 32)
         }
         .gimiNavigationBar(
             title: "\(viewModel.channelItem.channelTitle)",
             trailingItems: {
                 ShareLink(item: "gimifeedback://feedbackWrite/\(viewModel.channelItem.id)") {
                     Image(systemName: "square.and.arrow.up")
+                        .foregroundStyle(.black)
                 }
-                
                 Button(action: { isShowDeleteAlert = true }) {
                     Image(systemName: "trash")
+                        .foregroundStyle(.black)
                 }
-            })
+            }
+        )
         .alert("채널 삭제하기", isPresented: $isShowDeleteAlert) {
             
             Button(action: {
@@ -97,7 +64,6 @@ struct ChannelDetailView: View {
             }) {
                 Text("확인")
             }
-            
         } message: {
             Text("정말 삭제하시겠습니까?\n이 작업은 되돌릴 수 없습니다.")
         }
@@ -112,6 +78,5 @@ struct ChannelDetailView: View {
         .refreshable {
             viewModel.send(.getFeedbackChannelItem)
         }
-        
     }
 }
