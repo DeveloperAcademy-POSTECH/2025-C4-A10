@@ -50,6 +50,11 @@ struct ChannelDetailView: View {
                                     Text(item.date.formattedDate)
                                     
                                     Text("\(item.writePerson)의 피드백")
+                                    
+                                    if !item.contentCount.formattedText.isEmpty {
+                                        Text(item.contentCount.formattedText)
+                                    }
+                                    
                                 }
                                 .padding()
                                 .frame(maxWidth: .infinity, alignment: .leading)
