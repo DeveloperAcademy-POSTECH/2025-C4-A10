@@ -82,23 +82,24 @@ def main(config: DictConfig) -> None:
     optimizer = getattr(optim, config.train.optimizer)(
         model.parameters(), lr=config.train.learning_rate
     )
+    num_training_steps = config.train.max_epoch * len(train_dataset)
     if (scheduler := config.train.scheduler) == "constant":
         lr_scheduler = None
     elif scheduler == "constant_schedule_with_warmup":
         lr_scheduler = get_constant_schedule_with_warmup(
-            optimizer, num_warmup_steps=
+            optimizer, num_warmup_steps=num_training_steps * 0.1
         )
     elif scheduler == "linear_schedule_with_warmup":
         lr_scheduler = get_linear_schedule_with_warmup(
             optimizer,
-            num_warmup_steps=,
-            num_training_steps=config.train.max_epoch * len(train_dataset),
+            num_warmup_steps=num_training_steps * 0.1,
+            num_training_steps=num_training_steps,
         )
     elif scheduler == "cosine_schedule_with_warmup":
         lr_scheduler = get_cosine_schedule_with_warmup(
             optimizer,
-            num_warmup_steps=,
-            num_training_steps=config.train.max_epoch * len(train_dataset),
+            num_warmup_steps=num_training_steps * 0.1,
+            num_training_steps=num_training_steps,
         )
     else:
         raise ValueError(f"Invalid scheduler: {config.train.scheduler}")
