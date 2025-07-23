@@ -42,7 +42,7 @@ struct ChannelListView: View {
                     .clipShape(Capsule())
             }
             Button(action: {
-                // TODO: Profile 만들기
+                router.push(to: .profile)
             }) {
                 Image(systemName: "person.crop.circle.fill")
                     .resizable()
@@ -64,28 +64,6 @@ struct ChannelListView: View {
                     }) {
                         Image(systemName: "folder.badge.plus")
                     }
-                }
-            }
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button(action: {
-                    router.push(to: .inputCode)
-                }) {
-                    Text("코드 입력하기")
-                        .font(.system(size: 14, weight: .semibold))
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 16)
-                        .background(Color.green.opacity(0.2))
-                        .foregroundColor(.green)
-                        .clipShape(Capsule())
-                }
-
-                Button(action: {
-                    router.push(to: .profile)
-                }) {
-                    Image(systemName: "person.crop.circle.fill")
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                        .foregroundColor(.green)
                 }
             }
         }

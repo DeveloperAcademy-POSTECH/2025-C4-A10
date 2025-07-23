@@ -11,9 +11,12 @@ final class UserViewModel: ViewModelable {
     enum Action {
         case kakaoLogin
         case kakaoLogout
+        case nickNameSave
     }
     
     @Published private(set) var isLoggedIn: Bool = FirebaseAuthManager.currentUser
+    @Published private(set) var saveUserNickName: String = UserDefaults.standard.loadUserNickName
+    @Published var inputNickName: String = ""
     
     func send(_ action: Action) {
         switch action {
@@ -25,18 +28,23 @@ final class UserViewModel: ViewModelable {
                         password: result.password
                     )
                     isLoggedIn = FirebaseAuthManager.currentUser
-                    
-                    await saveFCMToken(userID: FirebaseAuthManager.currentUserID)
                 }
             }
         case .kakaoLogout:
             Task {
                 await kakaoLogout()
                 if let logoutUserID = firebaseAuthLogout() {
-                    await deleteFCMToken(userID: logoutUserID)
+                    await deleteUser(userID: logoutUserID)
                 }
                 isLoggedIn = FirebaseAuthManager.currentUser
-                
+                saveUserNickName = ""
+                UserDefaults.standard.removeUserNickName()
+            }
+        case .nickNameSave:
+            Task {
+                await saveUser(nickName: inputNickName)
+                saveUserNickName = inputNickName
+                UserDefaults.standard.saveUserNickName(inputNickName)
             }
         }
     }
@@ -103,26 +111,32 @@ extension UserViewModel {
     
     // MARK: 토큰 관련 함수
     
-    /// 토큰 저장 (로그인시)
-    private func saveFCMToken(userID: String) async {
+    /// 유저 저장 (로그인시)
+    private func saveUser(nickName: String) async {
         do {
             let tokenString = try await FCMManager.shared.getTokenString()
-            let token = Token(userID: userID, fcmToken: tokenString, badgeCount: 0)
+            let userID = FirebaseAuthManager.currentUserID
+            let user = User(
+                userID: userID,
+                nickName: nickName,
+                fcmToken: tokenString,
+                badgeCount: 0
+            )
             
-            _ = try await FirestoreManager.shared.create(token)
+            _ = try await FirestoreManager.shared.create(user)
         } catch {
             print("Token 저장 실패")
         }
     }
     
-    /// 토큰 저장 삭제 (로그아웃시)
-    private func deleteFCMToken(userID: String) async {
+    /// 유저 저장 삭제 (로그아웃시)
+    private func deleteUser(userID: String) async {
         do {
-            if let token: Token = try await FirestoreManager.shared.get(
+            if let user: User = try await FirestoreManager.shared.get(
                 userID,
-                collectionType: .token
+                collectionType: .user
             ) {
-                try await FirestoreManager.shared.delete(token)
+                try await FirestoreManager.shared.delete(user)
                 print("FCM Token 삭제 성공")
             }
         } catch {

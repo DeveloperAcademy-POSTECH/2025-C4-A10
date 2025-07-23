@@ -41,22 +41,33 @@ struct StartView: View {
 extension StartView {
     private struct ContentView: View {
         @EnvironmentObject var router: OnboardingNavigationRouter
+        @EnvironmentObject var userViewModel: UserViewModel
         
         var body: some View {
-            VStack {
-                Text("솔직한 피드백, 더 나은 나를 위한 성장")
-                Text("얼마나 매운 맛일지 미리 맛봐드릴게요. 상처는 적게, 성장은 크게.")
+            VStack(spacing: 47) {
+                VStack(spacing: 17) {
+                    Text("LogoType")
+                        .font(.title1)
+                    
+                    Text("상처 없이 성장하기")
+                        .font(.title1)
+                }
+                
+                Button {
+                    userViewModel.send(.kakaoLogin)
+                } label: {
+                    Image(.kakaoLogin)
+                        .resizable()
+                        .frame(width: 300, height: 45)
+                }
                 
                 Button {
                     router.push(to: .inputCode)
                 } label: {
-                    Text("코드 입력하기")
-                }
-                
-                Button {
-                    router.push(to: .login)
-                } label: {
-                    Text("로그인")
+                    Text("로그인하지 않고 피드백 주기")
+                        .font(.footnote)
+                        .foregroundColor(.gray600)
+                        .underline()
                 }
             }
         }

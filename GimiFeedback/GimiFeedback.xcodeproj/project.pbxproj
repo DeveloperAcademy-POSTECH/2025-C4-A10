@@ -29,7 +29,7 @@
 		EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3756A22E1E602C009AD262 /* EntityRepresentable.swift */; };
 		EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3756A42E1E6060009AD262 /* CollectionType.swift */; };
 		EE37582C2E1F80F3009AD262 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */; };
-		EE41FD7D2E223D050002E595 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FD7C2E223CFD0002E595 /* LoginView.swift */; };
+		EE41FD7D2E223D050002E595 /* NickNameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FD7C2E223CFD0002E595 /* NickNameInputView.swift */; };
 		EE41FD822E223D720002E595 /* InputCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FD812E223D720002E595 /* InputCodeView.swift */; };
 		EE41FEDC2E2250DF0002E595 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EE41FEDB2E2250DF0002E595 /* KakaoSDKAuth */; };
 		EE41FEDE2E2250DF0002E595 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = EE41FEDD2E2250DF0002E595 /* KakaoSDKCommon */; };
@@ -70,8 +70,9 @@
 		EEC048732E2E331400918BAA /* GimiTextEditorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048722E2E330D00918BAA /* GimiTextEditorModifier.swift */; };
 		EEC048752E2E916100918BAA /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048742E2E914800918BAA /* SpeechView.swift */; };
 		EEC048782E2FAE8100918BAA /* GimiTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048772E2FAE7900918BAA /* GimiTextFieldStyle.swift */; };
+		EEC0487A2E2FF1BF00918BAA /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048792E2FF1B200918BAA /* UserDefaults+Extension.swift */; };
 		EEDBB1B82E28D45700F16407 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1B72E28D45700F16407 /* FirebaseMessaging */; };
-		EEDBB1BA2E28DA9200F16407 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1B92E28DA9100F16407 /* Token.swift */; };
+		EEDBB1BA2E28DA9200F16407 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1B92E28DA9100F16407 /* User.swift */; };
 		EEDBB1BC2E28DEC100F16407 /* FCMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */; };
 		EEDBB1BE2E2913CE00F16407 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1BD2E2913CE00F16407 /* FirebaseFunctions */; };
 		EEE689122E2943C00008012D /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */; };
@@ -99,7 +100,7 @@
 		EE3756A22E1E602C009AD262 /* EntityRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityRepresentable.swift; sourceTree = "<group>"; };
 		EE3756A42E1E6060009AD262 /* CollectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
 		EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
-		EE41FD7C2E223CFD0002E595 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		EE41FD7C2E223CFD0002E595 /* NickNameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameInputView.swift; sourceTree = "<group>"; };
 		EE41FD812E223D720002E595 /* InputCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCodeView.swift; sourceTree = "<group>"; };
 		EE41FEE12E22511D0002E595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE41FEE42E2256280002E595 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -142,8 +143,9 @@
 		EEC048722E2E330D00918BAA /* GimiTextEditorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiTextEditorModifier.swift; sourceTree = "<group>"; };
 		EEC048742E2E914800918BAA /* SpeechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
 		EEC048772E2FAE7900918BAA /* GimiTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiTextFieldStyle.swift; sourceTree = "<group>"; };
+		EEC048792E2FF1B200918BAA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		EEDBB1B62E28D2E900F16407 /* GimiFeedback.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GimiFeedback.entitlements; sourceTree = "<group>"; };
-		EEDBB1B92E28DA9100F16407 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		EEDBB1B92E28DA9100F16407 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMManager.swift; sourceTree = "<group>"; };
 		EEE689192E2A2CF00008012D /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -387,7 +389,7 @@
 				EE856A482E1CD2D1006820B9 /* Feedback.swift */,
 				EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */,
 				EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */,
-				EEDBB1B92E28DA9100F16407 /* Token.swift */,
+				EEDBB1B92E28DA9100F16407 /* User.swift */,
 				EE856CA52E1D6D28006820B9 /* Navigation */,
 			);
 			path = Model;
@@ -414,6 +416,7 @@
 		EE856A422E1CD22B006820B9 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				EEC048792E2FF1B200918BAA /* UserDefaults+Extension.swift */,
 				EE41FEE62E2257260002E595 /* Bundle+Extension.swift */,
 				EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */,
 				EE856A432E1CD23E006820B9 /* Color+Extension.swift */,
@@ -448,7 +451,7 @@
 			isa = PBXGroup;
 			children = (
 				EE856A5A2E1CEA98006820B9 /* StartView.swift */,
-				EE41FD7C2E223CFD0002E595 /* LoginView.swift */,
+				EE41FD7C2E223CFD0002E595 /* NickNameInputView.swift */,
 				EE41FEE82E2259310002E595 /* UserViewModel.swift */,
 			);
 			path = Start;
@@ -606,14 +609,15 @@
 				EEC048752E2E916100918BAA /* SpeechView.swift in Sources */,
 				EEC0471A2E2E1D3B00918BAA /* GimiButtonStyle.swift in Sources */,
 				EE41FEE72E22572C0002E595 /* Bundle+Extension.swift in Sources */,
-				EE41FD7D2E223D050002E595 /* LoginView.swift in Sources */,
+				EE41FD7D2E223D050002E595 /* NickNameInputView.swift in Sources */,
 				EE465EFC2E2650970096109A /* MainView.swift in Sources */,
 				EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */,
 				EE465EF22E2631840096109A /* FeedbackWriteCompleteView.swift in Sources */,
-				EEDBB1BA2E28DA9200F16407 /* Token.swift in Sources */,
+				EEDBB1BA2E28DA9200F16407 /* User.swift in Sources */,
 				EE856A472E1CD2AD006820B9 /* Font+Extension.swift in Sources */,
 				EE82DF9B2E24D5CD00EC1AFF /* ChannelCreateView.swift in Sources */,
 				EEC048782E2FAE8100918BAA /* GimiTextFieldStyle.swift in Sources */,
+				EEC0487A2E2FF1BF00918BAA /* UserDefaults+Extension.swift in Sources */,
 				EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */,
 				EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */,
 				EE41FD822E223D720002E595 /* InputCodeView.swift in Sources */,
@@ -785,7 +789,7 @@
 				CODE_SIGN_ENTITLEMENTS = GimiFeedback/App/GimiFeedback.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 34X3BT977M;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -823,7 +827,7 @@
 				CODE_SIGN_ENTITLEMENTS = GimiFeedback/App/GimiFeedback.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 34X3BT977M;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;

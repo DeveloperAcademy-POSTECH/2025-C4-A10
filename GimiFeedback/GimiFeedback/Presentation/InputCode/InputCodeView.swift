@@ -18,38 +18,18 @@ struct InputCodeView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("코드 입력하기")
-            
-            TextField("받은 코드를 붙여 넣어주세요", text: $viewModel.code)
-                .padding(.vertical, 8)
-                .overlay(
-                    Rectangle()
-                        .frame(height: 1)
-                        .foregroundColor(.gray),
-                    alignment: .bottom
-                )
+            HeaderView(code: $viewModel.code)
             
             if let errorMessage = viewModel.errorMessage {
-                HStack(spacing: 4) {
-                    Image(systemName: "xmark.circle")
-                    Text(errorMessage)
-                }
-                .foregroundColor(.red)
-                .padding(.top, 4)
+                ErrorView(errorMessage: errorMessage)
             }
             
             Spacer()
             
-            Button(action: {
+            Button("다음") {
                 viewModel.send(.verifyCode)
-            }, label: {
-                Text("완료하기")
-                    .font(Font.system(size: 20, weight: .bold))
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity, maxHeight: 66)
-                    .background(Color.black)
-                    .cornerRadius(20)
-            })
+            }
+            .buttonStyle(.gimiPrimary)
             .disabled(viewModel.code.isEmpty)
         }
         .padding()
@@ -63,6 +43,34 @@ struct InputCodeView: View {
                 let generator = UINotificationFeedbackGenerator()
                 generator.notificationOccurred(.error)
             }
+        }
+    }
+}
+
+extension InputCodeView {
+    
+    struct HeaderView: View {
+        @Binding var code: String
+        
+        var body: some View {
+            Text("초대 코드")
+                .font(.title1)
+            
+            TextField("받은 코드를 붙여 넣어주세요", text: $code)
+                .textFieldStyle(.gimiBase)
+        }
+    }
+    
+    struct ErrorView: View {
+        let errorMessage: String
+        
+        var body: some View {
+            HStack(spacing: 4) {
+                Image(systemName: "xmark.circle")
+                Text(errorMessage)
+            }
+            .foregroundColor(.error)
+            .padding(.top, 4)
         }
     }
 }

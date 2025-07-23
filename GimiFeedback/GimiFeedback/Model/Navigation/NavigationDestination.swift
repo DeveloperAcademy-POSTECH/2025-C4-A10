@@ -9,7 +9,7 @@ protocol NavigationDestination: Hashable {}
 
 // MARK: Onboarding
 enum StartNavigationDestination: NavigationDestination {
-    case login
+    case nickNameInput
     case inputCode
     case feedbackWrite(channel: FeedbackChannel)
     case feedbackWriteComplete
