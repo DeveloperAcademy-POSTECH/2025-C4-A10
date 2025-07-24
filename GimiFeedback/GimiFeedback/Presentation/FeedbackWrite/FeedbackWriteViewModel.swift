@@ -72,17 +72,17 @@ final class FeedbackWriteViewModel: ViewModelable {
         result += keeps
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             .filter { !$0.isEmpty }
-            .map { FeedbackContent(content: $0, spicy: 3, type: .keep)}
+            .map { FeedbackContent(content: $0, spicy: 3, type: .typeContinue)}
         
         result += problems
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             .filter { !$0.isEmpty }
-            .map { FeedbackContent(content: $0, spicy: 3, type: .problem) }
+            .map { FeedbackContent(content: $0, spicy: 3, type: .typeStop) }
         
         result += trys
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             .filter { !$0.isEmpty }
-            .map { FeedbackContent(content: $0, spicy: 3, type: .try) }
+            .map { FeedbackContent(content: $0, spicy: 3, type: .typeStart) }
         
         result += others
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }

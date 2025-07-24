@@ -9,24 +9,12 @@ import SwiftUI
 
 struct FeedbackSectionView: View {
     let type: FeedbackContentType
-    var title: String {
-        switch type {
-        case .keep:
-            return "Keep"
-        case .problem:
-            return "Problem"
-        case .try:
-            return "Try"
-        case .other:
-            return "Other"
-        }
-    }
     @Binding var details: [FeedbackContent]
     let onReveal: (FeedbackContent) -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(title)
+            Text(type.title)
                 .font(.headline)
                 .padding(.bottom, 4)
             
@@ -67,12 +55,12 @@ struct FeedbackSectionView: View {
             content: "사용자 온보딩 플로우가 명확해서 이해하기 쉬웠어요.",
             spicy: 1,
             visiable: false,
-            type: .keep
+            type: .typeContinue
         ),
     ]
     
     return FeedbackSectionView(
-        type: .keep,
+        type: .typeContinue,
         details: $sampleFeedbackContents,
         onReveal: { content in
             print("Revealed content: \(content.content)")

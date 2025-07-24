@@ -27,9 +27,9 @@ final class FeedbackDetailViewModel: ViewModelable {
     
     init(feedbackItem: Feedback) {
         self.feedbackItem = feedbackItem
-        self.keepFeedback = feedbackItem.content.filter { $0.type == .keep }
-        self.problemFeedback = feedbackItem.content.filter { $0.type == .problem }
-        self.tryFeedback = feedbackItem.content.filter { $0.type == .try }
+        self.keepFeedback = feedbackItem.content.filter { $0.type == .typeContinue }
+        self.problemFeedback = feedbackItem.content.filter { $0.type == .typeStop }
+        self.tryFeedback = feedbackItem.content.filter { $0.type == .typeStart }
         self.otherFeedback = feedbackItem.content.filter { $0.type == .other }
     }
     
@@ -66,9 +66,9 @@ extension FeedbackDetailViewModel {
         
         feedbackItem.content[index].visiable = true
         
-        keepFeedback = feedbackItem.content.filter { $0.type == .keep }
-        problemFeedback = feedbackItem.content.filter { $0.type == .problem }
-        tryFeedback = feedbackItem.content.filter { $0.type == .try }
+        keepFeedback = feedbackItem.content.filter { $0.type == .typeContinue }
+        problemFeedback = feedbackItem.content.filter { $0.type == .typeStop }
+        tryFeedback = feedbackItem.content.filter { $0.type == .typeStart }
         otherFeedback = feedbackItem.content.filter { $0.type == .other }
         
         Task {
