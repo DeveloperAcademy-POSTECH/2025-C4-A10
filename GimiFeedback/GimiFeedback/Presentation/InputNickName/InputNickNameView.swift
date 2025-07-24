@@ -10,7 +10,7 @@ import SwiftUI
 struct InputNickNameView: View {
     
     @State var inputNickName: String = ""
-    let scene: NickNameInputScene
+    let mode: NickNameInputMode
     
     var onComplete: (String) -> Void
     
@@ -19,7 +19,7 @@ struct InputNickNameView: View {
             Text("닉네임")
                 .font(.title1)
             
-            Text(scene.subTitle)
+            Text(mode.subTitle)
                 .font(.footnote)
                 .foregroundStyle(.gray400)
             
@@ -28,7 +28,7 @@ struct InputNickNameView: View {
             
             Spacer()
             
-            Button(scene.buttonText) {
+            Button(mode.buttonText) {
                 onComplete(inputNickName)
             }
             .buttonStyle(.gimiPrimary)
@@ -40,24 +40,24 @@ struct InputNickNameView: View {
     }
 }
 
-enum NickNameInputScene {
-    case start
-    case main
+enum NickNameInputMode {
+    case startUserInput
+    case feedbackWriteInput
     
     var subTitle: String {
         switch self {
-        case .start:
+        case .startUserInput:
             "피드백을 요청할때 상대에게 보여질 닉네임이에요"
-        case .main:
+        case .feedbackWriteInput:
             "받는 사람에게 보일 닉네임이에요"
         }
     }
     
     var buttonText: String {
         switch self {
-        case .start:
+        case .startUserInput:
             "시작하기"
-        case .main:
+        case .feedbackWriteInput:
             "다음"
         }
     }
@@ -66,6 +66,6 @@ enum NickNameInputScene {
 #Preview {
     let userViewModel = UserViewModel()
     
-    InputNickNameView(scene: .main) { _ in }
+    InputNickNameView(mode: .feedbackWriteInput) { _ in }
         .environmentObject(userViewModel)
 }

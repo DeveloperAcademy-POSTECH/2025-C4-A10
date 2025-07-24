@@ -30,18 +30,18 @@ struct StartView: View {
                 }
                 .onChange(of: deepLinkViewModel.channel) { _, newValue in
                     if let channel = newValue {
-                        router.push(to: .feedbackWrite(channel: channel))
+                        router.push(to: .feedbackWriteInputNickName(channel: channel))
                         deepLinkViewModel.send(.resetChannel)
                     }
                 }
                 .onAppear {
                     if userViewModel.isLoggedIn {
-                        router.push(to: .inputNickName)
+                        router.push(to: .startUserinputNickName)
                     }
                 }
                 .onChange(of: userViewModel.isLoggedIn) { _, newValue in
                     if newValue {
-                        router.push(to: .inputNickName)
+                        router.push(to: .startUserinputNickName)
                     }
                 }
         }

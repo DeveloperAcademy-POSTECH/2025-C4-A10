@@ -16,18 +16,26 @@ struct StartNavigationRoutingView: View {
     var body: some View {
         Group {
             switch destination {
-            case .inputCode:
-                InputCodeView { feedbackChannel in
-                    router.push(to: .feedbackWrite(channel: feedbackChannel))
-                }
-            case .inputNickName:
-                InputNickNameView(scene: .start) { inputNickName in
+            case .startUserinputNickName:
+                InputNickNameView(mode: .startUserInput) { inputNickName in
                     userViewModel.send(.nickNameSave(inputNickName))
                 }
-            case .feedbackWrite(let feedbackChannel):
+            case .inputCode:
+                InputCodeView { feedbackChannel in
+                    router.push(to: .feedbackWriteInputNickName(channel: feedbackChannel))
+                }
+            case .feedbackWriteInputNickName(let channel):
+                InputNickNameView(mode: .feedbackWriteInput) { inputNickName in
+                    router.push(to: .feedbackWrite(
+                        channel: channel,
+                        inputNickName: inputNickName
+                    ))
+                }
+            case let .feedbackWrite(feedbackChannel, nickName):
                 FeedbackWriteView(feedbackChannel: feedbackChannel) {
                     router.push(to: .feedbackWriteComplete)
                 }
+
             case .feedbackWriteComplete:
                 FeedbackWriteCompleteView()
             }

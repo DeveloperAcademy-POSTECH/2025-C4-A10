@@ -9,9 +9,10 @@ protocol NavigationDestination: Hashable {}
 
 // MARK: Onboarding
 enum StartNavigationDestination: NavigationDestination {
-    case inputNickName
+    case startUserinputNickName
     case inputCode
-    case feedbackWrite(channel: FeedbackChannel)
+    case feedbackWriteInputNickName(channel: FeedbackChannel)
+    case feedbackWrite(channel: FeedbackChannel, inputNickName: String)
     case feedbackWriteComplete
 }
 
