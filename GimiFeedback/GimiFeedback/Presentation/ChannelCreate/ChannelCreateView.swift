@@ -94,7 +94,10 @@ struct ChannelCreateView: View {
                 viewModel.send(.createFeedbackChannel)
             }
         } message: {
-            Text("이대로 생성하겠습니까?")
+            Text("입력한 정보로 채널을 생성합니다.")
+            if viewModel.description.isEmpty {
+                Text("설명이 없다면 기본 문구가 사용돼요.")
+            }
         }
         .onChange(of: viewModel.createdChannelID) { _, newValue in
             if let id = newValue {
