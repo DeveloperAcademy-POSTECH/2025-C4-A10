@@ -37,7 +37,7 @@ extension ChannelCreateViewModel {
             let newChannel = FeedbackChannel(
                 userID: FirebaseAuthManager.currentUserID,
                 channelTitle: title,
-                content: description
+                content: description.isEmpty ? "자유롭게 피드백을 남겨주세요" : description
             )
             
             do {
