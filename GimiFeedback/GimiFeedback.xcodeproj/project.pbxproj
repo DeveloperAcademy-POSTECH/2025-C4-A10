@@ -70,7 +70,6 @@
 		EEC048732E2E331400918BAA /* GimiTextEditorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048722E2E330D00918BAA /* GimiTextEditorModifier.swift */; };
 		EEC048752E2E916100918BAA /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048742E2E914800918BAA /* SpeechView.swift */; };
 		EEC048782E2FAE8100918BAA /* GimiTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048772E2FAE7900918BAA /* GimiTextFieldStyle.swift */; };
-		EEC0487A2E2FF1BF00918BAA /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048792E2FF1B200918BAA /* UserDefaults+Extension.swift */; };
 		EEDBB1B82E28D45700F16407 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1B72E28D45700F16407 /* FirebaseMessaging */; };
 		EEDBB1BA2E28DA9200F16407 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1B92E28DA9100F16407 /* User.swift */; };
 		EEDBB1BC2E28DEC100F16407 /* FCMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */; };
@@ -143,7 +142,6 @@
 		EEC048722E2E330D00918BAA /* GimiTextEditorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiTextEditorModifier.swift; sourceTree = "<group>"; };
 		EEC048742E2E914800918BAA /* SpeechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
 		EEC048772E2FAE7900918BAA /* GimiTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiTextFieldStyle.swift; sourceTree = "<group>"; };
-		EEC048792E2FF1B200918BAA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		EEDBB1B62E28D2E900F16407 /* GimiFeedback.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GimiFeedback.entitlements; sourceTree = "<group>"; };
 		EEDBB1B92E28DA9100F16407 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMManager.swift; sourceTree = "<group>"; };
@@ -416,7 +414,6 @@
 		EE856A422E1CD22B006820B9 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				EEC048792E2FF1B200918BAA /* UserDefaults+Extension.swift */,
 				EE41FEE62E2257260002E595 /* Bundle+Extension.swift */,
 				EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */,
 				EE856A432E1CD23E006820B9 /* Color+Extension.swift */,
@@ -617,7 +614,6 @@
 				EE856A472E1CD2AD006820B9 /* Font+Extension.swift in Sources */,
 				EE82DF9B2E24D5CD00EC1AFF /* ChannelCreateView.swift in Sources */,
 				EEC048782E2FAE8100918BAA /* GimiTextFieldStyle.swift in Sources */,
-				EEC0487A2E2FF1BF00918BAA /* UserDefaults+Extension.swift in Sources */,
 				EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */,
 				EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */,
 				EE41FD822E223D720002E595 /* InputCodeView.swift in Sources */,
