@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct InputNickNameView: View {
-    @EnvironmentObject var viewModel: UserViewModel
+    
+    @State var inputNickName: String = ""
     let scene: NickNameInputScene
+    
+    var onComplete: (String) -> Void
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -20,16 +23,16 @@ struct InputNickNameView: View {
                 .font(.footnote)
                 .foregroundStyle(.gray400)
             
-            TextField("", text: $viewModel.inputNickName)
+            TextField("", text: $inputNickName)
                 .textFieldStyle(.gimiBase)
             
             Spacer()
             
             Button(scene.buttonText) {
-                viewModel.send(.nickNameSave)
+                onComplete(inputNickName)
             }
             .buttonStyle(.gimiPrimary)
-            .disabled(viewModel.inputNickName.isEmpty)
+            .disabled(inputNickName.isEmpty)
         }
         .navigationBarBackButtonHidden()
         .padding()
@@ -63,6 +66,6 @@ enum NickNameInputScene {
 #Preview {
     let userViewModel = UserViewModel()
     
-    InputNickNameView(scene: .main)
+    InputNickNameView(scene: .main) { _ in }
         .environmentObject(userViewModel)
 }

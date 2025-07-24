@@ -22,7 +22,6 @@ enum MainNavigationDestination: NavigationDestination {
     case channelEdit(channelItem: FeedbackChannel)
     case feedbackDetail(feedback: Feedback)
     case inputCode
-    case inputNickName
     case feedbackWrite(channel: FeedbackChannel)
     case feedbackWriteComplete
     case feedbackChannelCreate

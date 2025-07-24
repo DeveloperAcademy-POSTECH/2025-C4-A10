@@ -11,6 +11,7 @@ struct StartNavigationRoutingView: View {
     
     @State var destination: StartNavigationDestination
     @EnvironmentObject var router: OnboardingNavigationRouter
+    @EnvironmentObject var userViewModel: UserViewModel
     
     var body: some View {
         Group {
@@ -20,7 +21,9 @@ struct StartNavigationRoutingView: View {
                     router.push(to: .feedbackWrite(channel: feedbackChannel))
                 }
             case .inputNickName:
-                InputNickNameView(scene: .start)
+                InputNickNameView(scene: .start) { inputNickName in
+                    userViewModel.send(.nickNameSave(inputNickName))
+                }
             case .feedbackWrite(let feedbackChannel):
                 FeedbackWriteView(feedbackChannel: feedbackChannel) {
                     router.push(to: .feedbackWriteComplete)
