@@ -11,6 +11,7 @@ struct ChannelCreateView: View {
 
     @StateObject var viewModel: ChannelCreateViewModel
     @State private var isShowCreateAlert: Bool = false
+    @State private var buttonDisabled: Bool = true
     @EnvironmentObject var router: MainNavigationRouter
     
     init() {
@@ -19,31 +20,57 @@ struct ChannelCreateView: View {
     
     var body: some View {
         VStack {
-            VStack(alignment: .leading, spacing: 16) {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("제목")
-                        .font(Font.system(size: 17, weight: .regular))
+            VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 12) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("제목")
+                            .font(.title1)
+                        
+                        Text("피드백 채널의 재목을 작성해주세요")
+                            .font(.footnote)
+                            .foregroundColor(.gray400)
+                    }
                     
                     TextField("", text: $viewModel.title)
                         .padding()
-                        .background(Color(UIColor.systemGray6))
-                        .cornerRadius(5)
+                        .background(.gray50)
+                        .cornerRadius(12)
                 }
+                .padding(.vertical, 16)
                 
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("설명")
-                        .font(Font.system(size: 17, weight: .regular))
+                VStack(alignment: .leading, spacing: 12) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("설명")
+                            .font(.title1)
+                        
+                        Text("피드백을 받고 싶은 내용에 대해 설명해주세요")
+                            .font(.footnote)
+                            .foregroundColor(.gray400)
+                    }
                     
-                    TextEditor(text: $viewModel.description)
-                        .scrollContentBackground(.hidden)
-                        .frame(height: 132)
-                        .padding()
-                        .background(Color(UIColor.systemGray6))
-                        .cornerRadius(5)
+                    ZStack(alignment: .topLeading) {
+                        let placeholder = "자유롭게 피드백을 남겨주세요"
+                        
+                        TextEditor(text: $viewModel.description)
+                            .scrollContentBackground(.hidden)
+                            .frame(height: 154)
+                            .padding(.top, 12)
+                            .padding(.leading, 16)
+                            .background(.gray50)
+                            .cornerRadius(12)
+                        
+                        if viewModel.description.isEmpty {
+                            Text(placeholder)
+                                .font(.callout)
+                                .foregroundColor(.gray100)
+                                .padding(.top, 12)
+                                .padding(.leading, 16)
+                        }
+                    }
                 }
+                .padding(.vertical, 16)
             }
             .padding(.horizontal, 20)
-            .padding(.top, 24)
             
             Spacer()
             
@@ -51,14 +78,14 @@ struct ChannelCreateView: View {
                 isShowCreateAlert = true
             }, label: {
                 Text("완료하기")
-                    .font(Font.system(size: 20, weight: .bold))
+                    .font(.title2)
                     .foregroundColor(.white)
-                    .frame(maxWidth: .infinity, maxHeight: 66)
-                    .background(Color.black)
-                    .cornerRadius(20)
+                    .frame(maxWidth: .infinity, maxHeight: 64)
+                    .background(buttonDisabled ? .gray100 : .primary)
+                    .cornerRadius(12)
                     .padding()
             })
-            .disabled(viewModel.title.isEmpty || viewModel.description.isEmpty)
+            .disabled(buttonDisabled)
         }
         .gimiNavigationBar(title: "채널 생성하기")
         .alert("채널 생성하기", isPresented: $isShowCreateAlert) {
@@ -74,6 +101,13 @@ struct ChannelCreateView: View {
                 router.push(
                     to: .feedbackChannelCreateComplete(channelID: id)
                 )
+            }
+        }
+        .onChange(of: viewModel.title) { _, newValue in
+            if newValue.isEmpty {
+                buttonDisabled = true
+            } else {
+                buttonDisabled = false
             }
         }
     }

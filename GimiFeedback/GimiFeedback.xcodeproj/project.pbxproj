@@ -82,6 +82,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D99ADBE2E3210FE00FCB813 /* GimiFeedback.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GimiFeedback.entitlements; sourceTree = "<group>"; };
 		0DC2A3D42E263E1500FF91BC /* FeedbackDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailViewModel.swift; sourceTree = "<group>"; };
 		0DC2A4372E2A213F00FF91BC /* FeedbackSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSectionView.swift; sourceTree = "<group>"; };
 		EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -348,6 +349,7 @@
 				EEDBB1B62E28D2E900F16407 /* GimiFeedback.entitlements */,
 				EE465EE82E26205D0096109A /* GoogleService-Info.plist */,
 				EE41FEE42E2256280002E595 /* Config.xcconfig */,
+				0D99ADBE2E3210FE00FCB813 /* GimiFeedback.entitlements */,
 			);
 			path = App;
 			sourceTree = "<group>";
