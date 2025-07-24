@@ -45,9 +45,9 @@ struct FeedbackWriteView: View {
                         .cornerRadius(5)
                 }
                 
-                FeedbackContentView(content: $viewModel.keeps, contentType: .keep)
-                FeedbackContentView(content: $viewModel.problems, contentType: .problem)
-                FeedbackContentView(content: $viewModel.trys, contentType: .try)
+                FeedbackContentView(content: $viewModel.keeps, contentType: .typeContinue)
+                FeedbackContentView(content: $viewModel.problems, contentType: .typeStop)
+                FeedbackContentView(content: $viewModel.trys, contentType: .typeStart)
                 FeedbackContentView(content: $viewModel.others, contentType: .other)
                 
                 Button(action: {

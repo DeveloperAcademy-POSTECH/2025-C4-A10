@@ -15,7 +15,7 @@ final class UserViewModel: ViewModelable {
     }
     
     @Published private(set) var isLoggedIn: Bool = FirebaseAuthManager.currentUser
-    @Published private(set) var saveUserNickName: String = UserDefaults.standard.loadUserNickName
+    @Published private(set) var saveUserNickName: String = FirebaseAuthManager.userNickName
     @Published var inputNickName: String = ""
     
     func send(_ action: Action) {
@@ -37,14 +37,13 @@ final class UserViewModel: ViewModelable {
                     await deleteUser(userID: logoutUserID)
                 }
                 isLoggedIn = FirebaseAuthManager.currentUser
-                saveUserNickName = ""
-                UserDefaults.standard.removeUserNickName()
+                saveUserNickName = FirebaseAuthManager.userNickName
             }
         case .nickNameSave:
             Task {
                 await saveUser(nickName: inputNickName)
+                await nickNameChange(nickName: inputNickName)
                 saveUserNickName = inputNickName
-                UserDefaults.standard.saveUserNickName(inputNickName)
             }
         }
     }
@@ -141,6 +140,15 @@ extension UserViewModel {
             }
         } catch {
             print("FCM Token 삭제 실패")
+        }
+    }
+    
+    private func nickNameChange(nickName: String) async {
+        do {
+            try await FirebaseAuthManager.shared.saveUserNickName(nickName: nickName)
+            saveUserNickName = nickName
+        } catch {
+            print("NickName 변경 실패", error.localizedDescription)
         }
     }
 }

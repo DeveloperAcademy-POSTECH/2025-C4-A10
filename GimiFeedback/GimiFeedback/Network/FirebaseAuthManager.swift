@@ -15,6 +15,10 @@ final class FirebaseAuthManager {
         return Auth.auth().currentUser != nil
     }
     
+    static var userNickName: String {
+        return Auth.auth().currentUser?.displayName ?? ""
+    }
+    
     static var currentUserID: String {
         return Auth.auth().currentUser?.uid ?? ""
     }
@@ -38,6 +42,12 @@ final class FirebaseAuthManager {
     // 로그아웃
     func logout() throws {
         try Auth.auth().signOut()
+    }
+    
+    func saveUserNickName(nickName: String) async throws{
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = nickName
+        try await changeRequest?.commitChanges()
     }
 }
 

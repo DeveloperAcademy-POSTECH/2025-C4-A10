@@ -17,7 +17,7 @@ struct NickNameInputView: View {
             
             Text("피드백을 요청할 때 상대에게 보여질 닉네임이에요")
                 .font(.footnote)
-                .foregroundStyle(.gray600)
+                .foregroundStyle(.gray400)
             
             TextField("", text: $viewModel.inputNickName)
                 .textFieldStyle(.gimiBase)
