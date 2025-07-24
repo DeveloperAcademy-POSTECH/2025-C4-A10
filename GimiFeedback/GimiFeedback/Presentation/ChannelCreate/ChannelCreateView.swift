@@ -81,7 +81,7 @@ struct ChannelCreateView: View {
                     .font(.title2)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, maxHeight: 64)
-                    .background(buttonDisabled ? .gray100 : .primary)
+                    .background(buttonDisabled ? .gray100 : .primaryBase)
                     .cornerRadius(12)
                     .padding()
             })
