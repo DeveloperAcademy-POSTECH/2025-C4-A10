@@ -33,7 +33,7 @@
 		EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3756A22E1E602C009AD262 /* EntityRepresentable.swift */; };
 		EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3756A42E1E6060009AD262 /* CollectionType.swift */; };
 		EE37582C2E1F80F3009AD262 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */; };
-		EE41FD7D2E223D050002E595 /* NickNameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FD7C2E223CFD0002E595 /* NickNameInputView.swift */; };
+		EE41FD7D2E223D050002E595 /* InputNickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FD7C2E223CFD0002E595 /* InputNickNameView.swift */; };
 		EE41FD822E223D720002E595 /* InputCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FD812E223D720002E595 /* InputCodeView.swift */; };
 		EE41FEDC2E2250DF0002E595 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EE41FEDB2E2250DF0002E595 /* KakaoSDKAuth */; };
 		EE41FEDE2E2250DF0002E595 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = EE41FEDD2E2250DF0002E595 /* KakaoSDKCommon */; };
@@ -107,7 +107,7 @@
 		EE3756A22E1E602C009AD262 /* EntityRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityRepresentable.swift; sourceTree = "<group>"; };
 		EE3756A42E1E6060009AD262 /* CollectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
 		EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
-		EE41FD7C2E223CFD0002E595 /* NickNameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameInputView.swift; sourceTree = "<group>"; };
+		EE41FD7C2E223CFD0002E595 /* InputNickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNickNameView.swift; sourceTree = "<group>"; };
 		EE41FD812E223D720002E595 /* InputCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCodeView.swift; sourceTree = "<group>"; };
 		EE41FEE12E22511D0002E595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE41FEE42E2256280002E595 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -383,6 +383,7 @@
 				EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */,
 				EC9959B12E24E646001555B1 /* ChannelDetail */,
 				EC9959B52E251368001555B1 /* ChannelEdit */,
+				EEC04A002E326B3500918BAA /* InputNickName */,
 				EE41FD7E2E223D180002E595 /* InputCode */,
 				EC9959BB2E2518AF001555B1 /* FeedbackWrite */,
 				EC9959BE2E2518BE001555B1 /* FeedbackWriteComplete */,
@@ -468,7 +469,6 @@
 			isa = PBXGroup;
 			children = (
 				EE856A5A2E1CEA98006820B9 /* StartView.swift */,
-				EE41FD7C2E223CFD0002E595 /* NickNameInputView.swift */,
 				EE41FEE82E2259310002E595 /* UserViewModel.swift */,
 			);
 			path = Start;
@@ -513,6 +513,14 @@
 				EEC048702E2E1E6100918BAA /* CustomNaviModifier.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		EEC04A002E326B3500918BAA /* InputNickName */ = {
+			isa = PBXGroup;
+			children = (
+				EE41FD7C2E223CFD0002E595 /* InputNickNameView.swift */,
+			);
+			path = InputNickName;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -629,7 +637,7 @@
 				EEC048752E2E916100918BAA /* SpeechView.swift in Sources */,
 				EEC0471A2E2E1D3B00918BAA /* GimiButtonStyle.swift in Sources */,
 				EE41FEE72E22572C0002E595 /* Bundle+Extension.swift in Sources */,
-				EE41FD7D2E223D050002E595 /* NickNameInputView.swift in Sources */,
+				EE41FD7D2E223D050002E595 /* InputNickNameView.swift in Sources */,
 				EE465EFC2E2650970096109A /* MainView.swift in Sources */,
 				EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */,
 				EE465EF22E2631840096109A /* FeedbackWriteCompleteView.swift in Sources */,

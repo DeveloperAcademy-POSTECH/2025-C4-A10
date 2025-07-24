@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct NickNameInputView: View {
+struct InputNickNameView: View {
     @EnvironmentObject var viewModel: UserViewModel
+    let scene: NickNameInputScene
     
     var body: some View {
         VStack(alignment: .leading) {
             Text("닉네임")
                 .font(.title1)
             
-            Text("피드백을 요청할 때 상대에게 보여질 닉네임이에요")
+            Text(scene.subTitle)
                 .font(.footnote)
                 .foregroundStyle(.gray400)
             
@@ -24,7 +25,7 @@ struct NickNameInputView: View {
             
             Spacer()
             
-            Button("시작하기") {
+            Button(scene.buttonText) {
                 viewModel.send(.nickNameSave)
             }
             .buttonStyle(.gimiPrimary)
@@ -36,9 +37,32 @@ struct NickNameInputView: View {
     }
 }
 
+enum NickNameInputScene {
+    case start
+    case main
+    
+    var subTitle: String {
+        switch self {
+        case .start:
+            "피드백을 요청할때 상대에게 보여질 닉네임이에요"
+        case .main:
+            "받는 사람에게 보일 닉네임이에요"
+        }
+    }
+    
+    var buttonText: String {
+        switch self {
+        case .start:
+            "시작하기"
+        case .main:
+            "다음"
+        }
+    }
+}
+
 #Preview {
     let userViewModel = UserViewModel()
     
-    NickNameInputView()
+    InputNickNameView(scene: .main)
         .environmentObject(userViewModel)
 }

@@ -19,8 +19,8 @@ struct StartNavigationRoutingView: View {
                 InputCodeView { feedbackChannel in
                     router.push(to: .feedbackWrite(channel: feedbackChannel))
                 }
-            case .nickNameInput:
-                NickNameInputView()
+            case .inputNickName:
+                InputNickNameView(scene: .start)
             case .feedbackWrite(let feedbackChannel):
                 FeedbackWriteView(feedbackChannel: feedbackChannel) {
                     router.push(to: .feedbackWriteComplete)

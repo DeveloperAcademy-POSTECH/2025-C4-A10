@@ -36,12 +36,12 @@ struct StartView: View {
                 }
                 .onAppear {
                     if userViewModel.isLoggedIn {
-                        router.push(to: .nickNameInput)
+                        router.push(to: .inputNickName)
                     }
                 }
                 .onChange(of: userViewModel.isLoggedIn) { _, newValue in
                     if newValue {
-                        router.push(to: .nickNameInput)
+                        router.push(to: .inputNickName)
                     }
                 }
         }

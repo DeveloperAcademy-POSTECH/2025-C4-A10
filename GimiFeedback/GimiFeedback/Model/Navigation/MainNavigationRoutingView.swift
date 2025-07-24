@@ -25,8 +25,10 @@ struct MainNavigationRoutingView: View {
                 FeedbackDetailView(feedbackItem: feedbackItem)
             case .inputCode:
                 InputCodeView { feedbackChannel in
-                    router.push(to: .feedbackWrite(channel: feedbackChannel))
+                    router.push(to: .inputNickName)
                 }
+            case .inputNickName:
+                InputNickNameView(scene: .main)
             case .feedbackWrite(let feedbackChannel):
                 FeedbackWriteView(feedbackChannel: feedbackChannel) {
                     router.push(to: .feedbackWriteComplete)
