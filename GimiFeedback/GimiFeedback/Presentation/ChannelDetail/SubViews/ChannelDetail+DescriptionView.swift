@@ -33,10 +33,11 @@ extension ChannelDetailView {
                 Text(channelItem.content.isEmpty ? "자유롭게 피드백을 남겨주세요" : channelItem.content)
                     .font(.callout2)
             }
-            .padding(20)
+            .padding(.horizontal, 20)
+            .padding(.bottom, 20)
             
             Rectangle()
-                .foregroundStyle(Color(red: 0.97, green: 0.97, blue: 0.97))
+                .foregroundStyle(.gray50)
                 .frame(height: 8)
                 .frame(maxWidth: .infinity)
         }

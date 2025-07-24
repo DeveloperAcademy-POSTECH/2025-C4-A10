@@ -14,6 +14,7 @@ extension ChannelDetailView {
         var body: some View {
             VStack(alignment: .center, spacing: 20) {
                 Spacer()
+                    .frame(minHeight: 210)
                 
                 Text("아직 받은 피드백이 없어요.\n 첫 번째 피드백을 요청해보세요.")
                     .font(.callout)
@@ -39,8 +40,6 @@ extension ChannelDetailView {
                         .background(.primaryLighten300)
                         .clipShape(.rect(cornerRadius: 12))
                 }
-                
-                Spacer()
             }
         }
     }

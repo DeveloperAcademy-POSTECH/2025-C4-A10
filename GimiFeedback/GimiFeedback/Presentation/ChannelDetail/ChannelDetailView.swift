@@ -11,31 +11,33 @@ struct ChannelDetailView: View {
     }
     
     var body: some View {
-        VStack(spacing: .zero) {
-            /// 콘텐츠 설명
-            DescriptionView(
-                channelItem: viewModel.channelItem,
-                onTapEdit: {
-                    router.push(
-                        to: .channelEdit(channelItem: viewModel.channelItem)
-                    )
-                }
-            )
-            
-            /// 피드백 없을 때 화면
-            if viewModel.feedbackList.isEmpty {
-                EmptyFeedbackView(channelId: viewModel.channelItem.id)
-                
-            } else {
-                /// 피드백 있을 때 화면
-                FeedbackListView(
-                    feedbackList: viewModel.feedbackList,
-                    onTapFeedbackItem: { item in
-                        router.push(to: .feedbackDetail(feedback: item))
+        ScrollView {
+            VStack(spacing: .zero) {
+                /// 콘텐츠 설명
+                DescriptionView(
+                    channelItem: viewModel.channelItem,
+                    onTapEdit: {
+                        router.push(
+                            to: .channelEdit(channelItem: viewModel.channelItem)
+                        )
                     }
                 )
+                
+                /// 피드백 없을 때 화면
+                if viewModel.feedbackList.isEmpty {
+                    EmptyFeedbackView(channelId: viewModel.channelItem.id)
+                } else {
+                    /// 피드백 있을 때 화면
+                    FeedbackListView(
+                        feedbackList: viewModel.feedbackList,
+                        onTapFeedbackItem: { item in
+                            router.push(to: .feedbackDetail(feedback: item))
+                        }
+                    )
+                }
             }
         }
+        .padding(.top, 20)
         .gimiNavigationBar(
             title: "\(viewModel.channelItem.channelTitle)",
             trailingItems: {
