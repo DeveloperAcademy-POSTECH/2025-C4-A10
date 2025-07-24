@@ -34,9 +34,9 @@ struct InputNickNameView: View {
             .buttonStyle(.gimiPrimary)
             .disabled(inputNickName.isEmpty)
         }
-        .navigationBarBackButtonHidden()
         .padding()
-        .padding(.top, 44)
+        .navigationBarBackButtonHidden(mode == .startUserInput)
+        .padding(.top, mode == .startUserInput ? 44 : 0)
     }
 }
 
