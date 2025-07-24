@@ -14,10 +14,14 @@ struct FeedbackWriteView: View {
     
     init(
         feedbackChannel: FeedbackChannel,
+        inputNickName: String,
         onComplete: @escaping () -> Void
     ) {
         _viewModel = StateObject(
-            wrappedValue: .init(feedbackChannel: feedbackChannel)
+            wrappedValue: .init(
+                feedbackChannel: feedbackChannel,
+                nickName: inputNickName
+            )
         )
         self.onComplete = onComplete
     }
@@ -38,11 +42,7 @@ struct FeedbackWriteView: View {
                 
                 VStack(alignment: .leading, spacing: 10) {
                     Text("닉네임")
-                    Text("받는 사람에게 보여지는 닉네임입니다.")
-                    TextField("", text: $viewModel.nickName)
-                        .padding()
-                        .background(Color(UIColor.systemGray6))
-                        .cornerRadius(5)
+                    Text(viewModel.nickName)
                 }
                 
                 FeedbackContentView(content: $viewModel.keeps, contentType: .typeContinue)
@@ -126,7 +126,7 @@ extension FeedbackWriteView {
         content: "Test용 내용입니다"
     )
     
-    FeedbackWriteView(feedbackChannel: feedbackChannel) {
+    FeedbackWriteView(feedbackChannel: feedbackChannel, inputNickName: "test") {
         print("Test")
     }
 }

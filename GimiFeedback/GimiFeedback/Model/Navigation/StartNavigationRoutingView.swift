@@ -32,7 +32,10 @@ struct StartNavigationRoutingView: View {
                     ))
                 }
             case let .feedbackWrite(feedbackChannel, nickName):
-                FeedbackWriteView(feedbackChannel: feedbackChannel) {
+                FeedbackWriteView(
+                    feedbackChannel: feedbackChannel,
+                    inputNickName: nickName
+                ) {
                     router.push(to: .feedbackWriteComplete)
                 }
 
