@@ -5,6 +5,12 @@
 //  Created by 김민석 on 7/15/25.
 //
 
+
+enum FocusField {
+    case title
+    case content
+}
+
 import SwiftUI
 
 struct ChannelEditView: View {
@@ -12,53 +18,49 @@ struct ChannelEditView: View {
     @State private var isShowCreateAlert: Bool = false
     @EnvironmentObject var router: MainNavigationRouter
     
+    @FocusState private var focusField: FocusField?
+    
     init(channelItem: FeedbackChannel) {
         _viewModel = StateObject(wrappedValue: .init(channelItem: channelItem))
     }
     
+    private var isActive: Bool {
+        // 제목은 비어있으면 안됌
+        let trimmed = viewModel.channelItem.channelTitle.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return false }
+
+        /// 이전과 하나라도 다른 값이어야 함
+        return viewModel.channelItem.channelTitle != viewModel.originalChannelTitle
+        || viewModel.channelItem.content != viewModel.originalContent
+    }
+
     var body: some View {
-        VStack {
-            VStack(alignment: .leading, spacing: 16) {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("제목")
-                        .font(Font.system(size: 17, weight: .regular))
-                    
-                    TextField("", text: $viewModel.channelItem.channelTitle)
-                        .padding()
-                        .background(Color(UIColor.systemGray6))
-                        .cornerRadius(5)
-                }
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("설명")
-                        .font(Font.system(size: 17, weight: .regular))
-                    
-                    TextEditor(text: $viewModel.channelItem.content)
-                        .scrollContentBackground(.hidden)
-                        .frame(height: 132)
-                        .padding()
-                        .background(Color(UIColor.systemGray6))
-                        .cornerRadius(5)
-                }
-            }
-            .padding(.horizontal, 20)
-            .padding(.top, 24)
+        VStack(spacing: .zero) {
+            TitleView(
+                text: $viewModel.channelItem.channelTitle,
+                field: .title,
+                focusState: $focusField
+            )
+            
+            ContentView(
+                text: $viewModel.channelItem.content,
+                field: .content,
+                focusState: $focusField)
             
             Spacer()
             
-            Button(action: {
-                isShowCreateAlert = true
-            }, label: {
-                Text("완료하기")
-                    .font(Font.system(size: 20, weight: .bold))
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity, maxHeight: 66)
-                    .background(Color.black)
-                    .cornerRadius(20)
-                    .padding()
-            })
-//            .disabled(viewModel.title.isEmpty || viewModel.description.isEmpty)
+            Button("저장하기") {
+             isShowCreateAlert = true
+            }
+            .buttonStyle(.gimiPrimary)
+            .disabled(!isActive)
         }
+        .padding(.horizontal, 20)
+        .background(.white)
+        .onTapGesture {
+            focusField = nil
+        }
+        
         .gimiNavigationBar(title: "채널 수정하기")
         .navigationBarTitleDisplayMode(.inline)
         .alert("채널 수정하기", isPresented: $isShowCreateAlert) {
@@ -75,5 +77,8 @@ struct ChannelEditView: View {
             }
         }
     }
+}
 
+#Preview {
+    ChannelEditView(channelItem: .init(userID: "d", channelTitle: "C4", content: "dklfndklfndklfndklf"))
 }

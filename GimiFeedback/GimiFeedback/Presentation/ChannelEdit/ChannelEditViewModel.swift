@@ -17,8 +17,13 @@ final class ChannelEditViewModel: ViewModelable {
     @Published private(set) var isLoading: Bool = false
     @Published var isUpdate = false
     
+    let originalChannelTitle: String
+    let originalContent: String
+
     init(channelItem: FeedbackChannel) {
         self.channelItem = channelItem
+        originalChannelTitle = channelItem.channelTitle
+        originalContent = channelItem.content
     }
 
     func send(_ action: Action) {
