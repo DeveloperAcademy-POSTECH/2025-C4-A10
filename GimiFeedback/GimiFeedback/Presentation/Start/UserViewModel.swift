@@ -46,6 +46,8 @@ final class UserViewModel: ViewModelable {
                         email: result.email,
                         password: result.password
                     )
+                    
+                    await saveUser()
                 }
             }
         case .kakaoLogout:
@@ -57,8 +59,7 @@ final class UserViewModel: ViewModelable {
             }
         case .nickNameSave(let inputNickName):
             Task {
-                await saveUser(nickName: inputNickName)
-                await nickNameChange(nickName: inputNickName)
+                await saveUserNickName(to: inputNickName)
             }
         }
     }
@@ -126,13 +127,12 @@ extension UserViewModel {
     // MARK: 토큰 관련 함수
     
     /// 유저 저장 (로그인시)
-    private func saveUser(nickName: String) async {
+    private func saveUser() async {
         do {
             let tokenString = try await FCMManager.shared.getTokenString()
             let userID = FirebaseAuthManager.currentUserID
             let user = User(
                 userID: userID,
-                nickName: nickName,
                 fcmToken: tokenString,
                 badgeCount: 0
             )
@@ -158,7 +158,7 @@ extension UserViewModel {
         }
     }
     
-    private func nickNameChange(nickName: String) async {
+    private func saveUserNickName(to nickName: String) async {
         do {
             try await FirebaseAuthManager.shared.saveUserNickName(nickName: nickName)
         } catch {

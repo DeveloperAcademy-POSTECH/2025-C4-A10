@@ -9,18 +9,15 @@ import Foundation
 
 struct User: Codable, Hashable {
     let id: String
-    let nickName: String
     let fcmToken: String
     let badgeCount: Int
     
     init(
         userID: String,
-        nickName: String,
         fcmToken: String,
         badgeCount: Int
     ) {
         self.id = userID
-        self.nickName = nickName
         self.fcmToken = fcmToken
         self.badgeCount = badgeCount
     }
