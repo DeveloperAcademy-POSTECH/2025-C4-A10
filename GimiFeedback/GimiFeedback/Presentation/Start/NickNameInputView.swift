@@ -30,7 +30,9 @@ struct NickNameInputView: View {
             .buttonStyle(.gimiPrimary)
             .disabled(viewModel.inputNickName.isEmpty)
         }
+        .navigationBarBackButtonHidden()
         .padding()
+        .padding(.top, 44)
     }
 }
 

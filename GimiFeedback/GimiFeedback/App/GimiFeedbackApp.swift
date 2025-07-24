@@ -32,8 +32,6 @@ struct GimiFeedbackApp: App {
                                 notificationRouter.send(.saveUserInfo(userInfo: userInfo))
                             }
                         }
-                } else if userViewModel.saveUserNickName.isEmpty && FirebaseAuthManager.currentUser {
-                    NickNameInputView()
                 } else {
                     StartView()
                         .onOpenURL { url in

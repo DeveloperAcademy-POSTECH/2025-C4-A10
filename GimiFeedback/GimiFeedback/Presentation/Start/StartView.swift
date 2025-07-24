@@ -10,6 +10,7 @@ import SwiftUI
 struct StartView: View {
     @StateObject var router: OnboardingNavigationRouter
     @StateObject private var deepLinkViewModel: DeepLinkViewModel
+    @EnvironmentObject private var userViewModel: UserViewModel
     
     init() {
         _router = StateObject(wrappedValue: .init())
@@ -31,6 +32,16 @@ struct StartView: View {
                     if let channel = newValue {
                         router.push(to: .feedbackWrite(channel: channel))
                         deepLinkViewModel.send(.resetChannel)
+                    }
+                }
+                .onAppear {
+                    if userViewModel.isLoggedIn {
+                        router.push(to: .nickNameInput)
+                    }
+                }
+                .onChange(of: userViewModel.isLoggedIn) { _, newValue in
+                    if newValue {
+                        router.push(to: .nickNameInput)
                     }
                 }
         }
