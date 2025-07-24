@@ -69,7 +69,7 @@ class Trainer:
             [],
             [],
         )
-        self.best_global_epoch = 0
+        self.best_global_epoch = -1
 
     def loop(self: "Trainer") -> None:
         if self.config.only_test:
@@ -211,14 +211,14 @@ class Trainer:
         self.val_loss_values.append(val_loss)
         self.val_score_values.append(scores["accuracy"])
 
-        best_epoch = np.array(self.val_loss_values).argmin() + 1
+        best_epoch = np.array(self.val_loss_values).argmin()
         best_model_path = Path(self.best_model_epoch_dir[best_epoch])
         shutil.copyfile(
             best_model_path,
             best_model_path.with_stem(best_model_path.stem + "_best"),
         )
 
-        if (self.config.train.max_epoch == 1) or (self.best_global_epoch < best_epoch):
+        if self.best_global_epoch < best_epoch:
             self.best_global_epoch = best_epoch
             save_model(
                 self.config,
