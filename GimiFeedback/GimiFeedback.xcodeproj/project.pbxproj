@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0DC2A3D52E263E1500FF91BC /* FeedbackDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2A3D42E263E1500FF91BC /* FeedbackDetailViewModel.swift */; };
 		0DC2A4392E2A213F00FF91BC /* FeedbackSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2A4372E2A213F00FF91BC /* FeedbackSectionView.swift */; };
+		EC6A4C842E31284F0087DB5C /* ChannelDetail+DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C832E31284F0087DB5C /* ChannelDetail+DescriptionView.swift */; };
+		EC6A4C862E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C852E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift */; };
+		EC6A4C882E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C872E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift */; };
+		EC6A4C8A2E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C892E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift */; };
 		EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */; };
 		EC9959B22E24E646001555B1 /* ChannelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */; };
 		EC9959B32E24E646001555B1 /* ChannelDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */; };
@@ -84,6 +88,10 @@
 /* Begin PBXFileReference section */
 		0DC2A3D42E263E1500FF91BC /* FeedbackDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailViewModel.swift; sourceTree = "<group>"; };
 		0DC2A4372E2A213F00FF91BC /* FeedbackSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSectionView.swift; sourceTree = "<group>"; };
+		EC6A4C832E31284F0087DB5C /* ChannelDetail+DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+DescriptionView.swift"; sourceTree = "<group>"; };
+		EC6A4C852E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+EmptyFeedbackView.swift"; sourceTree = "<group>"; };
+		EC6A4C872E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+FeedbackListView.swift"; sourceTree = "<group>"; };
+		EC6A4C892E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+FeedbackRowView.swift"; sourceTree = "<group>"; };
 		EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailView.swift; sourceTree = "<group>"; };
 		EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailViewModel.swift; sourceTree = "<group>"; };
@@ -178,9 +186,21 @@
 			path = SubView;
 			sourceTree = "<group>";
 		};
+		EC6A4C822E31274B0087DB5C /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				EC6A4C832E31284F0087DB5C /* ChannelDetail+DescriptionView.swift */,
+				EC6A4C852E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift */,
+				EC6A4C872E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift */,
+				EC6A4C892E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		EC9959B12E24E646001555B1 /* ChannelDetail */ = {
 			isa = PBXGroup;
 			children = (
+				EC6A4C822E31274B0087DB5C /* SubViews */,
 				EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */,
 				EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */,
 			);
@@ -590,6 +610,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEE6891A2E2A2CF50008012D /* NotificationViewModel.swift in Sources */,
+				EC6A4C882E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift in Sources */,
 				EEE689142E2944110008012D /* StartView.swift in Sources */,
 				EEE689132E2943FB0008012D /* NavigationRouter.swift in Sources */,
 				EEE689122E2943C00008012D /* FirestoreManager.swift in Sources */,
@@ -597,10 +618,12 @@
 				ECDF17282E2E618400964391 /* ChannelEditViewModel.swift in Sources */,
 				EE41FEEB2E22599C0002E595 /* KakaoAuthManager.swift in Sources */,
 				EC9959B22E24E646001555B1 /* ChannelDetailView.swift in Sources */,
+				EC6A4C8A2E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift in Sources */,
 				EE465EEE2E2630F20096109A /* ChannelEditView.swift in Sources */,
 				EEA0BBB62E2D41C6009A25D8 /* DeepLinkViewModel.swift in Sources */,
 				EC9959B32E24E646001555B1 /* ChannelDetailViewModel.swift in Sources */,
 				ECC980B52E294835004A483B /* KakaoShareManager.swift in Sources */,
+				EC6A4C842E31284F0087DB5C /* ChannelDetail+DescriptionView.swift in Sources */,
 				EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */,
 				EE465EF82E2632B20096109A /* ChannelCreateCompleteView.swift in Sources */,
 				EE465F022E26510A0096109A /* ChannelListItemView.swift in Sources */,
@@ -642,6 +665,7 @@
 				EE856A492E1CD2D7006820B9 /* Feedback.swift in Sources */,
 				EE856A512E1CD418006820B9 /* ChannelListView.swift in Sources */,
 				EEDBB1BC2E28DEC100F16407 /* FCMManager.swift in Sources */,
+				EC6A4C862E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift in Sources */,
 				0DC2A4392E2A213F00FF91BC /* FeedbackSectionView.swift in Sources */,
 				EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */,
 				EE465F062E27B2420096109A /* InputCodeViewModel.swift in Sources */,
@@ -789,7 +813,7 @@
 				CODE_SIGN_ENTITLEMENTS = GimiFeedback/App/GimiFeedback.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 34X3BT977M;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -827,7 +851,7 @@
 				CODE_SIGN_ENTITLEMENTS = GimiFeedback/App/GimiFeedback.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 34X3BT977M;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;

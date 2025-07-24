@@ -94,3 +94,36 @@ extension ChannelDetailViewModel {
         }
     }
 }
+
+struct FeedbackContentCount {
+    let keep: Int
+    let problem: Int
+    let `try`: Int
+    
+    var formattedText: String {
+        var itemList: [String] = []
+        
+        if keep > .zero {
+            itemList.append("Keep \(keep)")
+        }
+        
+        if problem > .zero {
+            itemList.append("Problem \(problem)")
+        }
+        
+        if `try` > .zero {
+            itemList.append("Try \(`try`)")
+        }
+        
+        return itemList.joined(separator: ", ")
+    }
+}
+
+extension Feedback {
+    var contentCount: FeedbackContentCount {
+        let keep = content.filter { $0.type == .keep }.count
+        let problem = content.filter { $0.type == .problem }.count
+        let `try` = content.filter { $0.type == .try }.count
+        return FeedbackContentCount(keep: keep, problem: problem, try: `try`)
+    }
+}

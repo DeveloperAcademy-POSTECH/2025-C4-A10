@@ -37,7 +37,7 @@ struct FeedbackDetailView: View {
                 )
                 FeedbackSectionView(
                     type: .other,
-                    details: $viewModel.tryFeedback,
+                    details: $viewModel.otherFeedback,
                     onReveal: { detail in
                         viewModel.send(.visualizeDetail(detail: detail))
                     }
