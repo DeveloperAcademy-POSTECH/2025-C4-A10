@@ -12,6 +12,7 @@ struct ChannelCreateView: View {
     @StateObject var viewModel: ChannelCreateViewModel
     @State private var isShowCreateAlert: Bool = false
     @State private var buttonDisabled: Bool = true
+    @State private var messageContent: String = "입력한 정보로 채널을 생성합니다.\n설명이 없다면 기본 문구가 사용돼요."
     @EnvironmentObject var router: MainNavigationRouter
     
     init() {
@@ -94,10 +95,7 @@ struct ChannelCreateView: View {
                 viewModel.send(.createFeedbackChannel)
             }
         } message: {
-            Text("입력한 정보로 채널을 생성합니다.")
-            if viewModel.description.isEmpty {
-                Text("설명이 없다면 기본 문구가 사용돼요.")
-            }
+            Text(messageContent)
         }
         .onChange(of: viewModel.createdChannelID) { _, newValue in
             if let id = newValue {
@@ -111,6 +109,13 @@ struct ChannelCreateView: View {
                 buttonDisabled = true
             } else {
                 buttonDisabled = false
+            }
+        }
+        .onChange(of: viewModel.description) { _, newValue in
+            if !newValue.isEmpty {
+                messageContent = "입력한 정보로 채널을 생성합니다."
+            } else {
+                messageContent = "입력한 정보로 채널을 생성합니다.\n설명이 없다면 기본 문구가 사용돼요."
             }
         }
     }
