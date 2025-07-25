@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct ChannelCreateView: View {
-
+    enum Field: Hashable {
+        case title
+        case description
+    }
     @StateObject var viewModel: ChannelCreateViewModel
+    @EnvironmentObject var router: MainNavigationRouter
+    
+    @FocusState private var focusedField: Field?
+    
     @State private var isShowCreateAlert: Bool = false
     @State private var buttonDisabled: Bool = true
     @State private var messageContent: String = "입력한 정보로 채널을 생성합니다.\n설명이 없다면 기본 문구가 사용돼요."
-    @EnvironmentObject var router: MainNavigationRouter
     
     init() {
         _viewModel = StateObject(wrappedValue: .init())
@@ -33,9 +39,8 @@ struct ChannelCreateView: View {
                     }
                     
                     TextField("", text: $viewModel.title)
-                        .padding()
-                        .background(.gray50)
-                        .cornerRadius(12)
+                        .textFieldStyle(.gimiTitle)
+                        .focused($focusedField, equals: .title)
                 }
                 .padding(.vertical, 16)
                 
@@ -49,44 +54,17 @@ struct ChannelCreateView: View {
                             .foregroundColor(.gray400)
                     }
                     
-                    ZStack(alignment: .topLeading) {
-                        let placeholder = "자유롭게 피드백을 남겨주세요"
-                        
-                        TextEditor(text: $viewModel.description)
-                            .scrollContentBackground(.hidden)
-                            .frame(height: 154)
-                            .padding(.top, 12)
-                            .padding(.leading, 16)
-                            .background(.gray50)
-                            .cornerRadius(12)
-                        
-                        if viewModel.description.isEmpty {
-                            Text(placeholder)
-                                .font(.callout)
-                                .foregroundColor(.gray100)
-                                .padding(.top, 12)
-                                .padding(.leading, 16)
-                        }
-                    }
+                    TextEditor(text: $viewModel.description)
+                        .focused($focusedField, equals: .description)
+                        .textEditorBase(type: .medium)
+                        .textEditorLimit(text: $viewModel.description, maximumText: 100)
+                        .textEditorPlaceholder(placeholder: "자우롭게 피드백을 남겨주세요", text: $viewModel.description)
                 }
                 .padding(.vertical, 16)
             }
             .padding(.horizontal, 20)
             
             Spacer()
-            
-            Button(action: {
-                isShowCreateAlert = true
-            }, label: {
-                Text("완료하기")
-                    .font(.title2)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity, maxHeight: 64)
-                    .background(buttonDisabled ? .gray100 : .primaryBase)
-                    .cornerRadius(12)
-                    .padding()
-            })
-            .disabled(buttonDisabled)
         }
         .gimiNavigationBar(title: "채널 생성하기")
         .alert("채널 생성하기", isPresented: $isShowCreateAlert) {
@@ -96,6 +74,21 @@ struct ChannelCreateView: View {
             }
         } message: {
             Text(messageContent)
+        }
+        .background {
+            Color.white
+                .onTapGesture {
+                    focusedField = nil
+                }
+        }
+        .safeAreaInset(edge: .bottom) {
+            Button("완료하기") {
+                isShowCreateAlert = true
+            }
+            .buttonStyle(.gimiPrimary)
+            .disabled(buttonDisabled)
+            .padding(.horizontal, 20)
+            .padding(.bottom, 40)
         }
         .onChange(of: viewModel.createdChannelID) { _, newValue in
             if let id = newValue {
