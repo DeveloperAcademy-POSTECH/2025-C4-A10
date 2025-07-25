@@ -49,7 +49,6 @@ struct ChannelEditView: View {
         .onTapGesture {
             focusField = nil
         }
-        
         .gimiNavigationBar(title: "채널 수정하기")
         .navigationBarTitleDisplayMode(.inline)
         .alert("채널 수정하기", isPresented: $isShowCreateAlert) {
@@ -65,6 +64,7 @@ struct ChannelEditView: View {
                 router.pop()
             }
         }
+        .onAppear { UIApplication.shared.hideKeyboard() }
     }
 }
 

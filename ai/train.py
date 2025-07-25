@@ -8,6 +8,11 @@ from utils.seed import seed_everything
 
 from data.dataset import SequenceClassificationDataset
 from trainer.trainer import Trainer
+from utils.scheduler import (
+    get_constant_schedule_with_warmup,
+    get_linear_schedule_with_warmup,
+    get_cosine_schedule_with_warmup,
+)
 from data.evaluator import Evaluator
 
 import torch.optim as optim
@@ -77,7 +82,27 @@ def main(config: DictConfig) -> None:
     optimizer = getattr(optim, config.train.optimizer)(
         model.parameters(), lr=config.train.learning_rate
     )
-    lr_scheduler = None
+    num_training_steps = config.train.max_epoch * len(train_dataset)
+    if (scheduler := config.train.scheduler) == "constant":
+        lr_scheduler = None
+    elif scheduler == "constant_schedule_with_warmup":
+        lr_scheduler = get_constant_schedule_with_warmup(
+            optimizer, num_warmup_steps=num_training_steps * 0.1
+        )
+    elif scheduler == "linear_schedule_with_warmup":
+        lr_scheduler = get_linear_schedule_with_warmup(
+            optimizer,
+            num_warmup_steps=num_training_steps * 0.1,
+            num_training_steps=num_training_steps,
+        )
+    elif scheduler == "cosine_schedule_with_warmup":
+        lr_scheduler = get_cosine_schedule_with_warmup(
+            optimizer,
+            num_warmup_steps=num_training_steps * 0.1,
+            num_training_steps=num_training_steps,
+        )
+    else:
+        raise ValueError(f"Invalid scheduler: {config.train.scheduler}")
 
     trainer = Trainer(
         config=config,

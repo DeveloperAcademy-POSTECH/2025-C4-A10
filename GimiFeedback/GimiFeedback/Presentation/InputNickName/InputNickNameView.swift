@@ -34,9 +34,10 @@ struct InputNickNameView: View {
             .buttonStyle(.gimiPrimary)
             .disabled(inputNickName.isEmpty)
         }
-        .padding()
+        .customPadding()
         .navigationBarBackButtonHidden(mode == .startUserInput)
         .padding(.top, mode == .startUserInput ? 44 : 0)
+        .onAppear { UIApplication.shared.hideKeyboard() }
     }
 }
 

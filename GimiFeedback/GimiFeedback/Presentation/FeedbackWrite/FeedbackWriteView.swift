@@ -79,6 +79,7 @@ struct FeedbackWriteView: View {
                 onComplete()
             }
         }
+        .onAppear { UIApplication.shared.hideKeyboard() }
     }
 }
 

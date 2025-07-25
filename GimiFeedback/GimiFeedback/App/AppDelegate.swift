@@ -98,6 +98,8 @@ extension AppDelegate {
         
         // Navigaton Appearance 설정
         navigationAppearance.configureWithTransparentBackground()
+        navigationAppearance.backgroundColor = .white
+        
         UINavigationBar.appearance().standardAppearance = navigationAppearance
         UINavigationBar.appearance().compactAppearance = navigationAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navigationAppearance
