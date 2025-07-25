@@ -7,11 +7,25 @@
 
 import SwiftUI
 
-extension View {
+extension UIApplication {
     func hideKeyboard() {
-        UIApplication.shared.sendAction(
-            #selector(UIResponder.resignFirstResponder),
-            to: nil, from: nil, for: nil
-        )
+        guard
+            let windowScene = connectedScenes
+                .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
+            let window = windowScene.windows.first
+        else { return }
+
+        let tapRecognizer = UITapGestureRecognizer(target: window, action: #selector(UIView.endEditing))
+        tapRecognizer.cancelsTouchesInView = false
+        window.addGestureRecognizer(tapRecognizer)
+    }
+}
+
+extension UIApplication: @retroactive UIGestureRecognizerDelegate {
+    public func gestureRecognizer(
+        _ gestureRecognizer: UIGestureRecognizer,
+        shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
+    ) -> Bool {
+        return false
     }
 }

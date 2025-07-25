@@ -76,7 +76,7 @@ struct ChannelCreateView: View {
                 )
             }
         }
-        .onTapGesture { self.hideKeyboard() }
+        .onAppear { UIApplication.shared.hideKeyboard() }
     }
 }
 
