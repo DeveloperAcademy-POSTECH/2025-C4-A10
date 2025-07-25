@@ -42,10 +42,8 @@ struct FeedbackWriteView: View {
                     Text(viewModel.nickName)
                 }
                 
-                FeedbackContentView(content: $viewModel.keeps, contentType: .typeContinue)
-                FeedbackContentView(content: $viewModel.problems, contentType: .typeStop)
-                FeedbackContentView(content: $viewModel.trys, contentType: .typeStart)
-                FeedbackContentView(content: $viewModel.others, contentType: .other)
+                FeedbackContentView(content: $viewModel.continues, contentType: .typeContinue)
+                FeedbackContentView(content: $viewModel.stops, contentType: .typeStop)
                 
                 Button(action: {
                     isShowCreateAlert = true
