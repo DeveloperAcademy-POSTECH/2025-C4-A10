@@ -103,6 +103,7 @@ struct ChannelCreateView: View {
         }
         .onAppear {
             viewModel.send(.setMessageContent)
+            UIApplication.shared.hideKeyboard()
         }
     }
 }

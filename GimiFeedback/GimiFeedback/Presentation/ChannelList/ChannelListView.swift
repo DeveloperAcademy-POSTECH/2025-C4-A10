@@ -11,45 +11,29 @@ struct ChannelListView: View {
     @EnvironmentObject var router: MainNavigationRouter
     @StateObject var viewModel: ChannelListViewModel
     
-    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
+    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
     init() {
         _viewModel = StateObject(wrappedValue: .init())
     }
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns, alignment: .center, spacing: 32) {
-                ForEach(viewModel.channelList) { item in
-                    Button {
-                        router.push(to: .channelDetail(channelItem: item.channel))
-                    } label: {
-                        ChannelListItemView(item: item)
+        VStack(spacing: 0) {
+            HeaderView(router: router)
+            
+            ScrollView {
+                LazyVGrid(columns: columns, alignment: .center, spacing: 32) {
+                    ForEach(viewModel.channelList) { item in
+                        Button {
+                            router.push(to: .channelDetail(channelItem: item.channel))
+                        } label: {
+                            ListItemView(item: item)
+                        }
                     }
                 }
             }
         }
-        .gimiNavigationBar {
-            Button(action: {
-                router.push(to: .inputCode)
-            }) {
-                Text("코드 입력하기")
-                    .font(.system(size: 14, weight: .semibold))
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 16)
-                    .background(Color.green.opacity(0.2))
-                    .foregroundColor(.green)
-                    .clipShape(Capsule())
-            }
-            Button(action: {
-                router.push(to: .profile)
-            }) {
-                Image(systemName: "person.crop.circle.fill")
-                    .resizable()
-                    .frame(width: 32, height: 32)
-                    .foregroundColor(.green)
-            }
-        }
+        .padding(.horizontal, 24)
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
                 HStack {
@@ -69,7 +53,6 @@ struct ChannelListView: View {
         }
         .toolbarBackground(Color.gray.opacity(0.1), for: .bottomBar)
         .toolbarBackground(.visible, for: .bottomBar)
-        .padding(.top, 32)
         .onAppear {
             viewModel.send(.fetchChannelList)
         }

@@ -1,0 +1,354 @@
+[
+  {
+    "id": 0,
+    "class": 2,
+    "sentiment_korean": "불평/불만",
+    "sentiment_english": "compliant",
+    "valence": 3.21,
+    "arousal": 4.29
+  },
+  {
+    "id": 1,
+    "class": 0,
+    "sentiment_korean": "환영/호의",
+    "sentiment_english": "welcome",
+    "valence": 7.27,
+    "arousal": 3.76
+  },
+  {
+    "id": 2,
+    "class": 0,
+    "sentiment_korean": "감동/감탄",
+    "sentiment_english": "admiration",
+    "valence": 7.58,
+    "arousal": 5.22
+  },
+  {
+    "id": 3,
+    "class": 3,
+    "sentiment_korean": "지긋지긋",
+    "sentiment_english": "frustrated",
+    "valence": 2.55,
+    "arousal": 5.4
+  },
+  {
+    "id": 4,
+    "class": 0,
+    "sentiment_korean": "고마움",
+    "sentiment_english": "gratitude",
+    "valence": 6.67,
+    "arousal": 5.09
+  },
+  {
+    "id": 5,
+    "class": 2,
+    "sentiment_korean": "슬픔",
+    "sentiment_english": "sadness",
+    "valence": 2.4,
+    "arousal": 2.81
+  },
+  {
+    "id": 6,
+    "class": 3,
+    "sentiment_korean": "화남/분노",
+    "sentiment_english": "anger",
+    "valence": 2.5,
+    "arousal": 5.93
+  },
+  {
+    "id": 7,
+    "class": 0,
+    "sentiment_korean": "존경",
+    "sentiment_english": "respect",
+    "valence": 6.79,
+    "arousal": 4.79
+  },
+  {
+    "id": 8,
+    "class": 0,
+    "sentiment_korean": "기대감",
+    "sentiment_english": "expectancy",
+    "valence": 6.1,
+    "arousal": 4.5
+  },
+  {
+    "id": 9,
+    "class": 2,
+    "sentiment_korean": "우쭐댐/무시함",
+    "sentiment_english": "arrogance",
+    "valence": 2.55,
+    "arousal": 4.65
+  },
+  {
+    "id": 10,
+    "class": 2,
+    "sentiment_korean": "안타까움/실망",
+    "sentiment_english": "disappointment",
+    "valence": 2.79,
+    "arousal": 4.9
+  },
+  {
+    "id": 11,
+    "class": 0,
+    "sentiment_korean": "비장함",
+    "sentiment_english": "resolute",
+    "valence": 7.58,
+    "arousal": 5.52
+  },
+  {
+    "id": 12,
+    "class": 2,
+    "sentiment_korean": "의심/불신",
+    "sentiment_english": "distrust",
+    "valence": 2.95,
+    "arousal": 4.05
+  },
+  {
+    "id": 13,
+    "class": 0,
+    "sentiment_korean": "뿌듯함",
+    "sentiment_english": "pride",
+    "valence": 6.5,
+    "arousal": 5.54
+  },
+  {
+    "id": 14,
+    "class": 0,
+    "sentiment_korean": "편안/쾌적",
+    "sentiment_english": "comfort",
+    "valence": 7.24,
+    "arousal": 2.76
+  },
+  {
+    "id": 15,
+    "class": 0,
+    "sentiment_korean": "신기함/관심",
+    "sentiment_english": "interest",
+    "valence": 6.66,
+    "arousal": 4.36
+  },
+  {
+    "id": 16,
+    "class": 0,
+    "sentiment_korean": "아껴주는",
+    "sentiment_english": "care",
+    "valence": 7.23,
+    "arousal": 4.77
+  },
+  {
+    "id": 17,
+    "class": 3,
+    "sentiment_korean": "부끄러움",
+    "sentiment_english": "shame",
+    "valence": 2.62,
+    "arousal": 5.4
+  },
+  {
+    "id": 18,
+    "class": 3,
+    "sentiment_korean": "공포/무서움",
+    "sentiment_english": "fear",
+    "valence": 2.93,
+    "arousal": 6.14
+  },
+  {
+    "id": 19,
+    "class": 1,
+    "sentiment_korean": "절망",
+    "sentiment_english": "despair",
+    "valence": 3.61,
+    "arousal": 4.64
+  },
+  {
+    "id": 20,
+    "class": 2,
+    "sentiment_korean": "한심함",
+    "sentiment_english": "pathetic",
+    "valence": 3.11,
+    "arousal": 3.56
+  },
+  {
+    "id": 21,
+    "class": 3,
+    "sentiment_korean": "역겨움/징그러움",
+    "sentiment_english": "disgust",
+    "valence": 3.32,
+    "arousal": 5.0
+  },
+  {
+    "id": 22,
+    "class": 2,
+    "sentiment_korean": "짜증",
+    "sentiment_english": "irritation",
+    "valence": 2.95,
+    "arousal": 4.1
+  },
+  {
+    "id": 23,
+    "class": 1,
+    "sentiment_korean": "어이없음",
+    "sentiment_english": "preposterous",
+    "valence": 4.06,
+    "arousal": 4.7
+  },
+  {
+    "id": 24,
+    "class": 1,
+    "sentiment_korean": "없음",
+    "sentiment_english": "None",
+    "valence": 0,
+    "arousal": 0
+  },
+  {
+    "id": 25,
+    "class": 2,
+    "sentiment_korean": "패배/자기혐오",
+    "sentiment_english": "gessepany",
+    "valence": 1.89,
+    "arousal": 4.8
+  },
+  {
+    "id": 26,
+    "class": 2,
+    "sentiment_korean": "귀찮음",
+    "sentiment_english": "laziness",
+    "valence": 2.77,
+    "arousal": 2.58
+  },
+  {
+    "id": 27,
+    "class": 2,
+    "sentiment_korean": "힘듦/지침",
+    "sentiment_english": "exhaustion",
+    "valence": 3.21,
+    "arousal": 4.52
+  },
+  {
+    "id": 28,
+    "class": 0,
+    "sentiment_korean": "즐거움/신남",
+    "sentiment_english": "excitement",
+    "valence": 7.62,
+    "arousal": 6.21
+  },
+  {
+    "id": 29,
+    "class": 0,
+    "sentiment_korean": "깨달음",
+    "sentiment_english": "realization",
+    "valence": 6.42,
+    "arousal": 3.67
+  },
+  {
+    "id": 30,
+    "class": 2,
+    "sentiment_korean": "죄책감",
+    "sentiment_english": "guilt",
+    "valence": 2.29,
+    "arousal": 4.48
+  },
+  {
+    "id": 31,
+    "class": 3,
+    "sentiment_korean": "증오/혐오",
+    "sentiment_english": "contempt",
+    "valence": 2.38,
+    "arousal": 5.22
+  },
+  {
+    "id": 32,
+    "class": 0,
+    "sentiment_korean": "흐뭇함(귀여움/예쁨)",
+    "sentiment_english": "affection",
+    "valence": 7.89,
+    "arousal": 5.64
+  },
+  {
+    "id": 33,
+    "class": 3,
+    "sentiment_korean": "당황/난처",
+    "sentiment_english": "embarassment",
+    "valence": 2.72,
+    "arousal": 5.45
+  },
+  {
+    "id": 34,
+    "class": 1,
+    "sentiment_korean": "경악",
+    "sentiment_english": "shock",
+    "valence": 3.9,
+    "arousal": 5.95
+  },
+  {
+    "id": 35,
+    "class": 1,
+    "sentiment_korean": "부담/안_내킴",
+    "sentiment_english": "reluctant",
+    "valence": 3.76,
+    "arousal": 3.6
+  },
+  {
+    "id": 36,
+    "class": 2,
+    "sentiment_korean": "서러움",
+    "sentiment_english": "sorrow",
+    "valence": 2.95,
+    "arousal": 3.55
+  },
+  {
+    "id": 37,
+    "class": 2,
+    "sentiment_korean": "재미없음",
+    "sentiment_english": "boredom",
+    "valence": 2.77,
+    "arousal": 2.58
+  },
+  {
+    "id": 38,
+    "class": 0,
+    "sentiment_korean": "불쌍함/연민",
+    "sentiment_english": "compassion",
+    "valence": 7.9,
+    "arousal": 4.5
+  },
+  {
+    "id": 39,
+    "class": 0,
+    "sentiment_korean": "놀람",
+    "sentiment_english": "surprise",
+    "valence": 7.44,
+    "arousal": 6.57
+  },
+  {
+    "id": 40,
+    "class": 0,
+    "sentiment_korean": "행복",
+    "sentiment_english": "happiness",
+    "valence": 8.48,
+    "arousal": 6.5
+  },
+  {
+    "id": 41,
+    "class": 2,
+    "sentiment_korean": "불안/걱정",
+    "sentiment_english": "anxiety",
+    "valence": 2.38,
+    "arousal": 4.78
+  },
+  {
+    "id": 42,
+    "class": 0,
+    "sentiment_korean": "기쁨",
+    "sentiment_english": "joy",
+    "valence": 8.21,
+    "arousal": 5.02
+  },
+  {
+    "id": 43,
+    "class": 0,
+    "sentiment_korean": "안심/신뢰",
+    "sentiment_english": "relief",
+    "valence": 6.63,
+    "arousal": 4.42
+  }
+]

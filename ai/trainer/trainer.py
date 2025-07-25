@@ -69,7 +69,7 @@ class Trainer:
             [],
             [],
         )
-        self.best_global_epoch = 1
+        self.best_global_epoch = -1
 
     def loop(self: "Trainer") -> None:
         if self.config.only_test:
@@ -121,6 +121,8 @@ class Trainer:
 
             self.optimizer.step()
             self.optimizer.zero_grad()
+            if self.lr_scheduler:
+                self.lr_scheduler.step()
 
             pbar.update(1)
             pbar.set_postfix(
@@ -132,8 +134,6 @@ class Trainer:
             if self.is_wandb:
                 wandb.log({"train_loss": epoch_loss / steps})
 
-        if self.lr_scheduler:
-            self.lr_scheduler.step()
         pbar.close()
         clear_memory(batch, dataloader)
 
@@ -218,7 +218,7 @@ class Trainer:
             best_model_path.with_stem(best_model_path.stem + "_best"),
         )
 
-        if (self.config.train.max_epoch == 1) or (self.best_global_epoch < best_epoch):
+        if self.best_global_epoch < best_epoch:
             self.best_global_epoch = best_epoch
             save_model(
                 self.config,
