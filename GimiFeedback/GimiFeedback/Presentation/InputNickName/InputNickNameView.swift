@@ -37,6 +37,7 @@ struct InputNickNameView: View {
         .padding()
         .navigationBarBackButtonHidden(mode == .startUserInput)
         .padding(.top, mode == .startUserInput ? 44 : 0)
+        .onTapGesture { self.hideKeyboard() }
     }
 }
 

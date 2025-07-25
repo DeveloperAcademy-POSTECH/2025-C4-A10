@@ -44,6 +44,7 @@ struct InputCodeView: View {
                 generator.notificationOccurred(.error)
             }
         }
+        .onTapGesture { self.hideKeyboard() }
     }
 }
 

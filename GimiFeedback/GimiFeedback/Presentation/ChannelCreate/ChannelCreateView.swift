@@ -76,6 +76,7 @@ struct ChannelCreateView: View {
                 )
             }
         }
+        .onTapGesture { self.hideKeyboard() }
     }
 }
 

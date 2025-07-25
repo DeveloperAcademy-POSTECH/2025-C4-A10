@@ -65,6 +65,7 @@ struct ChannelEditView: View {
                 router.pop()
             }
         }
+        .onTapGesture { self.hideKeyboard() }
     }
 }
 

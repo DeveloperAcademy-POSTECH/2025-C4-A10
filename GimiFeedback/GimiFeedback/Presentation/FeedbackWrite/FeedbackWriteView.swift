@@ -79,6 +79,7 @@ struct FeedbackWriteView: View {
                 onComplete()
             }
         }
+        .onTapGesture { self.hideKeyboard() }
     }
 }
 
