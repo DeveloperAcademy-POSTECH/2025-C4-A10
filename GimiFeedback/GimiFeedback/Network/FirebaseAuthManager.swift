@@ -22,8 +22,15 @@ final class FirebaseAuthManager {
     static var currentUserID: String {
         return Auth.auth().currentUser?.uid ?? ""
     }
-    
-    private init() {}
+
+    private var authStateDidChangeHandle: AuthStateDidChangeListenerHandle?
+
+    private init() {
+        authStateDidChangeHandle = Auth.auth().addStateDidChangeListener { _, user in
+            print("Firebase auth state changed. user: \(user?.uid ?? "nil")")
+            NotificationCenter.default.post(name: .firebaseAuthStateChanged, object: nil)
+        }
+    }
     
     func emailSignUpOrLogin(email: String, password: String) async throws {
         do {
@@ -44,10 +51,11 @@ final class FirebaseAuthManager {
         try Auth.auth().signOut()
     }
     
-    func saveUserNickName(nickName: String) async throws{
+    func saveUserNickName(nickName: String) async throws {
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = nickName
         try await changeRequest?.commitChanges()
+        NotificationCenter.default.post(name: .firebaseAuthStateChanged, object: nil)
     }
 }
 

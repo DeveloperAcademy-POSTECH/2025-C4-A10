@@ -13,7 +13,7 @@ final class FeedbackWriteViewModel: ViewModelable {
     }
     
     let feedbackChannel: FeedbackChannel
-    @Published var nickName: String = ""
+    let nickName: String
     @Published var keeps: [String] = [""]
     @Published var problems: [String] = [""]
     @Published var trys: [String] = [""]
@@ -25,20 +25,19 @@ final class FeedbackWriteViewModel: ViewModelable {
     private(set) var createdFeedback: Feedback?
     
     var canCreate: Bool {
-        let isNickNameFilled = !nickName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-        let isAnyFieldFilled = keeps.contains(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }) ||
+        let isAnyFieldFilled =
+        keeps.contains(
+            where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty}) ||
         problems.contains(
-            where: {
-                !$0.trimmingCharacters(
-                    in: .whitespacesAndNewlines
-                ).isEmpty
-            }) ||
-                               trys.contains(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
-        return isNickNameFilled && isAnyFieldFilled
+            where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty}) ||
+        trys.contains(
+            where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
+        return isAnyFieldFilled
     }
     
-    init(feedbackChannel: FeedbackChannel) {
+    init(feedbackChannel: FeedbackChannel, nickName: String) {
         self.feedbackChannel = feedbackChannel
+        self.nickName = nickName
     }
     
     func send(_ action: Action) {

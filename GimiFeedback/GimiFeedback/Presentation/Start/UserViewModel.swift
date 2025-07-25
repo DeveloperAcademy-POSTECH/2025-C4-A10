@@ -5,18 +5,37 @@
 //  Created by 김민석 on 7/12/25.
 //
 
+import Combine
 import Foundation
 
 final class UserViewModel: ViewModelable {
     enum Action {
         case kakaoLogin
         case kakaoLogout
-        case nickNameSave
+        case nickNameSave(String)
     }
     
     @Published private(set) var isLoggedIn: Bool = FirebaseAuthManager.currentUser
     @Published private(set) var saveUserNickName: String = FirebaseAuthManager.userNickName
-    @Published var inputNickName: String = ""
+    @Published private(set) var userId: String = FirebaseAuthManager.currentUserID
+    
+    private var cancellable: AnyCancellable?
+    
+    init() {
+        observeFirebaseAuthState()
+    }
+
+    private func observeFirebaseAuthState() {
+        cancellable = NotificationCenter.default
+            .publisher(for: .firebaseAuthStateChanged)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                guard let self else { return }
+                self.isLoggedIn = FirebaseAuthManager.currentUser
+                self.saveUserNickName = FirebaseAuthManager.userNickName
+                self.userId = FirebaseAuthManager.currentUserID
+            }
+    }
     
     func send(_ action: Action) {
         switch action {
@@ -27,7 +46,8 @@ final class UserViewModel: ViewModelable {
                         email: result.email,
                         password: result.password
                     )
-                    isLoggedIn = FirebaseAuthManager.currentUser
+                    
+                    await saveUser()
                 }
             }
         case .kakaoLogout:
@@ -36,14 +56,10 @@ final class UserViewModel: ViewModelable {
                 if let logoutUserID = firebaseAuthLogout() {
                     await deleteUser(userID: logoutUserID)
                 }
-                isLoggedIn = FirebaseAuthManager.currentUser
-                saveUserNickName = FirebaseAuthManager.userNickName
             }
-        case .nickNameSave:
+        case .nickNameSave(let inputNickName):
             Task {
-                await saveUser(nickName: inputNickName)
-                await nickNameChange(nickName: inputNickName)
-                saveUserNickName = inputNickName
+                await saveUserNickName(to: inputNickName)
             }
         }
     }
@@ -96,11 +112,11 @@ extension UserViewModel {
     /// 파이어베이스 로그아웃 로직
     private func firebaseAuthLogout() -> String? {
         do {
-            let userID = FirebaseAuthManager.currentUserID
+            let userId = userId
             try FirebaseAuthManager.shared.logout()
             print("파이어베이스 로그아웃 성공")
             
-            return userID
+            return userId
         } catch {
             print("파이어베이스 로그아웃 실패: \(error.localizedDescription)")
             
@@ -111,13 +127,12 @@ extension UserViewModel {
     // MARK: 토큰 관련 함수
     
     /// 유저 저장 (로그인시)
-    private func saveUser(nickName: String) async {
+    private func saveUser() async {
         do {
             let tokenString = try await FCMManager.shared.getTokenString()
             let userID = FirebaseAuthManager.currentUserID
             let user = User(
                 userID: userID,
-                nickName: nickName,
                 fcmToken: tokenString,
                 badgeCount: 0
             )
@@ -143,10 +158,9 @@ extension UserViewModel {
         }
     }
     
-    private func nickNameChange(nickName: String) async {
+    private func saveUserNickName(to nickName: String) async {
         do {
             try await FirebaseAuthManager.shared.saveUserNickName(nickName: nickName)
-            saveUserNickName = nickName
         } catch {
             print("NickName 변경 실패", error.localizedDescription)
         }
