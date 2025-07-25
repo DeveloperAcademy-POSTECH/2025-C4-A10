@@ -64,7 +64,7 @@ extension FeedbackDetailViewModel {
     private func updateVisibility(detail: FeedbackContent) {
         guard let index = feedbackItem.content.firstIndex(where: { $0.id == detail.id }) else { return }
         
-        feedbackItem.content[index].visiable = true
+        feedbackItem.content[index].visiable.toggle()
         
         keepFeedback = feedbackItem.content.filter { $0.type == .typeContinue }
         problemFeedback = feedbackItem.content.filter { $0.type == .typeStop }

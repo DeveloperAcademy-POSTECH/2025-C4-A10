@@ -10,50 +10,62 @@ struct FeedbackDetailView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("\(viewModel.feedbackItem.date.formattedDate)")
+        ScrollView {
+            /// 전체
+            VStack(alignment: .leading, spacing: .zero) {
+                /// 디바이더 위 부분 까지
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("\(viewModel.feedbackItem.writePerson)의 피드백")
+                        .font(.title1)
+                        .foregroundStyle(.black)
+                    
+                    Text("\(viewModel.feedbackItem.date.formattedDate)")
+                        .font(.caption2)
+                        .foregroundStyle(.gray600)
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 20)
+                
+                Rectangle()
+                    .foregroundStyle(.gray50)
+                    .frame(height: 8)
+                    .frame(maxWidth: .infinity)
             
-            VStack(spacing: 8) {
-                FeedbackSectionView(
-                    type: .typeContinue,
-                    details: $viewModel.keepFeedback,
-                    onReveal: { detail in
-                        viewModel.send(.visualizeDetail(detail: detail))
-                    }
-                )
-                FeedbackSectionView(
-                    type: .typeStop,
-                    details: $viewModel.problemFeedback,
-                    onReveal: { detail in
-                        viewModel.send(.visualizeDetail(detail: detail))
-                    }
-                )
-                FeedbackSectionView(
-                    type: .typeStart,
-                    details: $viewModel.tryFeedback,
-                    onReveal: { detail in
-                        viewModel.send(.visualizeDetail(detail: detail))
-                    }
-                )
-                FeedbackSectionView(
-                    type: .other,
-                    details: $viewModel.otherFeedback,
-                    onReveal: { detail in
-                        viewModel.send(.visualizeDetail(detail: detail))
-                    }
-                )
+                /// 피드백 리스트
+                VStack(spacing: 40) {
+                    SectionView(
+                        type: .typeContinue,
+                        details: $viewModel.keepFeedback,
+                        onReveal: { content in
+                            viewModel.send(.visualizeDetail(detail: content))
+                        })
+                    
+                    SectionView(
+                        type: .typeStop,
+                        details: $viewModel.problemFeedback,
+                        onReveal: { content in
+                            viewModel.send(.visualizeDetail(detail: content))
+                        })
+                    
+                    SectionView(
+                        type: .typeStart,
+                        details: $viewModel.tryFeedback,
+                        onReveal: { content in
+                            viewModel.send(.visualizeDetail(detail: content))
+                        })
+                    
+                    SectionView(
+                        type: .other,
+                        details: $viewModel.otherFeedback,
+                        onReveal: { content in
+                            viewModel.send(.visualizeDetail(detail: content))
+                        })
+                }
+                .padding(.top, 20)
             }
         }
-        .alert("피드백 삭제하기", isPresented: $showDeleteAlert) {
-            Button("취소", role: .cancel) {}
-            Button("확인", role: .destructive) {
-                viewModel.send(.deleteFeedback)
-            }
-        } message: {
-            Text("정말 삭제하시겠습니까?\n이 작업은 되돌릴 수 없습니다.")
-        }
+        .padding(.top, 20)
         .gimiNavigationBar(
-            title: "\(viewModel.feedbackItem.writePerson)의 피드백",
             trailingItems: {
                 Button(action: {
                     showDeleteAlert = true
