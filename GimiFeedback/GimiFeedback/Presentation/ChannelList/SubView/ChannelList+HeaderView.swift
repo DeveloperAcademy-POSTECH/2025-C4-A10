@@ -39,7 +39,7 @@ extension ChannelListView {
                         .foregroundColor(.green)
                 }
             }
-            .padding()
+            .padding(.vertical, 16)
         }
     }
 }

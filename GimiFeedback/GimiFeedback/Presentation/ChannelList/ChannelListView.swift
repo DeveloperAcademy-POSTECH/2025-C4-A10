@@ -11,7 +11,7 @@ struct ChannelListView: View {
     @EnvironmentObject var router: MainNavigationRouter
     @StateObject var viewModel: ChannelListViewModel
     
-    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
+    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
     init() {
         _viewModel = StateObject(wrappedValue: .init())
@@ -33,7 +33,7 @@ struct ChannelListView: View {
                 }
             }
         }
-        .padding(.horizontal, 4)
+        .padding(.horizontal, 24)
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
                 HStack {

@@ -32,7 +32,7 @@ struct InputCodeView: View {
             .buttonStyle(.gimiPrimary)
             .disabled(viewModel.code.isEmpty)
         }
-        .padding()
+        .customPadding()
         .onChange(of: viewModel.feedbackChannel) { _, newValue in
             if let feedbackChannel = newValue {
                 onComplete(feedbackChannel)
