@@ -34,10 +34,7 @@ struct FeedbackWriteView: View {
                     Text(viewModel.feedbackChannel.content)
                 }
                 
-                Rectangle()
-                    .fill(Color.gray)
-                    .frame(height: 8)
-                    .frame(maxWidth: .infinity)
+                SplitView()
                     .padding(-20)
                 
                 VStack(alignment: .leading, spacing: 10) {

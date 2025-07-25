@@ -36,10 +36,7 @@ extension ChannelDetailView {
             .padding(.horizontal, 20)
             .padding(.bottom, 20)
             
-            Rectangle()
-                .foregroundStyle(.gray50)
-                .frame(height: 8)
-                .frame(maxWidth: .infinity)
+            SplitView()
         }
     }
 }
