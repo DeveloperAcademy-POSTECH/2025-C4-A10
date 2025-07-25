@@ -381,7 +381,6 @@
 				EEDBB1B62E28D2E900F16407 /* GimiFeedback.entitlements */,
 				EE465EE82E26205D0096109A /* GoogleService-Info.plist */,
 				EE41FEE42E2256280002E595 /* Config.xcconfig */,
-				0D99ADBE2E3210FE00FCB813 /* GimiFeedback.entitlements */,
 			);
 			path = App;
 			sourceTree = "<group>";
