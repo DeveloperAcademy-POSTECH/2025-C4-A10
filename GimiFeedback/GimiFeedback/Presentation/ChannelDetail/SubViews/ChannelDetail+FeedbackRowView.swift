@@ -25,9 +25,9 @@ extension ChannelDetailView {
                     Text("\(item.writePerson)의 피드백")
                         .font(.headline)
                         .foregroundStyle(.black)
-
-                    if !item.contentCount.formattedText.isEmpty {
-                        Text(item.contentCount.formattedText)
+                    
+                    if !item.contentCount.isEmpty {
+                        Text(item.contentCount)
                             .font(.caption3)
                             .foregroundStyle(.gray600)
                     }

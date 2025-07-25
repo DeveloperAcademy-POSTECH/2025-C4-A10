@@ -16,6 +16,28 @@ struct Feedback: Codable, Identifiable, Hashable {
     let date: Date
     var visiable: Bool
     
+    var contentCount: String {
+        var itemList: [String] = []
+        
+        let keep = content.filter { $0.type == .typeContinue }.count
+        let problem = content.filter { $0.type == .typeStop }.count
+        let `try` = content.filter { $0.type == .typeStart }.count
+        
+        if keep > .zero {
+            itemList.append("Keep \(keep)")
+        }
+        
+        if problem > .zero {
+            itemList.append("Problem \(problem)")
+        }
+        
+        if `try` > .zero {
+            itemList.append("Try \(`try`)")
+        }
+        
+        return itemList.joined(separator: ", ")
+    }
+    
     init(
         id: UUID = UUID(),
         feedbackChannelID: UUID,

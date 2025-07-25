@@ -13,6 +13,8 @@
 		EC6A4C862E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C852E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift */; };
 		EC6A4C882E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C872E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift */; };
 		EC6A4C8A2E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C892E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift */; };
+		EC6A4C8D2E3227120087DB5C /* ChannelEdit+TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C8C2E3227120087DB5C /* ChannelEdit+TitleView.swift */; };
+		EC6A4C8F2E3227C40087DB5C /* ChannelEdit+ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C8E2E3227C40087DB5C /* ChannelEdit+ContentView.swift */; };
 		EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */; };
 		EC9959B22E24E646001555B1 /* ChannelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */; };
 		EC9959B32E24E646001555B1 /* ChannelDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */; };
@@ -91,6 +93,8 @@
 		EC6A4C852E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+EmptyFeedbackView.swift"; sourceTree = "<group>"; };
 		EC6A4C872E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+FeedbackListView.swift"; sourceTree = "<group>"; };
 		EC6A4C892E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+FeedbackRowView.swift"; sourceTree = "<group>"; };
+		EC6A4C8C2E3227120087DB5C /* ChannelEdit+TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelEdit+TitleView.swift"; sourceTree = "<group>"; };
+		EC6A4C8E2E3227C40087DB5C /* ChannelEdit+ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelEdit+ContentView.swift"; sourceTree = "<group>"; };
 		EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailView.swift; sourceTree = "<group>"; };
 		EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailViewModel.swift; sourceTree = "<group>"; };
@@ -195,6 +199,15 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
+		EC6A4C8B2E3226F30087DB5C /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				EC6A4C8C2E3227120087DB5C /* ChannelEdit+TitleView.swift */,
+				EC6A4C8E2E3227C40087DB5C /* ChannelEdit+ContentView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		EC9959B12E24E646001555B1 /* ChannelDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +228,7 @@
 		EC9959B52E251368001555B1 /* ChannelEdit */ = {
 			isa = PBXGroup;
 			children = (
+				EC6A4C8B2E3226F30087DB5C /* SubViews */,
 				EE465EED2E2630F20096109A /* ChannelEditView.swift */,
 				ECDF17272E2E618400964391 /* ChannelEditViewModel.swift */,
 			);
@@ -623,6 +637,7 @@
 				EC6A4C842E31284F0087DB5C /* ChannelDetail+DescriptionView.swift in Sources */,
 				EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */,
 				EE465EF82E2632B20096109A /* ChannelCreateCompleteView.swift in Sources */,
+				EC6A4C8D2E3227120087DB5C /* ChannelEdit+TitleView.swift in Sources */,
 				EE465F022E26510A0096109A /* ChannelListItemView.swift in Sources */,
 				EC9959BA2E25145B001555B1 /* FeedbackDetailView.swift in Sources */,
 				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
@@ -636,6 +651,7 @@
 				EEDBB1BA2E28DA9200F16407 /* User.swift in Sources */,
 				EE856A472E1CD2AD006820B9 /* Font+Extension.swift in Sources */,
 				EE82DF9B2E24D5CD00EC1AFF /* ChannelCreateView.swift in Sources */,
+				EC6A4C8F2E3227C40087DB5C /* ChannelEdit+ContentView.swift in Sources */,
 				EEC048782E2FAE8100918BAA /* GimiTextFieldStyle.swift in Sources */,
 				EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */,
 				EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */,

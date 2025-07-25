@@ -17,8 +17,23 @@ final class ChannelEditViewModel: ViewModelable {
     @Published private(set) var isLoading: Bool = false
     @Published var isUpdate = false
     
+    let originalChannelTitle: String
+    let originalContent: String
+    
+    var isActive: Bool {
+        // 제목은 비어있으면 안됌
+        let trimmed = channelItem.channelTitle.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return false }
+
+        /// 이전과 하나라도 다른 값이어야 함
+        return channelItem.channelTitle != originalChannelTitle
+        || channelItem.content != originalContent
+    }
+
     init(channelItem: FeedbackChannel) {
         self.channelItem = channelItem
+        originalChannelTitle = channelItem.channelTitle
+        originalContent = channelItem.content
     }
 
     func send(_ action: Action) {
