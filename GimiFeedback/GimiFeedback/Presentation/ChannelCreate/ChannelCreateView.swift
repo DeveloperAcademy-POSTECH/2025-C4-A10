@@ -17,9 +17,7 @@ struct ChannelCreateView: View {
     
     @FocusState private var focusedField: Field?
     
-    @State private var isShowCreateAlert: Bool = false
-    @State private var buttonDisabled: Bool = true
-    @State private var messageContent: String = "입력한 정보로 채널을 생성합니다.\n설명이 없다면 기본 문구가 사용돼요."
+    @State private var showCreateAlert: Bool = false
     
     init() {
         _viewModel = StateObject(wrappedValue: .init())
@@ -67,13 +65,13 @@ struct ChannelCreateView: View {
             Spacer()
         }
         .gimiNavigationBar(title: "채널 생성하기")
-        .alert("채널 생성하기", isPresented: $isShowCreateAlert) {
+        .alert("채널 생성하기", isPresented: $showCreateAlert) {
             Button("취소", role: .cancel) { }
             Button("확인") {
                 viewModel.send(.createFeedbackChannel)
             }
         } message: {
-            Text(messageContent)
+            Text(viewModel.messageContent)
         }
         .background {
             Color.white
@@ -83,12 +81,18 @@ struct ChannelCreateView: View {
         }
         .safeAreaInset(edge: .bottom) {
             Button("완료하기") {
-                isShowCreateAlert = true
+                showCreateAlert = true
             }
             .buttonStyle(.gimiPrimary)
-            .disabled(buttonDisabled)
+            .disabled(viewModel.buttonDisabled)
             .padding(.horizontal, 20)
             .padding(.bottom, 40)
+        }
+        .onChange(of: viewModel.title) {
+            viewModel.send(.verifyTitleEmpty)
+        }
+        .onChange(of: viewModel.description) {
+            viewModel.send(.setMessageContent)
         }
         .onChange(of: viewModel.createdChannelID) { _, newValue in
             if let id = newValue {
@@ -97,19 +101,8 @@ struct ChannelCreateView: View {
                 )
             }
         }
-        .onChange(of: viewModel.title) { _, newValue in
-            if newValue.isEmpty {
-                buttonDisabled = true
-            } else {
-                buttonDisabled = false
-            }
-        }
-        .onChange(of: viewModel.description) { _, newValue in
-            if !newValue.isEmpty {
-                messageContent = "입력한 정보로 채널을 생성합니다."
-            } else {
-                messageContent = "입력한 정보로 채널을 생성합니다.\n설명이 없다면 기본 문구가 사용돼요."
-            }
+        .onAppear {
+            viewModel.send(.setMessageContent)
         }
     }
 }
