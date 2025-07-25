@@ -15,21 +15,21 @@ struct FeedbackDetailView: View {
             
             VStack(spacing: 8) {
                 FeedbackSectionView(
-                    type: .keep,
+                    type: .typeContinue,
                     details: $viewModel.keepFeedback,
                     onReveal: { detail in
                         viewModel.send(.visualizeDetail(detail: detail))
                     }
                 )
                 FeedbackSectionView(
-                    type: .problem,
+                    type: .typeStop,
                     details: $viewModel.problemFeedback,
                     onReveal: { detail in
                         viewModel.send(.visualizeDetail(detail: detail))
                     }
                 )
                 FeedbackSectionView(
-                    type: .try,
+                    type: .typeStart,
                     details: $viewModel.tryFeedback,
                     onReveal: { detail in
                         viewModel.send(.visualizeDetail(detail: detail))
@@ -37,7 +37,7 @@ struct FeedbackDetailView: View {
                 )
                 FeedbackSectionView(
                     type: .other,
-                    details: $viewModel.tryFeedback,
+                    details: $viewModel.otherFeedback,
                     onReveal: { detail in
                         viewModel.send(.visualizeDetail(detail: detail))
                     }

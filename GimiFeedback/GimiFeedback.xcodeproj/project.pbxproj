@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		0DC2A3D52E263E1500FF91BC /* FeedbackDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2A3D42E263E1500FF91BC /* FeedbackDetailViewModel.swift */; };
 		0DC2A4392E2A213F00FF91BC /* FeedbackSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2A4372E2A213F00FF91BC /* FeedbackSectionView.swift */; };
+		EC6A4C842E31284F0087DB5C /* ChannelDetail+DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C832E31284F0087DB5C /* ChannelDetail+DescriptionView.swift */; };
+		EC6A4C862E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C852E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift */; };
+		EC6A4C882E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C872E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift */; };
+		EC6A4C8A2E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C892E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift */; };
+		EC6A4C8D2E3227120087DB5C /* ChannelEdit+TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C8C2E3227120087DB5C /* ChannelEdit+TitleView.swift */; };
+		EC6A4C8F2E3227C40087DB5C /* ChannelEdit+ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C8E2E3227C40087DB5C /* ChannelEdit+ContentView.swift */; };
 		EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */; };
 		EC9959B22E24E646001555B1 /* ChannelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */; };
 		EC9959B32E24E646001555B1 /* ChannelDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */; };
@@ -29,7 +35,7 @@
 		EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3756A22E1E602C009AD262 /* EntityRepresentable.swift */; };
 		EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3756A42E1E6060009AD262 /* CollectionType.swift */; };
 		EE37582C2E1F80F3009AD262 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */; };
-		EE41FD7D2E223D050002E595 /* NickNameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FD7C2E223CFD0002E595 /* NickNameInputView.swift */; };
+		EE41FD7D2E223D050002E595 /* InputNickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FD7C2E223CFD0002E595 /* InputNickNameView.swift */; };
 		EE41FD822E223D720002E595 /* InputCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE41FD812E223D720002E595 /* InputCodeView.swift */; };
 		EE41FEDC2E2250DF0002E595 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EE41FEDB2E2250DF0002E595 /* KakaoSDKAuth */; };
 		EE41FEDE2E2250DF0002E595 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = EE41FEDD2E2250DF0002E595 /* KakaoSDKCommon */; };
@@ -70,7 +76,6 @@
 		EEC048732E2E331400918BAA /* GimiTextEditorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048722E2E330D00918BAA /* GimiTextEditorModifier.swift */; };
 		EEC048752E2E916100918BAA /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048742E2E914800918BAA /* SpeechView.swift */; };
 		EEC048782E2FAE8100918BAA /* GimiTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048772E2FAE7900918BAA /* GimiTextFieldStyle.swift */; };
-		EEC0487A2E2FF1BF00918BAA /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC048792E2FF1B200918BAA /* UserDefaults+Extension.swift */; };
 		EEDBB1B82E28D45700F16407 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EEDBB1B72E28D45700F16407 /* FirebaseMessaging */; };
 		EEDBB1BA2E28DA9200F16407 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1B92E28DA9100F16407 /* User.swift */; };
 		EEDBB1BC2E28DEC100F16407 /* FCMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */; };
@@ -85,6 +90,12 @@
 		0D99ADBE2E3210FE00FCB813 /* GimiFeedback.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GimiFeedback.entitlements; sourceTree = "<group>"; };
 		0DC2A3D42E263E1500FF91BC /* FeedbackDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailViewModel.swift; sourceTree = "<group>"; };
 		0DC2A4372E2A213F00FF91BC /* FeedbackSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSectionView.swift; sourceTree = "<group>"; };
+		EC6A4C832E31284F0087DB5C /* ChannelDetail+DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+DescriptionView.swift"; sourceTree = "<group>"; };
+		EC6A4C852E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+EmptyFeedbackView.swift"; sourceTree = "<group>"; };
+		EC6A4C872E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+FeedbackListView.swift"; sourceTree = "<group>"; };
+		EC6A4C892E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+FeedbackRowView.swift"; sourceTree = "<group>"; };
+		EC6A4C8C2E3227120087DB5C /* ChannelEdit+TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelEdit+TitleView.swift"; sourceTree = "<group>"; };
+		EC6A4C8E2E3227C40087DB5C /* ChannelEdit+ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelEdit+ContentView.swift"; sourceTree = "<group>"; };
 		EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailView.swift; sourceTree = "<group>"; };
 		EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailViewModel.swift; sourceTree = "<group>"; };
@@ -101,7 +112,7 @@
 		EE3756A22E1E602C009AD262 /* EntityRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityRepresentable.swift; sourceTree = "<group>"; };
 		EE3756A42E1E6060009AD262 /* CollectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
 		EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
-		EE41FD7C2E223CFD0002E595 /* NickNameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameInputView.swift; sourceTree = "<group>"; };
+		EE41FD7C2E223CFD0002E595 /* InputNickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNickNameView.swift; sourceTree = "<group>"; };
 		EE41FD812E223D720002E595 /* InputCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCodeView.swift; sourceTree = "<group>"; };
 		EE41FEE12E22511D0002E595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE41FEE42E2256280002E595 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -144,7 +155,6 @@
 		EEC048722E2E330D00918BAA /* GimiTextEditorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiTextEditorModifier.swift; sourceTree = "<group>"; };
 		EEC048742E2E914800918BAA /* SpeechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
 		EEC048772E2FAE7900918BAA /* GimiTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimiTextFieldStyle.swift; sourceTree = "<group>"; };
-		EEC048792E2FF1B200918BAA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		EEDBB1B62E28D2E900F16407 /* GimiFeedback.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GimiFeedback.entitlements; sourceTree = "<group>"; };
 		EEDBB1B92E28DA9100F16407 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMManager.swift; sourceTree = "<group>"; };
@@ -179,9 +189,30 @@
 			path = SubView;
 			sourceTree = "<group>";
 		};
+		EC6A4C822E31274B0087DB5C /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				EC6A4C832E31284F0087DB5C /* ChannelDetail+DescriptionView.swift */,
+				EC6A4C852E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift */,
+				EC6A4C872E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift */,
+				EC6A4C892E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		EC6A4C8B2E3226F30087DB5C /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				EC6A4C8C2E3227120087DB5C /* ChannelEdit+TitleView.swift */,
+				EC6A4C8E2E3227C40087DB5C /* ChannelEdit+ContentView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		EC9959B12E24E646001555B1 /* ChannelDetail */ = {
 			isa = PBXGroup;
 			children = (
+				EC6A4C822E31274B0087DB5C /* SubViews */,
 				EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */,
 				EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */,
 			);
@@ -198,6 +229,7 @@
 		EC9959B52E251368001555B1 /* ChannelEdit */ = {
 			isa = PBXGroup;
 			children = (
+				EC6A4C8B2E3226F30087DB5C /* SubViews */,
 				EE465EED2E2630F20096109A /* ChannelEditView.swift */,
 				ECDF17272E2E618400964391 /* ChannelEditViewModel.swift */,
 			);
@@ -367,6 +399,7 @@
 				EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */,
 				EC9959B12E24E646001555B1 /* ChannelDetail */,
 				EC9959B52E251368001555B1 /* ChannelEdit */,
+				EEC04A002E326B3500918BAA /* InputNickName */,
 				EE41FD7E2E223D180002E595 /* InputCode */,
 				EC9959BB2E2518AF001555B1 /* FeedbackWrite */,
 				EC9959BE2E2518BE001555B1 /* FeedbackWriteComplete */,
@@ -418,7 +451,6 @@
 		EE856A422E1CD22B006820B9 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				EEC048792E2FF1B200918BAA /* UserDefaults+Extension.swift */,
 				EE41FEE62E2257260002E595 /* Bundle+Extension.swift */,
 				EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */,
 				EE856A432E1CD23E006820B9 /* Color+Extension.swift */,
@@ -453,7 +485,6 @@
 			isa = PBXGroup;
 			children = (
 				EE856A5A2E1CEA98006820B9 /* StartView.swift */,
-				EE41FD7C2E223CFD0002E595 /* NickNameInputView.swift */,
 				EE41FEE82E2259310002E595 /* UserViewModel.swift */,
 			);
 			path = Start;
@@ -498,6 +529,14 @@
 				EEC048702E2E1E6100918BAA /* CustomNaviModifier.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		EEC04A002E326B3500918BAA /* InputNickName */ = {
+			isa = PBXGroup;
+			children = (
+				EE41FD7C2E223CFD0002E595 /* InputNickNameView.swift */,
+			);
+			path = InputNickName;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -592,6 +631,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEE6891A2E2A2CF50008012D /* NotificationViewModel.swift in Sources */,
+				EC6A4C882E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift in Sources */,
 				EEE689142E2944110008012D /* StartView.swift in Sources */,
 				EEE689132E2943FB0008012D /* NavigationRouter.swift in Sources */,
 				EEE689122E2943C00008012D /* FirestoreManager.swift in Sources */,
@@ -599,27 +639,30 @@
 				ECDF17282E2E618400964391 /* ChannelEditViewModel.swift in Sources */,
 				EE41FEEB2E22599C0002E595 /* KakaoAuthManager.swift in Sources */,
 				EC9959B22E24E646001555B1 /* ChannelDetailView.swift in Sources */,
+				EC6A4C8A2E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift in Sources */,
 				EE465EEE2E2630F20096109A /* ChannelEditView.swift in Sources */,
 				EEA0BBB62E2D41C6009A25D8 /* DeepLinkViewModel.swift in Sources */,
 				EC9959B32E24E646001555B1 /* ChannelDetailViewModel.swift in Sources */,
 				ECC980B52E294835004A483B /* KakaoShareManager.swift in Sources */,
+				EC6A4C842E31284F0087DB5C /* ChannelDetail+DescriptionView.swift in Sources */,
 				EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */,
 				EE465EF82E2632B20096109A /* ChannelCreateCompleteView.swift in Sources */,
+				EC6A4C8D2E3227120087DB5C /* ChannelEdit+TitleView.swift in Sources */,
 				EE465F022E26510A0096109A /* ChannelListItemView.swift in Sources */,
 				EC9959BA2E25145B001555B1 /* FeedbackDetailView.swift in Sources */,
 				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
 				EEC048752E2E916100918BAA /* SpeechView.swift in Sources */,
 				EEC0471A2E2E1D3B00918BAA /* GimiButtonStyle.swift in Sources */,
 				EE41FEE72E22572C0002E595 /* Bundle+Extension.swift in Sources */,
-				EE41FD7D2E223D050002E595 /* NickNameInputView.swift in Sources */,
+				EE41FD7D2E223D050002E595 /* InputNickNameView.swift in Sources */,
 				EE465EFC2E2650970096109A /* MainView.swift in Sources */,
 				EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */,
 				EE465EF22E2631840096109A /* FeedbackWriteCompleteView.swift in Sources */,
 				EEDBB1BA2E28DA9200F16407 /* User.swift in Sources */,
 				EE856A472E1CD2AD006820B9 /* Font+Extension.swift in Sources */,
 				EE82DF9B2E24D5CD00EC1AFF /* ChannelCreateView.swift in Sources */,
+				EC6A4C8F2E3227C40087DB5C /* ChannelEdit+ContentView.swift in Sources */,
 				EEC048782E2FAE8100918BAA /* GimiTextFieldStyle.swift in Sources */,
-				EEC0487A2E2FF1BF00918BAA /* UserDefaults+Extension.swift in Sources */,
 				EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */,
 				EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */,
 				EE41FD822E223D720002E595 /* InputCodeView.swift in Sources */,
@@ -644,6 +687,7 @@
 				EE856A492E1CD2D7006820B9 /* Feedback.swift in Sources */,
 				EE856A512E1CD418006820B9 /* ChannelListView.swift in Sources */,
 				EEDBB1BC2E28DEC100F16407 /* FCMManager.swift in Sources */,
+				EC6A4C862E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift in Sources */,
 				0DC2A4392E2A213F00FF91BC /* FeedbackSectionView.swift in Sources */,
 				EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */,
 				EE465F062E27B2420096109A /* InputCodeViewModel.swift in Sources */,
@@ -791,7 +835,7 @@
 				CODE_SIGN_ENTITLEMENTS = GimiFeedback/App/GimiFeedback.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 34X3BT977M;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -829,7 +873,7 @@
 				CODE_SIGN_ENTITLEMENTS = GimiFeedback/App/GimiFeedback.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 34X3BT977M;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;

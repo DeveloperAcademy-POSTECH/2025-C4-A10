@@ -41,4 +41,6 @@ extension Font {
     static var inputCode: Font { .suit(.regular, size: 15) }
     static var footnote: Font { .suit(.semibold, size: 13) }
     static var caption1: Font { .suit(.regular, size: 13) }
+    static var caption2: Font { .suit(.semibold, size: 12) }
+    static var caption3: Font { .suit(.medium, size: 12) }
 }

@@ -6,19 +6,19 @@
 //
 
 enum FeedbackContentType: Int, Codable, Identifiable, CaseIterable {
-    case keep = 0
-    case problem
-    case `try`
+    case typeContinue = 0
+    case typeStop
+    case typeStart
     case other
     
     var title: String {
         switch self {
-        case .keep:
-            "Keep"
-        case .problem:
-            "Prolem"
-        case .try:
-            "Try"
+        case .typeContinue:
+            "Continue"
+        case .typeStop:
+            "Stop"
+        case .typeStart:
+            "Start"
         case .other:
             "추가로 할말"
         }
@@ -26,12 +26,12 @@ enum FeedbackContentType: Int, Codable, Identifiable, CaseIterable {
     
     var content: String {
         switch self {
-        case .keep:
+        case .typeContinue:
             "계속해서 지속하면 좋을 점을 작성해주세요"
-        case .problem:
-            "아직 개선해야 될 문제인 점을 적어주세요"
-        case .try:
-            "해당 내용들로 어떤 행동을 해야할지 적어주세요"
+        case .typeStop:
+            "멈추면 좋을 부분을 적어주세요."
+        case .typeStart:
+            "해당 내용들로 어떤걸 시작하면 좋을지 적어주세요"
         case .other:
             "마지막으로 하고 싶은 말을 적어주세요"
         }

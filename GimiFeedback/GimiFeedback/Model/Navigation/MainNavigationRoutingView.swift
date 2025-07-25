@@ -11,6 +11,7 @@ struct MainNavigationRoutingView: View {
     
     @State var destination: MainNavigationDestination
     @EnvironmentObject var router: MainNavigationRouter
+    @EnvironmentObject var userViewModel: UserViewModel
     
     var body: some View {
         Group {
@@ -28,7 +29,10 @@ struct MainNavigationRoutingView: View {
                     router.push(to: .feedbackWrite(channel: feedbackChannel))
                 }
             case .feedbackWrite(let feedbackChannel):
-                FeedbackWriteView(feedbackChannel: feedbackChannel) {
+                FeedbackWriteView(
+                    feedbackChannel: feedbackChannel,
+                    inputNickName: userViewModel.saveUserNickName
+                ) {
                     router.push(to: .feedbackWriteComplete)
                 }
             case .feedbackWriteComplete:

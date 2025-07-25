@@ -13,7 +13,7 @@ final class FeedbackWriteViewModel: ViewModelable {
     }
     
     let feedbackChannel: FeedbackChannel
-    @Published var nickName: String = ""
+    let nickName: String
     @Published var keeps: [String] = [""]
     @Published var problems: [String] = [""]
     @Published var trys: [String] = [""]
@@ -25,20 +25,19 @@ final class FeedbackWriteViewModel: ViewModelable {
     private(set) var createdFeedback: Feedback?
     
     var canCreate: Bool {
-        let isNickNameFilled = !nickName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-        let isAnyFieldFilled = keeps.contains(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }) ||
+        let isAnyFieldFilled =
+        keeps.contains(
+            where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty}) ||
         problems.contains(
-            where: {
-                !$0.trimmingCharacters(
-                    in: .whitespacesAndNewlines
-                ).isEmpty
-            }) ||
-                               trys.contains(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
-        return isNickNameFilled && isAnyFieldFilled
+            where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty}) ||
+        trys.contains(
+            where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
+        return isAnyFieldFilled
     }
     
-    init(feedbackChannel: FeedbackChannel) {
+    init(feedbackChannel: FeedbackChannel, nickName: String) {
         self.feedbackChannel = feedbackChannel
+        self.nickName = nickName
     }
     
     func send(_ action: Action) {
@@ -72,17 +71,17 @@ final class FeedbackWriteViewModel: ViewModelable {
         result += keeps
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             .filter { !$0.isEmpty }
-            .map { FeedbackContent(content: $0, spicy: 3, type: .keep)}
+            .map { FeedbackContent(content: $0, spicy: 3, type: .typeContinue)}
         
         result += problems
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             .filter { !$0.isEmpty }
-            .map { FeedbackContent(content: $0, spicy: 3, type: .problem) }
+            .map { FeedbackContent(content: $0, spicy: 3, type: .typeStop) }
         
         result += trys
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             .filter { !$0.isEmpty }
-            .map { FeedbackContent(content: $0, spicy: 3, type: .try) }
+            .map { FeedbackContent(content: $0, spicy: 3, type: .typeStart) }
         
         result += others
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
