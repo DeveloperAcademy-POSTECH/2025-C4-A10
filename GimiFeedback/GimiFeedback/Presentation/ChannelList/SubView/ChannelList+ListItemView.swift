@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension ChannelListView {
-    struct ChannelListItemView: View {
+    struct ListItemView: View {
         let item: FeedbackChannelInfo
         
         var body: some View {
