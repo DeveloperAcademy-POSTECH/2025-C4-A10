@@ -69,7 +69,6 @@ struct ChannelListView: View {
         }
         .toolbarBackground(Color.gray.opacity(0.1), for: .bottomBar)
         .toolbarBackground(.visible, for: .bottomBar)
-        .padding(.top, 32)
         .onAppear {
             viewModel.send(.fetchChannelList)
         }
