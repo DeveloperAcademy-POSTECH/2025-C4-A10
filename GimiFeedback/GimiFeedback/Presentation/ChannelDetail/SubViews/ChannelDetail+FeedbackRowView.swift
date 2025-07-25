@@ -26,8 +26,8 @@ extension ChannelDetailView {
                         .font(.headline)
                         .foregroundStyle(.black)
                     
-                    if !item.conetCount.isEmpty {
-                        Text(item.conetCount)
+                    if !item.contentCount.isEmpty {
+                        Text(item.contentCount)
                             .font(.caption3)
                             .foregroundStyle(.gray600)
                     }

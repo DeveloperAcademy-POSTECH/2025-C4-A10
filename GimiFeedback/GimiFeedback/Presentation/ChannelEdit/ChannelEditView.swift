@@ -22,16 +22,6 @@ struct ChannelEditView: View {
     init(channelItem: FeedbackChannel) {
         _viewModel = StateObject(wrappedValue: .init(channelItem: channelItem))
     }
-    
-    private var isActive: Bool {
-        // 제목은 비어있으면 안됌
-        let trimmed = viewModel.channelItem.channelTitle.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty else { return false }
-
-        /// 이전과 하나라도 다른 값이어야 함
-        return viewModel.channelItem.channelTitle != viewModel.originalChannelTitle
-        || viewModel.channelItem.content != viewModel.originalContent
-    }
 
     var body: some View {
         VStack(spacing: .zero) {
@@ -52,7 +42,7 @@ struct ChannelEditView: View {
              isShowCreateAlert = true
             }
             .buttonStyle(.gimiPrimary)
-            .disabled(!isActive)
+            .disabled(!viewModel.isActive)
         }
         .padding(.horizontal, 20)
         .background(.white)

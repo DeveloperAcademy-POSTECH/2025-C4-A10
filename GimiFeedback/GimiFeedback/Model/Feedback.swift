@@ -16,7 +16,7 @@ struct Feedback: Codable, Identifiable, Hashable {
     let date: Date
     var visiable: Bool
     
-    var conetCount: String {
+    var contentCount: String {
         var itemList: [String] = []
         
         let keep = content.filter { $0.type == .typeContinue }.count
