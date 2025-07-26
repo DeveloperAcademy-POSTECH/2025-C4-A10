@@ -54,6 +54,7 @@ extension ChannelEditViewModel {
             let newChannel = FeedbackChannel(
                 id: channelItem.id,
                 userID: FirebaseAuthManager.currentUserID,
+                userName: FirebaseAuthManager.userNickName,
                 channelTitle: channelItem.channelTitle,
                 content: channelItem.content)
             
