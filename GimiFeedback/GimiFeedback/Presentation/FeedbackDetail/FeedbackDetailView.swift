@@ -22,28 +22,14 @@ struct FeedbackDetailView: View {
                 VStack(spacing: 40) {
                     SectionView(
                         type: .typeContinue,
-                        details: $viewModel.keepFeedback,
+                        details: $viewModel.continueFeedbackList,
                         onReveal: { content in
                             viewModel.send(.visualizeDetail(detail: content))
                         })
                     
                     SectionView(
                         type: .typeStop,
-                        details: $viewModel.problemFeedback,
-                        onReveal: { content in
-                            viewModel.send(.visualizeDetail(detail: content))
-                        })
-                    
-                    SectionView(
-                        type: .typeStart,
-                        details: $viewModel.tryFeedback,
-                        onReveal: { content in
-                            viewModel.send(.visualizeDetail(detail: content))
-                        })
-                    
-                    SectionView(
-                        type: .other,
-                        details: $viewModel.otherFeedback,
+                        details: $viewModel.stopFeedbackList,
                         onReveal: { content in
                             viewModel.send(.visualizeDetail(detail: content))
                         })

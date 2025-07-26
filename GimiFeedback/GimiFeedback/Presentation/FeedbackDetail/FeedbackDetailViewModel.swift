@@ -16,21 +16,16 @@ final class FeedbackDetailViewModel: ViewModelable {
     }
     
     var feedbackItem: Feedback
-    @Published var keepFeedback: [FeedbackContent]
-    @Published var problemFeedback: [FeedbackContent]
-    @Published var tryFeedback: [FeedbackContent]
-    @Published var otherFeedback: [FeedbackContent]
+    @Published var continueFeedbackList: [FeedbackContent]
+    @Published var stopFeedbackList: [FeedbackContent]
     @Published private(set) var errorMessage: String?
     @Published private(set) var isLoading: Bool = false
-    
     @Published var isDeleted = false
     
     init(feedbackItem: Feedback) {
         self.feedbackItem = feedbackItem
-        self.keepFeedback = feedbackItem.content.filter { $0.type == .typeContinue }
-        self.problemFeedback = feedbackItem.content.filter { $0.type == .typeStop }
-        self.tryFeedback = feedbackItem.content.filter { $0.type == .typeStart }
-        self.otherFeedback = feedbackItem.content.filter { $0.type == .other }
+        self.continueFeedbackList = feedbackItem.content.filter { $0.type == .typeContinue }
+        self.stopFeedbackList = feedbackItem.content.filter { $0.type == .typeStop }
     }
     
     func send(_ action: Action) {
@@ -66,10 +61,8 @@ extension FeedbackDetailViewModel {
         
         feedbackItem.content[index].visiable.toggle()
         
-        keepFeedback = feedbackItem.content.filter { $0.type == .typeContinue }
-        problemFeedback = feedbackItem.content.filter { $0.type == .typeStop }
-        tryFeedback = feedbackItem.content.filter { $0.type == .typeStart }
-        otherFeedback = feedbackItem.content.filter { $0.type == .other }
+        continueFeedbackList = feedbackItem.content.filter { $0.type == .typeContinue }
+        stopFeedbackList = feedbackItem.content.filter { $0.type == .typeStop }
         
         Task {
             isLoading = true
