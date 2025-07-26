@@ -17,7 +17,37 @@ struct ToastView: View {
     @Binding var isPresented: Bool
     
     var body: some View {
-        content
+        Group {
+            switch style {
+            case .basic(let message):
+                Text(message)
+                    .font(.system(size: 13, weight: .medium))
+                    .font(.caption1)
+                    .foregroundStyle(.white)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 20)
+                    .background(.gray900.opacity(0.9))
+                    .clipShape(.rect(cornerRadius: 27.5))
+                    .frame(minHeight: 56)
+                
+            case .guide:
+                VStack(alignment: .center, spacing: 34) {
+                    Image("PopUp")
+                        .resizable()
+                        .frame(width: 140, height: 140)
+
+                    Text("원문을 확인하려면 길게 누르세요")
+                        .font(.headline)
+                        .foregroundStyle(.white)
+                }
+                .padding(.horizontal, 31)
+                .padding(.vertical, 34)
+                .background(.gray900.opacity(0.75))
+                .clipShape(.rect(cornerRadius: 12))
+                .frame(width: 283, height: 267)
+            }
+        }
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                     withAnimation(.easeIn(duration: 0.3)) {
@@ -25,39 +55,6 @@ struct ToastView: View {
                     }
                 }
             }
-    }
-    
-    @ViewBuilder
-    var content: some View {
-        switch style {
-        case .basic(let message):
-            Text(message)
-                .font(.system(size: 13, weight: .medium))
-                .font(.caption1)
-                .foregroundStyle(.white)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 24)
-                .padding(.vertical, 20)
-                .background(.gray900.opacity(0.9))
-                .clipShape(.rect(cornerRadius: 27.5))
-                .frame(minHeight: 56)
-            
-        case .guide:
-            VStack(alignment: .center, spacing: 34) {
-                Image("PopUp")
-                    .resizable()
-                    .frame(width: 140, height: 140)
-
-                Text("원문을 확인하려면 길게 누르세요")
-                    .font(.headline)
-                    .foregroundStyle(.white)
-            }
-            .padding(.horizontal, 31)
-            .padding(.vertical, 34)
-            .background(.gray900.opacity(0.75))
-            .clipShape(.rect(cornerRadius: 12))
-            .frame(width: 283, height: 267)
-        }
     }
 }
 
