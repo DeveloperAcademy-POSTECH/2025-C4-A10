@@ -27,6 +27,14 @@ struct ChannelCreateView: View {
             .padding(.horizontal, 20)
             
             Spacer()
+            
+            Button("완료하기") {
+                showCreateAlert = true
+            }
+            .buttonStyle(.gimiPrimary)
+            .disabled(viewModel.buttonDisabled)
+            .padding(.horizontal, 20)
+            .padding(.bottom, 40)
         }
         .gimiNavigationBar(title: "채널 생성하기")
         .alert("채널 생성하기", isPresented: $showCreateAlert) {
@@ -36,15 +44,6 @@ struct ChannelCreateView: View {
             }
         } message: {
             Text(viewModel.messageContent)
-        }
-        .safeAreaInset(edge: .bottom) {
-            Button("완료하기") {
-                showCreateAlert = true
-            }
-            .buttonStyle(.gimiPrimary)
-            .disabled(viewModel.buttonDisabled)
-            .padding(.horizontal, 20)
-            .padding(.bottom, 40)
         }
         .onChange(of: viewModel.createdChannelID) { _, newValue in
             if let id = newValue {
