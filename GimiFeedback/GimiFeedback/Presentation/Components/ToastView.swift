@@ -61,7 +61,6 @@ struct ToastView: View {
     }
 }
 
-
 #Preview {
     VStack(spacing: 32) {
         ToastView(style: .guide, isPresented: .constant(true))

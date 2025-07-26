@@ -13,6 +13,7 @@ final class FeedbackDetailViewModel: ViewModelable {
         case deleteFeedback
         case visualizeDetail(detail: FeedbackContent)
         case updateFeedbackVisibility
+        case updateToast
     }
     
     var feedbackItem: Feedback
@@ -21,6 +22,7 @@ final class FeedbackDetailViewModel: ViewModelable {
     @Published private(set) var errorMessage: String?
     @Published private(set) var isLoading: Bool = false
     @Published var isDeleted = false
+    @Published var isShowToast = false
     
     init(feedbackItem: Feedback) {
         self.feedbackItem = feedbackItem
@@ -36,6 +38,11 @@ final class FeedbackDetailViewModel: ViewModelable {
             updateVisibility(detail: detail)
         case .updateFeedbackVisibility:
             feedbackItem.visiable = true
+        case .updateToast:
+            if UserDefaults.standard.isShowGuideToast == false {
+                isShowToast = true
+                UserDefaults.standard.saveGuideToast()
+            }
         }
     }
 }

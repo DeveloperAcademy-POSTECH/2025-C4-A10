@@ -4,6 +4,7 @@ struct FeedbackDetailView: View {
     @StateObject var viewModel: FeedbackDetailViewModel
     @EnvironmentObject var router: MainNavigationRouter
     @State private var isShowDeleteAlert = false
+    @State private var isShowToast = false
     
     init(feedbackItem: Feedback) {
         _viewModel = StateObject(wrappedValue: .init(feedbackItem: feedbackItem))
@@ -37,6 +38,11 @@ struct FeedbackDetailView: View {
                 .padding(.top, 20)
             }
         }
+        .overlay(alignment: .center) {
+            if viewModel.isShowToast {
+                ToastView(style: .guide, isPresented: $viewModel.isShowToast)
+            }
+        }
         .gimiNavigationBar(
             trailingItems: {
                 Button(action: {
@@ -60,6 +66,7 @@ struct FeedbackDetailView: View {
         }
         .onAppear {
             viewModel.send(.updateFeedbackVisibility)
+            viewModel.send(.updateToast)
         }
     }
 }
