@@ -46,12 +46,6 @@ struct ChannelCreateView: View {
             .padding(.horizontal, 20)
             .padding(.bottom, 40)
         }
-        .onChange(of: viewModel.title) {
-            viewModel.send(.verifyTitleEmpty)
-        }
-        .onChange(of: viewModel.description) {
-            viewModel.send(.setMessageContent)
-        }
         .onChange(of: viewModel.createdChannelID) { _, newValue in
             if let id = newValue {
                 router.push(
@@ -60,7 +54,6 @@ struct ChannelCreateView: View {
             }
         }
         .onAppear {
-            viewModel.send(.setMessageContent)
             UIApplication.shared.hideKeyboard()
         }
     }
