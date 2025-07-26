@@ -3,7 +3,7 @@ import SwiftUI
 struct FeedbackDetailView: View {
     @StateObject var viewModel: FeedbackDetailViewModel
     @EnvironmentObject var router: MainNavigationRouter
-    @State private var showDeleteAlert = false
+    @State private var isShowDeleteAlert = false
     
     init(feedbackItem: Feedback) {
         _viewModel = StateObject(wrappedValue: .init(feedbackItem: feedbackItem))
@@ -17,7 +17,7 @@ struct FeedbackDetailView: View {
                     writePerson: viewModel.feedbackItem.writePerson,
                     date: viewModel.feedbackItem.date.formattedDate
                 )
-            
+                
                 /// 피드백 리스트
                 VStack(spacing: 40) {
                     SectionView(
@@ -40,13 +40,19 @@ struct FeedbackDetailView: View {
         .gimiNavigationBar(
             trailingItems: {
                 Button(action: {
-                    showDeleteAlert = true
+                    isShowDeleteAlert = true
                 }) {
                     Image(systemName: "trash")
                         .foregroundColor(.black)
                 }
             }
         )
+        .alert("피드백 삭제하기", isPresented: $isShowDeleteAlert) {
+            Button("취소", role: .cancel, action: { })
+            Button("확인", role: .destructive, action: { viewModel.send(.deleteFeedback) })
+        } message: {
+            Text("정말 삭제하시겠습니까?\n이 작업은 되둘릴 수 없습니다.")
+        }
         .onChange(of: viewModel.isDeleted) { _, new in
             if new == true {
                 router.pop()
