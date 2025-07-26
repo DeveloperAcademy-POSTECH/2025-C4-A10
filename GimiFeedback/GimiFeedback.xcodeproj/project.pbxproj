@@ -19,6 +19,7 @@
 		EC6A4C9D2E34A67E0087DB5C /* FeedbackDetail+DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C9C2E34A67E0087DB5C /* FeedbackDetail+DescriptionView.swift */; };
 		EC6A4CA12E34D5660087DB5C /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4CA02E34D5660087DB5C /* ToastView.swift */; };
 		EC6A4CA32E34DBCC0087DB5C /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4CA22E34DBCC0087DB5C /* UserDefaults+Extension.swift */; };
+		EC6A4CA52E350B720087DB5C /* Spicy+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4CA42E350B720087DB5C /* Spicy+Extension.swift */; };
 		EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */; };
 		EC9959B22E24E646001555B1 /* ChannelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */; };
 		EC9959B32E24E646001555B1 /* ChannelDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */; };
@@ -106,6 +107,7 @@
 		EC6A4C9C2E34A67E0087DB5C /* FeedbackDetail+DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackDetail+DescriptionView.swift"; sourceTree = "<group>"; };
 		EC6A4CA02E34D5660087DB5C /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		EC6A4CA22E34DBCC0087DB5C /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		EC6A4CA42E350B720087DB5C /* Spicy+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spicy+Extension.swift"; sourceTree = "<group>"; };
 		EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailView.swift; sourceTree = "<group>"; };
 		EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailViewModel.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				EEC04A012E33522700918BAA /* View+Extension.swift */,
+				EC6A4CA42E350B720087DB5C /* Spicy+Extension.swift */,
 				EE41FEE62E2257260002E595 /* Bundle+Extension.swift */,
 				EE37582B2E1F80F1009AD262 /* Encodable+Extension.swift */,
 				EE856A432E1CD23E006820B9 /* Color+Extension.swift */,
@@ -699,6 +702,7 @@
 				EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */,
 				EC6A4CA32E34DBCC0087DB5C /* UserDefaults+Extension.swift in Sources */,
 				EEC048712E2E1E6100918BAA /* CustomNaviModifier.swift in Sources */,
+				EC6A4CA52E350B720087DB5C /* Spicy+Extension.swift in Sources */,
 				EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */,
 				EE37554A2E1E5BBD009AD262 /* AppDelegate.swift in Sources */,
 				EE3755412E1E1105009AD262 /* FeedbackChannel.swift in Sources */,
