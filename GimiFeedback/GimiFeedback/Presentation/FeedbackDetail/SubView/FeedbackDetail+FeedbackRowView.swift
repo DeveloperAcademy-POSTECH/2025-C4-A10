@@ -12,6 +12,7 @@ extension FeedbackDetailView {
         @Binding var detail: FeedbackContent
         let onReveal: (FeedbackContent) -> Void
         @State private var isPressed: Bool = false
+        @State private var isRecognizing: Bool = false
         
         var body: some View {
             ZStack {
@@ -77,25 +78,33 @@ extension FeedbackDetailView {
             /// - 누르고 나서 (누른 상태를 유지한채)
             /// 손가락을 화면의 다른 곳으로 이동해도 누르고 있다고 인정하는 범위
             .onLongPressGesture(
-                minimumDuration: 1.2,
+                minimumDuration: 2,
                 maximumDistance: 100
             ) {
                 /// 누르기가 끝났을 때 실행되는 코드
                 guard detail.visiable == false else { return }
                 detail.visiable = true
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    onReveal(detail)
-                }
+                onReveal(detail)
             }
+            
             /// 누르기 시작할때 실행되는 코드
             onPressingChanged: { isPressing in
                 if isPressing {
-                    withAnimation(.easeInOut(duration: 1.2)) {
-                        isPressed = true
+                    isRecognizing = true
+                    
+                    /// 최소 시간 이상 눌렀는가
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        if isRecognizing {
+                            withAnimation(.easeInOut(duration: 1.5)) {
+                                isPressed = true
+                            }
+                        }
                     }
                 }
                 /// 만약 누르다가 손을 뗐을 때
                 else {
+                    isRecognizing = false
+                    
                     /// 정해진 시간만큼 다 눌렀는지 확인하고, 아니라면 누르고 있지 않다는 상태로 변경
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         if !detail.visiable {
