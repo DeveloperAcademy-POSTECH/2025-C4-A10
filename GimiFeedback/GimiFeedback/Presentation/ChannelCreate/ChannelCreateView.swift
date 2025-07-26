@@ -8,14 +8,8 @@
 import SwiftUI
 
 struct ChannelCreateView: View {
-    enum Field: Hashable {
-        case title
-        case description
-    }
     @StateObject var viewModel: ChannelCreateViewModel
     @EnvironmentObject var router: MainNavigationRouter
-    
-    @FocusState private var focusedField: Field?
     
     @State private var showCreateAlert: Bool = false
     
@@ -26,39 +20,9 @@ struct ChannelCreateView: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
-                VStack(alignment: .leading, spacing: 12) {
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("제목")
-                            .font(.title1)
-                        
-                        Text("피드백 채널의 재목을 작성해주세요")
-                            .font(.footnote)
-                            .foregroundColor(.gray400)
-                    }
-                    
-                    TextField("", text: $viewModel.title)
-                        .textFieldStyle(.gimiTitle)
-                        .focused($focusedField, equals: .title)
-                }
-                .padding(.vertical, 16)
+                TitleSectionView(title: $viewModel.title)
                 
-                VStack(alignment: .leading, spacing: 12) {
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("설명")
-                            .font(.title1)
-                        
-                        Text("피드백을 받고 싶은 내용에 대해 설명해주세요")
-                            .font(.footnote)
-                            .foregroundColor(.gray400)
-                    }
-                    
-                    TextEditor(text: $viewModel.description)
-                        .focused($focusedField, equals: .description)
-                        .textEditorBase(type: .medium)
-                        .textEditorLimit(text: $viewModel.description, maximumText: 100)
-                        .textEditorPlaceholder(placeholder: "자우롭게 피드백을 남겨주세요", text: $viewModel.description)
-                }
-                .padding(.vertical, 16)
+                DescriptionSectionView(description: $viewModel.description,)
             }
             .padding(.horizontal, 20)
             
@@ -72,12 +36,6 @@ struct ChannelCreateView: View {
             }
         } message: {
             Text(viewModel.messageContent)
-        }
-        .background {
-            Color.white
-                .onTapGesture {
-                    focusedField = nil
-                }
         }
         .safeAreaInset(edge: .bottom) {
             Button("완료하기") {
