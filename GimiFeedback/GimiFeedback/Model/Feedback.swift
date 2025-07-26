@@ -19,15 +19,15 @@ struct Feedback: Codable, Identifiable, Hashable {
     var contentCount: String {
         var itemList: [String] = []
         
-        let `continue` = content.filter { $0.type == .typeContinue }.count
-        let stop = content.filter { $0.type == .typeStop }.count
+        let typeContinue = content.filter { $0.type == .typeContinue }.count
+        let typeStop = content.filter { $0.type == .typeStop }.count
         
-        if `continue` > .zero {
-            itemList.append("Continue \(`continue`)")
+        if typeContinue > .zero {
+            itemList.append("Continue \(typeContinue)")
         }
         
-        if stop > .zero {
-            itemList.append("Stop \(stop)")
+        if typeStop > .zero {
+            itemList.append("Stop \(typeStop)")
         }
         
         return itemList.joined(separator: ", ")
