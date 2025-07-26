@@ -22,8 +22,8 @@ extension FeedbackDetailView {
                     .font(.caption2)
                     .foregroundStyle(.gray600)
             }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 20)
+            .customPadding()
+            .padding(.vertical, 4)
             
             Rectangle()
                 .foregroundStyle(.gray50)
