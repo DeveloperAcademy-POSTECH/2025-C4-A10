@@ -13,23 +13,10 @@ struct FeedbackDetailView: View {
         ScrollView {
             /// 전체
             VStack(alignment: .leading, spacing: .zero) {
-                /// 디바이더 위 부분 까지
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("\(viewModel.feedbackItem.writePerson)의 피드백")
-                        .font(.title1)
-                        .foregroundStyle(.black)
-                    
-                    Text("\(viewModel.feedbackItem.date.formattedDate)")
-                        .font(.caption2)
-                        .foregroundStyle(.gray600)
-                }
-                .padding(.horizontal, 20)
-                .padding(.bottom, 20)
-                
-                Rectangle()
-                    .foregroundStyle(.gray50)
-                    .frame(height: 8)
-                    .frame(maxWidth: .infinity)
+                DescriptionView(
+                    writePerson: viewModel.feedbackItem.writePerson,
+                    date: viewModel.feedbackItem.date.formattedDate
+                )
             
                 /// 피드백 리스트
                 VStack(spacing: 40) {
