@@ -34,7 +34,7 @@ extension ChannelDetailView {
                     .font(.callout2)
             }
             .padding(.horizontal, 20)
-            .padding(.bottom, 20)
+            .padding(.vertical, 20)
             
             Rectangle()
                 .foregroundStyle(.gray50)

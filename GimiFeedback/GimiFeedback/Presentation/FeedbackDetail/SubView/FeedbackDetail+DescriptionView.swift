@@ -23,7 +23,7 @@ extension FeedbackDetailView {
                     .foregroundStyle(.gray600)
             }
             .padding(.horizontal, 20)
-            .padding(.bottom, 20)
+            .padding(.vertical, 20)
             
             Rectangle()
                 .foregroundStyle(.gray50)

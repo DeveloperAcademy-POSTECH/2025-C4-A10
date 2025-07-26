@@ -51,7 +51,6 @@ struct FeedbackDetailView: View {
                 .padding(.top, 20)
             }
         }
-        .padding(.top, 20)
         .gimiNavigationBar(
             trailingItems: {
                 Button(action: {
