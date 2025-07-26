@@ -16,63 +16,12 @@ extension FeedbackDetailView {
         
         var body: some View {
             ZStack {
-                /// 맨 처음 에 나올 카드
-                Rectangle()
-                    .fill(detail.fillColor)
-                    .frame(maxWidth: isPressed ? .infinity : .zero)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(detail.backgroundColor)
-                    .clipShape(RoundedRectangle(cornerRadius: 18))
-                    .shadow(color: .black.opacity(0.05), radius: 5, x: 0, y: 2)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 18)
-                            .inset(by: 0.5)
-                            .stroke(.gray50, lineWidth: 1)
-                    )
-                    .overlay(alignment: .center) {
-                        Text("\(detail.spicyLabel) 피드백이에요")
-                            .font(.callout)
-                            .fontWeight(.bold)
-                            .foregroundStyle(detail.spicyColor)
-                    }
-                    .frame(height: 153)
-                    .opacity(detail.visiable ? .zero : 1)
+                CoverView(detail: detail, isPressed: isPressed)
                 
-                /// 롱프레스 완료 후 보이는 콘텐츠 카드
-                VStack(spacing: .zero) {
-                    VStack(spacing: 16) {
-                        /// 상단 피드백 영역 => 아마 이미지로 대체 할 듯 (조건을 줘가지고)
-                        /// spicy 정도에 따라서 표현
-                        Image("\(detail.spicyImage)")
-                            .resizable()
-                            .frame(width: 340, height: 65)
-                            .padding(.top, 8)
-                        
-                        /// 텍스트 메시지
-                        Text(detail.content)
-                            .font(.callout)
-                            .foregroundColor(.gray900)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal, 8)
-                            .padding(.bottom, 16)
-                    }
-                    .padding(.horizontal, 8)
-                    
-                }
-                .frame(minHeight: .zero)
-                .background(Color.white)
-                .clipShape(RoundedRectangle(cornerRadius: 18))
-                .shadow(color: .black.opacity(0.05), radius: 5, x: 0, y: 2)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 18)
-                        .inset(by: 0.5)
-                        .stroke(.gray50, lineWidth: 1)
-                )
-                .opacity(detail.visiable ? 1 : .zero)
+                ContentView(detail: detail)
             }
-            .frame(width: 356)
+            .padding(.horizontal, 16)
             .frame(height: detail.visiable ? nil : 153)
-            
             /// minimumDuration: 몇 초 동안 눌러야 하는가
             /// maximuDistane
             /// - 누르고 나서 (누른 상태를 유지한채)
@@ -122,6 +71,75 @@ extension FeedbackDetailView {
                     onReveal(detail)
                 }
             }
+        }
+    }
+}
+
+extension FeedbackDetailView {
+    struct CoverView: View {
+        let detail: FeedbackContent
+        let isPressed: Bool
+        
+        var body: some View {
+            Rectangle()
+                .fill(detail.fillColor)
+                .frame(maxWidth: isPressed ? .infinity : .zero)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(detail.backgroundColor)
+                .clipShape(.rect(cornerRadius: 18))
+                .shadow(color: .black.opacity(0.05), radius: 5, x: 0, y: 2)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 18)
+                        .inset(by: 0.5)
+                        .stroke(.gray50, lineWidth: 1)
+                )
+                .overlay(alignment: .center) {
+                    Text("\(detail.spicyLabel) 피드백이에요")
+                        .font(.callout)
+                        .fontWeight(.bold)
+                        .foregroundStyle(detail.spicyColor)
+                }
+                .frame(height: 153)
+                .opacity(detail.visiable ? .zero : 1)
+        }
+    }
+}
+
+extension FeedbackDetailView {
+    struct ContentView: View {
+        let detail: FeedbackContent
+        
+        var body: some View {
+            VStack(spacing: .zero) {
+                VStack(spacing: 16) {
+                    /// 상단 피드백 영역 => 아마 이미지로 대체 할 듯 (조건을 줘가지고)
+                    /// spicy 정도에 따라서 표현
+                    Image("\(detail.spicyImage)")
+                        .resizable()
+                        .frame(width: 340, height: 65)
+                        .padding(.top, 8)
+                    
+                    /// 텍스트 메시지
+                    Text(detail.content)
+                        .font(.callout)
+                        .foregroundColor(.gray900)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 8)
+                        .padding(.bottom, 16)
+                }
+                .padding(.horizontal, 8)
+                
+            }
+            .frame(minHeight: .zero)
+            .background(Color.white)
+            .clipShape(.rect(cornerRadius: 18))
+            .shadow(color: .black.opacity(0.05), radius: 5, x: 0, y: 2)
+            .overlay(
+                RoundedRectangle(cornerRadius: 18)
+                    .inset(by: 0.5)
+                    .stroke(.gray50, lineWidth: 1)
+            )
+            .opacity(detail.visiable ? 1 : .zero)
         }
     }
 }
