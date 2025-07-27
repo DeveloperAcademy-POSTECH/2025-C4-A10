@@ -13,6 +13,9 @@ extension FeedbackWriteView {
         
         var contentType: FeedbackContentType
         
+        @State private var showDeleteAlert: Bool = false
+        @State private var indexToDelete: Int? = nil
+        
         var body: some View {
             VStack(alignment: .leading, spacing: 10) {
                 Text(contentType.title)
@@ -25,7 +28,8 @@ extension FeedbackWriteView {
                         .textEditorBase(type: .medium)
                         .textEditorPlaceholder(placeholder: "최소 10자 이상 작성해주세요", text: $content[index])
                         .textEditorClearButton {
-                            content.remove(at: index)
+                            indexToDelete = index
+                            showDeleteAlert = true
                         }
                         .textEditorLimit(text: $content[index], maximumText: 300)
                 }
@@ -37,6 +41,16 @@ extension FeedbackWriteView {
                         AddItemButtonLabel()
                     }
                 }
+            }
+            .alert("항목 삭제하기", isPresented: $showDeleteAlert) {
+                Button("취소", role: .cancel) { }
+                Button("확인", role: .destructive) {
+                    if let index = indexToDelete {
+                        content.remove(at: index)
+                    }
+                }
+            } message: {
+                Text("해당 항목을 삭제하시겠습니까?")
             }
         }
     }
