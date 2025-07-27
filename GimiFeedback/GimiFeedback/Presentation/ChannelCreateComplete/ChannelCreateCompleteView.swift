@@ -76,9 +76,9 @@ struct ChannelCreateCompleteView: View {
                             .font(.callout2)
                             .foregroundColor(.black)
                             .padding()
-                            .background(Color(red: 249/255, green: 224/255, blue: 1/255))
+                            .frame(width: 296, height: 48)
+                            .background(.kakao)
                             .cornerRadius(10)
-                            .frame(maxWidth: .infinity)
                     })
                     
                     ShareLink(item: "gimifeedback://feedbackWrite/\(channelID)") {
@@ -87,13 +87,12 @@ struct ChannelCreateCompleteView: View {
                             .foregroundColor(.black)
                             .padding()
                             .background(.gray100)
-                            .frame(width: 48)
+                            .frame(width: 48, height: 48)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                 }
             }
             .padding(.horizontal, 20)
-            .frame(height: 48)
             
             Spacer()
             
