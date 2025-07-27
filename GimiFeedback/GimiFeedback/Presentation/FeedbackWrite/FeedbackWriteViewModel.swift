@@ -23,12 +23,13 @@ final class FeedbackWriteViewModel: ViewModelable {
     private(set) var createdFeedback: Feedback?
     
     var canCreate: Bool {
-        let isAnyFieldFilled =
-        continues.contains(
-            where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty}) ||
-        stops.contains(
-            where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty})
-        return isAnyFieldFilled
+        let isValidContinue = continues.contains {
+            $0.trimmingCharacters(in: .whitespacesAndNewlines).count >= 10
+        }
+        let isValidStop = stops.contains {
+            $0.trimmingCharacters(in: .whitespacesAndNewlines).count >= 10
+        }
+        return isValidContinue || isValidStop
     }
     
     init(feedbackChannel: FeedbackChannel, nickName: String) {
