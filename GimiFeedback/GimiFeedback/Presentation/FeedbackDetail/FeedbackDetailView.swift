@@ -3,66 +3,61 @@ import SwiftUI
 struct FeedbackDetailView: View {
     @StateObject var viewModel: FeedbackDetailViewModel
     @EnvironmentObject var router: MainNavigationRouter
-    @State private var showDeleteAlert = false
+    @State private var isShowDeleteAlert = false
     
     init(feedbackItem: Feedback) {
         _viewModel = StateObject(wrappedValue: .init(feedbackItem: feedbackItem))
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("\(viewModel.feedbackItem.date.formattedDate)")
-            
-            VStack(spacing: 8) {
-                FeedbackSectionView(
-                    type: .typeContinue,
-                    details: $viewModel.keepFeedback,
-                    onReveal: { detail in
-                        viewModel.send(.visualizeDetail(detail: detail))
-                    }
+        ScrollView {
+            /// 전체
+            VStack(alignment: .leading, spacing: .zero) {
+                DescriptionView(
+                    writePerson: viewModel.feedbackItem.writePerson,
+                    date: viewModel.feedbackItem.date.formattedDate
                 )
-                FeedbackSectionView(
-                    type: .typeStop,
-                    details: $viewModel.problemFeedback,
-                    onReveal: { detail in
-                        viewModel.send(.visualizeDetail(detail: detail))
-                    }
-                )
-                FeedbackSectionView(
-                    type: .typeStart,
-                    details: $viewModel.tryFeedback,
-                    onReveal: { detail in
-                        viewModel.send(.visualizeDetail(detail: detail))
-                    }
-                )
-                FeedbackSectionView(
-                    type: .other,
-                    details: $viewModel.otherFeedback,
-                    onReveal: { detail in
-                        viewModel.send(.visualizeDetail(detail: detail))
-                    }
-                )
+                
+                /// 피드백 리스트
+                VStack(spacing: 40) {
+                    SectionView(
+                        type: .typeContinue,
+                        details: $viewModel.continueFeedbackList,
+                        onReveal: { content in
+                            viewModel.send(.visualizeDetail(detail: content))
+                        })
+                    
+                    SectionView(
+                        type: .typeStop,
+                        details: $viewModel.stopFeedbackList,
+                        onReveal: { content in
+                            viewModel.send(.visualizeDetail(detail: content))
+                        })
+                }
+                .padding(.top, 20)
             }
         }
-        .alert("피드백 삭제하기", isPresented: $showDeleteAlert) {
-            Button("취소", role: .cancel) {}
-            Button("확인", role: .destructive) {
-                viewModel.send(.deleteFeedback)
+        .overlay(alignment: .center) {
+            if viewModel.isShowToast {
+                ToastView(style: .guide, isPresented: $viewModel.isShowToast)
             }
-        } message: {
-            Text("정말 삭제하시겠습니까?\n이 작업은 되돌릴 수 없습니다.")
         }
         .gimiNavigationBar(
-            title: "\(viewModel.feedbackItem.writePerson)의 피드백",
             trailingItems: {
                 Button(action: {
-                    showDeleteAlert = true
+                    isShowDeleteAlert = true
                 }) {
                     Image(systemName: "trash")
                         .foregroundColor(.black)
                 }
             }
         )
+        .alert("피드백 삭제하기", isPresented: $isShowDeleteAlert) {
+            Button("취소", role: .cancel, action: { })
+            Button("확인", role: .destructive, action: { viewModel.send(.deleteFeedback) })
+        } message: {
+            Text("정말 삭제하시겠습니까?\n이 작업은 되둘릴 수 없습니다.")
+        }
         .onChange(of: viewModel.isDeleted) { _, new in
             if new == true {
                 router.pop()
@@ -70,6 +65,7 @@ struct FeedbackDetailView: View {
         }
         .onAppear {
             viewModel.send(.updateFeedbackVisibility)
+            viewModel.send(.updateToast)
         }
     }
 }

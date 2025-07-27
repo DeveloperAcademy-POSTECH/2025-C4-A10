@@ -22,7 +22,7 @@ struct ChannelEditView: View {
     init(channelItem: FeedbackChannel) {
         _viewModel = StateObject(wrappedValue: .init(channelItem: channelItem))
     }
-
+    
     var body: some View {
         VStack(spacing: .zero) {
             TitleView(
@@ -39,7 +39,7 @@ struct ChannelEditView: View {
             Spacer()
             
             Button("저장하기") {
-             isShowCreateAlert = true
+                isShowCreateAlert = true
             }
             .buttonStyle(.gimiPrimary)
             .disabled(!viewModel.isActive)
@@ -64,7 +64,6 @@ struct ChannelEditView: View {
                 router.pop()
             }
         }
-        .onAppear { UIApplication.shared.hideKeyboard() }
     }
 }
 
