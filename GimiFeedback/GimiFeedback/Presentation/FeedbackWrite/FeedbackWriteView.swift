@@ -28,14 +28,11 @@ struct FeedbackWriteView: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 40) {
-                VStack {
-                    Text(viewModel.feedbackChannel.channelTitle)
-                    Text(viewModel.feedbackChannel.content)
-                }
-                
+            VStack(alignment: .leading) {
+                WriteContentView(feedbackChannel: viewModel.feedbackChannel)
+
                 SplitView()
-                    .padding(-20)
+                    .padding(.horizontal, -20)
                 
                 VStack(alignment: .leading, spacing: 10) {
                     Text("닉네임")
@@ -45,17 +42,10 @@ struct FeedbackWriteView: View {
                 FeedbackContentView(content: $viewModel.continues, contentType: .typeContinue)
                 FeedbackContentView(content: $viewModel.stops, contentType: .typeStop)
                 
-                Button(action: {
+                Button("완료하기") {
                     isShowCreateAlert = true
-                }, label: {
-                    Text("완료하기")
-                        .font(Font.system(size: 20, weight: .bold))
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 64)
-                        .background(!viewModel.canCreate ? Color.black : Color.gray.opacity(0.5))
-                        .cornerRadius(16)
-                })
+                }
+                .buttonStyle(.gimiPrimary)
                 .disabled(!viewModel.canCreate)
             }
         }
@@ -118,6 +108,7 @@ extension FeedbackWriteView {
 #Preview {
     let feedbackChannel = FeedbackChannel(
         userID: "Test",
+        userName: "Test",
         channelTitle: "Test용 피드백입니다.",
         content: "Test용 내용입니다"
     )
