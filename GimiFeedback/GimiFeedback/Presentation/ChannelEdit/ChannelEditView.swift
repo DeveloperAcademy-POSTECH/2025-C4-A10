@@ -68,5 +68,12 @@ struct ChannelEditView: View {
 }
 
 #Preview {
-    ChannelEditView(channelItem: .init(userID: "d", channelTitle: "C4", content: "dklfndklfndklfndklf"))
+    ChannelEditView(
+        channelItem: .init(
+            userID: "d",
+            userName: "Test",
+            channelTitle: "C4",
+            content: "dklfndklfndklfndklf"
+        )
+    )
 }

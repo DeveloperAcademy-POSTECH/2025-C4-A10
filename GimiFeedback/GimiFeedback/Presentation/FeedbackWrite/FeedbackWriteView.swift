@@ -28,44 +28,30 @@ struct FeedbackWriteView: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 40) {
-                VStack {
-                    Text(viewModel.feedbackChannel.channelTitle)
-                    Text(viewModel.feedbackChannel.content)
-                }
+            VStack(alignment: .leading, spacing: 20) {
+                HeaderView(userName: viewModel.feedbackChannel.userName)
+                    .padding(.bottom, -2)
                 
-                Rectangle()
-                    .fill(Color.gray)
-                    .frame(height: 8)
-                    .frame(maxWidth: .infinity)
-                    .padding(-20)
+                WriteContentView(feedbackChannel: viewModel.feedbackChannel)
+
+                SplitView()
+                    .padding(.horizontal, -20)
                 
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("닉네임")
-                    Text(viewModel.nickName)
-                }
+                WriteView(content: $viewModel.continues, contentType: .typeContinue)
+                    .padding(.bottom, 20)
+                WriteView(content: $viewModel.stops, contentType: .typeStop)
+                    .padding(.bottom, 60)
                 
-                FeedbackContentView(content: $viewModel.keeps, contentType: .typeContinue)
-                FeedbackContentView(content: $viewModel.problems, contentType: .typeStop)
-                FeedbackContentView(content: $viewModel.trys, contentType: .typeStart)
-                FeedbackContentView(content: $viewModel.others, contentType: .other)
-                
-                Button(action: {
+                Button("완료하기") {
                     isShowCreateAlert = true
-                }, label: {
-                    Text("완료하기")
-                        .font(Font.system(size: 20, weight: .bold))
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 64)
-                        .background(!viewModel.canCreate ? Color.black : Color.gray.opacity(0.5))
-                        .cornerRadius(16)
-                })
+                }
+                .buttonStyle(.gimiPrimary)
                 .disabled(!viewModel.canCreate)
             }
         }
         .gimiNavigationBar(title: "피드백 작성하기")
         .contentMargins(.horizontal, 20, for: .scrollContent)
+        .padding(.top, 24)
         .alert("작성 완료하기", isPresented: $isShowCreateAlert) {
             Button("취소", role: .cancel) { }
             Button("확인") {
@@ -83,46 +69,10 @@ struct FeedbackWriteView: View {
     }
 }
 
-extension FeedbackWriteView {
-    struct FeedbackContentView: View {
-        @Binding var content: [String]
-        
-        var contentType: FeedbackContentType
-        
-        var body: some View {
-            VStack(alignment: .leading, spacing: 10) {
-                Text(contentType.title)
-                Text(contentType.content)
-                ForEach(content.indices, id: \.self) { index in
-                    TextEditor(text: $content[index])
-                        .scrollContentBackground(.hidden)
-                        .frame(height: 102)
-                        .padding()
-                        .background(Color(UIColor.systemGray6))
-                        .cornerRadius(5)
-                }
-                
-                if content.count < 3 {
-                    Button {
-                        content.append("")
-                    } label: {
-                        Text("+ 항목 추가하기")
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 56)
-                            .foregroundColor(.black)
-                            .background(Color.gray.opacity(0.3))
-                            .cornerRadius(12)
-                    }
-                    .padding(.top, 8)
-                }
-            }
-        }
-    }
-}
-
 #Preview {
     let feedbackChannel = FeedbackChannel(
         userID: "Test",
+        userName: "Test",
         channelTitle: "Test용 피드백입니다.",
         content: "Test용 내용입니다"
     )
