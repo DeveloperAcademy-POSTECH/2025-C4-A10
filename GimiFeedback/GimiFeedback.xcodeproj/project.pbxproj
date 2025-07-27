@@ -30,6 +30,7 @@
 		ECC980B52E294835004A483B /* KakaoShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC980B42E294835004A483B /* KakaoShareManager.swift */; };
 		ECDF17282E2E618400964391 /* ChannelEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF17272E2E618400964391 /* ChannelEditViewModel.swift */; };
 		ECDF172E2E2E8F6400964391 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF172D2E2E8F6400964391 /* ProfileView.swift */; };
+		EE1BA9582E35F8880087E934 /* FeedbackWrite+WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1BA9572E35F8880087E934 /* FeedbackWrite+WriteView.swift */; };
 		EE3754AF2E1D7B36009AD262 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */; };
 		EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */; };
 		EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */; };
@@ -62,10 +63,9 @@
 		EE465F6D2E27E8CD0096109A /* FeedbackWriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465F6C2E27E8CC0096109A /* FeedbackWriteViewModel.swift */; };
 		EE61A4322E3360900079E7A6 /* ChannelList+HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61A4312E3360810079E7A6 /* ChannelList+HeaderView.swift */; };
 		EE61A4342E3361550079E7A6 /* CustomPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61A4332E33614F0079E7A6 /* CustomPaddingModifier.swift */; };
-		EE7F0DA92E336F2000B1C122 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F0DA82E336F1D00B1C122 /* SplitView.swift */; };
 		EE7F0DAD2E35092A00B1C122 /* FeedbackWrite+ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F0DAC2E35092A00B1C122 /* FeedbackWrite+ContentView.swift */; };
 		EE7F0DB02E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F0DAF2E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift */; };
-		EE7F0DB22E35DA0700B1C122 /* FeedbackWrite+WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F0DB12E35D9F300B1C122 /* FeedbackWrite+WriteView.swift */; };
+		EE82C6172E35F80D0081B845 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82C6162E35F80D0081B845 /* SplitView.swift */; };
 		EE82DF9B2E24D5CD00EC1AFF /* ChannelCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82DF9A2E24D5C900EC1AFF /* ChannelCreateView.swift */; };
 		EE82DF9D2E24D5DA00EC1AFF /* ChannelCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82DF9C2E24D5D400EC1AFF /* ChannelCreateViewModel.swift */; };
 		EE82DFA22E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */; };
@@ -120,6 +120,7 @@
 		ECC980B42E294835004A483B /* KakaoShareManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoShareManager.swift; sourceTree = "<group>"; };
 		ECDF17272E2E618400964391 /* ChannelEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelEditViewModel.swift; sourceTree = "<group>"; };
 		ECDF172D2E2E8F6400964391 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		EE1BA9572E35F8880087E934 /* FeedbackWrite+WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+WriteView.swift"; sourceTree = "<group>"; };
 		EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContentType.swift; sourceTree = "<group>"; };
 		EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContent.swift; sourceTree = "<group>"; };
@@ -148,10 +149,9 @@
 		EE465F6C2E27E8CC0096109A /* FeedbackWriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteViewModel.swift; sourceTree = "<group>"; };
 		EE61A4312E3360810079E7A6 /* ChannelList+HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelList+HeaderView.swift"; sourceTree = "<group>"; };
 		EE61A4332E33614F0079E7A6 /* CustomPaddingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPaddingModifier.swift; sourceTree = "<group>"; };
-		EE7F0DA82E336F1D00B1C122 /* SplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
 		EE7F0DAC2E35092A00B1C122 /* FeedbackWrite+ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+ContentView.swift"; sourceTree = "<group>"; };
 		EE7F0DAF2E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+HeaderView.swift"; sourceTree = "<group>"; };
-		EE7F0DB12E35D9F300B1C122 /* FeedbackWrite+WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+WriteView.swift"; sourceTree = "<group>"; };
+		EE82C6162E35F80D0081B845 /* SplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
 		EE82DF9A2E24D5C900EC1AFF /* ChannelCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCreateView.swift; sourceTree = "<group>"; };
 		EE82DF9C2E24D5D400EC1AFF /* ChannelCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCreateViewModel.swift; sourceTree = "<group>"; };
 		EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCreateCompleteViewModel.swift; sourceTree = "<group>"; };
@@ -351,7 +351,7 @@
 		EE7F0DAA2E3508ED00B1C122 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				EE7F0DB12E35D9F300B1C122 /* FeedbackWrite+WriteView.swift */,
+				EE1BA9572E35F8880087E934 /* FeedbackWrite+WriteView.swift */,
 				EE7F0DAC2E35092A00B1C122 /* FeedbackWrite+ContentView.swift */,
 				EE7F0DAF2E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift */,
 			);
@@ -562,6 +562,7 @@
 			isa = PBXGroup;
 			children = (
 				EEC048742E2E914800918BAA /* SpeechView.swift */,
+				EE82C6162E35F80D0081B845 /* SplitView.swift */,
 				EC6A4CA02E34D5660087DB5C /* ToastView.swift */,
 				EEC047192E2E1D3A00918BAA /* GimiButtonStyle.swift */,
 				EEC048772E2FAE7900918BAA /* GimiTextFieldStyle.swift */,
@@ -671,6 +672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE1BA9582E35F8880087E934 /* FeedbackWrite+WriteView.swift in Sources */,
 				EEE6891A2E2A2CF50008012D /* NotificationViewModel.swift in Sources */,
 				EC6A4C882E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift in Sources */,
 				EEE689142E2944110008012D /* StartView.swift in Sources */,
@@ -678,6 +680,7 @@
 				EEE689122E2943C00008012D /* FirestoreManager.swift in Sources */,
 				EE41FEE92E2259350002E595 /* UserViewModel.swift in Sources */,
 				EE61A4322E3360900079E7A6 /* ChannelList+HeaderView.swift in Sources */,
+				EE82C6172E35F80D0081B845 /* SplitView.swift in Sources */,
 				ECDF17282E2E618400964391 /* ChannelEditViewModel.swift in Sources */,
 				EE41FEEB2E22599C0002E595 /* KakaoAuthManager.swift in Sources */,
 				EC6A4C992E336DA40087DB5C /* FeedbackDetail+FeedbackRowView.swift in Sources */,
@@ -696,7 +699,6 @@
 				EC9959BA2E25145B001555B1 /* FeedbackDetailView.swift in Sources */,
 				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
 				EEC048752E2E916100918BAA /* SpeechView.swift in Sources */,
-				EE7F0DA92E336F2000B1C122 /* SplitView.swift in Sources */,
 				EEC0471A2E2E1D3B00918BAA /* GimiButtonStyle.swift in Sources */,
 				EE41FEE72E22572C0002E595 /* Bundle+Extension.swift in Sources */,
 				EE41FD7D2E223D050002E595 /* InputNickNameView.swift in Sources */,
