@@ -28,19 +28,16 @@ struct FeedbackWriteView: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 20) {
+                HeaderView(userName: viewModel.feedbackChannel.userName)
+                
                 WriteContentView(feedbackChannel: viewModel.feedbackChannel)
 
                 SplitView()
                     .padding(.horizontal, -20)
                 
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("닉네임")
-                    Text(viewModel.nickName)
-                }
-                
-                FeedbackContentView(content: $viewModel.continues, contentType: .typeContinue)
-                FeedbackContentView(content: $viewModel.stops, contentType: .typeStop)
+                WriteView(content: $viewModel.continues, contentType: .typeContinue)
+                WriteView(content: $viewModel.stops, contentType: .typeStop)
                 
                 Button("완료하기") {
                     isShowCreateAlert = true
@@ -51,6 +48,7 @@ struct FeedbackWriteView: View {
         }
         .gimiNavigationBar(title: "피드백 작성하기")
         .contentMargins(.horizontal, 20, for: .scrollContent)
+        .padding(.top, 24)
         .alert("작성 완료하기", isPresented: $isShowCreateAlert) {
             Button("취소", role: .cancel) { }
             Button("확인") {
@@ -65,43 +63,6 @@ struct FeedbackWriteView: View {
             }
         }
         .onAppear { UIApplication.shared.hideKeyboard() }
-    }
-}
-
-extension FeedbackWriteView {
-    struct FeedbackContentView: View {
-        @Binding var content: [String]
-        
-        var contentType: FeedbackContentType
-        
-        var body: some View {
-            VStack(alignment: .leading, spacing: 10) {
-                Text(contentType.title)
-                Text(contentType.content)
-                ForEach(content.indices, id: \.self) { index in
-                    TextEditor(text: $content[index])
-                        .scrollContentBackground(.hidden)
-                        .frame(height: 102)
-                        .padding()
-                        .background(Color(UIColor.systemGray6))
-                        .cornerRadius(5)
-                }
-                
-                if content.count < 3 {
-                    Button {
-                        content.append("")
-                    } label: {
-                        Text("+ 항목 추가하기")
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 56)
-                            .foregroundColor(.black)
-                            .background(Color.gray.opacity(0.3))
-                            .cornerRadius(12)
-                    }
-                    .padding(.top, 8)
-                }
-            }
-        }
     }
 }
 
