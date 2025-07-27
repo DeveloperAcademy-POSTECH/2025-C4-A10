@@ -30,6 +30,7 @@ struct FeedbackWriteView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 HeaderView(userName: viewModel.feedbackChannel.userName)
+                    .padding(.bottom, -2)
                 
                 WriteContentView(feedbackChannel: viewModel.feedbackChannel)
 
@@ -37,7 +38,9 @@ struct FeedbackWriteView: View {
                     .padding(.horizontal, -20)
                 
                 WriteView(content: $viewModel.continues, contentType: .typeContinue)
+                    .padding(.bottom, 20)
                 WriteView(content: $viewModel.stops, contentType: .typeStop)
+                    .padding(.bottom, 60)
                 
                 Button("완료하기") {
                     isShowCreateAlert = true
