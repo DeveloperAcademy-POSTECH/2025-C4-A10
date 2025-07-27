@@ -13,24 +13,21 @@ final class FeedbackDetailViewModel: ViewModelable {
         case deleteFeedback
         case visualizeDetail(detail: FeedbackContent)
         case updateFeedbackVisibility
+        case updateToast
     }
     
     var feedbackItem: Feedback
-    @Published var keepFeedback: [FeedbackContent]
-    @Published var problemFeedback: [FeedbackContent]
-    @Published var tryFeedback: [FeedbackContent]
-    @Published var otherFeedback: [FeedbackContent]
+    @Published var continueFeedbackList: [FeedbackContent]
+    @Published var stopFeedbackList: [FeedbackContent]
     @Published private(set) var errorMessage: String?
     @Published private(set) var isLoading: Bool = false
-    
     @Published var isDeleted = false
+    @Published var isShowToast = false
     
     init(feedbackItem: Feedback) {
         self.feedbackItem = feedbackItem
-        self.keepFeedback = feedbackItem.content.filter { $0.type == .typeContinue }
-        self.problemFeedback = feedbackItem.content.filter { $0.type == .typeStop }
-        self.tryFeedback = feedbackItem.content.filter { $0.type == .typeStart }
-        self.otherFeedback = feedbackItem.content.filter { $0.type == .other }
+        self.continueFeedbackList = feedbackItem.content.filter { $0.type == .typeContinue }
+        self.stopFeedbackList = feedbackItem.content.filter { $0.type == .typeStop }
     }
     
     func send(_ action: Action) {
@@ -41,6 +38,11 @@ final class FeedbackDetailViewModel: ViewModelable {
             updateVisibility(detail: detail)
         case .updateFeedbackVisibility:
             feedbackItem.visiable = true
+        case .updateToast:
+            if UserDefaults.standard.isShowGuideToast == false {
+                isShowToast = true
+                UserDefaults.standard.saveGuideToast()
+            }
         }
     }
 }
@@ -64,12 +66,10 @@ extension FeedbackDetailViewModel {
     private func updateVisibility(detail: FeedbackContent) {
         guard let index = feedbackItem.content.firstIndex(where: { $0.id == detail.id }) else { return }
         
-        feedbackItem.content[index].visiable = true
+        feedbackItem.content[index].visiable.toggle()
         
-        keepFeedback = feedbackItem.content.filter { $0.type == .typeContinue }
-        problemFeedback = feedbackItem.content.filter { $0.type == .typeStop }
-        tryFeedback = feedbackItem.content.filter { $0.type == .typeStart }
-        otherFeedback = feedbackItem.content.filter { $0.type == .other }
+        continueFeedbackList = feedbackItem.content.filter { $0.type == .typeContinue }
+        stopFeedbackList = feedbackItem.content.filter { $0.type == .typeStop }
         
         Task {
             isLoading = true

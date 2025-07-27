@@ -37,7 +37,6 @@ struct ChannelDetailView: View {
                 }
             }
         }
-        .padding(.top, 20)
         .gimiNavigationBar(
             title: "\(viewModel.channelItem.channelTitle)",
             trailingItems: {
