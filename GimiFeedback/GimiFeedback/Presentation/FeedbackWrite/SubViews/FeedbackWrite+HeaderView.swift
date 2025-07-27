@@ -13,14 +13,13 @@ extension FeedbackWriteView {
         
         var body: some View {
             HStack {
-                Text("\(userName)를 위해 피드백 주세요")
+                Text("\(userName)를 위해 피드백해주세요")
                     .font(.title1)
                 
                 Spacer()
                 
                 Button {
                     // TODO: - 설명 화면 띄우기
-                    print("hello")
                 } label: {
                     Image(systemName: "questionmark.circle")
                         .resizable()
