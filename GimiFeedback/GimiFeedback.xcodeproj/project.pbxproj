@@ -351,9 +351,9 @@
 		EE7F0DAA2E3508ED00B1C122 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				EE1BA9572E35F8880087E934 /* FeedbackWrite+WriteView.swift */,
-				EE7F0DAC2E35092A00B1C122 /* FeedbackWrite+ContentView.swift */,
 				EE7F0DAF2E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift */,
+				EE7F0DAC2E35092A00B1C122 /* FeedbackWrite+ContentView.swift */,
+				EE1BA9572E35F8880087E934 /* FeedbackWrite+WriteView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
