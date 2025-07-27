@@ -31,10 +31,10 @@ struct ChannelCreateCompleteView: View {
                     .foregroundColor(.black)
                 
                 VStack(spacing: 12) {
-                    Text("피드백 채널이 생성되었어요")
+                    Text("피드백 채널을 만들었어요")
                         .font(.title1)
                     
-                    Text("아래 링크를 복사하거나 공유하여\n피드백을 요청하세요")
+                    Text("아래 링크를 복사하거나 공유해서\n피드백을 요청하세요")
                         .font(.callout)
                         .multilineTextAlignment(.center)
                 }
