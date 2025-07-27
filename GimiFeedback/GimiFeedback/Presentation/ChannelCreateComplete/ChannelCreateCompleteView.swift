@@ -43,7 +43,7 @@ struct ChannelCreateCompleteView: View {
             VStack(spacing: 12) {
                 HStack {
                     Text(channelID)
-                        .font(Font.system(size: 12, weight: .regular))
+                        .font(.footnote)
                         .lineLimit(1)
                         .truncationMode(.middle)
                     
@@ -71,7 +71,7 @@ struct ChannelCreateCompleteView: View {
                         viewModel.send(.shareToKakao(channelID))
                     }, label: {
                         Text("카카오로 초대장 보내기")
-                            .font(Font.system(size: 14, weight: .semibold))
+                            .font(.callout2)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .padding()
                             .background(Color(red: 249/255, green: 224/255, blue: 1/255))
