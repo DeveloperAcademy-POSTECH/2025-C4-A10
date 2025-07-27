@@ -44,6 +44,7 @@ struct ChannelCreateCompleteView: View {
                 HStack {
                     Text(channelID)
                         .font(.footnote)
+                        .foregroundColor(.gray600)
                         .lineLimit(1)
                         .truncationMode(.middle)
                     
@@ -53,11 +54,12 @@ struct ChannelCreateCompleteView: View {
                         UIPasteboard.general.string = channelID
                     }) {
                         Image(systemName: "document.on.document")
+                            .foregroundColor(.gray600)
                     }
                 }
                 .padding()
                 .frame(maxWidth: .infinity, maxHeight: 44)
-                .background(Color(UIColor.systemGray6))
+                .background(.gray50)
                 .overlay(
                     RoundedRectangle(cornerRadius: 5)
                         .stroke(
@@ -72,25 +74,26 @@ struct ChannelCreateCompleteView: View {
                     }, label: {
                         Text("카카오로 초대장 보내기")
                             .font(.callout2)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .foregroundColor(.black)
                             .padding()
                             .background(Color(red: 249/255, green: 224/255, blue: 1/255))
-                            .foregroundColor(.black)
                             .cornerRadius(10)
+                            .frame(maxWidth: .infinity)
                     })
                     
                     ShareLink(item: "gimifeedback://feedbackWrite/\(channelID)") {
                         Image(systemName: "square.and.arrow.up")
-                            .font(.system(size: 20))
+                            .font(.system(size: 20, weight: .regular))
+                            .foregroundColor(.black)
                             .padding()
-                            .background(Color(UIColor.systemGray5))
-                            .frame(width: 48, height: 48)
+                            .background(.gray100)
+                            .frame(width: 48)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                 }
-                .frame(maxHeight: 48)
             }
             .padding(.horizontal, 20)
+            .frame(height: 48)
             
             Spacer()
             
