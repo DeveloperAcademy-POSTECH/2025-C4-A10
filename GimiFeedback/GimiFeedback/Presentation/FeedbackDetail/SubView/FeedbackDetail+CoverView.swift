@@ -55,6 +55,7 @@ extension FeedbackDetailView {
                 }
                 .frame(height: 55)
             }
+            .frame(minHeight: 160)
             .background(
                 RoundedRectangle(cornerRadius: 18)
                     .fill(detail.backgroundColor)

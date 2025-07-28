@@ -58,22 +58,22 @@ extension FeedbackDetailView {
                     .onTapGesture {
                         onTapContent()
                     }
-                }
+                    Rectangle()
+                        .frame(height: 1)
+                        .foregroundStyle(detail.fillColor)
 
-                Rectangle()
-                    .frame(height: 1)
-                    .foregroundStyle(detail.fillColor)
-
-                Button(action: onTapToggle) {
-                    Text(buttonText)
-                        .font(.callout2)
-                        .foregroundStyle(detail.spicyColor)
-                        .padding(.horizontal, 60)
-                        .padding(.vertical, 16)
-                        .frame(maxWidth: .infinity)
+                    Button(action: onTapToggle) {
+                        Text(buttonText)
+                            .font(.callout2)
+                            .foregroundStyle(detail.spicyColor)
+                            .padding(.horizontal, 60)
+                            .padding(.vertical, 16)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .frame(height: 55)
                 }
-                .frame(height: 55)
             }
+            .frame(minHeight: 160)
             .background(
                 RoundedRectangle(cornerRadius: 18)
                     .fill(detail.backgroundColor)
