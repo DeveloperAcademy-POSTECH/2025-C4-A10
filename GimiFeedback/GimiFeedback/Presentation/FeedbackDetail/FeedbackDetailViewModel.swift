@@ -90,8 +90,7 @@ extension FeedbackDetailViewModel {
         Task {
             isLoading = true
             let response = try await GPTManger.shared.sendChatCompletion(inputText: content.content)
-            
-            
+                    
             guard let index = feedbackItem.content.firstIndex(where: { $0.id == content.id }) else { return }
             
             feedbackItem.content[index].transContent = response
