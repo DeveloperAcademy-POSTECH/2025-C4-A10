@@ -24,8 +24,13 @@ extension FeedbackWriteView {
                     .frame(maxHeight: 600)
                 }
                 .tabViewStyle(.page)
-                .indexViewStyle(.page(backgroundDisplayMode: .always))  
+                .indexViewStyle(.page(backgroundDisplayMode: .always))
+                .padding(.bottom, 30)
             }
+            .background(.white)
+            .clipShape(TopRoundedShape(radius: 30))
+            .ignoresSafeArea(edges: .bottom)
+            
         }
     }
 }

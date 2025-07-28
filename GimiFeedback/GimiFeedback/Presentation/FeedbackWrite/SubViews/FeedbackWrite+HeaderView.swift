@@ -34,6 +34,7 @@ extension FeedbackWriteView {
                 }
                 .presentationDetents([.height(655)])
                 .presentationDragIndicator(.visible)
+                .presentationBackground(Color.clear)
             }
         }
     }
