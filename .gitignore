@@ -147,3 +147,5 @@ iOSInjectionProject/
 **/GoogleService-Info.plist
 */GimiFeedback.entitlements
 **/GimiFeedback.entitlements
+*/GimiFeedback/MLWeights/*.mlpackage
+**/GimiFeedback/MLWeights/*.mlpackage
