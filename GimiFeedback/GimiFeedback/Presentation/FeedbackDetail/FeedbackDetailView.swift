@@ -23,22 +23,14 @@ struct FeedbackDetailView: View {
                     SectionView(
                         type: .typeContinue,
                         details: $viewModel.continueFeedbackList,
-                        onReveal: { content in
-                            viewModel.send(.visualizeDetail(detail: content))
-                        },
-                        onTapTrans: {
-                            viewModel.send(.transContent($0))
-                        })
+                        onReveal: { _   in },
+                        onTapTrans: { viewModel.send(.transContent($0))})
                     
                     SectionView(
                         type: .typeStop,
                         details: $viewModel.stopFeedbackList,
-                        onReveal: { content in
-                            viewModel.send(.visualizeDetail(detail: content))
-                        },
-                        onTapTrans: {
-                            viewModel.send(.transContent($0))
-                        })
+                        onReveal: { _   in },
+                        onTapTrans: { viewModel.send(.transContent($0))})
                 }
                 .padding(.top, 20)
             }

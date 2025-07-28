@@ -22,6 +22,8 @@
 		EC6A4CA52E350B720087DB5C /* Spicy+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4CA42E350B720087DB5C /* Spicy+Extension.swift */; };
 		EC94C0F12E3745F80020E59D /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC94C0F02E3745F80020E59D /* Chat.swift */; };
 		EC94C0F32E3746130020E59D /* GPTManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC94C0F22E3746130020E59D /* GPTManger.swift */; };
+		EC94C0F92E37AAAC0020E59D /* FeedbackDetail+CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC94C0F82E37AAAC0020E59D /* FeedbackDetail+CoverView.swift */; };
+		EC94C0FB2E37AAC40020E59D /* FeedbackDetail+ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC94C0FA2E37AAC40020E59D /* FeedbackDetail+ContentView.swift */; };
 		EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */; };
 		EC9959B22E24E646001555B1 /* ChannelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */; };
 		EC9959B32E24E646001555B1 /* ChannelDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */; };
@@ -116,6 +118,8 @@
 		EC6A4CA42E350B720087DB5C /* Spicy+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spicy+Extension.swift"; sourceTree = "<group>"; };
 		EC94C0F02E3745F80020E59D /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		EC94C0F22E3746130020E59D /* GPTManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTManger.swift; sourceTree = "<group>"; };
+		EC94C0F82E37AAAC0020E59D /* FeedbackDetail+CoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackDetail+CoverView.swift"; sourceTree = "<group>"; };
+		EC94C0FA2E37AAC40020E59D /* FeedbackDetail+ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackDetail+ContentView.swift"; sourceTree = "<group>"; };
 		EC9959AB2E23EF1B001555B1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		EC9959AF2E24E646001555B1 /* ChannelDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailView.swift; sourceTree = "<group>"; };
 		EC9959B02E24E646001555B1 /* ChannelDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailViewModel.swift; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 				EC6A4C982E336DA40087DB5C /* FeedbackDetail+FeedbackRowView.swift */,
 				EC6A4C9A2E336DC80087DB5C /* FeedbackDetail+SectionView.swift */,
 				EC6A4C9C2E34A67E0087DB5C /* FeedbackDetail+DescriptionView.swift */,
+				EC94C0F82E37AAAC0020E59D /* FeedbackDetail+CoverView.swift */,
+				EC94C0FA2E37AAC40020E59D /* FeedbackDetail+ContentView.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -717,10 +723,12 @@
 				EEDBB1BA2E28DA9200F16407 /* User.swift in Sources */,
 				EE856A472E1CD2AD006820B9 /* Font+Extension.swift in Sources */,
 				EE82DF9B2E24D5CD00EC1AFF /* ChannelCreateView.swift in Sources */,
+				EC94C0FB2E37AAC40020E59D /* FeedbackDetail+ContentView.swift in Sources */,
 				EC6A4C8F2E3227C40087DB5C /* ChannelEdit+ContentView.swift in Sources */,
 				EEC048782E2FAE8100918BAA /* GimiTextFieldStyle.swift in Sources */,
 				EE856A392E1CD0F6006820B9 /* GimiFeedbackApp.swift in Sources */,
 				EE3756A52E1E6062009AD262 /* CollectionType.swift in Sources */,
+				EC94C0F92E37AAAC0020E59D /* FeedbackDetail+CoverView.swift in Sources */,
 				EE41FD822E223D720002E595 /* InputCodeView.swift in Sources */,
 				EE7F0DAD2E35092A00B1C122 /* FeedbackWrite+ContentView.swift in Sources */,
 				EE465EF02E26317A0096109A /* FeedbackWriteView.swift in Sources */,
