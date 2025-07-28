@@ -12,6 +12,7 @@ extension FeedbackDetailView {
         let type: FeedbackContentType
         @Binding var details: [FeedbackContent]
         let onReveal: (FeedbackContent) -> Void
+        let onTapTrans: (FeedbackContent) -> Void
 
         var body: some View {
             VStack(alignment: .leading, spacing: 8) {
@@ -26,9 +27,10 @@ extension FeedbackDetailView {
 
                 ForEach($details, id: \.id) { $detail in
                     LazyVStack(spacing: 16) {
-                        FeedbackRowView(detail: $detail) { item in
-                            onReveal(item)
-                        }
+                        FeedbackRowView(
+                            detail: $detail,
+                            onReveal: { onReveal($0) },
+                            onTapTrans: { onTapTrans(detail) })
                     }
                     .padding(.top, 8)
                 }

@@ -25,6 +25,9 @@ struct FeedbackDetailView: View {
                         details: $viewModel.continueFeedbackList,
                         onReveal: { content in
                             viewModel.send(.visualizeDetail(detail: content))
+                        },
+                        onTapTrans: {
+                            viewModel.send(.transContent($0))
                         })
                     
                     SectionView(
@@ -32,6 +35,9 @@ struct FeedbackDetailView: View {
                         details: $viewModel.stopFeedbackList,
                         onReveal: { content in
                             viewModel.send(.visualizeDetail(detail: content))
+                        },
+                        onTapTrans: {
+                            viewModel.send(.transContent($0))
                         })
                 }
                 .padding(.top, 20)

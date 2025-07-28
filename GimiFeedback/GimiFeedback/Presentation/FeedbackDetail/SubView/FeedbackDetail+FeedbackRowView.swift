@@ -13,12 +13,13 @@ extension FeedbackDetailView {
         let onReveal: (FeedbackContent) -> Void
         @State private var isPressed: Bool = false
         @State private var isRecognizing: Bool = false
+        let onTapTrans: () -> Void
         
         var body: some View {
             ZStack {
                 CoverView(detail: detail, isPressed: isPressed)
                 
-                ContentView(detail: detail)
+                ContentView(detail: detail, onTapTrans: { onTapTrans() })
             }
             .padding(.horizontal, 16)
             .frame(height: detail.visiable ? nil : 153)
@@ -108,6 +109,11 @@ extension FeedbackDetailView {
 extension FeedbackDetailView {
     struct ContentView: View {
         let detail: FeedbackContent
+        let onTapTrans: () -> Void
+        
+        var isActive: Bool {
+            detail.transContent != nil
+        }
         
         var body: some View {
             VStack(spacing: .zero) {
@@ -126,6 +132,19 @@ extension FeedbackDetailView {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 8)
                         .padding(.bottom, 16)
+                    
+                    Button(action: {
+                        onTapTrans()
+                    }) {
+                        Text("순화")
+                    }
+                    .disabled(isActive)
+                    
+                    if let transContent = detail.transContent  {
+                        Text(transContent)
+                            .font(.callout)
+                            .foregroundStyle(.blue)
+                    }
                 }
                 .padding(.horizontal, 8)
                 
