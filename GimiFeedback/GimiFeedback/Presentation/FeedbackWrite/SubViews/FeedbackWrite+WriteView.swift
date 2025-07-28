@@ -14,7 +14,7 @@ extension FeedbackWriteView {
         var contentType: FeedbackContentType
         
         @State private var showDeleteAlert: Bool = false
-        @State private var indexToDelete: Int? = nil
+        @State private var indexToDelete: Int?
         
         var body: some View {
             VStack(alignment: .leading, spacing: 10) {
