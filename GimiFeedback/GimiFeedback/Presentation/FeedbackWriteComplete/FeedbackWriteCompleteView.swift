@@ -21,8 +21,7 @@ struct FeedbackWriteCompleteView: View {
             
             VStack(spacing: 16) {
                 Image(systemName: "checkmark")
-                    .resizable()
-                    .frame(width: 48, height: 48)
+                    .font(.system(size: 40, weight: .bold))
                     .foregroundColor(.black)
 
                 Text("피드백 전송이 완료되었어요")
@@ -40,6 +39,7 @@ struct FeedbackWriteCompleteView: View {
         }
         .customPadding()
         .ignoresSafeArea(edges: .top)
+        .navigationBarBackButtonHidden()
     }
 }
 
