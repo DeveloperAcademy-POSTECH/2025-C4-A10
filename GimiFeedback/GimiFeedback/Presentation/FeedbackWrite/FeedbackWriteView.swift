@@ -15,12 +15,14 @@ struct FeedbackWriteView: View {
     init(
         feedbackChannel: FeedbackChannel,
         inputNickName: String,
+        modelNameOrPath: String = "KcELECTRA-base-v2022",
         onComplete: @escaping () -> Void
     ) {
         _viewModel = StateObject(
             wrappedValue: .init(
                 feedbackChannel: feedbackChannel,
-                nickName: inputNickName
+                nickName: inputNickName,
+                modelNameOrPath: modelNameOrPath
             )
         )
         self.onComplete = onComplete
