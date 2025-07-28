@@ -18,7 +18,8 @@ final class FeedbackWriteViewModel: ViewModelable {
     let nickName: String
     let minimumFeedbackLength: Int = 10
     var sequenceClassifier: SequenceClassifier?
-    let modelNameOrPath: String
+    let modelNameOrPath: String = "KcELECTRA-base-v2022"
+
     @Published var continues: [String] = [""]
     @Published var stops: [String] = [""]
     
@@ -37,10 +38,9 @@ final class FeedbackWriteViewModel: ViewModelable {
         return isValidContinue || isValidStop
     }
     
-    init(feedbackChannel: FeedbackChannel, nickName: String, modelNameOrPath: String) {
+    init(feedbackChannel: FeedbackChannel, nickName: String) {
         self.feedbackChannel = feedbackChannel
         self.nickName = nickName
-        self.sequenceClassifier = nil
         Task {
             do {
                 self.sequenceClassifier = try await SequenceClassifier(modelNameOrPath: modelNameOrPath)

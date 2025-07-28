@@ -16,6 +16,7 @@
 		D306028A2E377EA100908D1D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D30602882E377EA100908D1D /* README.md */; };
 		D306028D2E377EC500908D1D /* FeedbackWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306028B2E377EC500908D1D /* FeedbackWriteView.swift */; };
 		D306028E2E377EC500908D1D /* FeedbackWriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306028C2E377EC500908D1D /* FeedbackWriteViewModel.swift */; };
+		D30602962E3782A200908D1D /* KcELECTRA-base-v2022.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = D30602952E3782A200908D1D /* KcELECTRA-base-v2022.mlpackage */; };
 		EC6A4C842E31284F0087DB5C /* ChannelDetail+DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C832E31284F0087DB5C /* ChannelDetail+DescriptionView.swift */; };
 		EC6A4C862E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C852E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift */; };
 		EC6A4C882E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C872E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift */; };
@@ -113,6 +114,7 @@
 		D30602882E377EA100908D1D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D306028B2E377EC500908D1D /* FeedbackWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteView.swift; sourceTree = "<group>"; };
 		D306028C2E377EC500908D1D /* FeedbackWriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteViewModel.swift; sourceTree = "<group>"; };
+		D30602952E3782A200908D1D /* KcELECTRA-base-v2022.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = "KcELECTRA-base-v2022.mlpackage"; sourceTree = "<group>"; };
 		EC6A4C832E31284F0087DB5C /* ChannelDetail+DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+DescriptionView.swift"; sourceTree = "<group>"; };
 		EC6A4C852E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+EmptyFeedbackView.swift"; sourceTree = "<group>"; };
 		EC6A4C872E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+FeedbackListView.swift"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 		D30602892E377EA100908D1D /* MLWeights */ = {
 			isa = PBXGroup;
 			children = (
+				D30602952E3782A200908D1D /* KcELECTRA-base-v2022.mlpackage */,
 				D30602882E377EA100908D1D /* README.md */,
 			);
 			path = MLWeights;
@@ -766,6 +769,7 @@
 				EC6A4CA52E350B720087DB5C /* Spicy+Extension.swift in Sources */,
 				EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */,
 				EE37554A2E1E5BBD009AD262 /* AppDelegate.swift in Sources */,
+				D30602962E3782A200908D1D /* KcELECTRA-base-v2022.mlpackage in Sources */,
 				EE3755412E1E1105009AD262 /* FeedbackChannel.swift in Sources */,
 				EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */,
 				EE82DF9D2E24D5DA00EC1AFF /* ChannelCreateViewModel.swift in Sources */,
