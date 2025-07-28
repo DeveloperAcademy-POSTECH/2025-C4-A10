@@ -40,7 +40,9 @@ struct StartNavigationRoutingView: View {
                 }
 
             case .feedbackWriteComplete:
-                FeedbackWriteCompleteView()
+                FeedbackWriteCompleteView {
+                    router.popToRootView()
+                }
             }
         }
     }

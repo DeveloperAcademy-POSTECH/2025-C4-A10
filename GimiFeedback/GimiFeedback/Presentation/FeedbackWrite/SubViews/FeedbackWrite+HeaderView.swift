@@ -10,6 +10,7 @@ import SwiftUI
 extension FeedbackWriteView {
     struct HeaderView: View {
         let userName: String
+        @State private var isPresentingInfo: Bool = false
         
         var body: some View {
             HStack {
@@ -19,7 +20,7 @@ extension FeedbackWriteView {
                 Spacer()
                 
                 Button {
-                    // TODO: - 설명 화면 띄우기
+                    isPresentingInfo = true
                 } label: {
                     Image(systemName: "questionmark.circle")
                         .resizable()
@@ -27,7 +28,14 @@ extension FeedbackWriteView {
                         .foregroundColor(.black)
                 }
             }
-            
+            .sheet(isPresented: $isPresentingInfo) {
+                FeedbackWriteView.InfoView {
+                    isPresentingInfo = false
+                }
+                .presentationDetents([.height(655)])
+                .presentationDragIndicator(.visible)
+                .presentationBackground(Color.clear)
+            }
         }
     }
 }

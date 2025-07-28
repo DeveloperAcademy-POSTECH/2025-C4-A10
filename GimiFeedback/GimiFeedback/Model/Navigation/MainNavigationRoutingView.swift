@@ -36,7 +36,9 @@ struct MainNavigationRoutingView: View {
                     router.push(to: .feedbackWriteComplete)
                 }
             case .feedbackWriteComplete:
-                FeedbackWriteCompleteView()
+                FeedbackWriteCompleteView {
+                    router.popToRootView()
+                }
             case .feedbackChannelCreate:
                 ChannelCreateView()
             case .feedbackChannelCreateComplete(let channelID):

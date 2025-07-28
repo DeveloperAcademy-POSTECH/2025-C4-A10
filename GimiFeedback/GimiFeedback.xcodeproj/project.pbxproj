@@ -35,6 +35,8 @@
 		ECDF17282E2E618400964391 /* ChannelEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF17272E2E618400964391 /* ChannelEditViewModel.swift */; };
 		ECDF172E2E2E8F6400964391 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF172D2E2E8F6400964391 /* ProfileView.swift */; };
 		EE1BA9582E35F8880087E934 /* FeedbackWrite+WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1BA9572E35F8880087E934 /* FeedbackWrite+WriteView.swift */; };
+		EE1BA95C2E3682640087E934 /* FeedbackWrite+InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1BA95B2E36825D0087E934 /* FeedbackWrite+InfoView.swift */; };
+		EE1BA9602E37A3D20087E934 /* TopRoundedShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1BA95F2E37A3CE0087E934 /* TopRoundedShape.swift */; };
 		EE3754AF2E1D7B36009AD262 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */; };
 		EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */; };
 		EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */; };
@@ -129,6 +131,8 @@
 		ECDF17272E2E618400964391 /* ChannelEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelEditViewModel.swift; sourceTree = "<group>"; };
 		ECDF172D2E2E8F6400964391 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EE1BA9572E35F8880087E934 /* FeedbackWrite+WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+WriteView.swift"; sourceTree = "<group>"; };
+		EE1BA95B2E36825D0087E934 /* FeedbackWrite+InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+InfoView.swift"; sourceTree = "<group>"; };
+		EE1BA95F2E37A3CE0087E934 /* TopRoundedShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRoundedShape.swift; sourceTree = "<group>"; };
 		EE3754AE2E1D7B36009AD262 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContentType.swift; sourceTree = "<group>"; };
 		EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackContent.swift; sourceTree = "<group>"; };
@@ -254,13 +258,6 @@
 			path = ChannelDetail;
 			sourceTree = "<group>";
 		};
-		EC9959B42E24FDE0001555B1 /* SubView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SubView;
-			sourceTree = "<group>";
-		};
 		EC9959B52E251368001555B1 /* ChannelEdit */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +361,7 @@
 				EE7F0DAF2E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift */,
 				EE7F0DAC2E35092A00B1C122 /* FeedbackWrite+ContentView.swift */,
 				EE1BA9572E35F8880087E934 /* FeedbackWrite+WriteView.swift */,
+				EE1BA95B2E36825D0087E934 /* FeedbackWrite+InfoView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -380,7 +378,6 @@
 		EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */ = {
 			isa = PBXGroup;
 			children = (
-				EC9959B42E24FDE0001555B1 /* SubView */,
 				EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */,
 				EE465EF72E2632B20096109A /* ChannelCreateCompleteView.swift */,
 			);
@@ -573,6 +570,7 @@
 		EEC047172E2E1CF900918BAA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EE1BA95F2E37A3CE0087E934 /* TopRoundedShape.swift */,
 				EEC048742E2E914800918BAA /* SpeechView.swift */,
 				EE82C6162E35F80D0081B845 /* SplitView.swift */,
 				EC6A4CA02E34D5660087DB5C /* ToastView.swift */,
@@ -717,6 +715,7 @@
 				EE41FD7D2E223D050002E595 /* InputNickNameView.swift in Sources */,
 				EC6A4CA12E34D5660087DB5C /* ToastView.swift in Sources */,
 				EE465EFC2E2650970096109A /* MainView.swift in Sources */,
+				EE1BA9602E37A3D20087E934 /* TopRoundedShape.swift in Sources */,
 				EE7F0DB02E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift in Sources */,
 				EEB902CF2E260C7100C71DF9 /* StartNavigationRoutingView.swift in Sources */,
 				EE465EF22E2631840096109A /* FeedbackWriteCompleteView.swift in Sources */,
@@ -753,6 +752,7 @@
 				ECDF172E2E2E8F6400964391 /* ProfileView.swift in Sources */,
 				EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */,
 				EC94C0F32E3746130020E59D /* GPTManger.swift in Sources */,
+				EE1BA95C2E3682640087E934 /* FeedbackWrite+InfoView.swift in Sources */,
 				EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */,
 				ECC980AC2E28E91E004A483B /* DeepLinkManager.swift in Sources */,
 				EE856A492E1CD2D7006820B9 /* Feedback.swift in Sources */,
