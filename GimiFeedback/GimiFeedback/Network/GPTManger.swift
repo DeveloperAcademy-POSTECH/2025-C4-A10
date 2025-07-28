@@ -43,8 +43,7 @@ final class GPTManger {
     
     func sendChatCompletion(inputText: String) async throws -> String {
         /// API키와 URL 설정
-        //        let apiKey = Bundle.gptApiKey
-        let apiKey = "Bundle.gptApiKey"
+        let apiKey = Bundle.gptApiKey
         
         guard let url =  URL(string: "https://api.openai.com/v1/chat/completions") else { return "" }
         
