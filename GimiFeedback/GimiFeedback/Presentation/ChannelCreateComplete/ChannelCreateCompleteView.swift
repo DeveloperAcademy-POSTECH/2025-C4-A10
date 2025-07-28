@@ -51,6 +51,7 @@ struct ChannelCreateCompleteView: View {
                     Spacer()
                     
                     Button(action: {
+                        viewModel.showToast = true
                         UIPasteboard.general.string = channelID
                     }) {
                         Image(systemName: "document.on.document")
@@ -105,6 +106,12 @@ struct ChannelCreateCompleteView: View {
             .padding(.bottom, 40)
         }
         .navigationBarBackButtonHidden()
+        .overlay {
+            if viewModel.showToast {
+                ToastView(style: .basic(message: "코드가 복사되었습니다."), isPresented: $viewModel.showToast)
+                    .offset(y: 279)
+            }
+        }
     }
 }
 
