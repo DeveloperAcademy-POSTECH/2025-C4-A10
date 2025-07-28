@@ -3,12 +3,12 @@ import Foundation
 import Hub
 import Tokenizers
 
-public class EncoderTokenizer {
+class EncoderTokenizer {
     private let tokenizer: Tokenizer
     private let maxLength: Int
     private let padTokenId: Int
 
-    public init?() async throws {
+    init?() async throws {
         do {
             // MARK: Preview 모드 체크 - 토크나이저 파일이 없으면 nil 반환
             guard

@@ -8,11 +8,11 @@
 import CoreML
 import Foundation
 
-public class SequenceClassifier {
+class SequenceClassifier {
     private let model: MLModel
     private let tokenizer: EncoderTokenizer
 
-    public init?(modelNameOrPath: String) async throws {
+    init?(modelNameOrPath: String) async throws {
         do {
             // MARK: 토크나이저 초기화
             guard let tokenizer = try await EncoderTokenizer() else {
@@ -49,7 +49,7 @@ public class SequenceClassifier {
     }
 
     // MARK: 실제 모델을 추론하는 함수
-    public func predict(text: String) -> MLFeatureProvider? {
+    func predict(text: String) -> MLFeatureProvider? {
         do {
             // MARK: 1. text를 token id로 변경
             let inputFeatures: [String: MLFeatureValue] = try self.tokenizer.encode_plus(text: text)
