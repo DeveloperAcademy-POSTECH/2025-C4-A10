@@ -14,20 +14,6 @@ extension FeedbackWriteView {
         
         var body: some View {
             VStack(spacing: 0) {
-//                HStack {
-//                    Spacer()
-//                    
-//                    Button {
-//                        action()
-//                    } label: {
-//                        Image(systemName: "xmark")
-//                            .resizable()
-//                            .frame(width: 21, height: 24)
-//                            .foregroundStyle(.black)
-//                            .padding(.top, 20)
-//                            .padding(.trailing, 20)
-//                    }
-//                }
                 TabView(selection: $selectedTab) {
                     ForEach(InfoEums.allCases) { item in
                         item.image
@@ -45,7 +31,7 @@ extension FeedbackWriteView {
 }
 
 enum InfoEums: Int, CaseIterable, Identifiable {
-    case one, two, three
+    case one, two
     
     var id: Int { rawValue }
     
@@ -55,8 +41,6 @@ enum InfoEums: Int, CaseIterable, Identifiable {
             Image(.guideImage1)
         case .two:
             Image(.guideImage2)
-        case .three:
-            Image(.guideImage3)
         }
     }
 }
