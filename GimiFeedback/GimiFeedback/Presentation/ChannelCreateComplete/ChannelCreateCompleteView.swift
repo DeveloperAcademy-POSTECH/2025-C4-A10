@@ -58,7 +58,7 @@ struct ChannelCreateCompleteView: View {
                     }
                 }
                 .padding()
-                .frame(maxWidth: .infinity, maxHeight: 44)
+                .frame(width: 356, height: 44)
                 .background(.gray50)
                 .overlay(
                     RoundedRectangle(cornerRadius: 5)
@@ -75,7 +75,8 @@ struct ChannelCreateCompleteView: View {
                         Text("카카오로 초대장 보내기")
                             .font(.callout2)
                             .foregroundColor(.black)
-                            .padding()
+                            .padding(.horizontal, 79)
+                            .padding(.vertical, 12)
                             .frame(width: 296, height: 48)
                             .background(.kakao)
                             .cornerRadius(10)
@@ -86,8 +87,8 @@ struct ChannelCreateCompleteView: View {
                             .font(.system(size: 20, weight: .regular))
                             .foregroundColor(.black)
                             .padding()
-                            .background(.gray100)
                             .frame(width: 48, height: 48)
+                            .background(.gray100)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                 }
