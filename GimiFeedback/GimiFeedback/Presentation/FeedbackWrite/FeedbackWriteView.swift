@@ -20,7 +20,7 @@ struct FeedbackWriteView: View {
         _viewModel = StateObject(
             wrappedValue: .init(
                 feedbackChannel: feedbackChannel,
-                nickName: inputNickName,
+                nickName: inputNickName
             )
         )
         self.onComplete = onComplete
