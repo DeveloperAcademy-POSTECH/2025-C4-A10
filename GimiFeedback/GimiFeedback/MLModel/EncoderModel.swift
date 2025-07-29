@@ -12,18 +12,11 @@ class SequenceClassifier {
     private let model: MLModel
     private let tokenizer: EncoderTokenizer
 
-    init?(modelNameOrPath: String) async throws {
+    init(modelNameOrPath: String) throws {
         do {
             // MARK: 토크나이저 초기화
-            guard let tokenizer = try await EncoderTokenizer() else {
-                throw NSError(
-                    domain: "TokenizerInitError",
-                    code: 0,
-                    userInfo: [NSLocalizedDescriptionKey: "Failed to initialize tokenizer"]
-                )
-            }
+            let tokenizer = try EncoderTokenizer()
             self.tokenizer = tokenizer
-            print("✅ Successfully initialized tokenizer")
 
             // MARK: 모델 초기화 from .mlmodelc bundle
             guard let bundleModelURL = Bundle.main.url(
@@ -35,10 +28,8 @@ class SequenceClassifier {
                     userInfo: [NSLocalizedDescriptionKey: "Model not found in mlmodelc bundle"]
                 )
             }
+            
             self.model = try MLModel(contentsOf: bundleModelURL)
-            print("✅ Successfully initialized model")
-            print("Model inputs: \(model.modelDescription.inputDescriptionsByName)")
-            print("Model outputs: \(model.modelDescription.outputDescriptionsByName)")
         } catch {
             throw NSError(
                 domain: "ModelInitError",
@@ -52,7 +43,7 @@ class SequenceClassifier {
     func predict(text: String) -> MLFeatureProvider? {
         do {
             // MARK: 1. text를 token id로 변경
-            let inputFeatures: [String: MLFeatureValue] = try self.tokenizer.encode_plus(text: text)
+            let inputFeatures: [String: MLFeatureValue] = try tokenizer.encodePlus(text: text)
 
             // MARK: 2. input features에서 feature provider를 생성
             let provider: MLDictionaryFeatureProvider = try MLDictionaryFeatureProvider(
@@ -62,7 +53,7 @@ class SequenceClassifier {
             
             return prediction
         } catch {
-            print("❌ Prediction error: \(error)")
+            print("Prediction error: \(error)")
             return nil
         }
     }
