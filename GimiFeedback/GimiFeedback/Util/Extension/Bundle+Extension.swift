@@ -17,4 +17,7 @@ extension Bundle {
         Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] as? String ?? ""
     }
 
+    static var gptApiKey: String {
+        Bundle.main.infoDictionary?["GPT_API_KEY"] as? String ?? ""
+    }
 }

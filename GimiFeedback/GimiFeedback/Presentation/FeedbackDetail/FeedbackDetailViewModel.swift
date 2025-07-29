@@ -14,6 +14,7 @@ final class FeedbackDetailViewModel: ViewModelable {
         case visualizeDetail(detail: FeedbackContent)
         case updateFeedbackVisibility
         case updateToast
+        case transContent(FeedbackContent)
     }
     
     var feedbackItem: Feedback
@@ -43,6 +44,8 @@ final class FeedbackDetailViewModel: ViewModelable {
                 isShowToast = true
                 UserDefaults.standard.saveGuideToast()
             }
+        case .transContent(let content):
+            transFeedbackContent(content: content)
         }
     }
 }
@@ -73,6 +76,27 @@ extension FeedbackDetailViewModel {
         
         Task {
             isLoading = true
+            do {
+                try await FirestoreManager.shared.update(feedbackItem)
+            } catch {
+                errorMessage = "원문 표시 실패: \(error.localizedDescription)"
+                print("원문 표시 실패: \(error.localizedDescription)")
+            }
+            isLoading = false
+        }
+    }
+    
+    private func transFeedbackContent(content: FeedbackContent) {
+        Task {
+            isLoading = true
+            let response = try await GPTManger.shared.sendChatCompletion(inputText: content.content)
+                    
+            guard let index = feedbackItem.content.firstIndex(where: { $0.id == content.id }) else { return }
+            
+            feedbackItem.content[index].transContent = response
+            
+            continueFeedbackList = feedbackItem.content.filter { $0.type == .typeContinue }
+            stopFeedbackList = feedbackItem.content.filter { $0.type == .typeStop }
             do {
                 try await FirestoreManager.shared.update(feedbackItem)
             } catch {
