@@ -35,7 +35,7 @@ extension ChannelDetailView {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 16)
-                .background(item.visiable ? Color.white : Color("BrandGreen-100"))
+                .background(item.visiable ? .white : .brandGreen100)
                 .onTapGesture {
                     onTapAction()
                 }

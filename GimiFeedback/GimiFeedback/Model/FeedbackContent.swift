@@ -13,19 +13,22 @@ struct FeedbackContent: Codable, Identifiable, Hashable {
     let spicy: Int // 매운 맛 단계
     var visiable: Bool
     let type: FeedbackContentType
+    var transContent: String?
     
     init(
         id: UUID = UUID(),
         content: String,
         spicy: Int,
         visiable: Bool = false,
-        type: FeedbackContentType
+        type: FeedbackContentType,
+        transContent: String? = nil
     ) {
         self.id = id
         self.content = content
         self.spicy = spicy
         self.visiable = visiable
         self.type = type
+        self.transContent = transContent
     }
 }
 
