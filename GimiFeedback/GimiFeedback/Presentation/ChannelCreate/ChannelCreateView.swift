@@ -18,13 +18,10 @@ struct ChannelCreateView: View {
     }
     
     var body: some View {
-        VStack {
-            VStack(alignment: .leading) {
-                TitleSectionView(title: $viewModel.title)
-                
-                DescriptionSectionView(description: $viewModel.description,)
-            }
-            .padding(.horizontal, 20)
+        VStack(alignment: .leading) {
+            TitleSectionView(title: $viewModel.title)
+            
+            DescriptionSectionView(description: $viewModel.description)
             
             Spacer()
             
@@ -33,9 +30,9 @@ struct ChannelCreateView: View {
             }
             .buttonStyle(.gimiPrimary)
             .disabled(viewModel.buttonDisabled)
-            .padding(.horizontal, 20)
             .padding(.bottom, 40)
         }
+        .padding(.horizontal, 20)
         .gimiNavigationBar(title: "채널 생성하기")
         .alert("채널 생성하기", isPresented: $showCreateAlert) {
             Button("취소", role: .cancel) { }
