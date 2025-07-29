@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D7BFA2A2E3378E40056C579 /* TitleSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7BFA292E3378E40056C579 /* TitleSectionView.swift */; };
+		0D7BFA2C2E34ED810056C579 /* DescriptionSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7BFA2B2E34ED810056C579 /* DescriptionSectionView.swift */; };
 		0DC2A3D52E263E1500FF91BC /* FeedbackDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2A3D42E263E1500FF91BC /* FeedbackDetailViewModel.swift */; };
 		D306027D2E377E8400908D1D /* Transformers in Frameworks */ = {isa = PBXBuildFile; productRef = D306027C2E377E8400908D1D /* Transformers */; };
 		D30602862E377E9700908D1D /* EncoderTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30602822E377E9700908D1D /* EncoderTokenizer.swift */; };
@@ -114,6 +116,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D7BFA292E3378E40056C579 /* TitleSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSectionView.swift; sourceTree = "<group>"; };
+		0D7BFA2B2E34ED810056C579 /* DescriptionSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionSectionView.swift; sourceTree = "<group>"; };
 		0DC2A3D42E263E1500FF91BC /* FeedbackDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailViewModel.swift; sourceTree = "<group>"; };
 		D30602812E377E9700908D1D /* EncoderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoderModel.swift; sourceTree = "<group>"; };
 		D30602822E377E9700908D1D /* EncoderTokenizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoderTokenizer.swift; sourceTree = "<group>"; };
@@ -234,6 +238,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D7BFA282E3378CB0056C579 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				0D7BFA292E3378E40056C579 /* TitleSectionView.swift */,
+				0D7BFA2B2E34ED810056C579 /* DescriptionSectionView.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		0DC2A4382E2A213F00FF91BC /* SubView */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +430,7 @@
 		EE82DF992E24D5B500EC1AFF /* ChannelCreate */ = {
 			isa = PBXGroup;
 			children = (
+				0D7BFA282E3378CB0056C579 /* SubView */,
 				EE82DF9C2E24D5D400EC1AFF /* ChannelCreateViewModel.swift */,
 				EE82DF9A2E24D5C900EC1AFF /* ChannelCreateView.swift */,
 			);
@@ -753,6 +767,7 @@
 				EC6A4C992E336DA40087DB5C /* FeedbackDetail+FeedbackRowView.swift in Sources */,
 				EC9959B22E24E646001555B1 /* ChannelDetailView.swift in Sources */,
 				EC6A4C8A2E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift in Sources */,
+				0D7BFA2C2E34ED810056C579 /* DescriptionSectionView.swift in Sources */,
 				EE61A4342E3361550079E7A6 /* CustomPaddingModifier.swift in Sources */,
 				EE465EEE2E2630F20096109A /* ChannelEditView.swift in Sources */,
 				EEA0BBB62E2D41C6009A25D8 /* DeepLinkViewModel.swift in Sources */,
@@ -807,6 +822,7 @@
 				EEC048732E2E331400918BAA /* GimiTextEditorModifier.swift in Sources */,
 				EEC04A022E3352A000918BAA /* View+Extension.swift in Sources */,
 				ECDF172E2E2E8F6400964391 /* ProfileView.swift in Sources */,
+				0D7BFA2A2E3378E40056C579 /* TitleSectionView.swift in Sources */,
 				EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */,
 				EC94C0F32E3746130020E59D /* GPTManger.swift in Sources */,
 				EE1BA95C2E3682640087E934 /* FeedbackWrite+InfoView.swift in Sources */,

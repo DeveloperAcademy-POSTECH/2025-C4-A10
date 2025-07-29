@@ -16,6 +16,12 @@ final class ChannelCreateViewModel: ViewModelable {
     @Published var title: String = ""
     @Published var description: String = ""
     @Published var createdChannelID: String?
+    var buttonDisabled: Bool {
+        title.isEmpty
+    }
+    var messageContent: String {
+        description.isEmpty ? "입력한 정보로 채널을 생성합니다\n설명이 없다면 기본 문구가 사용돼요." : "입력한 정보로 채널을 생성합니다."
+    }
 
     @Published private(set) var isLoading: Bool = false
 
@@ -38,7 +44,7 @@ extension ChannelCreateViewModel {
                 userID: FirebaseAuthManager.currentUserID,
                 userName: FirebaseAuthManager.userNickName,
                 channelTitle: title,
-                content: description
+                content: description.isEmpty ? "자유롭게 피드백을 남겨주세요" : description
             )
             
             do {
