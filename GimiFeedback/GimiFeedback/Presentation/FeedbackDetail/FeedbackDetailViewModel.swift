@@ -15,6 +15,7 @@ final class FeedbackDetailViewModel: ViewModelable {
         case updateFeedbackVisibility
         case updateToast
         case transContent(FeedbackContent)
+        case updateCardState(FeedbackContent)
     }
     
     var feedbackItem: Feedback
@@ -46,6 +47,8 @@ final class FeedbackDetailViewModel: ViewModelable {
             }
         case .transContent(let content):
             transFeedbackContent(content: content)
+        case .updateCardState(let detail):
+            updateCardState(detail: detail)
         }
     }
 }
@@ -97,6 +100,26 @@ extension FeedbackDetailViewModel {
             
             continueFeedbackList = feedbackItem.content.filter { $0.type == .typeContinue }
             stopFeedbackList = feedbackItem.content.filter { $0.type == .typeStop }
+            do {
+                try await FirestoreManager.shared.update(feedbackItem)
+            } catch {
+                errorMessage = "원문 표시 실패: \(error.localizedDescription)"
+                print("원문 표시 실패: \(error.localizedDescription)")
+            }
+            isLoading = false
+        }
+    }
+    
+    private func updateCardState(detail: FeedbackContent) {
+        guard let index = feedbackItem.content.firstIndex(where: { $0.id == detail.id }) else { return }
+        
+        feedbackItem.content[index].cardState = detail.cardState
+        
+        continueFeedbackList = feedbackItem.content.filter { $0.type == .typeContinue }
+        stopFeedbackList = feedbackItem.content.filter { $0.type == .typeStop }
+        
+        Task {
+            isLoading = true
             do {
                 try await FirestoreManager.shared.update(feedbackItem)
             } catch {

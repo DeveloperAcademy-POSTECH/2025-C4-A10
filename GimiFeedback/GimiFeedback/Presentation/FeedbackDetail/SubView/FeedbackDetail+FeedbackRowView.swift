@@ -7,23 +7,15 @@
 
 import SwiftUI
 
-enum FeedbackCardState {
-    case cover
-    case trans
-    case original
-}
-
 extension FeedbackDetailView {
     struct FeedbackRowView: View {
         @Binding var detail: FeedbackContent
         let onReveal: (FeedbackContent) -> Void
         let onTapTrans: () -> Void // transContent 값이 있으면 그냥 토글, 없으면 gpt로 변환
-
-        @State private var cardState: FeedbackCardState = .cover
-
+        
         var body: some View {
             ZStack {
-                switch cardState {
+                switch detail.cardState {
                 case .cover:
                     CoverView(
                         detail: detail,
@@ -32,9 +24,13 @@ extension FeedbackDetailView {
                             if detail.transContent == nil {
                                 onTapTrans()
                             }
-                            cardState = .trans
+                            detail.cardState = .trans
+                            onReveal(detail)
                         },
-                        onTapOriginalContent: { cardState = .original }
+                        onTapOriginalContent: {
+                            detail.cardState = .original
+                            onReveal(detail)
+                        }
                     )
 
                 case .trans:
@@ -43,8 +39,14 @@ extension FeedbackDetailView {
                         contentType: .trans,
                         contentText: detail.transContent,
                         buttonText: "원문 보기",
-                        onTapToggle: { cardState = .original },
-                        onTapContent: { cardState = .cover }
+                        onTapToggle: {
+                            detail.cardState = .original
+                            onReveal(detail)
+                        },
+                        onTapContent: {
+                            detail.cardState = .cover
+                            onReveal(detail)
+                        }
                     )
 
                 case .original:
@@ -57,9 +59,13 @@ extension FeedbackDetailView {
                             if detail.transContent == nil {
                                 onTapTrans()
                             }
-                            cardState = .trans
+                            detail.cardState = .trans
+                            onReveal(detail)
                         },
-                        onTapContent: { cardState = .cover }
+                        onTapContent: {
+                            detail.cardState = .cover
+                            onReveal(detail)
+                        }
                     )
                 }
             }
