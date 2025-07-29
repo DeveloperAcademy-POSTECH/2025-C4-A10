@@ -22,11 +22,12 @@ extension FeedbackDetailView {
         let onTapContent: () -> Void // 커버로 돌아가는
 
         var body: some View {
-            VStack(spacing: 0) {
+            VStack(spacing: .zero) {
                 if contentType == .trans && contentText == nil {
                     VStack(spacing: 12) {
                         ProgressView()
                             .frame(width: 30, height: 30)
+                            .scaleEffect(1.5)
                         Text("텍스트 변환중입니다...")
                             .font(.callout)
                             .foregroundStyle(detail.spicyColor)

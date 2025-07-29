@@ -20,7 +20,6 @@
 		EC6A4CA12E34D5660087DB5C /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4CA02E34D5660087DB5C /* ToastView.swift */; };
 		EC6A4CA32E34DBCC0087DB5C /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4CA22E34DBCC0087DB5C /* UserDefaults+Extension.swift */; };
 		EC6A4CA52E350B720087DB5C /* Spicy+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4CA42E350B720087DB5C /* Spicy+Extension.swift */; };
-		EC94C0F12E3745F80020E59D /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC94C0F02E3745F80020E59D /* Chat.swift */; };
 		EC94C0F32E3746130020E59D /* GPTManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC94C0F22E3746130020E59D /* GPTManger.swift */; };
 		EC94C0F92E37AAAC0020E59D /* FeedbackDetail+CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC94C0F82E37AAAC0020E59D /* FeedbackDetail+CoverView.swift */; };
 		EC94C0FB2E37AAC40020E59D /* FeedbackDetail+ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC94C0FA2E37AAC40020E59D /* FeedbackDetail+ContentView.swift */; };
@@ -118,7 +117,6 @@
 		EC6A4CA02E34D5660087DB5C /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		EC6A4CA22E34DBCC0087DB5C /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		EC6A4CA42E350B720087DB5C /* Spicy+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spicy+Extension.swift"; sourceTree = "<group>"; };
-		EC94C0F02E3745F80020E59D /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		EC94C0F22E3746130020E59D /* GPTManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTManger.swift; sourceTree = "<group>"; };
 		EC94C0F82E37AAAC0020E59D /* FeedbackDetail+CoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackDetail+CoverView.swift"; sourceTree = "<group>"; };
 		EC94C0FA2E37AAC40020E59D /* FeedbackDetail+ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackDetail+ContentView.swift"; sourceTree = "<group>"; };
@@ -464,7 +462,6 @@
 			isa = PBXGroup;
 			children = (
 				EE3755402E1E1102009AD262 /* FeedbackChannel.swift */,
-				EC94C0F02E3745F80020E59D /* Chat.swift */,
 				EE856A482E1CD2D1006820B9 /* Feedback.swift */,
 				EE37553E2E1E10F5009AD262 /* FeedbackContent.swift */,
 				EE37553C2E1E10DF009AD262 /* FeedbackContentType.swift */,
@@ -703,7 +700,6 @@
 				ECC980B52E294835004A483B /* KakaoShareManager.swift in Sources */,
 				EC6A4C842E31284F0087DB5C /* ChannelDetail+DescriptionView.swift in Sources */,
 				EC9959AC2E23EF1B001555B1 /* Date+Extension.swift in Sources */,
-				EC94C0F12E3745F80020E59D /* Chat.swift in Sources */,
 				EE465EF82E2632B20096109A /* ChannelCreateCompleteView.swift in Sources */,
 				EC6A4C8D2E3227120087DB5C /* ChannelEdit+TitleView.swift in Sources */,
 				EE465F022E26510A0096109A /* ChannelList+ListItemView.swift in Sources */,
