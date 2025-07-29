@@ -18,7 +18,7 @@ enum StartNavigationDestination: NavigationDestination {
 
 // MARK: Main
 enum MainNavigationDestination: NavigationDestination {
-    case profile
+    case updateNickName
     case channelDetail(channelItem: FeedbackChannel)
     case channelEdit(channelItem: FeedbackChannel)
     case feedbackDetail(feedback: Feedback)

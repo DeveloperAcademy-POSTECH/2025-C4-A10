@@ -16,8 +16,14 @@ struct MainNavigationRoutingView: View {
     var body: some View {
         Group {
             switch destination {
-            case .profile:
-                ProfileView()
+            case .updateNickName:
+                InputNickNameView(
+                    inputNickName: userViewModel.saveUserNickName,
+                    mode: .updateNickName
+                ) { updateNickName in
+                    userViewModel.send(.nickNameSave(updateNickName))
+                    router.pop()
+                }
             case .channelDetail(let channelItem):
                 ChannelDetailView(channelItem: channelItem)
             case .channelEdit(let channelItem):
