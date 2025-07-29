@@ -11,4 +11,4 @@ https://drive.google.com/file/d/1Rk0ybhFcr7wkdmV_NQw9hgYtPl_lzMEH/view?usp=shari
 
 4. update the model name
 
-<img width="2557" height="1412" alt="Image" src="https://github.com/user-attachments/assets/f6d778ce-c732-4932-a6d7-a0c7b626ee02" />
+<img width="2557" height="1412" alt="Image" src="https://github.com/user-attachments/assets/f6d778ce-c732-4932-a6d7-a0c7b626ee02" /><img width="2557" height="1412" alt="Image" src="https://github.com/user-attachments/assets/f6d778ce-c732-4932-a6d7-a0c7b626ee02" />
