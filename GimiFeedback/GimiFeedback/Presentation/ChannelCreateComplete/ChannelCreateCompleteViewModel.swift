@@ -12,6 +12,8 @@ final class ChannelCreateCompleteViewModel: ViewModelable {
         case shareToKakao(String)
     }
     
+    @Published var showToast: Bool = false
+    
     func send(_ action: Action) {
         switch action {
         case .shareToKakao(let channelID):

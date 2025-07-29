@@ -51,6 +51,9 @@ struct ChannelCreateCompleteView: View {
                     Spacer()
                     
                     Button(action: {
+                        withAnimation {
+                            viewModel.showToast = true
+                        }
                         UIPasteboard.general.string = channelID
                     }) {
                         Image(systemName: "document.on.document")
@@ -93,7 +96,6 @@ struct ChannelCreateCompleteView: View {
                     }
                 }
             }
-            .padding(.horizontal, 20)
             
             Spacer()
             
@@ -101,10 +103,17 @@ struct ChannelCreateCompleteView: View {
                 router.popToRootView()
             }
             .buttonStyle(.gimiPrimary)
-            .padding(.horizontal, 20)
-            .padding(.bottom, 40)
+            .padding(.bottom, 37)
         }
+        .padding(.horizontal, 20)
         .navigationBarBackButtonHidden()
+        .overlay(alignment: .bottom) {
+            if viewModel.showToast {
+                ToastView(style: .basic(message: "코드가 복사되었습니다."), isPresented: $viewModel.showToast)
+                    .padding(.bottom, 81)
+                    .transition(.move(edge: .bottom))
+            }
+        }
     }
 }
 
