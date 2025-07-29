@@ -40,6 +40,15 @@ struct FeedbackWriteView: View {
                     }
             }
         }
+        .alert(isPresented: .constant(viewModel.errorMessage != nil)) {
+            Alert(
+                title: Text("피드백 전송 실패"),
+                message: Text(viewModel.errorMessage ?? "알 수 없는 오류가 발생했어요."),
+                dismissButton: .default(Text("확인")) {
+                    viewModel.send(.clearError)
+                }
+            )
+        }
     }
 
     private var contentView: some View {
@@ -76,9 +85,7 @@ struct FeedbackWriteView: View {
         } message: {
             Text("이대로 피드백을 전송하시겠습니까?\n이 작업은 취소할 수 없습니다.")
         }
-        .onAppear {
-            UIApplication.shared.hideKeyboard()
-        }
+        .onAppear { UIApplication.shared.hideKeyboard() }
     }
 }
 

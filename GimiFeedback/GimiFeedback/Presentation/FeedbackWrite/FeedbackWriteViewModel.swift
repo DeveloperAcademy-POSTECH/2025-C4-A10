@@ -10,6 +10,7 @@ import Foundation
 final class FeedbackWriteViewModel: ViewModelable {
     enum Action {
         case feedbackWrite
+        case clearError
     }
     
     enum FeedbackWriteState {
@@ -46,7 +47,6 @@ final class FeedbackWriteViewModel: ViewModelable {
     func send(_ action: Action) {
         switch action {
         case .feedbackWrite:
-            
             Task {
                 status = .loading
                 
@@ -72,6 +72,8 @@ final class FeedbackWriteViewModel: ViewModelable {
                 
                 status = .success
             }
+        case .clearError:
+            status = .writing
         }
     }
     
