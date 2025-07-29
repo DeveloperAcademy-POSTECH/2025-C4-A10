@@ -151,3 +151,9 @@ iOSInjectionProject/
 **/GimiFeedback/MLWeights/*.mlpackage
 */GimiFeedback/MLModel/tokenizer/*.json
 **/GimiFeedback/MLModel/tokenizer/*.json
+GimiFeedback/GimiFeedback/MLModel/tokenizer/tokenizer.json
+
+*/tokenizer.json
+**/tokenizer.json
+*/tokenizer_config.json
+**/tokenizer_config.json
