@@ -48,7 +48,7 @@ extension ChannelListView {
             .alert("로그아웃 하시겠습니까?", isPresented: $logoutAlert) {
                 Button("취소", role: .cancel) {}
                 Button("로그아웃", role: .destructive) {
-                    userViewModel.send(.kakaoLogin)
+                    userViewModel.send(.kakaoLogout)
                 }
             } message: {
                 Text("현재 계정에서 로그아웃됩니다.")
