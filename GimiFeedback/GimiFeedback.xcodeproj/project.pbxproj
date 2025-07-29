@@ -77,7 +77,6 @@
 		EE61A4342E3361550079E7A6 /* CustomPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61A4332E33614F0079E7A6 /* CustomPaddingModifier.swift */; };
 		EE7898C22E38F8B800EC671C /* tokenizer_config.json in Resources */ = {isa = PBXBuildFile; fileRef = EE7898C12E38F8B800EC671C /* tokenizer_config.json */; };
 		EE7898C32E38F8B800EC671C /* tokenizer.json in Resources */ = {isa = PBXBuildFile; fileRef = EE7898C02E38F8B800EC671C /* tokenizer.json */; };
-		EE7898C52E38FC9200EC671C /* FeedbackWriteViewModel+ML.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7898C42E38FC8600EC671C /* FeedbackWriteViewModel+ML.swift */; };
 		EE7F0DAD2E35092A00B1C122 /* FeedbackWrite+ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F0DAC2E35092A00B1C122 /* FeedbackWrite+ContentView.swift */; };
 		EE7F0DB02E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F0DAF2E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift */; };
 		EE82C6172E35F80D0081B845 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82C6162E35F80D0081B845 /* SplitView.swift */; };
@@ -177,7 +176,6 @@
 		EE61A4332E33614F0079E7A6 /* CustomPaddingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPaddingModifier.swift; sourceTree = "<group>"; };
 		EE7898C02E38F8B800EC671C /* tokenizer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tokenizer.json; sourceTree = "<group>"; };
 		EE7898C12E38F8B800EC671C /* tokenizer_config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tokenizer_config.json; sourceTree = "<group>"; };
-		EE7898C42E38FC8600EC671C /* FeedbackWriteViewModel+ML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWriteViewModel+ML.swift"; sourceTree = "<group>"; };
 		EE7F0DAC2E35092A00B1C122 /* FeedbackWrite+ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+ContentView.swift"; sourceTree = "<group>"; };
 		EE7F0DAF2E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+HeaderView.swift"; sourceTree = "<group>"; };
 		EE82C6162E35F80D0081B845 /* SplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
@@ -328,7 +326,6 @@
 		EC9959BB2E2518AF001555B1 /* FeedbackWrite */ = {
 			isa = PBXGroup;
 			children = (
-				EE7898C42E38FC8600EC671C /* FeedbackWriteViewModel+ML.swift */,
 				D306028B2E377EC500908D1D /* FeedbackWriteView.swift */,
 				D306028C2E377EC500908D1D /* FeedbackWriteViewModel.swift */,
 				EE7F0DAA2E3508ED00B1C122 /* SubViews */,
@@ -764,7 +761,6 @@
 				EC6A4C8D2E3227120087DB5C /* ChannelEdit+TitleView.swift in Sources */,
 				EE465F022E26510A0096109A /* ChannelList+ListItemView.swift in Sources */,
 				EC9959BA2E25145B001555B1 /* FeedbackDetailView.swift in Sources */,
-				EE7898C52E38FC9200EC671C /* FeedbackWriteViewModel+ML.swift in Sources */,
 				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
 				EEC048752E2E916100918BAA /* SpeechView.swift in Sources */,
 				EEC0471A2E2E1D3B00918BAA /* GimiButtonStyle.swift in Sources */,

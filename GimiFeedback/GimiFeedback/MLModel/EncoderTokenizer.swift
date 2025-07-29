@@ -10,7 +10,7 @@ class EncoderTokenizer {
     
     init() throws {
         do {
-            // MARK: Preview 모드 체크 - 토크나이저 파일이 없으면 nil 반환
+            // MARK: 파일 확인
             guard
                 let tokenizerConfigURL = Bundle.main.url(
                     forResource: "tokenizer_config", withExtension: "json"),
@@ -24,25 +24,23 @@ class EncoderTokenizer {
                 )
             }
             
-            // MARK: 2. 파일 데이터 로드
+            // MARK: 파일 로드
+            /// 1. 파일 데이터 로드
+            /// 2. 객체 디코딩
             let tokenizerConfigData = try Data(contentsOf: tokenizerConfigURL)
             let tokenizerDataData = try Data(contentsOf: tokenizerDataURL)
-            
-            // MARK: 3. JSON → Config 객체 디코딩
             let tokenizerConfig = try JSONDecoder().decode(Config.self, from: tokenizerConfigData)
             let tokenizerData = try JSONDecoder().decode(Config.self, from: tokenizerDataData)
             
-            // MARK: 4. AutoTokenizer 생성
+            // MARK: 파라미터 생성
+            /// 1. AutoTokenizer 생성
+            /// 2. 모델 입력에 [PAD] 토큰을 추가하기 위한 [PAD] 토큰 ID
+            /// 3. maxLength 추출
             self.tokenizer = try AutoTokenizer.from(
                 tokenizerConfig: tokenizerConfig,
                 tokenizerData: tokenizerData
             )
-            
-            // MARK: 5. 모델 입력에 [PAD] 토큰을 추가하기 위한 [PAD] 토큰 ID
-            let data = try Self.findPadTokenId(from: tokenizerConfig) ?? 1
-            self.padTokenId = 1
-            
-            // MARK: 6. maxLength 추출
+            self.padTokenId = try Self.findPadTokenId(from: tokenizerConfig) ?? 1
             self.maxLength = tokenizerConfig["model_max_length"].integer(or: 512)
         } catch {
             throw NSError(
@@ -93,18 +91,16 @@ class EncoderTokenizer {
             )
         }
         
-        for (key, tokenConfig) in addedTokens {
-            if tokenConfig["content"].string() == "[PAD]" {
-                let keyString = key.string
-                if let keyInt = Int(keyString) {
-                    return keyInt
-                } else {
-                    throw NSError(
-                        domain: "IntConversionError",
-                        code: 0,
-                        userInfo: [NSLocalizedDescriptionKey: "'[PAD]' 키를 Int로 변환할 수 없습니다: \(keyString)"]
-                    )
-                }
+        for (key, tokenConfig) in addedTokens where tokenConfig["content"].string() == "[PAD]" {
+            let keyString = key.string
+            if let keyInt = Int(keyString) {
+                return keyInt
+            } else {
+                throw NSError(
+                    domain: "IntConversionError",
+                    code: 0,
+                    userInfo: [NSLocalizedDescriptionKey: "'[PAD]' 키를 Int로 변환할 수 없습니다: \(keyString)"]
+                )
             }
         }
         
