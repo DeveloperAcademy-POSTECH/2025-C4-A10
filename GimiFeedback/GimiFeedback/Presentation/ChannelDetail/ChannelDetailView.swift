@@ -5,6 +5,9 @@ struct ChannelDetailView: View {
     @StateObject var viewModel: ChannelDetailViewModel
     @EnvironmentObject var router: MainNavigationRouter
     @State private var isShowDeleteAlert: Bool = false
+    @State private var isShowSheet: Bool = false
+    @State private var isShowActivity: Bool = false
+    @State private var isShowToast: Bool = false
     
     init(channelItem: FeedbackChannel) {
         _viewModel = StateObject(wrappedValue: .init(channelItem: channelItem))
@@ -25,7 +28,7 @@ struct ChannelDetailView: View {
                 
                 /// 피드백 없을 때 화면
                 if viewModel.feedbackList.isEmpty {
-                    EmptyFeedbackView(channelId: viewModel.channelItem.id)
+                    EmptyFeedbackView(channelId: viewModel.channelItem.id, tapAction: { isShowSheet = true })
                 } else {
                     /// 피드백 있을 때 화면
                     FeedbackListView(
@@ -40,10 +43,11 @@ struct ChannelDetailView: View {
         .gimiNavigationBar(
             title: "\(viewModel.channelItem.channelTitle)",
             trailingItems: {
-                ShareLink(item: "gimifeedback://feedbackWrite/\(viewModel.channelItem.id)") {
+                Button(action: { isShowSheet = true }) {
                     Image(systemName: "square.and.arrow.up")
                         .foregroundStyle(.black)
                 }
+                
                 Button(action: { isShowDeleteAlert = true }) {
                     Image(systemName: "trash")
                         .foregroundStyle(.black)
@@ -51,7 +55,6 @@ struct ChannelDetailView: View {
             }
         )
         .alert("채널 삭제하기", isPresented: $isShowDeleteAlert) {
-            
             Button(action: {
                 isShowDeleteAlert = true
             }) {
@@ -67,6 +70,16 @@ struct ChannelDetailView: View {
             }
         } message: {
             Text("정말 삭제하시겠습니까?\n이 작업은 되돌릴 수 없습니다.")
+        }
+        .sheet(isPresented: $isShowSheet) {
+            ShareSheetView(
+                isSheet: $isShowSheet,
+                isShowToast: $isShowToast,
+                isShowActivity: $isShowActivity,
+                channelId: viewModel.channelItem.id.uuidString,
+                shareToKakaoAction: {
+                    viewModel.send(.shareToKakao(viewModel.channelItem.id.uuidString))
+                })
         }
         .onChange(of: viewModel.isDelete) { _, new in
             if new == true {

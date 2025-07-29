@@ -55,7 +55,6 @@ final class UserViewModel: ViewModelable {
                 await kakaoLogout()
                 if let logoutUserID = firebaseAuthLogout() {
                     await deleteUser(userID: logoutUserID)
-                    UserDefaults.standard.removeGuideToast()
                 }
             }
         case .nickNameSave(let inputNickName):

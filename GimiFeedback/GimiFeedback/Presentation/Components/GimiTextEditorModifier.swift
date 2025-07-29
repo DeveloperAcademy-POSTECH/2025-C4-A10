@@ -62,7 +62,7 @@ struct TextEditorLimitModifier: ViewModifier {
         content
             .overlay(alignment: .bottomTrailing) {
                 Text("(\(text.count) / \(maximumText))")
-                    .font(.system(size: 12))
+                    .font(.caption1)
                     .foregroundColor(.gray700)
                     .padding()
             }

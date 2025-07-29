@@ -51,10 +51,38 @@ extension TextFieldStyle where Self == GimiTextFieldStyle {
     }
 }
 
+/// 텍스트 필드 글자수 제한
+struct TextFieldLimitModifier: ViewModifier {
+    @Binding var text: String
+    let maximumText: Int
+    
+    func body(content: Content) -> some View {
+        content
+            .overlay(alignment: .trailing) {
+                Text("(\(text.count) / \(maximumText))")
+                    .font(.caption1)
+                    .foregroundColor(.gray700)
+                    .padding()
+            }
+            .onChange(of: text) { _, newValue in
+                if newValue.count > maximumText {
+                    text = String(newValue.prefix(maximumText))
+                }
+            }
+    }
+}
+
+extension View {
+    func textFieldLimit(text: Binding<String>, maximumText: Int) -> some View {
+        self.modifier(TextFieldLimitModifier(text: text, maximumText: maximumText))
+    }
+}
+
 #Preview {
     struct PreviewContainer: View {
         @State private var texts = ["", "test"]
         private let placeHolder = "PlaceHolder"
+        @State private var test = "12412421421421"
         
         var body: some View {
             VStack(spacing: 16) {
@@ -62,8 +90,9 @@ extension TextFieldStyle where Self == GimiTextFieldStyle {
                     TextField("test용 입니다.", text: $texts[index])
                         .textFieldStyle(.gimiBase)
                 }
-                TextField("제목 입력", text: .constant(""))
+                TextField("제목 입력", text: $test)
                     .textFieldStyle(.gimiTitle)
+                    .textFieldLimit(text: $test, maximumText: 15)
             }
             .padding()
             .background(.white)

@@ -31,6 +31,8 @@
 		EC6A4CA32E34DBCC0087DB5C /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4CA22E34DBCC0087DB5C /* UserDefaults+Extension.swift */; };
 		EC6A4CA52E350B720087DB5C /* Spicy+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4CA42E350B720087DB5C /* Spicy+Extension.swift */; };
 		EC7CBBEA2E38DCC8008A9CF4 /* FeedbackCardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7CBBE92E38DCC8008A9CF4 /* FeedbackCardState.swift */; };
+		EC7CBBEC2E3914FE008A9CF4 /* ChannelDetail+ShareButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7CBBEB2E3914FE008A9CF4 /* ChannelDetail+ShareButtonView.swift */; };
+		EC7CBBEE2E391551008A9CF4 /* ChannelDetail+ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7CBBED2E391551008A9CF4 /* ChannelDetail+ShareSheetView.swift */; };
 		EC94C0F32E3746130020E59D /* GPTManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC94C0F22E3746130020E59D /* GPTManger.swift */; };
 		EC94C0F92E37AAAC0020E59D /* FeedbackDetail+CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC94C0F82E37AAAC0020E59D /* FeedbackDetail+CoverView.swift */; };
 		EC94C0FB2E37AAC40020E59D /* FeedbackDetail+ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC94C0FA2E37AAC40020E59D /* FeedbackDetail+ContentView.swift */; };
@@ -139,6 +141,8 @@
 		EC6A4CA22E34DBCC0087DB5C /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		EC6A4CA42E350B720087DB5C /* Spicy+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spicy+Extension.swift"; sourceTree = "<group>"; };
 		EC7CBBE92E38DCC8008A9CF4 /* FeedbackCardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackCardState.swift; sourceTree = "<group>"; };
+		EC7CBBEB2E3914FE008A9CF4 /* ChannelDetail+ShareButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+ShareButtonView.swift"; sourceTree = "<group>"; };
+		EC7CBBED2E391551008A9CF4 /* ChannelDetail+ShareSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+ShareSheetView.swift"; sourceTree = "<group>"; };
 		EC94C0F22E3746130020E59D /* GPTManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTManger.swift; sourceTree = "<group>"; };
 		EC94C0F82E37AAAC0020E59D /* FeedbackDetail+CoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackDetail+CoverView.swift"; sourceTree = "<group>"; };
 		EC94C0FA2E37AAC40020E59D /* FeedbackDetail+ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackDetail+ContentView.swift"; sourceTree = "<group>"; };
@@ -295,6 +299,8 @@
 				EC6A4C852E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift */,
 				EC6A4C872E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift */,
 				EC6A4C892E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift */,
+				EC7CBBEB2E3914FE008A9CF4 /* ChannelDetail+ShareButtonView.swift */,
+				EC7CBBED2E391551008A9CF4 /* ChannelDetail+ShareSheetView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -778,6 +784,7 @@
 				EE465EF82E2632B20096109A /* ChannelCreateCompleteView.swift in Sources */,
 				EC6A4C8D2E3227120087DB5C /* ChannelEdit+TitleView.swift in Sources */,
 				EE465F022E26510A0096109A /* ChannelList+ListItemView.swift in Sources */,
+				EC7CBBEE2E391551008A9CF4 /* ChannelDetail+ShareSheetView.swift in Sources */,
 				EC9959BA2E25145B001555B1 /* FeedbackDetailView.swift in Sources */,
 				EE3756A32E1E602F009AD262 /* EntityRepresentable.swift in Sources */,
 				EEC048752E2E916100918BAA /* SpeechView.swift in Sources */,
@@ -833,6 +840,7 @@
 				EEDBB1BC2E28DEC100F16407 /* FCMManager.swift in Sources */,
 				EC6A4C862E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift in Sources */,
 				EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */,
+				EC7CBBEC2E3914FE008A9CF4 /* ChannelDetail+ShareButtonView.swift in Sources */,
 				D306028D2E377EC500908D1D /* FeedbackWriteView.swift in Sources */,
 				D306028E2E377EC500908D1D /* FeedbackWriteViewModel.swift in Sources */,
 				EE465F062E27B2420096109A /* InputCodeViewModel.swift in Sources */,

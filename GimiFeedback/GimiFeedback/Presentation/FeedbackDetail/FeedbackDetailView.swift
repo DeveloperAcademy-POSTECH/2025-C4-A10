@@ -63,7 +63,6 @@ struct FeedbackDetailView: View {
         }
         .onAppear {
             viewModel.send(.updateFeedbackVisibility)
-            viewModel.send(.updateToast)
         }
     }
 }

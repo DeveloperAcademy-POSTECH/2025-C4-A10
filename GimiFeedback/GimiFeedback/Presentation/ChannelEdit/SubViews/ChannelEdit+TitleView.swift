@@ -25,6 +25,7 @@ extension ChannelEditView {
                 
                 TextField("", text: $text)
                     .textFieldStyle(.gimiTitle)
+                    .textFieldLimit(text: $text, maximumText: 15)
                     .padding(.top, 10)
                     .focused(focusState, equals: field)
             }
