@@ -11,6 +11,8 @@ extension ChannelListView {
     struct HeaderView: View {
         @ObservedObject var router: MainNavigationRouter
         @EnvironmentObject var userViewModel: UserViewModel
+        @State private var logoutAlert: Bool = false
+        @State private var deleteMemberAlert: Bool = false
         
         var body: some View {
             HStack(spacing: 12) {
@@ -34,8 +36,8 @@ extension ChannelListView {
                 
                 Menu {
                     Button("닉네임 변경") {}
-                    Button("로그아웃") { userViewModel.send(.kakaoLogout) }
-                    Button("탈퇴하기", role: .destructive) {}
+                    Button("로그아웃") { logoutAlert = true }
+                    Button("탈퇴하기", role: .destructive) { deleteMemberAlert = true}
                 } label: {
                     Image(systemName: "person.crop.circle.fill")
                         .font(.system(size: 34))
@@ -43,6 +45,22 @@ extension ChannelListView {
                 }
             }
             .padding(.vertical, 16)
+            .alert("로그아웃 하시겠습니까?", isPresented: $logoutAlert) {
+                Button("취소", role: .cancel) {}
+                Button("로그아웃", role: .destructive) {
+                    userViewModel.send(.kakaoLogin)
+                }
+            } message: {
+                Text("현재 계정에서 로그아웃됩니다.")
+            }
+            .alert("정말 탈퇴하시겠습니까?", isPresented: $deleteMemberAlert) {
+                Button("취소", role: .cancel) { }
+                Button("탈퇴하기", role: .destructive) {
+                    // TODO: - 탈퇴하기 기능 넣기
+                }
+            } message: {
+                Text("탈퇴 시 계정 정보와 피드백이 모두 삭제됩니다.")
+            }
         }
     }
 }
