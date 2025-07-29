@@ -11,11 +11,11 @@
 		D306027D2E377E8400908D1D /* Transformers in Frameworks */ = {isa = PBXBuildFile; productRef = D306027C2E377E8400908D1D /* Transformers */; };
 		D30602862E377E9700908D1D /* EncoderTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30602822E377E9700908D1D /* EncoderTokenizer.swift */; };
 		D30602872E377E9700908D1D /* EncoderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30602812E377E9700908D1D /* EncoderModel.swift */; };
-		D306028A2E377EA100908D1D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D30602882E377EA100908D1D /* README.md */; };
+		D306028A2E377EA100908D1D /* MLREADME.md in Resources */ = {isa = PBXBuildFile; fileRef = D30602882E377EA100908D1D /* MLREADME.md */; };
 		D306028D2E377EC500908D1D /* FeedbackWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306028B2E377EC500908D1D /* FeedbackWriteView.swift */; };
 		D306028E2E377EC500908D1D /* FeedbackWriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306028C2E377EC500908D1D /* FeedbackWriteViewModel.swift */; };
 		D30602962E3782A200908D1D /* KcELECTRA-base-v2022.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = D30602952E3782A200908D1D /* KcELECTRA-base-v2022.mlpackage */; };
-		D36C43842E38A029006A027E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D36C43832E38A025006A027E /* README.md */; };
+		D36C43842E38A029006A027E /* TokenizerREADME.md in Resources */ = {isa = PBXBuildFile; fileRef = D36C43832E38A025006A027E /* TokenizerREADME.md */; };
 		EC6A4C842E31284F0087DB5C /* ChannelDetail+DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C832E31284F0087DB5C /* ChannelDetail+DescriptionView.swift */; };
 		EC6A4C862E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C852E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift */; };
 		EC6A4C882E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C872E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift */; };
@@ -76,6 +76,8 @@
 		EE465F062E27B2420096109A /* InputCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE465F052E27B23D0096109A /* InputCodeViewModel.swift */; };
 		EE61A4322E3360900079E7A6 /* ChannelList+HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61A4312E3360810079E7A6 /* ChannelList+HeaderView.swift */; };
 		EE61A4342E3361550079E7A6 /* CustomPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE61A4332E33614F0079E7A6 /* CustomPaddingModifier.swift */; };
+		EE7898C22E38F8B800EC671C /* tokenizer_config.json in Resources */ = {isa = PBXBuildFile; fileRef = EE7898C12E38F8B800EC671C /* tokenizer_config.json */; };
+		EE7898C32E38F8B800EC671C /* tokenizer.json in Resources */ = {isa = PBXBuildFile; fileRef = EE7898C02E38F8B800EC671C /* tokenizer.json */; };
 		EE7F0DAD2E35092A00B1C122 /* FeedbackWrite+ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F0DAC2E35092A00B1C122 /* FeedbackWrite+ContentView.swift */; };
 		EE7F0DB02E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F0DAF2E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift */; };
 		EE82C6172E35F80D0081B845 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82C6162E35F80D0081B845 /* SplitView.swift */; };
@@ -115,11 +117,11 @@
 		0DC2A3D42E263E1500FF91BC /* FeedbackDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailViewModel.swift; sourceTree = "<group>"; };
 		D30602812E377E9700908D1D /* EncoderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoderModel.swift; sourceTree = "<group>"; };
 		D30602822E377E9700908D1D /* EncoderTokenizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoderTokenizer.swift; sourceTree = "<group>"; };
-		D30602882E377EA100908D1D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D30602882E377EA100908D1D /* MLREADME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = MLREADME.md; sourceTree = "<group>"; };
 		D306028B2E377EC500908D1D /* FeedbackWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteView.swift; sourceTree = "<group>"; };
 		D306028C2E377EC500908D1D /* FeedbackWriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteViewModel.swift; sourceTree = "<group>"; };
 		D30602952E3782A200908D1D /* KcELECTRA-base-v2022.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = "KcELECTRA-base-v2022.mlpackage"; sourceTree = "<group>"; };
-		D36C43832E38A025006A027E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D36C43832E38A025006A027E /* TokenizerREADME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TokenizerREADME.md; sourceTree = "<group>"; };
 		EC6A4C832E31284F0087DB5C /* ChannelDetail+DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+DescriptionView.swift"; sourceTree = "<group>"; };
 		EC6A4C852E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+EmptyFeedbackView.swift"; sourceTree = "<group>"; };
 		EC6A4C872E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+FeedbackListView.swift"; sourceTree = "<group>"; };
@@ -174,6 +176,8 @@
 		EE465F052E27B23D0096109A /* InputCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCodeViewModel.swift; sourceTree = "<group>"; };
 		EE61A4312E3360810079E7A6 /* ChannelList+HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelList+HeaderView.swift"; sourceTree = "<group>"; };
 		EE61A4332E33614F0079E7A6 /* CustomPaddingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPaddingModifier.swift; sourceTree = "<group>"; };
+		EE7898C02E38F8B800EC671C /* tokenizer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tokenizer.json; sourceTree = "<group>"; };
+		EE7898C12E38F8B800EC671C /* tokenizer_config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tokenizer_config.json; sourceTree = "<group>"; };
 		EE7F0DAC2E35092A00B1C122 /* FeedbackWrite+ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+ContentView.swift"; sourceTree = "<group>"; };
 		EE7F0DAF2E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+HeaderView.swift"; sourceTree = "<group>"; };
 		EE82C6162E35F80D0081B845 /* SplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
@@ -245,7 +249,9 @@
 		D30602802E377E9700908D1D /* tokenizer */ = {
 			isa = PBXGroup;
 			children = (
-				D36C43832E38A025006A027E /* README.md */,
+				EE7898C02E38F8B800EC671C /* tokenizer.json */,
+				EE7898C12E38F8B800EC671C /* tokenizer_config.json */,
+				D36C43832E38A025006A027E /* TokenizerREADME.md */,
 			);
 			path = tokenizer;
 			sourceTree = "<group>";
@@ -264,7 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				D30602952E3782A200908D1D /* KcELECTRA-base-v2022.mlpackage */,
-				D30602882E377EA100908D1D /* README.md */,
+				D30602882E377EA100908D1D /* MLREADME.md */,
 			);
 			path = MLWeights;
 			sourceTree = "<group>";
@@ -325,8 +331,6 @@
 				D306028B2E377EC500908D1D /* FeedbackWriteView.swift */,
 				D306028C2E377EC500908D1D /* FeedbackWriteViewModel.swift */,
 				EE7F0DAA2E3508ED00B1C122 /* SubViews */,
-				EE465F6C2E27E8CC0096109A /* FeedbackWriteViewModel.swift */,
-				EE465EEF2E26317A0096109A /* FeedbackWriteView.swift */,
 				EE1BA9652E388D260087E934 /* LoadingView.swift */,
 			);
 			path = FeedbackWrite;
@@ -718,9 +722,11 @@
 				EE41FEE52E2256280002E595 /* Config.xcconfig in Resources */,
 				EE465EE92E26205D0096109A /* GoogleService-Info.plist in Resources */,
 				EE3754AF2E1D7B36009AD262 /* .swiftlint.yml in Resources */,
-				D36C43842E38A029006A027E /* README.md in Resources */,
+				D36C43842E38A029006A027E /* TokenizerREADME.md in Resources */,
 				EE856A382E1CD0F6006820B9 /* Assets.xcassets in Resources */,
-				D306028A2E377EA100908D1D /* README.md in Resources */,
+				D306028A2E377EA100908D1D /* MLREADME.md in Resources */,
+				EE7898C22E38F8B800EC671C /* tokenizer_config.json in Resources */,
+				EE7898C32E38F8B800EC671C /* tokenizer.json in Resources */,
 				EEA0BD112E2DF6E2009A25D8 /* SUIT-Variable.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -959,7 +965,7 @@
 				CODE_SIGN_ENTITLEMENTS = GimiFeedback/App/GimiFeedback.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 34X3BT977M;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -997,7 +1003,7 @@
 				CODE_SIGN_ENTITLEMENTS = GimiFeedback/App/GimiFeedback.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 34X3BT977M;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;

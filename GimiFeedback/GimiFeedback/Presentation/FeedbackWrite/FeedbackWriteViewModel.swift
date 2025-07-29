@@ -20,6 +20,7 @@ final class FeedbackWriteViewModel: ViewModelable {
         case loading
         case success
     }
+
     @Published var status: FeedbackWriteState = .writing
     @Published private(set) var errorMessage: String?
     
@@ -47,13 +48,11 @@ final class FeedbackWriteViewModel: ViewModelable {
     init(feedbackChannel: FeedbackChannel, nickName: String) {
         self.feedbackChannel = feedbackChannel
         self.nickName = nickName
-        Task {
-            do {
-                self.sequenceClassifier = try await SequenceClassifier(modelNameOrPath: modelNameOrPath)
-            } catch {
-                print("❌ Failed to initialize SequenceClassifier: \(error)")
-                self.sequenceClassifier = nil
-            }
+        do {
+            self.sequenceClassifier = try SequenceClassifier(modelNameOrPath: modelNameOrPath)
+        } catch {
+            print("Failed to initialize SequenceClassifier: \(error)")
+            self.sequenceClassifier = nil
         }
     }
     
@@ -63,7 +62,7 @@ final class FeedbackWriteViewModel: ViewModelable {
             Task {
                 status = .loading
                 
-                let feedbackContents = await createContent()
+                let feedbackContents = createContent()
                 
                 print("생성된 피드백 콘텐츠:", feedbackContents)
                 
@@ -87,19 +86,16 @@ final class FeedbackWriteViewModel: ViewModelable {
             }
         case .clearError:
             status = .writing
-            }
         }
     }
     
-    private func createContent() async -> [FeedbackContent] {
+    private func createContent() -> [FeedbackContent] {
         var result: [FeedbackContent] = []
         
         let continueFeedbackTexts = continues
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             .filter { !$0.isEmpty }
-        
         let continueSpicyLevels = getSpicyLevel(feedbackTexts: continueFeedbackTexts)
-
         result += continueFeedbackTexts.enumerated().map { index, text in
             FeedbackContent(content: text, spicy: continueSpicyLevels[index], type: .typeContinue)
         }
@@ -107,9 +103,7 @@ final class FeedbackWriteViewModel: ViewModelable {
         let stopFeedbackTexts = stops
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             .filter { !$0.isEmpty }
-        
         let stopSpicyLevels = getSpicyLevel(feedbackTexts: stopFeedbackTexts)
-
         result += stopFeedbackTexts.enumerated().map { index, text in
             FeedbackContent(content: text, spicy: stopSpicyLevels[index], type: .typeStop)
         }
@@ -135,7 +129,51 @@ final class FeedbackWriteViewModel: ViewModelable {
         
         return spicyLevels
     }
+    
+    private func saveFeedbackToFirestore(to feedback: Feedback) async {
+        do {
+            let saveFeedback = try await FirestoreManager.shared.create(feedback)
+            
+            createdFeedback = saveFeedback
+        } catch {
+            print("생성을 실패했습니다 \(error.localizedDescription)")
+            errorMessage = error.localizedDescription
+        }
+    }
+    
+    // MARK: - 모델 추론
+    /// 1. 텍스트 전처리(preprocess)
+    /// 2. 실제 모델 추론(predict)
+    /// 2. 모델 결과물 후처리(postprocess)
+    private func predict(inputText: String) -> Int {
+        let preprocessedText = preprocess(text: inputText)
+        let prediction: MLFeatureProvider? = sequenceClassifier?.predict(text: preprocessedText)
+        let postprocessedResult: Int = postprocess(prediction: prediction)
 
+        return postprocessedResult
+    }
+
+    private func preprocess(text: String) -> String {
+        let preprocessedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        return preprocessedText
+    }
+
+    private func postprocess(prediction: MLFeatureProvider?) -> Int {
+        guard let int64Value = prediction?.featureValue(for: "classLabel")?.int64Value else {
+            print("❌ classLabel 값을 가져올 수 없습니다")
+            errorMessage = "classLabel 값을 가져올 수 없습니다"
+            return -1
+        }
+        
+        let classLabelValue = Int(int64Value)
+
+        return classLabelValue
+    }
+    
+    // MARK: - 문단을 문장 단위로 정확히 분리하고 문장부호까지 복원하는 유틸리티
+    /// 입력된 문단 문자열을 '.', '!', '?' 등 문장부호 기준으로 분리
+    /// 각 문장의 문장부호를 원문에서 복원하여 완전한 문장 리스트를 반환
     private func splitParagraphIntoSentences(_ paragraph: String) -> [String] {
         var sentences: [String] = []
         let splitSentences = splitParagraphWithSeparator(paragraph)
@@ -215,45 +253,5 @@ final class FeedbackWriteViewModel: ViewModelable {
 
         let sentenceWithPunctuation = sentence + punctuationPattern
         return (sentenceWithPunctuation, checkPos)
-    }
-    
-    private func saveFeedbackToFirestore(to feedback: Feedback) async {
-        do {
-            let saveFeedback = try await FirestoreManager.shared.create(feedback)
-            
-            createdFeedback = saveFeedback
-        } catch {
-            print("생성을 실패했습니다 \(error.localizedDescription)")
-            errorMessage = error.localizedDescription
-        }
-    }
-    
-    // MARK: - 모델 추론 과정
-    func predict(inputText: String) -> Int {
-        let preprocessedText = preprocess(text: inputText)
-        let prediction: MLFeatureProvider? = sequenceClassifier?.predict(text: preprocessedText)
-        let postprocessedResult: Int = postprocess(prediction: prediction)
-
-        return postprocessedResult
-    }
-
-    // MARK: - 텍스트 전처리 과정
-    private func preprocess(text: String) -> String {
-        let preprocessedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        return preprocessedText
-    }
-
-    // MARK: - 모델 결과물 후처리 과정
-    private func postprocess(prediction: MLFeatureProvider?) -> Int {
-        guard let int64Value = prediction?.featureValue(for: "classLabel")?.int64Value else {
-            print("❌ classLabel 값을 가져올 수 없습니다")
-            errorMessage = "classLabel 값을 가져올 수 없습니다"
-            return -1
-        }
-        
-        let classLabelValue = Int(int64Value)
-
-        return classLabelValue
     }
 }
