@@ -14,6 +14,7 @@ struct FeedbackContent: Codable, Identifiable, Hashable {
     var visiable: Bool
     let type: FeedbackContentType
     var transContent: String?
+    var cardState: FeedbackCardState
     
     init(
         id: UUID = UUID(),
@@ -21,7 +22,8 @@ struct FeedbackContent: Codable, Identifiable, Hashable {
         spicy: Int,
         visiable: Bool = false,
         type: FeedbackContentType,
-        transContent: String? = nil
+        transContent: String? = nil,
+        cardState: FeedbackCardState = .cover
     ) {
         self.id = id
         self.content = content
@@ -29,6 +31,7 @@ struct FeedbackContent: Codable, Identifiable, Hashable {
         self.visiable = visiable
         self.type = type
         self.transContent = transContent
+        self.cardState = cardState
     }
 }
 
