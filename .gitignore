@@ -149,3 +149,5 @@ iOSInjectionProject/
 **/GimiFeedback.entitlements
 */GimiFeedback/MLWeights/*.mlpackage
 **/GimiFeedback/MLWeights/*.mlpackage
+*/GimiFeedback/MLModel/tokenizer/*.json
+**/GimiFeedback/MLModel/tokenizer/*.json
