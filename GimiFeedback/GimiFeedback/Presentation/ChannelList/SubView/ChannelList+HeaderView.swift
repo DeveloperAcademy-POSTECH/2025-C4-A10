@@ -12,7 +12,7 @@ extension ChannelListView {
         @ObservedObject var router: MainNavigationRouter
         
         var body: some View {
-            HStack {
+            HStack(spacing: 12) {
                 Image(.gimme)
                     .resizable()
                     .frame(width: 115, height: 25)
@@ -22,24 +22,27 @@ extension ChannelListView {
                 Button(action: {
                     router.push(to: .inputCode)
                 }) {
-                    Text("코드 입력하기")
-                        .font(.system(size: 14, weight: .semibold))
+                    Text("피드백 주러가기")
+                        .font(.title4)
                         .padding(.vertical, 8)
-                        .padding(.horizontal, 16)
-                        .background(Color.green.opacity(0.2))
-                        .foregroundColor(.green)
+                        .padding(.horizontal, 12)
+                        .background(Color.primaryLighten300)
+                        .foregroundColor(.primaryBase)
                         .clipShape(Capsule())
                 }
                 Button(action: {
                     router.push(to: .profile)
                 }) {
                     Image(systemName: "person.crop.circle.fill")
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                        .foregroundColor(.green)
+                        .font(.system(size: 34))
+                        .foregroundColor(.primaryLighten300)
                 }
             }
             .padding(.vertical, 16)
         }
     }
+}
+
+#Preview {
+    ChannelListView.HeaderView(router: MainNavigationRouter())
 }
