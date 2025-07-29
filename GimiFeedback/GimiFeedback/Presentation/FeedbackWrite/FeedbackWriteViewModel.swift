@@ -40,25 +40,32 @@ final class FeedbackWriteViewModel: ViewModelable {
     func send(_ action: Action) {
         switch action {
         case .feedbackWrite:
-            let feedbackContents = createContent()
             
-            print("생성된 피드백 콘텐츠:", feedbackContents)
-            
-            let createdFeedback = Feedback(
-                feedbackChannelID: feedbackChannel.id,
-                readPerson: feedbackChannel.userID,
-                writePerson: nickName,
-                content: feedbackContents
-            )
-            
-            saveFeedbackToFirestore(to: createdFeedback)
-            
-            FCMManager.shared.sendNotification(
-                to: feedbackChannel.userID,
-                from: nickName,
-                title: feedbackChannel.channelTitle,
-                feedbackId: createdFeedback.id.uuidString
-            )
+            Task {
+                isLoading = true
+                
+                let feedbackContents = createContent()
+                
+                print("생성된 피드백 콘텐츠:", feedbackContents)
+                
+                let createdFeedback = Feedback(
+                    feedbackChannelID: feedbackChannel.id,
+                    readPerson: feedbackChannel.userID,
+                    writePerson: nickName,
+                    content: feedbackContents
+                )
+                
+                await saveFeedbackToFirestore(to: createdFeedback)
+                
+                FCMManager.shared.sendNotification(
+                    to: feedbackChannel.userID,
+                    from: nickName,
+                    title: feedbackChannel.channelTitle,
+                    feedbackId: createdFeedback.id.uuidString
+                )
+                
+                isLoading = false
+            }
         }
     }
     
@@ -78,18 +85,14 @@ final class FeedbackWriteViewModel: ViewModelable {
         return result
     }
     
-    private func saveFeedbackToFirestore(to feedback: Feedback) {
-        Task {
-            isLoading = true
-            do {
-                let saveFeedback = try await FirestoreManager.shared.create(feedback)
-                
-                createdFeedback = saveFeedback
-            } catch {
-                print("생성을 실패했습니다 \(error.localizedDescription)")
-                errorMessage = error.localizedDescription
-            }
-            isLoading = false
+    private func saveFeedbackToFirestore(to feedback: Feedback) async {
+        do {
+            let saveFeedback = try await FirestoreManager.shared.create(feedback)
+            
+            createdFeedback = saveFeedback
+        } catch {
+            print("생성을 실패했습니다 \(error.localizedDescription)")
+            errorMessage = error.localizedDescription
         }
     }
     
