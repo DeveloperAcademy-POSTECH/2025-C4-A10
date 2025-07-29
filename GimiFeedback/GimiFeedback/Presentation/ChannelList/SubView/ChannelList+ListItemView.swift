@@ -15,7 +15,7 @@ extension ChannelListView {
             VStack(alignment: .center, spacing: 0) {
                 Image(item.folderImageString)
                     .resizable()
-                    .frame(width: 120, height: 120)
+                    .frame(width: 150, height: 150)
                 
                 Text("\(item.channel.channelTitle)")
                     .font(.headline)
@@ -31,7 +31,7 @@ extension ChannelListView {
 #Preview {
     ChannelListView.ListItemView(
         item: FeedbackChannelInfo(
-            channel: .init(userID: "test", userName: "test", channelTitle: "test", content: "test"),
+            channel: .init(userID: "test", userName: "test", channelTitle: "사이드 프로젝트", content: "test"),
             feedbackCount: 3,
             visiableFeedback: false
         )
