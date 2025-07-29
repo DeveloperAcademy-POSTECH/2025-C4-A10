@@ -12,14 +12,17 @@ extension ChannelListView {
         let item: FeedbackChannelInfo
         
         var body: some View {
-            VStack(alignment: .center) {
+            VStack(alignment: .center, spacing: 0) {
                 Image(item.folderImageString)
                     .resizable()
-                    .frame(width: 85, height: 67)
+                    .frame(width: 120, height: 120)
                 
-                Text("title: \(item.channel.channelTitle)")
-                Text("총 피드백 \(item.feedbackCount)개")
-                    .foregroundStyle(Color.white)
+                Text("\(item.channel.channelTitle)")
+                    .font(.headline)
+                    .foregroundStyle(.black)
+                Text("\(item.feedbackCount)개의 피드백")
+                    .font(.caption)
+                    .foregroundStyle(.gray400)
             }
         }
     }

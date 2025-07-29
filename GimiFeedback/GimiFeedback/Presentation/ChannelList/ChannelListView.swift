@@ -18,7 +18,7 @@ struct ChannelListView: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 16) {
             HeaderView(router: router)
             
             ScrollView {
