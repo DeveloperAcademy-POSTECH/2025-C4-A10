@@ -23,6 +23,7 @@ struct TextEditorBaseModifier: ViewModifier {
         content
             .frame(maxWidth: .infinity)
             .padding(10)
+            .padding(.trailing, 15)
             .background(backgroundColor)
             .scrollContentBackground(.hidden)
             .cornerRadius(12)
@@ -135,7 +136,7 @@ extension View {
 
 #Preview {
     struct PreviewContainer: View {
-        @State private var texts = ["", "", "test"]
+        @State private var texts = ["", "", "ㅇㅁㄴㅇㅁㄴㅇㅁㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㄴㅁㅇㅁㄴㅇㅁㄴㅇㄴㅁㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴ"]
         private let placeHolder = "PlaceHolder"
         @State private var isDisabled = false
         
