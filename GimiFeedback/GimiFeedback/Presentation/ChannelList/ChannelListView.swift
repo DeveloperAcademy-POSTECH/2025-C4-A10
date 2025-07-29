@@ -18,7 +18,7 @@ struct ChannelListView: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 16) {
             HeaderView(router: router)
             
             ScrollView {
@@ -38,23 +38,32 @@ struct ChannelListView: View {
             ToolbarItemGroup(placement: .bottomBar) {
                 HStack {
                     Spacer()
-                    
-                    Text("\(viewModel.totalFeedbackCount)개")
-                    
-                    Spacer()
-                    
                     Button(action: {
                         router.push(to: .feedbackChannelCreate)
                     }) {
                         Image(systemName: "folder.badge.plus")
+                            .font(.system(size: 20))
+                            .foregroundColor(.primaryBase)
                     }
                 }
+                .frame(maxWidth: .infinity)
+                .overlay(
+                    Text("\(viewModel.totalFeedbackCount)개의 피드백")
+                        .font(.caption1)
+                        .foregroundStyle(.black),
+                    alignment: .center
+                )
             }
         }
-        .toolbarBackground(Color.gray.opacity(0.1), for: .bottomBar)
+        .toolbarBackground(.bottomBar, for: .bottomBar)
         .toolbarBackground(.visible, for: .bottomBar)
         .onAppear {
             viewModel.send(.fetchChannelList)
         }
     }
+}
+
+#Preview {
+    ChannelListView()
+        .environmentObject(MainNavigationRouter())
 }

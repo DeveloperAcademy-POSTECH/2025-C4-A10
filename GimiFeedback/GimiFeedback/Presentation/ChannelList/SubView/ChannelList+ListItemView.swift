@@ -12,15 +12,28 @@ extension ChannelListView {
         let item: FeedbackChannelInfo
         
         var body: some View {
-            VStack(alignment: .center) {
+            VStack(alignment: .center, spacing: 0) {
                 Image(item.folderImageString)
                     .resizable()
-                    .frame(width: 85, height: 67)
+                    .frame(width: 150, height: 150)
                 
-                Text("title: \(item.channel.channelTitle)")
-                Text("총 피드백 \(item.feedbackCount)개")
-                    .foregroundStyle(Color.white)
+                Text("\(item.channel.channelTitle)")
+                    .font(.headline)
+                    .foregroundStyle(.black)
+                Text("\(item.feedbackCount)개의 피드백")
+                    .font(.caption)
+                    .foregroundStyle(.gray400)
             }
         }
     }
+}
+
+#Preview {
+    ChannelListView.ListItemView(
+        item: FeedbackChannelInfo(
+            channel: .init(userID: "test", userName: "test", channelTitle: "사이드 프로젝트", content: "test"),
+            feedbackCount: 3,
+            visiableFeedback: false
+        )
+    )
 }
