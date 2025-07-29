@@ -8,7 +8,7 @@ class EncoderTokenizer {
     private let maxLength: Int
     private let padTokenId: Int
 
-    init?() async throws {
+    init() throws {
         do {
             // MARK: Preview 모드 체크 - 토크나이저 파일이 없으면 nil 반환
             guard
@@ -38,7 +38,7 @@ class EncoderTokenizer {
                 tokenizerData: tokenizerData)
 
             // MARK: 5. 모델 입력에 [PAD] 토큰을 추가하기 위한 [PAD] 토큰 ID
-            self.padTokenId = try Self.findPadTokenId(from: tokenizerConfig) ?? 1
+            self.padTokenId = try findPadTokenId(from: tokenizerConfig) ?? 1
 
             // MARK: 6. maxLength 추출
             self.maxLength = tokenizerConfig["model_max_length"].integer(or: 512)
@@ -52,7 +52,7 @@ class EncoderTokenizer {
     }
 
     // MARK: Pad Token Id를 꺼내기 위한 함수
-    private static func findPadTokenId(from tokenizerConfig: Config) throws -> Int? {
+    private func findPadTokenId(from tokenizerConfig: Config) throws -> Int? {
         guard let addedTokens = tokenizerConfig["added_tokens_decoder"].dictionary() else {
             throw NSError(
                 domain: "DictionaryError",
@@ -84,7 +84,7 @@ class EncoderTokenizer {
     }
 
     // MARK: 토크나이저 함수
-    public func encode_plus(text: String) throws -> [String: MLFeatureValue] {
+    private func encode_plus(text: String) throws -> [String: MLFeatureValue] {
         do {
             // MARK: 1. text를 [0, 2324, 2, ...]의 token id로 변경
             let inputIds: [Int] = tokenizer.encode(text: text)

@@ -12,20 +12,26 @@ import CoreML
 final class FeedbackWriteViewModel: ViewModelable {
     enum Action {
         case feedbackWrite
+        case clearError
     }
     
-    let feedbackChannel: FeedbackChannel
-    let nickName: String
-    let minimumFeedbackLength: Int = 10
-    var sequenceClassifier: SequenceClassifier?
-    let modelNameOrPath: String = "KcELECTRA-base-v2022"
-
+    enum FeedbackWriteState {
+        case writing
+        case loading
+        case success
+    }
+    @Published var status: FeedbackWriteState = .writing
+    @Published private(set) var errorMessage: String?
+    
     @Published var continues: [String] = [""]
     @Published var stops: [String] = [""]
     
-    @Published private(set) var isLoading: Bool = false
-    @Published private(set) var errorMessage: String?
+    let minimumFeedbackLength: Int = 10
+    var sequenceClassifier: SequenceClassifier?
+    let modelNameOrPath: String = "KcELECTRA-base-v2022"
     
+    let feedbackChannel: FeedbackChannel
+    let nickName: String
     private(set) var createdFeedback: Feedback?
     
     var canCreate: Bool {
@@ -55,6 +61,8 @@ final class FeedbackWriteViewModel: ViewModelable {
         switch action {
         case .feedbackWrite:
             Task {
+                status = .loading
+                
                 let feedbackContents = await createContent()
                 
                 print("생성된 피드백 콘텐츠:", feedbackContents)
@@ -65,8 +73,8 @@ final class FeedbackWriteViewModel: ViewModelable {
                     writePerson: nickName,
                     content: feedbackContents
                 )
-            
-                saveFeedbackToFirestore(to: createdFeedback)
+                
+                await saveFeedbackToFirestore(to: createdFeedback)
                 
                 FCMManager.shared.sendNotification(
                     to: feedbackChannel.userID,
@@ -74,6 +82,11 @@ final class FeedbackWriteViewModel: ViewModelable {
                     title: feedbackChannel.channelTitle,
                     feedbackId: createdFeedback.id.uuidString
                 )
+                
+                status = .success
+            }
+        case .clearError:
+            status = .writing
             }
         }
     }
@@ -204,18 +217,14 @@ final class FeedbackWriteViewModel: ViewModelable {
         return (sentenceWithPunctuation, checkPos)
     }
     
-    private func saveFeedbackToFirestore(to feedback: Feedback) {
-        Task {
-            isLoading = true
-            do {
-                let saveFeedback = try await FirestoreManager.shared.create(feedback)
-                
-                createdFeedback = saveFeedback
-            } catch {
-                print("생성을 실패했습니다 \(error.localizedDescription)")
-                errorMessage = error.localizedDescription
-            }
-            isLoading = false
+    private func saveFeedbackToFirestore(to feedback: Feedback) async {
+        do {
+            let saveFeedback = try await FirestoreManager.shared.create(feedback)
+            
+            createdFeedback = saveFeedback
+        } catch {
+            print("생성을 실패했습니다 \(error.localizedDescription)")
+            errorMessage = error.localizedDescription
         }
     }
     

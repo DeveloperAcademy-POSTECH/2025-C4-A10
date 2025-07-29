@@ -34,6 +34,7 @@ extension Font {
 
     static var title1: Font { .suit(.bold, size: 20) }
     static var title2: Font { .suit(.bold, size: 18) }
+    static var title3: Font { .suit(.bold, size: 16) }
     static var headline: Font { .suit(.semibold, size: 17) }
     static var body: Font { .suit(.regular, size: 17) }
     static var callout: Font { .suit(.medium, size: 16) }

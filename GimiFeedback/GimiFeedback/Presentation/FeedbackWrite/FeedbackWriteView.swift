@@ -11,7 +11,7 @@ struct FeedbackWriteView: View {
     @StateObject var viewModel: FeedbackWriteViewModel
     @State private var isShowCreateAlert: Bool = false
     var onComplete: () -> Void
-    
+
     init(
         feedbackChannel: FeedbackChannel,
         inputNickName: String,
@@ -25,23 +25,48 @@ struct FeedbackWriteView: View {
         )
         self.onComplete = onComplete
     }
-    
+
     var body: some View {
+        Group {
+            switch viewModel.status {
+            case .writing:
+                contentView
+            case .loading:
+                LoadingView()
+            case .success:
+                Color.clear
+                    .onAppear {
+                        onComplete()
+                    }
+            }
+        }
+        .alert(isPresented: .constant(viewModel.errorMessage != nil)) {
+            Alert(
+                title: Text("피드백 전송 실패"),
+                message: Text(viewModel.errorMessage ?? "알 수 없는 오류가 발생했어요."),
+                dismissButton: .default(Text("확인")) {
+                    viewModel.send(.clearError)
+                }
+            )
+        }
+    }
+
+    private var contentView: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 HeaderView(userName: viewModel.feedbackChannel.userName)
                     .padding(.bottom, -2)
-                
+
                 WriteContentView(feedbackChannel: viewModel.feedbackChannel)
 
                 SplitView()
                     .padding(.horizontal, -20)
-                
+
                 WriteView(content: $viewModel.continues, contentType: .typeContinue)
                     .padding(.bottom, 20)
                 WriteView(content: $viewModel.stops, contentType: .typeStop)
                     .padding(.bottom, 60)
-                
+
                 Button("완료하기") {
                     isShowCreateAlert = true
                 }
@@ -60,11 +85,6 @@ struct FeedbackWriteView: View {
         } message: {
             Text("이대로 피드백을 전송하시겠습니까?\n이 작업은 취소할 수 없습니다.")
         }
-        .onChange(of: viewModel.createdFeedback) { _, newValue in
-            if newValue != nil {
-                onComplete()
-            }
-        }
         .onAppear { UIApplication.shared.hideKeyboard() }
     }
 }
@@ -76,8 +96,8 @@ struct FeedbackWriteView: View {
         channelTitle: "Test용 피드백입니다.",
         content: "Test용 내용입니다"
     )
-    
+
     FeedbackWriteView(feedbackChannel: feedbackChannel, inputNickName: "test") {
-        print("Test")
+        print("Test 완료")
     }
 }
