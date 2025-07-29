@@ -13,6 +13,7 @@ final class UserViewModel: ViewModelable {
         case kakaoLogin
         case kakaoLogout
         case nickNameSave(String)
+        case deleteUser
     }
     
     @Published private(set) var isLoggedIn: Bool = FirebaseAuthManager.currentUser
@@ -62,6 +63,8 @@ final class UserViewModel: ViewModelable {
             Task {
                 await saveUserNickName(to: inputNickName)
             }
+        case .deleteUser:
+            deleteUser()
         }
     }
 }
@@ -164,6 +167,20 @@ extension UserViewModel {
             try await FirebaseAuthManager.shared.saveUserNickName(nickName: nickName)
         } catch {
             print("NickName 변경 실패", error.localizedDescription)
+        }
+    }
+    
+    private func deleteUser() {
+        Task {
+            do {
+                let currentId = userId
+                let (email, password) = try await KakaoAuthManager.shared.signIn()
+                try await FirebaseAuthManager.shared.deleteUser(email: email, password: password)
+                try await KakaoAuthManager.shared.deleteUser()
+                await deleteUser(userID: currentId)
+            } catch {
+                print("error: ", error.localizedDescription)
+            }
         }
     }
 }

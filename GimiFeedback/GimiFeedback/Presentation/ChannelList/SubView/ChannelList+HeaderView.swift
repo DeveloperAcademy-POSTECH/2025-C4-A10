@@ -12,7 +12,7 @@ extension ChannelListView {
         @ObservedObject var router: MainNavigationRouter
         @EnvironmentObject var userViewModel: UserViewModel
         @State private var logoutAlert: Bool = false
-        @State private var deleteMemberAlert: Bool = false
+        @State private var deleteUserAlert: Bool = false
         
         var body: some View {
             HStack(spacing: 12) {
@@ -37,7 +37,7 @@ extension ChannelListView {
                 Menu {
                     Button("닉네임 변경") { router.push(to: .updateNickName) }
                     Button("로그아웃") { logoutAlert = true }
-                    Button("탈퇴하기", role: .destructive) { deleteMemberAlert = true}
+                    Button("탈퇴하기", role: .destructive) { deleteUserAlert = true}
                 } label: {
                     Image(systemName: "person.crop.circle.fill")
                         .font(.system(size: 34))
@@ -53,10 +53,10 @@ extension ChannelListView {
             } message: {
                 Text("현재 계정에서 로그아웃됩니다.")
             }
-            .alert("정말 탈퇴하시겠습니까?", isPresented: $deleteMemberAlert) {
+            .alert("정말 탈퇴하시겠습니까?", isPresented: $deleteUserAlert) {
                 Button("취소", role: .cancel) { }
                 Button("탈퇴하기", role: .destructive) {
-                    // TODO: - 탈퇴하기 기능 넣기
+                    userViewModel.send(.deleteUser)
                 }
             } message: {
                 Text("탈퇴 시 계정 정보와 피드백이 모두 삭제됩니다.")
