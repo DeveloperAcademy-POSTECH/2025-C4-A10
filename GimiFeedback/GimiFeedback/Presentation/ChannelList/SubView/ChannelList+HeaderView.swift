@@ -35,7 +35,7 @@ extension ChannelListView {
                 }
                 
                 Menu {
-                    Button("닉네임 변경") {}
+                    Button("닉네임 변경") { router.push(to: .updateNickName) }
                     Button("로그아웃") { logoutAlert = true }
                     Button("탈퇴하기", role: .destructive) { deleteMemberAlert = true}
                 } label: {
