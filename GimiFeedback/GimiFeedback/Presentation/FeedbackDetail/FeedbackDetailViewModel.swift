@@ -40,6 +40,7 @@ final class FeedbackDetailViewModel: ViewModelable {
             updateVisibility(detail: detail)
         case .updateFeedbackVisibility:
             feedbackItem.visiable = true
+            updateFeedbackVisibility()
         case .updateToast:
             if UserDefaults.standard.isShowGuideToast == false {
                 isShowToast = true
@@ -129,4 +130,17 @@ extension FeedbackDetailViewModel {
             isLoading = false
         }
     }
+    
+    private func updateFeedbackVisibility() {
+           Task {
+               isLoading = true
+               do {
+                   try await FirestoreManager.shared.update(feedbackItem)
+               } catch {
+                   errorMessage = "원문 표시 실패: \(error.localizedDescription)"
+                   print("원문 표시 실패: \(error.localizedDescription)")
+               }
+               isLoading = false
+           }
+       }
 }
