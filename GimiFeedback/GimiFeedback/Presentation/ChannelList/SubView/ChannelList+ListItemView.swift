@@ -24,3 +24,13 @@ extension ChannelListView {
         }
     }
 }
+
+#Preview {
+    ChannelListView.ListItemView(
+        item: FeedbackChannelInfo(
+            channel: .init(userID: "test", userName: "test", channelTitle: "test", content: "test"),
+            feedbackCount: 3,
+            visiableFeedback: false
+        )
+    )
+}

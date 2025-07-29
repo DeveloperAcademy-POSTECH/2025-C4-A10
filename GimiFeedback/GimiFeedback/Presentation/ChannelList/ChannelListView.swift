@@ -58,3 +58,8 @@ struct ChannelListView: View {
         }
     }
 }
+
+#Preview {
+    ChannelListView()
+        .environmentObject(MainNavigationRouter())
+}
