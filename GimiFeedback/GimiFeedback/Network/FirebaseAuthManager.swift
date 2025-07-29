@@ -57,6 +57,16 @@ final class FirebaseAuthManager {
         try await changeRequest?.commitChanges()
         NotificationCenter.default.post(name: .firebaseAuthStateChanged, object: nil)
     }
+    
+    func deleteUser(email: String, password: String) async throws {
+        guard let user = Auth.auth().currentUser else {
+            throw NSError(domain: "Firebase", code: 0, userInfo: [NSLocalizedDescriptionKey: "로그인된 사용자 없음"])
+        }
+
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        try await user.reauthenticate(with: credential)
+        try await user.delete()
+    }
 }
 
 // MARK: - Private Helpers
