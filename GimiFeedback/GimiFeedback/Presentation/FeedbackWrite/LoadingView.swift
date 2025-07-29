@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LoadingView: View {
-    
     var body: some View {
         VStack(spacing: 24) {
             ProgressView()
@@ -19,7 +18,7 @@ struct LoadingView: View {
                 .font(.title3)
                 .foregroundStyle(.gray400)
         }
-        
+        .navigationBarBackButtonHidden()
     }
 }
 

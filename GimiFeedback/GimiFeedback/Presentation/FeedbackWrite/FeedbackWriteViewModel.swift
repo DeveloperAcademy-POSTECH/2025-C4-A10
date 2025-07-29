@@ -12,14 +12,20 @@ final class FeedbackWriteViewModel: ViewModelable {
         case feedbackWrite
     }
     
-    let feedbackChannel: FeedbackChannel
-    let nickName: String
+    enum FeedbackWriteState {
+        case writing
+        case loading
+        case success
+    }
+    
+    @Published var status: FeedbackWriteState = .writing
+    @Published private(set) var errorMessage: String?
+    
     @Published var continues: [String] = [""]
     @Published var stops: [String] = [""]
     
-    @Published private(set) var isLoading: Bool = false
-    @Published private(set) var errorMessage: String?
-    
+    let feedbackChannel: FeedbackChannel
+    let nickName: String
     private(set) var createdFeedback: Feedback?
     
     var canCreate: Bool {
@@ -42,7 +48,7 @@ final class FeedbackWriteViewModel: ViewModelable {
         case .feedbackWrite:
             
             Task {
-                isLoading = true
+                status = .loading
                 
                 let feedbackContents = createContent()
                 
@@ -64,7 +70,7 @@ final class FeedbackWriteViewModel: ViewModelable {
                     feedbackId: createdFeedback.id.uuidString
                 )
                 
-                isLoading = false
+                status = .success
             }
         }
     }
