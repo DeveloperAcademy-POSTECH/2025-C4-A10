@@ -10,6 +10,7 @@ import SwiftUI
 extension ChannelListView {
     struct HeaderView: View {
         @ObservedObject var router: MainNavigationRouter
+        @EnvironmentObject var userViewModel: UserViewModel
         
         var body: some View {
             HStack(spacing: 12) {
@@ -33,7 +34,7 @@ extension ChannelListView {
                 
                 Menu {
                     Button("닉네임 변경") {}
-                    Button("로그아웃") {}
+                    Button("로그아웃") { userViewModel.send(.kakaoLogout) }
                     Button("탈퇴하기", role: .destructive) {}
                 } label: {
                     Image(systemName: "person.crop.circle.fill")
