@@ -11,14 +11,14 @@ struct DescriptionSectionView: View {
     @Binding var description: String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 2) {
             Text("설명")
                 .font(.title1)
-                .padding(.bottom, -10)
             
             Text("피드백을 받고 싶은 내용에 대해 설명해주세요")
                 .font(.footnote)
                 .foregroundColor(.gray400)
+                .padding(.bottom, 10)
             
             TextEditor(text: $description)
                 .textEditorBase(type: .large)

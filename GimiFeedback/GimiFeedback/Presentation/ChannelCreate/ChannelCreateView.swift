@@ -49,9 +49,7 @@ struct ChannelCreateView: View {
                 )
             }
         }
-        .onAppear {
-            UIApplication.shared.hideKeyboard()
-        }
+        .onAppear { UIApplication.shared.hideKeyboard() }
     }
 }
 
