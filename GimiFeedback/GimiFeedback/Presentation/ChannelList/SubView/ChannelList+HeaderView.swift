@@ -30,9 +30,12 @@ extension ChannelListView {
                         .foregroundColor(.primaryBase)
                         .clipShape(Capsule())
                 }
-                Button(action: {
-                    router.push(to: .profile)
-                }) {
+                
+                Menu {
+                    Button("닉네임 변경") {}
+                    Button("로그아웃") {}
+                    Button("탈퇴하기", role: .destructive) {}
+                } label: {
                     Image(systemName: "person.crop.circle.fill")
                         .font(.system(size: 34))
                         .foregroundColor(.primaryLighten300)
