@@ -13,7 +13,6 @@ final class FeedbackDetailViewModel: ViewModelable {
         case deleteFeedback
         case visualizeDetail(detail: FeedbackContent)
         case updateFeedbackVisibility
-        case updateToast
         case transContent(FeedbackContent)
         case updateCardState(FeedbackContent)
     }
@@ -41,11 +40,6 @@ final class FeedbackDetailViewModel: ViewModelable {
         case .updateFeedbackVisibility:
             feedbackItem.visiable = true
             updateFeedbackVisibility()
-        case .updateToast:
-            if UserDefaults.standard.isShowGuideToast == false {
-                isShowToast = true
-                UserDefaults.standard.saveGuideToast()
-            }
         case .transContent(let content):
             transFeedbackContent(content: content)
         case .updateCardState(let detail):
