@@ -49,7 +49,7 @@ struct ChannelEditView: View {
                     .buttonStyle(.gimiPrimary)
                     .disabled(!viewModel.isActive)
                 }
-                .padding(.horizontal, 20)
+                .customPadding()
                 .background(.white)
                 .onTapGesture {
                     focusField = nil

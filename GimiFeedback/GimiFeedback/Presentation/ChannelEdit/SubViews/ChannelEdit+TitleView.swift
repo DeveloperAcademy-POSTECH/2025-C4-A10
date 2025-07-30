@@ -29,7 +29,6 @@ extension ChannelEditView {
                     .padding(.top, 10)
                     .focused(focusState, equals: field)
             }
-            .padding(.vertical, 16)
         }
     }
 }
