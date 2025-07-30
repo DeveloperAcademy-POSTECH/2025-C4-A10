@@ -9,7 +9,7 @@ import SwiftUI
 
 extension ChannelListView {
     struct HeaderView: View {
-        @ObservedObject var router: MainNavigationRouter
+        @EnvironmentObject var router: MainNavigationRouter
         @EnvironmentObject var userViewModel: UserViewModel
         @State private var logoutAlert: Bool = false
         @State private var deleteUserAlert: Bool = false
@@ -66,5 +66,6 @@ extension ChannelListView {
 }
 
 #Preview {
-    ChannelListView.HeaderView(router: MainNavigationRouter())
+    ChannelListView.HeaderView()
+        .environmentObject(MainNavigationRouter())
 }

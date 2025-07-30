@@ -11,8 +11,6 @@ struct ChannelListView: View {
     @EnvironmentObject var router: MainNavigationRouter
     @StateObject var viewModel: ChannelListViewModel
     
-    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
-    
     init() {
         _viewModel = StateObject(wrappedValue: .init())
     }
@@ -20,19 +18,9 @@ struct ChannelListView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                HeaderView(router: router)
+                HeaderView()
                 
-                ScrollView {
-                    LazyVGrid(columns: columns, alignment: .center, spacing: 32) {
-                        ForEach(viewModel.channelList) { item in
-                            Button {
-                                router.push(to: .channelDetail(channelItem: item.channel))
-                            } label: {
-                                ListItemView(item: item)
-                            }
-                        }
-                    }
-                }
+                ChannelGridView(viewModel: viewModel)
             }
 
             if viewModel.isChannelListLoading {
@@ -43,34 +31,18 @@ struct ChannelListView: View {
             }
         }
         .padding(.horizontal, 24)
-        .overlay(alignment: .bottom) {
-            HStack {
-                Spacer()
-                SpeechBubbleView(message: "여기서 채널을 생성할 수 있어요")
-            }
-            .padding(.horizontal, -14)
-        }
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        router.push(to: .feedbackChannelCreate)
-                    }) {
-                        Image(systemName: "folder.badge.plus")
-                            .font(.system(size: 20))
-                            .foregroundColor(.primaryBase)
-                    }
-                }
-                .overlay(alignment: .center, content: {
-                    Text("\(viewModel.totalFeedbackCount)개의 피드백")
-                        .font(.caption1)
-                        .foregroundStyle(.black)
-                })
+                BottomView(totalFeedbackCount: viewModel.totalFeedbackCount)
             }
         }
         .toolbarBackground(.bottomBar, for: .bottomBar)
         .toolbarBackground(.visible, for: .bottomBar)
+        .overlay(alignment: .bottom) {
+            if !viewModel.isShowToast {
+                GuideToastView(viewModel: viewModel)
+            }
+        }
         .onAppear {
             viewModel.send(.fetchChannelList)
         }
