@@ -55,14 +55,19 @@ extension StartView {
         @EnvironmentObject var userViewModel: UserViewModel
         
         var body: some View {
-            VStack(spacing: 47) {
-                VStack(spacing: 17) {
-                    Text("LogoType")
-                        .font(.title1)
-                    
-                    Text("상처 없이 성장하기")
-                        .font(.title1)
-                }
+            VStack(alignment: .center, spacing: 13) {
+                Spacer()
+                
+                Image(.gimme)
+                    .resizable()
+                    .renderingMode(.template)
+                    .foregroundColor(.primaryBase)
+                    .frame(width: 160, height: 35)
+                
+                Text("상처 없이 성장하기")
+                    .font(.title2)
+                    .foregroundColor(.primaryBase)
+                    .padding(.bottom, 244)
                 
                 Button {
                     userViewModel.send(.kakaoLogin)
@@ -71,6 +76,7 @@ extension StartView {
                         .resizable()
                         .frame(width: 300, height: 45)
                 }
+                .padding(.bottom, 11)
                 
                 Button {
                     router.push(to: .inputCode)
@@ -80,6 +86,7 @@ extension StartView {
                         .foregroundColor(.gray600)
                         .underline()
                 }
+                .padding(.bottom, 80)
             }
         }
     }
