@@ -36,13 +36,31 @@ final class FeedbackWriteViewModel: ViewModelable {
     private(set) var createdFeedback: Feedback?
     
     var canCreate: Bool {
-        let isValidContinue = continues.contains {
-            $0.trimmingCharacters(in: .whitespacesAndNewlines).count >= minimumFeedbackLength
+        let trimmedContinues = continues
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }
+
+        let trimmedStops = stops
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }
+
+        let hasContinue = !trimmedContinues.isEmpty
+        let hasStop = !trimmedStops.isEmpty
+
+        if hasContinue && hasStop {
+            return trimmedContinues.allSatisfy { $0.count >= minimumFeedbackLength } &&
+                   trimmedStops.allSatisfy { $0.count >= minimumFeedbackLength }
         }
-        let isValidStop = stops.contains {
-            $0.trimmingCharacters(in: .whitespacesAndNewlines).count >= minimumFeedbackLength
+
+        if hasContinue {
+            return trimmedContinues.allSatisfy { $0.count >= minimumFeedbackLength }
         }
-        return isValidContinue || isValidStop
+
+        if hasStop {
+            return trimmedStops.allSatisfy { $0.count >= minimumFeedbackLength }
+        }
+
+        return false
     }
     
     init(feedbackChannel: FeedbackChannel, nickName: String) {
