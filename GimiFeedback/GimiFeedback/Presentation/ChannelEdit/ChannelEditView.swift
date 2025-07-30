@@ -24,30 +24,38 @@ struct ChannelEditView: View {
     }
     
     var body: some View {
-        VStack(spacing: .zero) {
-            TitleView(
-                text: $viewModel.channelItem.channelTitle,
-                field: .title,
-                focusState: $focusField
-            )
-            
-            ContentView(
-                text: $viewModel.channelItem.content,
-                field: .content,
-                focusState: $focusField)
-            
-            Spacer()
-            
-            Button("저장하기") {
-                isShowCreateAlert = true
+        ZStack {
+            switch viewModel.isLoading {
+            case true:
+                LoadingView(text: "로딩 중 입니다.")
+            case false:
+                VStack(spacing: .zero) {
+                    TitleView(
+                        text: $viewModel.channelItem.channelTitle,
+                        field: .title,
+                        focusState: $focusField
+                    )
+                    
+                    ContentView(
+                        text: $viewModel.channelItem.content,
+                        field: .content,
+                        focusState: $focusField)
+                    
+                    Spacer()
+                    
+                    Button("저장하기") {
+                        isShowCreateAlert = true
+                    }
+                    .buttonStyle(.gimiPrimary)
+                    .disabled(!viewModel.isActive)
+                }
+                .padding(.horizontal, 20)
+                .background(.white)
+                .onTapGesture {
+                    focusField = nil
+                }
             }
-            .buttonStyle(.gimiPrimary)
-            .disabled(!viewModel.isActive)
-        }
-        .padding(.horizontal, 20)
-        .background(.white)
-        .onTapGesture {
-            focusField = nil
+            
         }
         .gimiNavigationBar(title: "채널 수정하기")
         .navigationBarTitleDisplayMode(.inline)

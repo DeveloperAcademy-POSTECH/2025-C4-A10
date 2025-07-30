@@ -10,34 +10,43 @@ struct FeedbackDetailView: View {
     }
     
     var body: some View {
-        ScrollView {
-            /// 전체
-            VStack(alignment: .leading, spacing: .zero) {
-                DescriptionView(
-                    writePerson: viewModel.feedbackItem.writePerson,
-                    date: viewModel.feedbackItem.date.formattedDate
-                )
-                
-                /// 피드백 리스트
-                VStack(spacing: 40) {
-                    SectionView(
-                        type: .typeContinue,
-                        details: $viewModel.continueFeedbackList,
-                        onReveal: { viewModel.send(.updateCardState($0)) },
-                        onTapTrans: { viewModel.send(.transContent($0))})
+        ZStack {
+            ScrollView {
+                /// 전체
+                VStack(alignment: .leading, spacing: .zero) {
+                    DescriptionView(
+                        writePerson: viewModel.feedbackItem.writePerson,
+                        date: viewModel.feedbackItem.date.formattedDate
+                    )
                     
-                    SectionView(
-                        type: .typeStop,
-                        details: $viewModel.stopFeedbackList,
-                        onReveal: { viewModel.send(.updateCardState($0)) },
-                        onTapTrans: { viewModel.send(.transContent($0))})
+                    if !viewModel.isLoading {
+                        /// 피드백 리스트
+                        VStack(spacing: 40) {
+                            SectionView(
+                                type: .typeContinue,
+                                details: $viewModel.continueFeedbackList,
+                                onReveal: { viewModel.send(.updateCardState($0)) },
+                                onTapTrans: { viewModel.send(.transContent($0))})
+                            
+                            SectionView(
+                                type: .typeStop,
+                                details: $viewModel.stopFeedbackList,
+                                onReveal: { viewModel.send(.updateCardState($0)) },
+                                onTapTrans: { viewModel.send(.transContent($0))})
+                        }
+                        .padding(.top, 20)
+                    }
                 }
-                .padding(.top, 20)
+            }
+            .overlay(alignment: .center) {
+                if viewModel.isShowToast {
+                    ToastView(style: .guide, isPresented: $viewModel.isShowToast)
+                }
             }
         }
         .overlay(alignment: .center) {
-            if viewModel.isShowToast {
-                ToastView(style: .guide, isPresented: $viewModel.isShowToast)
+            if viewModel.isLoading {
+                LoadingView(text: "로딩 중 입니다.")
             }
         }
         .gimiNavigationBar(

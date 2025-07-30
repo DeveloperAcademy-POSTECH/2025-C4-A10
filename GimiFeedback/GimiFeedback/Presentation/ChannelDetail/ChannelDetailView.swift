@@ -14,30 +14,42 @@ struct ChannelDetailView: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: .zero) {
-                /// 콘텐츠 설명
-                DescriptionView(
-                    channelItem: viewModel.channelItem,
-                    onTapEdit: {
-                        router.push(
-                            to: .channelEdit(channelItem: viewModel.channelItem)
-                        )
-                    }
-                )
-                
-                /// 피드백 없을 때 화면
-                if viewModel.feedbackList.isEmpty {
-                    EmptyFeedbackView(channelId: viewModel.channelItem.id, tapAction: { isShowSheet = true })
-                } else {
-                    /// 피드백 있을 때 화면
-                    FeedbackListView(
-                        feedbackList: viewModel.feedbackList,
-                        onTapFeedbackItem: { item in
-                            router.push(to: .feedbackDetail(feedback: item))
+        ZStack {
+            ScrollView {
+                VStack(spacing: .zero) {
+                    /// 콘텐츠 설명 (항상 노출)
+                    DescriptionView(
+                        channelItem: viewModel.channelItem,
+                        onTapEdit: {
+                            router.push(
+                                to: .channelEdit(channelItem: viewModel.channelItem)
+                            )
                         }
                     )
+                    
+                    /// 피드백 영역만 로딩 분기
+                    if !viewModel.isLoading {
+                        switch viewModel.feedbackList.isEmpty {
+                        case true:
+                            EmptyFeedbackView(
+                                channelId: viewModel.channelItem.id,
+                                tapAction: { isShowSheet = true }
+                            )
+                        case false:
+                            FeedbackListView(
+                                feedbackList: viewModel.feedbackList,
+                                onTapFeedbackItem: { item in
+                                    router.push(to: .feedbackDetail(feedback: item))
+                                }
+                            )
+                        }
+                    }
                 }
+            }
+        }
+        .overlay(alignment: .center) {
+            if viewModel.isLoading {
+                LoadingView(text: "로딩 중 입니다.")
             }
         }
         .gimiNavigationBar(
@@ -91,6 +103,7 @@ struct ChannelDetailView: View {
         }
         .refreshable {
             viewModel.send(.getFeedbackChannelItem)
+            viewModel.send(.fetchFeedbackList)
         }
     }
 }

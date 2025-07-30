@@ -20,7 +20,11 @@ struct ChannelListView: View {
             VStack(spacing: 0) {
                 HeaderView()
                 
-                ChannelGridView(viewModel: viewModel)
+                if !viewModel.isChannelListLoading {
+                    ChannelGridView(viewModel: viewModel)
+                }
+                
+                Spacer()
             }
 
             if viewModel.isChannelListLoading {
