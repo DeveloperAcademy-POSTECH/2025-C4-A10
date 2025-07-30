@@ -13,6 +13,7 @@ extension Font {
         case medium
         case semibold
         case bold
+        case extraBold
 
         var fontName: String {
             switch self {
@@ -24,6 +25,8 @@ extension Font {
                 return "SUITVariable-SemiBold"
             case .bold:
                 return "SUITVariable-Bold"
+            case .extraBold:
+                return "SUITVariable-ExtraBold"
             }
         }
     }
@@ -32,6 +35,7 @@ extension Font {
         return .custom(weight.fontName, size: size)
     }
 
+    static var onboardingTitle: Font { .suit(.extraBold, size: 18) }
     static var title1: Font { .suit(.bold, size: 20) }
     static var title2: Font { .suit(.bold, size: 18) }
     static var title3: Font { .suit(.bold, size: 16) }
