@@ -353,10 +353,9 @@
 		EC9959BB2E2518AF001555B1 /* FeedbackWrite */ = {
 			isa = PBXGroup;
 			children = (
+				EE7F0DAA2E3508ED00B1C122 /* SubViews */,
 				D306028B2E377EC500908D1D /* FeedbackWriteView.swift */,
 				D306028C2E377EC500908D1D /* FeedbackWriteViewModel.swift */,
-				EE7F0DAA2E3508ED00B1C122 /* SubViews */,
-				EE1BA9652E388D260087E934 /* LoadingView.swift */,
 			);
 			path = FeedbackWrite;
 			sourceTree = "<group>";
@@ -379,6 +378,7 @@
 		EE35D54A2E2E01B8008F6A71 /* CommonViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				EE41FEE82E2259310002E595 /* UserViewModel.swift */,
 				EEE689192E2A2CF00008012D /* NotificationViewModel.swift */,
 				EEA0BBB52E2D41C6009A25D8 /* DeepLinkViewModel.swift */,
 			);
@@ -397,8 +397,8 @@
 		EE41FD7E2E223D180002E595 /* InputCode */ = {
 			isa = PBXGroup;
 			children = (
-				EE465F052E27B23D0096109A /* InputCodeViewModel.swift */,
 				EE41FD812E223D720002E595 /* InputCodeView.swift */,
+				EE465F052E27B23D0096109A /* InputCodeViewModel.swift */,
 			);
 			path = InputCode;
 			sourceTree = "<group>";
@@ -439,8 +439,8 @@
 			isa = PBXGroup;
 			children = (
 				0D7BFA282E3378CB0056C579 /* SubView */,
-				EE82DF9C2E24D5D400EC1AFF /* ChannelCreateViewModel.swift */,
 				EE82DF9A2E24D5C900EC1AFF /* ChannelCreateView.swift */,
+				EE82DF9C2E24D5D400EC1AFF /* ChannelCreateViewModel.swift */,
 			);
 			path = ChannelCreate;
 			sourceTree = "<group>";
@@ -448,8 +448,8 @@
 		EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */ = {
 			isa = PBXGroup;
 			children = (
-				EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */,
 				EE465EF72E2632B20096109A /* ChannelCreateCompleteView.swift */,
+				EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */,
 			);
 			path = ChannelCreateComplete;
 			sourceTree = "<group>";
@@ -507,17 +507,17 @@
 				EEC047172E2E1CF900918BAA /* Components */,
 				EE35D54A2E2E01B8008F6A71 /* CommonViewModel */,
 				EE856A4F2E1CD401006820B9 /* Start */,
-				EE465EFA2E26508E0096109A /* Main */,
-				EE856A522E1CD41C006820B9 /* ChannelList */,
-				EE82DF992E24D5B500EC1AFF /* ChannelCreate */,
-				EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */,
-				EC9959B12E24E646001555B1 /* ChannelDetail */,
-				EC9959B52E251368001555B1 /* ChannelEdit */,
 				EEC04A002E326B3500918BAA /* InputNickName */,
 				EE41FD7E2E223D180002E595 /* InputCode */,
+				EE465EFA2E26508E0096109A /* Main */,
+				EE856A522E1CD41C006820B9 /* ChannelList */,
+				EC9959B12E24E646001555B1 /* ChannelDetail */,
+				EE82DF992E24D5B500EC1AFF /* ChannelCreate */,
+				EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */,
+				EC9959B52E251368001555B1 /* ChannelEdit */,
+				EC9959B82E251453001555B1 /* FeedbackDetail */,
 				EC9959BB2E2518AF001555B1 /* FeedbackWrite */,
 				EC9959BE2E2518BE001555B1 /* FeedbackWriteComplete */,
-				EC9959B82E251453001555B1 /* FeedbackDetail */,
 				EE856A532E1CE5B0006820B9 /* ViewModelable.swift */,
 			);
 			path = Presentation;
@@ -604,7 +604,6 @@
 			isa = PBXGroup;
 			children = (
 				EE856A5A2E1CEA98006820B9 /* StartView.swift */,
-				EE41FEE82E2259310002E595 /* UserViewModel.swift */,
 			);
 			path = Start;
 			sourceTree = "<group>";
@@ -641,6 +640,7 @@
 		EEC047172E2E1CF900918BAA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EE1BA9652E388D260087E934 /* LoadingView.swift */,
 				EE1BA95F2E37A3CE0087E934 /* TopRoundedShape.swift */,
 				EEC048742E2E914800918BAA /* SpeechView.swift */,
 				EE82C6162E35F80D0081B845 /* SplitView.swift */,
