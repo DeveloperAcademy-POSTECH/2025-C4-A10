@@ -5,10 +5,12 @@ final class ChannelListViewModel: ViewModelable {
     enum Action {
         case fetchChannelList
         case clearError
+        case channelGuideUpdate
     }
     
     @Published private(set) var channelList: [FeedbackChannelInfo] = []
     @Published private(set) var totalFeedbackCount: Int = .zero
+    @Published private(set) var isShowToast = UserDefaults.standard.bool(for: .channelGuideToast)
     
     @Published private(set) var errorMessage: String?
     @Published private(set) var isChannelListLoading: Bool = false
@@ -20,6 +22,9 @@ final class ChannelListViewModel: ViewModelable {
             
         case .clearError:
             errorMessage = nil
+        case .channelGuideUpdate:
+            isShowToast = true
+            UserDefaults.standard.save(true, for: .channelGuideToast)
         }
     }
 }

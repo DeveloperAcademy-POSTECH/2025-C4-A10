@@ -40,8 +40,10 @@ extension SpeechBubbleView {
             VStack(spacing: 0) {
                 Text(message)
                     .foregroundColor(.brandGreen100)
+                    .font(.footnote)
                     .lineSpacing(5)
-                    .padding(16)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 12)
                     .background(
                         GeometryReader { geometry in
                             Color.clear
