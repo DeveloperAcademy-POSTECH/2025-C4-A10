@@ -60,4 +60,3 @@ extension KakaoShareManager {
         return FeedTemplate(content: content, buttons: buttons)
     }
 }
-
