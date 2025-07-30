@@ -54,6 +54,8 @@ extension FeedbackDetailView {
                             .foregroundStyle(.gray900)
                             .multilineTextAlignment(.leading)
                             .padding(.bottom, 16)
+                        
+                        Spacer()
                     }
                     .padding(.horizontal, 16)
                     .onTapGesture {
