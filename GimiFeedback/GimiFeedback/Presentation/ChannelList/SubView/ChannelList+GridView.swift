@@ -26,6 +26,9 @@ extension ChannelListView {
                     }
                 }
             }
+            .refreshable {
+                viewModel.send(.fetchChannelList)
+            }
         }
     }
 }
