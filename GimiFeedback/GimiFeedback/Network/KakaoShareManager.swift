@@ -41,8 +41,8 @@ extension KakaoShareManager {
     private func createFeedTemplate(channelID: String) -> FeedTemplate {
         
         let content = Content(
-            title: "기미 피드백",
-            description: "피드백을 남겨주세요",
+            title: "Gimme - 상처 없이 성장하기",
+               description: "링크를 통해 솔직한 피드백을 남겨주세요.",
             link: .init(
                 webUrl: URL(string: "https://developers.kakao.com/"),
                 mobileWebUrl: URL(string: "https://developers.kakao.com/"))
@@ -50,14 +50,7 @@ extension KakaoShareManager {
         
         let buttons = [
             Button(
-                title: "카카오 사이트 열기",
-                link: .init(
-                    webUrl: URL(string: "https://developers.kakao.com/"),
-                    mobileWebUrl: URL(string: "https://developers.kakao.com/"))
-            ),
-            
-            Button(
-                title: "앱에서 피드백 남기기",
+                title: "앱으로 이동하기",
                 link: .init(
                     webUrl: URL(string: "https://developers.kakao.com/"),
                     mobileWebUrl: URL(string: "https://developers.kakao.com/"),
@@ -67,3 +60,4 @@ extension KakaoShareManager {
         return FeedTemplate(content: content, buttons: buttons)
     }
 }
+
