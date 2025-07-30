@@ -15,27 +15,27 @@ struct ChannelDetailView: View {
     
     var body: some View {
         ZStack {
-            switch viewModel.isLoading {
-            case true:
-                LoadingView(text: "로딩 중 입니다.")
-            case false:
-                ScrollView {
-                    VStack(spacing: .zero) {
-                        /// 콘텐츠 설명
-                        DescriptionView(
-                            channelItem: viewModel.channelItem,
-                            onTapEdit: {
-                                router.push(
-                                    to: .channelEdit(channelItem: viewModel.channelItem)
-                                )
-                            }
-                        )
-                        
-                        /// 피드백 없을 때 화면
-                        if viewModel.feedbackList.isEmpty {
-                            EmptyFeedbackView(channelId: viewModel.channelItem.id, tapAction: { isShowSheet = true })
-                        } else {
-                            /// 피드백 있을 때 화면
+            ScrollView {
+                VStack(spacing: .zero) {
+                    /// 콘텐츠 설명 (항상 노출)
+                    DescriptionView(
+                        channelItem: viewModel.channelItem,
+                        onTapEdit: {
+                            router.push(
+                                to: .channelEdit(channelItem: viewModel.channelItem)
+                            )
+                        }
+                    )
+                    
+                    /// 피드백 영역만 로딩 분기
+                    if !viewModel.isLoading {
+                        switch viewModel.feedbackList.isEmpty {
+                        case true:
+                            EmptyFeedbackView(
+                                channelId: viewModel.channelItem.id,
+                                tapAction: { isShowSheet = true }
+                            )
+                        case false:
                             FeedbackListView(
                                 feedbackList: viewModel.feedbackList,
                                 onTapFeedbackItem: { item in
@@ -45,6 +45,11 @@ struct ChannelDetailView: View {
                         }
                     }
                 }
+            }
+        }
+        .overlay(alignment: .center) {
+            if viewModel.isLoading {
+                LoadingView(text: "로딩 중 입니다.")
             }
         }
         .gimiNavigationBar(
