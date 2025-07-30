@@ -23,8 +23,8 @@ extension ChannelCreateView {
                 
                 TextField("", text: $title)
                     .textFieldStyle(.gimiTitle)
+                    .textFieldLimit(text: $title, maximumText: 15)
             }
-            .padding(.vertical, 16)
         }
     }
 }

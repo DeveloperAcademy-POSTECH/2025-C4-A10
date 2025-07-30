@@ -26,7 +26,6 @@ extension ChannelCreateView {
                     .textEditorLimit(text: $description, maximumText: 100)
                     .textEditorPlaceholder(placeholder: "자유롭게 피드백을 남겨주세요", text: $description)
             }
-            .padding(.vertical, 16)
         }
     }
 }
