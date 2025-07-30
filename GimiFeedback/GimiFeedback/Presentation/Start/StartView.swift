@@ -87,4 +87,5 @@ extension StartView {
 
 #Preview {
     StartView()
+        .environmentObject(UserViewModel())
 }
