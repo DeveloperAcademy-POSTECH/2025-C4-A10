@@ -44,6 +44,7 @@ struct InputNickNameView: View {
 enum NickNameInputMode {
     case startUserInput
     case feedbackWriteInput
+    case updateNickName
     
     var subTitle: String {
         switch self {
@@ -51,6 +52,8 @@ enum NickNameInputMode {
             "피드백을 요청할때 상대에게 보여질 닉네임이에요"
         case .feedbackWriteInput:
             "받는 사람에게 보일 닉네임이에요"
+        case .updateNickName:
+            "수정하실 닉네임을 작성해주세요"
         }
     }
     
@@ -60,6 +63,8 @@ enum NickNameInputMode {
             "시작하기"
         case .feedbackWriteInput:
             "다음"
+        case .updateNickName:
+            "수정하기"
         }
     }
 }

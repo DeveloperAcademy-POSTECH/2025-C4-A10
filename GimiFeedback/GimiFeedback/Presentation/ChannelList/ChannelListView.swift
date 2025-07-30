@@ -46,13 +46,11 @@ struct ChannelListView: View {
                             .foregroundColor(.primaryBase)
                     }
                 }
-                .frame(maxWidth: .infinity)
-                .overlay(
+                .overlay(alignment: .center, content: {
                     Text("\(viewModel.totalFeedbackCount)개의 피드백")
                         .font(.caption1)
-                        .foregroundStyle(.black),
-                    alignment: .center
-                )
+                        .foregroundStyle(.black)
+                })
             }
         }
         .toolbarBackground(.bottomBar, for: .bottomBar)

@@ -45,7 +45,6 @@
 		ECC980B12E290DC4004A483B /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = ECC980B02E290DC4004A483B /* KakaoSDKTemplate */; };
 		ECC980B52E294835004A483B /* KakaoShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC980B42E294835004A483B /* KakaoShareManager.swift */; };
 		ECDF17282E2E618400964391 /* ChannelEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF17272E2E618400964391 /* ChannelEditViewModel.swift */; };
-		ECDF172E2E2E8F6400964391 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF172D2E2E8F6400964391 /* ProfileView.swift */; };
 		EE1BA9582E35F8880087E934 /* FeedbackWrite+WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1BA9572E35F8880087E934 /* FeedbackWrite+WriteView.swift */; };
 		EE1BA95C2E3682640087E934 /* FeedbackWrite+InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1BA95B2E36825D0087E934 /* FeedbackWrite+InfoView.swift */; };
 		EE1BA9602E37A3D20087E934 /* TopRoundedShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1BA95F2E37A3CE0087E934 /* TopRoundedShape.swift */; };
@@ -153,7 +152,6 @@
 		ECC980AB2E28E91E004A483B /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
 		ECC980B42E294835004A483B /* KakaoShareManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoShareManager.swift; sourceTree = "<group>"; };
 		ECDF17272E2E618400964391 /* ChannelEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelEditViewModel.swift; sourceTree = "<group>"; };
-		ECDF172D2E2E8F6400964391 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EE1BA9572E35F8880087E934 /* FeedbackWrite+WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+WriteView.swift"; sourceTree = "<group>"; };
 		EE1BA95B2E36825D0087E934 /* FeedbackWrite+InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+InfoView.swift"; sourceTree = "<group>"; };
 		EE1BA95F2E37A3CE0087E934 /* TopRoundedShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRoundedShape.swift; sourceTree = "<group>"; };
@@ -370,14 +368,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		ECDF172C2E2E8F5000964391 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				ECDF172D2E2E8F6400964391 /* ProfileView.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
 		EE35D54A2E2E01B8008F6A71 /* CommonViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,7 +496,6 @@
 				EE35D54A2E2E01B8008F6A71 /* CommonViewModel */,
 				EE856A4F2E1CD401006820B9 /* Start */,
 				EE465EFA2E26508E0096109A /* Main */,
-				ECDF172C2E2E8F5000964391 /* Profile */,
 				EE856A522E1CD41C006820B9 /* ChannelList */,
 				EE82DF992E24D5B500EC1AFF /* ChannelCreate */,
 				EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */,
@@ -828,7 +817,6 @@
 				EC6A4C9D2E34A67E0087DB5C /* FeedbackDetail+DescriptionView.swift in Sources */,
 				EEC048732E2E331400918BAA /* GimiTextEditorModifier.swift in Sources */,
 				EEC04A022E3352A000918BAA /* View+Extension.swift in Sources */,
-				ECDF172E2E2E8F6400964391 /* ProfileView.swift in Sources */,
 				0D7BFA2A2E3378E40056C579 /* TitleSectionView.swift in Sources */,
 				EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */,
 				EC94C0F32E3746130020E59D /* GPTManger.swift in Sources */,

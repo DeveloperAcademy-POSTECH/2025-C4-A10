@@ -18,7 +18,7 @@ struct TitleSectionView: View {
             Text("피드백 채널의 재목을 작성해주세요")
                 .font(.footnote)
                 .foregroundColor(.gray400)
-                .padding(.bottom,10)
+                .padding(.bottom, 10)
             
             TextField("", text: $title)
                 .textFieldStyle(.gimiTitle)

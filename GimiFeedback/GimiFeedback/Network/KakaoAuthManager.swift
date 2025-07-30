@@ -44,6 +44,18 @@ final class KakaoAuthManager {
             }
         }
     }
+    
+    func deleteUser() async throws {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            UserApi.shared.unlink { error in
+                if let error = error {
+                    continuation.resume(throwing: error)
+                } else {
+                    continuation.resume()
+                }
+            }
+        }
+    }
 }
 
 // MARK: - Private Helpers
