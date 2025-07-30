@@ -47,8 +47,8 @@ struct MainNavigationRoutingView: View {
                 }
             case .feedbackChannelCreate:
                 ChannelCreateView()
-            case .feedbackChannelCreateComplete(let channelID):
-                ChannelCreateCompleteView(channelID: channelID)
+            case .feedbackChannelCreateComplete(let channelId):
+                ChannelCreateCompleteView(channelId: channelId)
             }
         }
     }

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D7BFA2A2E3378E40056C579 /* TitleSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7BFA292E3378E40056C579 /* TitleSectionView.swift */; };
-		0D7BFA2C2E34ED810056C579 /* DescriptionSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7BFA2B2E34ED810056C579 /* DescriptionSectionView.swift */; };
+		0D7BFA2A2E3378E40056C579 /* ChannelCreateView+TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7BFA292E3378E40056C579 /* ChannelCreateView+TitleView.swift */; };
+		0D7BFA2C2E34ED810056C579 /* ChannelCreateView+DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7BFA2B2E34ED810056C579 /* ChannelCreateView+DescriptionView.swift */; };
 		0DC2A3D52E263E1500FF91BC /* FeedbackDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2A3D42E263E1500FF91BC /* FeedbackDetailViewModel.swift */; };
 		D306027D2E377E8400908D1D /* Transformers in Frameworks */ = {isa = PBXBuildFile; productRef = D306027C2E377E8400908D1D /* Transformers */; };
 		D30602862E377E9700908D1D /* EncoderTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30602822E377E9700908D1D /* EncoderTokenizer.swift */; };
@@ -85,6 +85,8 @@
 		EE78992D2E39ECAF00EC671C /* ChannelList+GuideToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE78992C2E39ECA000EC671C /* ChannelList+GuideToastView.swift */; };
 		EE78992F2E39ED5E00EC671C /* ChannelList+GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE78992E2E39ED4A00EC671C /* ChannelList+GridView.swift */; };
 		EE7899312E39EE3D00EC671C /* ChannelList+bottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7899302E39EE3100EC671C /* ChannelList+bottomView.swift */; };
+		EE7899342E39F98700EC671C /* ChannelCreateComplete+ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7899332E39F97400EC671C /* ChannelCreateComplete+ContentView.swift */; };
+		EE7899362E39FAE200EC671C /* ChannelCreateComplete+ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7899352E39FADC00EC671C /* ChannelCreateComplete+ShareView.swift */; };
 		EE7F0DAD2E35092A00B1C122 /* FeedbackWrite+ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F0DAC2E35092A00B1C122 /* FeedbackWrite+ContentView.swift */; };
 		EE7F0DB02E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F0DAF2E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift */; };
 		EE82C6172E35F80D0081B845 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82C6162E35F80D0081B845 /* SplitView.swift */; };
@@ -121,8 +123,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0D7BFA292E3378E40056C579 /* TitleSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSectionView.swift; sourceTree = "<group>"; };
-		0D7BFA2B2E34ED810056C579 /* DescriptionSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionSectionView.swift; sourceTree = "<group>"; };
+		0D7BFA292E3378E40056C579 /* ChannelCreateView+TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelCreateView+TitleView.swift"; sourceTree = "<group>"; };
+		0D7BFA2B2E34ED810056C579 /* ChannelCreateView+DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelCreateView+DescriptionView.swift"; sourceTree = "<group>"; };
 		0DC2A3D42E263E1500FF91BC /* FeedbackDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailViewModel.swift; sourceTree = "<group>"; };
 		D30602812E377E9700908D1D /* EncoderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoderModel.swift; sourceTree = "<group>"; };
 		D30602822E377E9700908D1D /* EncoderTokenizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoderTokenizer.swift; sourceTree = "<group>"; };
@@ -192,6 +194,8 @@
 		EE78992C2E39ECA000EC671C /* ChannelList+GuideToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelList+GuideToastView.swift"; sourceTree = "<group>"; };
 		EE78992E2E39ED4A00EC671C /* ChannelList+GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelList+GridView.swift"; sourceTree = "<group>"; };
 		EE7899302E39EE3100EC671C /* ChannelList+bottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelList+bottomView.swift"; sourceTree = "<group>"; };
+		EE7899332E39F97400EC671C /* ChannelCreateComplete+ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelCreateComplete+ContentView.swift"; sourceTree = "<group>"; };
+		EE7899352E39FADC00EC671C /* ChannelCreateComplete+ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelCreateComplete+ShareView.swift"; sourceTree = "<group>"; };
 		EE7F0DAC2E35092A00B1C122 /* FeedbackWrite+ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+ContentView.swift"; sourceTree = "<group>"; };
 		EE7F0DAF2E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+HeaderView.swift"; sourceTree = "<group>"; };
 		EE82C6162E35F80D0081B845 /* SplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
@@ -251,8 +255,8 @@
 		0D7BFA282E3378CB0056C579 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
-				0D7BFA292E3378E40056C579 /* TitleSectionView.swift */,
-				0D7BFA2B2E34ED810056C579 /* DescriptionSectionView.swift */,
+				0D7BFA292E3378E40056C579 /* ChannelCreateView+TitleView.swift */,
+				0D7BFA2B2E34ED810056C579 /* ChannelCreateView+DescriptionView.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -353,10 +357,9 @@
 		EC9959BB2E2518AF001555B1 /* FeedbackWrite */ = {
 			isa = PBXGroup;
 			children = (
+				EE7F0DAA2E3508ED00B1C122 /* SubViews */,
 				D306028B2E377EC500908D1D /* FeedbackWriteView.swift */,
 				D306028C2E377EC500908D1D /* FeedbackWriteViewModel.swift */,
-				EE7F0DAA2E3508ED00B1C122 /* SubViews */,
-				EE1BA9652E388D260087E934 /* LoadingView.swift */,
 			);
 			path = FeedbackWrite;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 		EE35D54A2E2E01B8008F6A71 /* CommonViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				EE41FEE82E2259310002E595 /* UserViewModel.swift */,
 				EEE689192E2A2CF00008012D /* NotificationViewModel.swift */,
 				EEA0BBB52E2D41C6009A25D8 /* DeepLinkViewModel.swift */,
 			);
@@ -397,8 +401,8 @@
 		EE41FD7E2E223D180002E595 /* InputCode */ = {
 			isa = PBXGroup;
 			children = (
-				EE465F052E27B23D0096109A /* InputCodeViewModel.swift */,
 				EE41FD812E223D720002E595 /* InputCodeView.swift */,
+				EE465F052E27B23D0096109A /* InputCodeViewModel.swift */,
 			);
 			path = InputCode;
 			sourceTree = "<group>";
@@ -424,6 +428,15 @@
 			path = SubView;
 			sourceTree = "<group>";
 		};
+		EE7899322E39F96B00EC671C /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				EE7899352E39FADC00EC671C /* ChannelCreateComplete+ShareView.swift */,
+				EE7899332E39F97400EC671C /* ChannelCreateComplete+ContentView.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		EE7F0DAA2E3508ED00B1C122 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,8 +452,8 @@
 			isa = PBXGroup;
 			children = (
 				0D7BFA282E3378CB0056C579 /* SubView */,
-				EE82DF9C2E24D5D400EC1AFF /* ChannelCreateViewModel.swift */,
 				EE82DF9A2E24D5C900EC1AFF /* ChannelCreateView.swift */,
+				EE82DF9C2E24D5D400EC1AFF /* ChannelCreateViewModel.swift */,
 			);
 			path = ChannelCreate;
 			sourceTree = "<group>";
@@ -448,8 +461,9 @@
 		EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */ = {
 			isa = PBXGroup;
 			children = (
-				EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */,
+				EE7899322E39F96B00EC671C /* SubView */,
 				EE465EF72E2632B20096109A /* ChannelCreateCompleteView.swift */,
+				EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */,
 			);
 			path = ChannelCreateComplete;
 			sourceTree = "<group>";
@@ -507,17 +521,17 @@
 				EEC047172E2E1CF900918BAA /* Components */,
 				EE35D54A2E2E01B8008F6A71 /* CommonViewModel */,
 				EE856A4F2E1CD401006820B9 /* Start */,
-				EE465EFA2E26508E0096109A /* Main */,
-				EE856A522E1CD41C006820B9 /* ChannelList */,
-				EE82DF992E24D5B500EC1AFF /* ChannelCreate */,
-				EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */,
-				EC9959B12E24E646001555B1 /* ChannelDetail */,
-				EC9959B52E251368001555B1 /* ChannelEdit */,
 				EEC04A002E326B3500918BAA /* InputNickName */,
 				EE41FD7E2E223D180002E595 /* InputCode */,
+				EE465EFA2E26508E0096109A /* Main */,
+				EE856A522E1CD41C006820B9 /* ChannelList */,
+				EC9959B12E24E646001555B1 /* ChannelDetail */,
+				EE82DF992E24D5B500EC1AFF /* ChannelCreate */,
+				EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */,
+				EC9959B52E251368001555B1 /* ChannelEdit */,
+				EC9959B82E251453001555B1 /* FeedbackDetail */,
 				EC9959BB2E2518AF001555B1 /* FeedbackWrite */,
 				EC9959BE2E2518BE001555B1 /* FeedbackWriteComplete */,
-				EC9959B82E251453001555B1 /* FeedbackDetail */,
 				EE856A532E1CE5B0006820B9 /* ViewModelable.swift */,
 			);
 			path = Presentation;
@@ -604,7 +618,6 @@
 			isa = PBXGroup;
 			children = (
 				EE856A5A2E1CEA98006820B9 /* StartView.swift */,
-				EE41FEE82E2259310002E595 /* UserViewModel.swift */,
 			);
 			path = Start;
 			sourceTree = "<group>";
@@ -641,6 +654,7 @@
 		EEC047172E2E1CF900918BAA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EE1BA9652E388D260087E934 /* LoadingView.swift */,
 				EE1BA95F2E37A3CE0087E934 /* TopRoundedShape.swift */,
 				EEC048742E2E914800918BAA /* SpeechView.swift */,
 				EE82C6162E35F80D0081B845 /* SplitView.swift */,
@@ -760,11 +774,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE1BA9582E35F8880087E934 /* FeedbackWrite+WriteView.swift in Sources */,
+				EE7899342E39F98700EC671C /* ChannelCreateComplete+ContentView.swift in Sources */,
 				EE78992F2E39ED5E00EC671C /* ChannelList+GridView.swift in Sources */,
 				EEE6891A2E2A2CF50008012D /* NotificationViewModel.swift in Sources */,
 				EC6A4C882E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift in Sources */,
 				EEE689142E2944110008012D /* StartView.swift in Sources */,
 				EEE689132E2943FB0008012D /* NavigationRouter.swift in Sources */,
+				EE7899362E39FAE200EC671C /* ChannelCreateComplete+ShareView.swift in Sources */,
 				EEE689122E2943C00008012D /* FirestoreManager.swift in Sources */,
 				EE41FEE92E2259350002E595 /* UserViewModel.swift in Sources */,
 				EE61A4322E3360900079E7A6 /* ChannelList+HeaderView.swift in Sources */,
@@ -777,7 +793,7 @@
 				EC9959B22E24E646001555B1 /* ChannelDetailView.swift in Sources */,
 				EE78992B2E39E0B600EC671C /* ChannelList+ListEmptyView.swift in Sources */,
 				EC6A4C8A2E312D410087DB5C /* ChannelDetail+FeedbackRowView.swift in Sources */,
-				0D7BFA2C2E34ED810056C579 /* DescriptionSectionView.swift in Sources */,
+				0D7BFA2C2E34ED810056C579 /* ChannelCreateView+DescriptionView.swift in Sources */,
 				EE61A4342E3361550079E7A6 /* CustomPaddingModifier.swift in Sources */,
 				EE465EEE2E2630F20096109A /* ChannelEditView.swift in Sources */,
 				EEA0BBB62E2D41C6009A25D8 /* DeepLinkViewModel.swift in Sources */,
@@ -832,7 +848,7 @@
 				EC6A4C9D2E34A67E0087DB5C /* FeedbackDetail+DescriptionView.swift in Sources */,
 				EEC048732E2E331400918BAA /* GimiTextEditorModifier.swift in Sources */,
 				EEC04A022E3352A000918BAA /* View+Extension.swift in Sources */,
-				0D7BFA2A2E3378E40056C579 /* TitleSectionView.swift in Sources */,
+				0D7BFA2A2E3378E40056C579 /* ChannelCreateView+TitleView.swift in Sources */,
 				EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */,
 				EC94C0F32E3746130020E59D /* GPTManger.swift in Sources */,
 				EE1BA95C2E3682640087E934 /* FeedbackWrite+InfoView.swift in Sources */,
@@ -998,6 +1014,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GimiFeedback/App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "기미피드백";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1036,6 +1053,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GimiFeedback/App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "기미피드백";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -29,6 +29,8 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             completionHandler: { _, _ in }
         )
         
+        UNUserNotificationCenter.current().setBadgeCount(0)
+        
         // UNUserNotificationCenterDelegate를 구현한 메서드를 실행시킴
         application.registerForRemoteNotifications()
         
