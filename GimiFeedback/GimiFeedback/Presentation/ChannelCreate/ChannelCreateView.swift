@@ -19,9 +19,9 @@ struct ChannelCreateView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            TitleSectionView(title: $viewModel.title)
+            TitleView(title: $viewModel.title)
             
-            DescriptionSectionView(description: $viewModel.description)
+            DescriptionView(description: $viewModel.description)
             
             Spacer()
             
