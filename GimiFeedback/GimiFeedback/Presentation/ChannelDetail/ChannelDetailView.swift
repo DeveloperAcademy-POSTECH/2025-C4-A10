@@ -14,29 +14,36 @@ struct ChannelDetailView: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: .zero) {
-                /// 콘텐츠 설명
-                DescriptionView(
-                    channelItem: viewModel.channelItem,
-                    onTapEdit: {
-                        router.push(
-                            to: .channelEdit(channelItem: viewModel.channelItem)
+        ZStack {
+            switch viewModel.isLoading {
+            case true:
+                LoadingView(text: "로딩 중 입니다.")
+            case false:
+                ScrollView {
+                    VStack(spacing: .zero) {
+                        /// 콘텐츠 설명
+                        DescriptionView(
+                            channelItem: viewModel.channelItem,
+                            onTapEdit: {
+                                router.push(
+                                    to: .channelEdit(channelItem: viewModel.channelItem)
+                                )
+                            }
                         )
-                    }
-                )
-                
-                /// 피드백 없을 때 화면
-                if viewModel.feedbackList.isEmpty {
-                    EmptyFeedbackView(channelId: viewModel.channelItem.id, tapAction: { isShowSheet = true })
-                } else {
-                    /// 피드백 있을 때 화면
-                    FeedbackListView(
-                        feedbackList: viewModel.feedbackList,
-                        onTapFeedbackItem: { item in
-                            router.push(to: .feedbackDetail(feedback: item))
+                        
+                        /// 피드백 없을 때 화면
+                        if viewModel.feedbackList.isEmpty {
+                            EmptyFeedbackView(channelId: viewModel.channelItem.id, tapAction: { isShowSheet = true })
+                        } else {
+                            /// 피드백 있을 때 화면
+                            FeedbackListView(
+                                feedbackList: viewModel.feedbackList,
+                                onTapFeedbackItem: { item in
+                                    router.push(to: .feedbackDetail(feedback: item))
+                                }
+                            )
                         }
-                    )
+                    }
                 }
             }
         }
@@ -91,6 +98,7 @@ struct ChannelDetailView: View {
         }
         .refreshable {
             viewModel.send(.getFeedbackChannelItem)
+            viewModel.send(.fetchFeedbackList)
         }
     }
 }
