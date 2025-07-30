@@ -32,7 +32,8 @@ struct FeedbackWriteView: View {
             case .writing:
                 contentView
             case .loading:
-                LoadingView()
+                LoadingView(text: "피드백을 전송중이에요...")
+                    .navigationBarBackButtonHidden()
             case .success:
                 Color.clear
                     .onAppear {

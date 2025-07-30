@@ -8,20 +8,21 @@
 import SwiftUI
 
 struct LoadingView: View {
+    let text: String
+    
     var body: some View {
         VStack(spacing: 24) {
             ProgressView()
                 .progressViewStyle(.circular)
                 .scaleEffect(1.5)
                 .foregroundColor(.gray400)
-            Text("피드백을 전송중이에요...")
+            Text(text)
                 .font(.title3)
                 .foregroundStyle(.gray400)
         }
-        .navigationBarBackButtonHidden()
     }
 }
 
 #Preview {
-    LoadingView()
+    LoadingView(text: "Test..")
 }

@@ -18,22 +18,38 @@ struct ChannelListView: View {
     }
     
     var body: some View {
-        VStack(spacing: 16) {
-            HeaderView(router: router)
-            
-            ScrollView {
-                LazyVGrid(columns: columns, alignment: .center, spacing: 32) {
-                    ForEach(viewModel.channelList) { item in
-                        Button {
-                            router.push(to: .channelDetail(channelItem: item.channel))
-                        } label: {
-                            ListItemView(item: item)
+        ZStack {
+            VStack(spacing: 0) {
+                HeaderView(router: router)
+                
+                ScrollView {
+                    LazyVGrid(columns: columns, alignment: .center, spacing: 32) {
+                        ForEach(viewModel.channelList) { item in
+                            Button {
+                                router.push(to: .channelDetail(channelItem: item.channel))
+                            } label: {
+                                ListItemView(item: item)
+                            }
                         }
                     }
                 }
             }
+
+            if viewModel.isChannelListLoading {
+                LoadingView(text: "피드백 로딩 중...")
+            } else if !viewModel.isChannelListLoading
+                        && viewModel.channelList.isEmpty {
+                ListEmptyView()
+            }
         }
         .padding(.horizontal, 24)
+        .overlay(alignment: .bottom) {
+            HStack {
+                Spacer()
+                SpeechBubbleView(message: "여기서 채널을 생성할 수 있어요")
+            }
+            .padding(.horizontal, -14)
+        }
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
                 HStack {
