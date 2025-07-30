@@ -12,7 +12,13 @@ final class ChannelCreateCompleteViewModel: ViewModelable {
         case shareToKakao(String)
     }
     
-    @Published var showToast: Bool = false
+    let channelId: String
+    @Published var showToast: Bool
+    
+    init(channelId: String, showToast: Bool = false) {
+        self.channelId = channelId
+        self.showToast = showToast
+    }
     
     func send(_ action: Action) {
         switch action {
