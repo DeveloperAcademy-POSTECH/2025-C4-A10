@@ -81,6 +81,7 @@ extension FeedbackDetailViewModel {
             
             continueFeedbackList = feedbackItem.content.filter { $0.type == .typeContinue }
             stopFeedbackList = feedbackItem.content.filter { $0.type == .typeStop }
+            
             do {
                 try await FirestoreManager.shared.update(feedbackItem)
             } catch {
@@ -95,6 +96,11 @@ extension FeedbackDetailViewModel {
         guard let index = feedbackItem.content.firstIndex(where: { $0.id == detail.id }) else { return }
         
         feedbackItem.content[index].cardState = detail.cardState
+        
+        if feedbackItem.content[index].cardState == .trans,
+           feedbackItem.content[index].transContent == nil {
+            return
+        }
         
         continueFeedbackList = feedbackItem.content.filter { $0.type == .typeContinue }
         stopFeedbackList = feedbackItem.content.filter { $0.type == .typeStop }
@@ -112,15 +118,16 @@ extension FeedbackDetailViewModel {
     }
     
     private func updateFeedbackVisibility() {
-           Task {
-               isUpdateVisibleLoading = true
-               do {
-                   try await FirestoreManager.shared.update(feedbackItem)
-               } catch {
-                   errorMessage = "원문 표시 실패: \(error.localizedDescription)"
-                   print("원문 표시 실패: \(error.localizedDescription)")
-               }
-               isUpdateVisibleLoading = false
-           }
-       }
+        Task {
+            isUpdateVisibleLoading = true
+            do {
+                try await FirestoreManager.shared.update(feedbackItem)
+            } catch {
+                errorMessage = "원문 표시 실패: \(error.localizedDescription)"
+                print("원문 표시 실패: \(error.localizedDescription)")
+            }
+            isUpdateVisibleLoading = false
+        }
+    }
 }
+
