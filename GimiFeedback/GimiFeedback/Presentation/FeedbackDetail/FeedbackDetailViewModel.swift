@@ -11,7 +11,6 @@ final class FeedbackDetailViewModel: ViewModelable {
     
     enum Action {
         case deleteFeedback
-        case visualizeDetail(detail: FeedbackContent)
         case updateFeedbackVisibility
         case transContent(FeedbackContent)
         case updateCardState(FeedbackContent)
@@ -21,9 +20,18 @@ final class FeedbackDetailViewModel: ViewModelable {
     @Published var continueFeedbackList: [FeedbackContent]
     @Published var stopFeedbackList: [FeedbackContent]
     @Published private(set) var errorMessage: String?
-    @Published private(set) var isLoading: Bool = false
     @Published var isDeleted = false
     @Published var isShowToast = false
+    
+    @Published private(set) var isDeleteLoading: Bool = false
+    @Published private(set) var isTransLoading: Bool = false
+    @Published private(set) var isUpdateCardStateLoading: Bool = false
+    @Published private(set) var isUpdateVisibleLoading: Bool = false
+    
+    var isLoading: Bool {
+        isDeleteLoading
+        || isUpdateVisibleLoading
+    }
     
     init(feedbackItem: Feedback) {
         self.feedbackItem = feedbackItem
@@ -35,8 +43,6 @@ final class FeedbackDetailViewModel: ViewModelable {
         switch action {
         case .deleteFeedback:
             deleteFeedback(feedbackItem: feedbackItem)
-        case .visualizeDetail(let detail):
-            updateVisibility(detail: detail)
         case .updateFeedbackVisibility:
             feedbackItem.visiable = true
             updateFeedbackVisibility()
@@ -51,7 +57,7 @@ final class FeedbackDetailViewModel: ViewModelable {
 extension FeedbackDetailViewModel {
     private func deleteFeedback(feedbackItem: Feedback) {
         Task {
-            isLoading = true
+            isDeleteLoading = true
             do {
                 try await FirestoreManager.shared.delete(feedbackItem)
                 print("피드백 삭제 성공")
@@ -60,33 +66,13 @@ extension FeedbackDetailViewModel {
                 errorMessage = "삭제 실패: \(error.localizedDescription)"
                 print("삭제 실패: \(error.localizedDescription)")
             }
-            isLoading = false
-        }
-    }
-    
-    private func updateVisibility(detail: FeedbackContent) {
-        guard let index = feedbackItem.content.firstIndex(where: { $0.id == detail.id }) else { return }
-        
-        feedbackItem.content[index].visiable.toggle()
-        
-        continueFeedbackList = feedbackItem.content.filter { $0.type == .typeContinue }
-        stopFeedbackList = feedbackItem.content.filter { $0.type == .typeStop }
-        
-        Task {
-            isLoading = true
-            do {
-                try await FirestoreManager.shared.update(feedbackItem)
-            } catch {
-                errorMessage = "원문 표시 실패: \(error.localizedDescription)"
-                print("원문 표시 실패: \(error.localizedDescription)")
-            }
-            isLoading = false
+            isDeleteLoading = false
         }
     }
     
     private func transFeedbackContent(content: FeedbackContent) {
         Task {
-            isLoading = true
+            isTransLoading = true
             let response = try await GPTManger.shared.sendChatCompletion(inputText: content.content)
                     
             guard let index = feedbackItem.content.firstIndex(where: { $0.id == content.id }) else { return }
@@ -101,7 +87,7 @@ extension FeedbackDetailViewModel {
                 errorMessage = "원문 표시 실패: \(error.localizedDescription)"
                 print("원문 표시 실패: \(error.localizedDescription)")
             }
-            isLoading = false
+            isTransLoading = false
         }
     }
     
@@ -114,27 +100,27 @@ extension FeedbackDetailViewModel {
         stopFeedbackList = feedbackItem.content.filter { $0.type == .typeStop }
         
         Task {
-            isLoading = true
+            isUpdateCardStateLoading = true
             do {
                 try await FirestoreManager.shared.update(feedbackItem)
             } catch {
                 errorMessage = "원문 표시 실패: \(error.localizedDescription)"
                 print("원문 표시 실패: \(error.localizedDescription)")
             }
-            isLoading = false
+            isUpdateCardStateLoading = false
         }
     }
     
     private func updateFeedbackVisibility() {
            Task {
-               isLoading = true
+               isUpdateVisibleLoading = true
                do {
                    try await FirestoreManager.shared.update(feedbackItem)
                } catch {
                    errorMessage = "원문 표시 실패: \(error.localizedDescription)"
                    print("원문 표시 실패: \(error.localizedDescription)")
                }
-               isLoading = false
+               isUpdateVisibleLoading = false
            }
        }
 }
