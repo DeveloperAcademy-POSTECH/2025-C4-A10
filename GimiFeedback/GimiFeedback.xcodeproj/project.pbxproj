@@ -85,6 +85,8 @@
 		EE78992D2E39ECAF00EC671C /* ChannelList+GuideToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE78992C2E39ECA000EC671C /* ChannelList+GuideToastView.swift */; };
 		EE78992F2E39ED5E00EC671C /* ChannelList+GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE78992E2E39ED4A00EC671C /* ChannelList+GridView.swift */; };
 		EE7899312E39EE3D00EC671C /* ChannelList+bottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7899302E39EE3100EC671C /* ChannelList+bottomView.swift */; };
+		EE7899342E39F98700EC671C /* ChannelCreateComplete+ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7899332E39F97400EC671C /* ChannelCreateComplete+ContentView.swift */; };
+		EE7899362E39FAE200EC671C /* ChannelCreateComplete+ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7899352E39FADC00EC671C /* ChannelCreateComplete+ShareView.swift */; };
 		EE7F0DAD2E35092A00B1C122 /* FeedbackWrite+ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F0DAC2E35092A00B1C122 /* FeedbackWrite+ContentView.swift */; };
 		EE7F0DB02E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F0DAF2E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift */; };
 		EE82C6172E35F80D0081B845 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82C6162E35F80D0081B845 /* SplitView.swift */; };
@@ -192,6 +194,8 @@
 		EE78992C2E39ECA000EC671C /* ChannelList+GuideToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelList+GuideToastView.swift"; sourceTree = "<group>"; };
 		EE78992E2E39ED4A00EC671C /* ChannelList+GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelList+GridView.swift"; sourceTree = "<group>"; };
 		EE7899302E39EE3100EC671C /* ChannelList+bottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelList+bottomView.swift"; sourceTree = "<group>"; };
+		EE7899332E39F97400EC671C /* ChannelCreateComplete+ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelCreateComplete+ContentView.swift"; sourceTree = "<group>"; };
+		EE7899352E39FADC00EC671C /* ChannelCreateComplete+ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelCreateComplete+ShareView.swift"; sourceTree = "<group>"; };
 		EE7F0DAC2E35092A00B1C122 /* FeedbackWrite+ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+ContentView.swift"; sourceTree = "<group>"; };
 		EE7F0DAF2E35D7D000B1C122 /* FeedbackWrite+HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedbackWrite+HeaderView.swift"; sourceTree = "<group>"; };
 		EE82C6162E35F80D0081B845 /* SplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
@@ -424,6 +428,15 @@
 			path = SubView;
 			sourceTree = "<group>";
 		};
+		EE7899322E39F96B00EC671C /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				EE7899352E39FADC00EC671C /* ChannelCreateComplete+ShareView.swift */,
+				EE7899332E39F97400EC671C /* ChannelCreateComplete+ContentView.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		EE7F0DAA2E3508ED00B1C122 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +461,7 @@
 		EE82DF9E2E24D5FC00EC1AFF /* ChannelCreateComplete */ = {
 			isa = PBXGroup;
 			children = (
+				EE7899322E39F96B00EC671C /* SubView */,
 				EE465EF72E2632B20096109A /* ChannelCreateCompleteView.swift */,
 				EE82DF9F2E24D63A00EC1AFF /* ChannelCreateCompleteViewModel.swift */,
 			);
@@ -760,11 +774,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE1BA9582E35F8880087E934 /* FeedbackWrite+WriteView.swift in Sources */,
+				EE7899342E39F98700EC671C /* ChannelCreateComplete+ContentView.swift in Sources */,
 				EE78992F2E39ED5E00EC671C /* ChannelList+GridView.swift in Sources */,
 				EEE6891A2E2A2CF50008012D /* NotificationViewModel.swift in Sources */,
 				EC6A4C882E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift in Sources */,
 				EEE689142E2944110008012D /* StartView.swift in Sources */,
 				EEE689132E2943FB0008012D /* NavigationRouter.swift in Sources */,
+				EE7899362E39FAE200EC671C /* ChannelCreateComplete+ShareView.swift in Sources */,
 				EEE689122E2943C00008012D /* FirestoreManager.swift in Sources */,
 				EE41FEE92E2259350002E595 /* UserViewModel.swift in Sources */,
 				EE61A4322E3360900079E7A6 /* ChannelList+HeaderView.swift in Sources */,
