@@ -20,6 +20,73 @@ Attach videos if you are available
 - 커스텀 네비게이션 Router ([자료](https://github.com/DeveloperAcademy-POSTECH/2025-C4-A10/wiki/Navigation-Router-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0))
 - 
 
+<br><br><br><br>
+
+## 🛠️ Setting
+
+### 📂 Folder Structure
+
+```
+GimiFeedback
+├── AI
+│   ├── MLModel
+│   └── MLWeights
+├── App
+│   └── AppDelegate
+├── Model
+│   ├── Feedback
+│   ├── FeedbackChannel
+│   └── Navigation
+├── Network
+│   ├── GPTManager
+│   └── FirestoreManager
+├── Presentation
+│   ├── ChannelCreate
+│   ├── ChannelCreateComplete
+│   ├── ChannelDetail
+│   ├── ChannelEdit
+│   ├── ChannelList
+│   ├── CommonViewModel
+│   ├── Components
+│   ├── FeedbackDetail
+│   ├── FeedbackWrite
+│   ├── FeedbackWriteComplete
+│   ├── InputCode
+│   ├── InputNickName
+│   ├── Main
+│   ├── Start
+│   └── ViewModelable.swift
+├── Resources
+│   ├── Assets.xcassets
+│   │   ├── Color
+│   │   └── Image
+│   └── Fonts
+│           └── SUIT-Variable
+└── Util
+    ├── Enums
+    └── Extension
+
+```
+
+### 💻 Development Environment
+
+<img width="77" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://img.shields.io/badge/iOS-17.0+-silver"> <img width="83" alt="스크린샷 2021-11-19 오후 3 52 02" src="https://img.shields.io/badge/Xcode-16.4-blue">
+
+* SwiftUI
+* MVVM + Action
+* UserNotifications
+* Firebase Messaging
+
+### 🎁 Library
+
+| Name              |       |
+| ----------------- | ----- |
+| SwiftLint         | `SPM` |
+| Firebase          | `SPM` |
+| KakaoSDK          | `SPM` |
+| transformers      | `SPM` |
+
+<br><br><br><br>
 
 ## ✨ Skills & Tech Stack 
 
@@ -27,9 +94,8 @@ Attach videos if you are available
 |---|---|---| 
 |`#SwiftUI` `#Navigation`|Navigation Router를 사용한 화면 이동 처리|[링크](https://github.com/DeveloperAcademy-POSTECH/2025-C4-A10/wiki/Navigation-Router-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)|
 
-## ✨ Skills
-
 ### 자연어 이해(NLU) - 감정 분류
+---
 우리의 핵심 기술 중 하나인 피드백 감정 분류입니다.
 
 사진과 같이 원문 텍스트의 감정이 긍정인지, 부정인지 분류하는 기술을 의미합니다.
@@ -39,7 +105,7 @@ Attach videos if you are available
 <br><br><br>
 
 ### 모델 학습용 데이터 제작 - 라벨링
-
+---
 감정을 정확하게 분류하기 위해 감정에 대한 기준을 설정하고 학습 데이터의 퀄리티를 높이는 작업을 진행
 
 <img src="./image/Label.png">
@@ -47,7 +113,7 @@ Attach videos if you are available
 <br><br><br>
 
 ### 자연어 생성(NLG) - LLM
-
+---
 앱 첫번째 Demo 중 제일 많은 피드백이 `궁금해서 열게 되는데 순화하는 기능이 있으면 좋겠다`였습니다.<br>
 그래서 아래와 같이 자연어 생성 기능을 이용해 순화하는 기능을 기획하고 만들게 되었습니다.
 
@@ -58,7 +124,7 @@ Attach videos if you are available
 <br><br><br>
 
 ### Firebase Messaging을 이용한 앱 알림 기능
-
+---
 앱에서 플로우는
 
 1. 내(A)가 피드백을 받을 내용 생성 

@@ -98,7 +98,6 @@
 		EE856A442E1CD244006820B9 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A432E1CD23E006820B9 /* Color+Extension.swift */; };
 		EE856A472E1CD2AD006820B9 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A462E1CD2AA006820B9 /* Font+Extension.swift */; };
 		EE856A492E1CD2D7006820B9 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A482E1CD2D1006820B9 /* Feedback.swift */; };
-		EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A4D2E1CD3BF006820B9 /* DummyData.swift */; };
 		EE856A512E1CD418006820B9 /* ChannelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A502E1CD409006820B9 /* ChannelListView.swift */; };
 		EE856A542E1CE5B8006820B9 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A532E1CE5B0006820B9 /* ViewModelable.swift */; };
 		EE856A562E1CE604006820B9 /* ChannelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE856A552E1CE5FF006820B9 /* ChannelListViewModel.swift */; };
@@ -209,7 +208,6 @@
 		EE856A462E1CD2AA006820B9 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		EE856A482E1CD2D1006820B9 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
-		EE856A4D2E1CD3BF006820B9 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		EE856A502E1CD409006820B9 /* ChannelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListView.swift; sourceTree = "<group>"; };
 		EE856A532E1CE5B0006820B9 /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		EE856A552E1CE5FF006820B9 /* ChannelListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListViewModel.swift; sourceTree = "<group>"; };
@@ -491,7 +489,6 @@
 			children = (
 				EE856A3B2E1CD0FC006820B9 /* App */,
 				EE856A3E2E1CD111006820B9 /* Model */,
-				EE856A3D2E1CD10E006820B9 /* Data */,
 				EE856A4A2E1CD399006820B9 /* Network */,
 				EEFEBF592E4B7EFB001D824D /* AI */,
 				EE856A3C2E1CD102006820B9 /* Presentation */,
@@ -534,14 +531,6 @@
 				EE856A532E1CE5B0006820B9 /* ViewModelable.swift */,
 			);
 			path = Presentation;
-			sourceTree = "<group>";
-		};
-		EE856A3D2E1CD10E006820B9 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				EE856A4D2E1CD3BF006820B9 /* DummyData.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		EE856A3E2E1CD111006820B9 /* Model */ = {
@@ -857,7 +846,6 @@
 				EEC048732E2E331400918BAA /* GimiTextEditorModifier.swift in Sources */,
 				EEC04A022E3352A000918BAA /* View+Extension.swift in Sources */,
 				0D7BFA2A2E3378E40056C579 /* ChannelCreateView+TitleView.swift in Sources */,
-				EE856A4E2E1CD3C4006820B9 /* DummyData.swift in Sources */,
 				EC94C0F32E3746130020E59D /* GPTManger.swift in Sources */,
 				EE1BA95C2E3682640087E934 /* FeedbackWrite+InfoView.swift in Sources */,
 				EE856CA92E1D6D6C006820B9 /* NavigationDestination.swift in Sources */,
