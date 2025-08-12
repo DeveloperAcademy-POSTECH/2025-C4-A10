@@ -493,11 +493,10 @@
 				EE856A3E2E1CD111006820B9 /* Model */,
 				EE856A3D2E1CD10E006820B9 /* Data */,
 				EE856A4A2E1CD399006820B9 /* Network */,
+				EEFEBF592E4B7EFB001D824D /* AI */,
 				EE856A3C2E1CD102006820B9 /* Presentation */,
 				EE856A402E1CD129006820B9 /* Util */,
 				EE856A412E1CD13E006820B9 /* Resources */,
-				D30602832E377E9700908D1D /* MLModel */,
-				D30602892E377EA100908D1D /* MLWeights */,
 			);
 			path = GimiFeedback;
 			sourceTree = "<group>";
@@ -674,6 +673,15 @@
 				EE41FD7C2E223CFD0002E595 /* InputNickNameView.swift */,
 			);
 			path = InputNickName;
+			sourceTree = "<group>";
+		};
+		EEFEBF592E4B7EFB001D824D /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				D30602832E377E9700908D1D /* MLModel */,
+				D30602892E377EA100908D1D /* MLWeights */,
+			);
+			path = AI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
