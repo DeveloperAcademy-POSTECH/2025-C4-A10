@@ -12,13 +12,25 @@ Attach videos if you are available
 
 ## 📌 Features
 
-- 파이어베이스 + 카카오 회원 기능(Firebase Auth + Kakao Auth) ([자료](https://github.com/DeveloperAcademy-POSTECH/2025-C4-A10/wiki/(Firebase,-Kakao)-Auth-%ED%9A%8C%EC%9B%90-%EA%B8%B0%EB%8A%A5))
-- 피드백 데이터 CRUD(Firestore) ([코드](https://github.com/DeveloperAcademy-POSTECH/2025-C4-A10/blob/dev/GimiFeedback/GimiFeedback/Network/FirestoreManager.swift))
-- 피드백 데이터 감정 분류 ([자료](#자연어-이해nlu---감정-분류))
-- 피드백 데이터 순화 기능 ([자료](#자연어-생성nlg---llm))
-- 피드백 보낼때 알림 기능 ([자료](#firebase-messaging을-이용한-앱-알림-기능))
-- 커스텀 네비게이션 Router ([자료](https://github.com/DeveloperAcademy-POSTECH/2025-C4-A10/wiki/Navigation-Router-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0))
-- 
+### 피드백 작성하는 유저
+- 로그인 하지 않고 피드백 코드를 통한 피드백 작성
+- 필요한 양식을 넣고 피드백을 보냄
+
+### 피드백을 받으려는 유저
+- 카카오 로그인을 통한 유저 저장
+- 피드백 채널(폴더)를 만들어서 유저들에게 공유(카카오 공유, DeepLink 공유 등)
+- 피드백을 받으면 알림을 통해 해당 피드백 확인
+- 피드백의 `매운맛을 분석`해서 미리 `경고`
+- 피드백이 너무 매우면 `순화`를 눌러서 `개선할 점 찾기`
+
+### 기술 Features
+
+- 👤 파이어베이스 + 카카오 회원 기능(Firebase Auth + Kakao Auth) ([자료](https://github.com/DeveloperAcademy-POSTECH/2025-C4-A10/wiki/(Firebase,-Kakao)-Auth-%ED%9A%8C%EC%9B%90-%EA%B8%B0%EB%8A%A5))
+- 💾 피드백 데이터 CRUD(Firestore) ([코드](https://github.com/DeveloperAcademy-POSTECH/2025-C4-A10/blob/dev/GimiFeedback/GimiFeedback/Network/FirestoreManager.swift))
+- 🧠 피드백 감정 분류 ([자료](#자연어-이해nlu---감정-분류))
+- 🔁 피드백 순화 기능 ([자료](#자연어-생성nlg---llm))
+- 🔔 피드백 알림 기능 ([자료](#firebase-messaging을-이용한-앱-알림-기능))
+- 📲 커스텀 네비게이션 Router ([자료](https://github.com/DeveloperAcademy-POSTECH/2025-C4-A10/wiki/Navigation-Router-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0))
 
 <br><br><br><br>
 
@@ -42,20 +54,9 @@ GimiFeedback
 │   └── FirestoreManager
 ├── Presentation
 │   ├── ChannelCreate
-│   ├── ChannelCreateComplete
 │   ├── ChannelDetail
-│   ├── ChannelEdit
-│   ├── ChannelList
-│   ├── CommonViewModel
-│   ├── Components
-│   ├── FeedbackDetail
-│   ├── FeedbackWrite
-│   ├── FeedbackWriteComplete
-│   ├── InputCode
-│   ├── InputNickName
 │   ├── Main
-│   ├── Start
-│   └── ViewModelable.swift
+│   └── ...
 ├── Resources
 │   ├── Assets.xcassets
 │   │   ├── Color
@@ -93,6 +94,7 @@ GimiFeedback
 |사용 기술|🗣️간단 소개|🔗링크|
 |---|---|---| 
 |`#SwiftUI` `#Navigation`|Navigation Router를 사용한 화면 이동 처리|[링크](https://github.com/DeveloperAcademy-POSTECH/2025-C4-A10/wiki/Navigation-Router-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)|
+|`#Kakao Auth` `#Firebase Auth` `#Email`|Kakao 회원가입을 통한 Firebase Auth로 관리하기 |[링크](https://github.com/DeveloperAcademy-POSTECH/2025-C4-A10/wiki/%28Firebase%2C-Kakao%29-Auth-%ED%9A%8C%EC%9B%90-%EA%B8%B0%EB%8A%A5)|
 
 ### 자연어 이해(NLU) - 감정 분류
 ---
