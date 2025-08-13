@@ -9,7 +9,7 @@ import Foundation
 
 final class DeepLinkManager {
     static let shared = DeepLinkManager()
-    private init() { }
+    private init() {}
     
     /// 외부에서 전달된 딥링크 URL로부터 FeedbackChannel을 비동기적으로 가져오는 메서드
      ///
