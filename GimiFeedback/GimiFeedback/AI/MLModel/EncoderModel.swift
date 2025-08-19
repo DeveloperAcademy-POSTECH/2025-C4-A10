@@ -8,7 +8,7 @@
 import CoreML
 import Foundation
 
-class SequenceClassifier {
+final class SequenceClassifier {
     private let model: MLModel
     private let tokenizer: EncoderTokenizer
 
