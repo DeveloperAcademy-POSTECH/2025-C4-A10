@@ -145,17 +145,6 @@ iOSInjectionProject/
 **/Config.xcconfig
 */GoogleService-Info.plist
 **/GoogleService-Info.plist
-*/GimiFeedback.entitlements
-**/GimiFeedback.entitlements
-
 
 */*.mlpackage
 **/*.mlpackage
-*/tokenizer/*.json
-**/tokenizer/*.json
-
-*/tokenizer.json
-**/tokenizer.json
-*/tokenizer_config.json
-**/tokenizer_config.json
-
