@@ -16,9 +16,12 @@ jobs:
         with:
           lfs: true
 
-      - name: Write Config.xcconfig
+      - name: Check LFS files
+        run: git lfs ls-files
+
+      - name: ⚙️ Write xcconfig
         run: |
-          echo "GPT_API_KEY =. $GPT_API_KEY" >> $CONFIG_FILE_PATH
+          echo "GPT_API_KEY = $GPT_API_KEY" >> $CONFIG_FILE_PATH
           echo "KAKAO_NATIVE_APP_KEY = $KAKAO_NATIVE_APP_KEY" >> $CONFIG_FILE_PATH
           echo "NOTIFICATION_KEY = $NOTIFICATION_KEY" >> $CONFIG_FILE_PATH
         env:
@@ -38,12 +41,39 @@ jobs:
           GOOGLE_SERVICE_INFO_PWD: ${{ secrets.GOOGLE_SERVICE_INFO_PWD }}
           DECRYPTED_GOOGLESERVICE_FILE_PATH: ${{ 'GimiFeedback/GimiFeedback/App/GoogleService-Info.plist' }}
 
-      - name: Start xcode build 🛠
+      - name: 🔨 set up xcode version
+        run: |
+          sudo xcode-select -s /Applications/Xcode_16.2.app
+
+      - name: ✅ check xcode version
+        run: |
+          sudo xcodebuild -version
+
+      - name: 🔍 Detect Latest iPhone Simulator 
+        id: detect_latest_simulator
+        run: |
+          DEVICE=$(xcrun simctl list devices available | grep -Eo 'iPhone .* \([0-9A-F\-]+\)' | head -n 1)
+          UDID=$(echo "$DEVICE" | grep -Eo '[0-9A-F\-]{36}')
+          NAME=$(echo "$DEVICE" | cut -d '(' -f1 | xargs)
+          echo "Detected simulator: $NAME ($UDID)"
+          echo "sim_name=$NAME" >> "$GITHUB_OUTPUT"
+          echo "sim_udid=$UDID" >> "$GITHUB_OUTPUT"
+
+      - name: 🔎 Show destinations (why none?)
+        run: |
+          xcodebuild -project GimiFeedback/GimiFeedback.xcodeproj -scheme GimiFeedback -showdestinations || true
+
+      - name: 🔎 Key build settings
+        run: |
+          xcodebuild -project GimiFeedback/GimiFeedback.xcodeproj -target GimiFeedback -configuration Debug -showBuildSettings \
+          | egrep 'SUPPORTED_PLATFORMS|EXCLUDED_ARCHS|TARGETED_DEVICE_FAMILY' || true
+
+      - name: 🛠 Start xcode build 
         run: |
           xcodebuild \
             -project GimiFeedback/GimiFeedback.xcodeproj \
             -scheme GimiFeedback \
-            -sdk iphonesimulator \
-            -destination "generic/platform=iOS Simulator" \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
             -skipPackagePluginValidation \
             clean build
