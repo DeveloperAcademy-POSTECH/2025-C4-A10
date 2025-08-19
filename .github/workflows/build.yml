@@ -1,0 +1,34 @@
+name: Build Test
+
+on:
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  Build:
+    runs-on: macos-15
+
+    steps:
+      # 저장소의 코드를 체크아웃
+      - name: Checkout project
+        uses: actions/checkout@v4
+
+      - name: access to secrets
+        run: |
+          echo "GPT_API_KEY=$GPT_API_KEY" >> GimiFeedback/GimiFeedback/App/Config.xcconfig
+          echo "KAKAO_NATIVE_APP_KEY=$KAKAO_NATIVE_APP_KEY" >> GimiFeedback/GimiFeedback/App/Config.xcconfig
+          echo "NOTIFICATION_KEY=$NOTIFICATION_KEY" >> GimiFeedback/GimiFeedback/App/Config.xcconfig
+        env:
+          GPT_API_KEY: ${{ secrets.GPT_API_KEY }}
+          KAKAO_NATIVE_APP_KEY: ${{ secrets.KAKAO_NATIVE_APP_KEY }}
+          NOTIFICATION_KEY: ${{ secrets.NOTIFICATION_KEY }}
+
+      - name: Start xcode build 🛠
+        run: |
+          xcodebuild \
+            -project GimiFeedback/GimiFeedback.xcodeproj \
+            -scheme GimiFeedback \
+            -sdk iphonesimulator \
+            -skipPackagePluginValidation \
+            clean build
