@@ -16,24 +16,25 @@ jobs:
 
       - name: Write Config.xcconfig
         run: |
-          echo "GPT_API_KEY=$GPT_API_KEY" >> GimiFeedback/GimiFeedback/App/Config.xcconfig
-          echo "KAKAO_NATIVE_APP_KEY=$KAKAO_NATIVE_APP_KEY" >> GimiFeedback/GimiFeedback/App/Config.xcconfig
-          echo "NOTIFICATION_KEY=$NOTIFICATION_KEY" >> GimiFeedback/GimiFeedback/App/Config.xcconfig
+          echo "GPT_API_KEY =. $GPT_API_KEY" >> $CONFIG_FILE_PATH
+          echo "KAKAO_NATIVE_APP_KEY = $KAKAO_NATIVE_APP_KEY" >> $CONFIG_FILE_PATH
+          echo "NOTIFICATION_KEY = $NOTIFICATION_KEY" >> $CONFIG_FILE_PATH
         env:
           GPT_API_KEY: ${{ secrets.GPT_API_KEY }}
           KAKAO_NATIVE_APP_KEY: ${{ secrets.KAKAO_NATIVE_APP_KEY }}
           NOTIFICATION_KEY: ${{ secrets.NOTIFICATION_KEY }}
+          CONFIG_FILE_PATH: ${{ 'GimiFeedback/GimiFeedback/App/Config.xcconfig' }}
 
       - name: Decrypt GoogleService-Info.plist
         run: |
           echo "::add-mask::${GOOGLE_SERVICE_INFO_PWD}"
-          gpg -d -o GimiFeedback/GimiFeedback/App/GoogleService-Info.plist \
+          gpg -d -o $DECRYPTED_GOOGLESERVICE_FILE_PATH \
             --pinentry-mode=loopback \
             --passphrase "$GOOGLE_SERVICE_INFO_PWD" \
             .github/secrets/GoogleService-Info.plist.gpg
-          chmod 600 GimiFeedback/GimiFeedback/App/GoogleService-Info.plist
         env:
           GOOGLE_SERVICE_INFO_PWD: ${{ secrets.GOOGLE_SERVICE_INFO_PWD }}
+          DECRYPTED_GOOGLESERVICE_FILE_PATH: ${{ 'GimiFeedback/GimiFeedback/App/GoogleService-Info.plist' }}
 
       - name: Start xcode build 🛠
         run: |
