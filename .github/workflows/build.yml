@@ -44,5 +44,6 @@ jobs:
             -project GimiFeedback/GimiFeedback.xcodeproj \
             -scheme GimiFeedback \
             -sdk iphonesimulator \
+            -destination "generic/platform=iOS Simulator" \
             -skipPackagePluginValidation \
             clean build
