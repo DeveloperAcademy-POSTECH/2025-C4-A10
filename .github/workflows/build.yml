@@ -14,7 +14,7 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v4
 
-      - name: access to secrets
+      - name: Write Config.xcconfig
         run: |
           echo "GPT_API_KEY=$GPT_API_KEY" >> GimiFeedback/GimiFeedback/App/Config.xcconfig
           echo "KAKAO_NATIVE_APP_KEY=$KAKAO_NATIVE_APP_KEY" >> GimiFeedback/GimiFeedback/App/Config.xcconfig
@@ -23,6 +23,17 @@ jobs:
           GPT_API_KEY: ${{ secrets.GPT_API_KEY }}
           KAKAO_NATIVE_APP_KEY: ${{ secrets.KAKAO_NATIVE_APP_KEY }}
           NOTIFICATION_KEY: ${{ secrets.NOTIFICATION_KEY }}
+
+      - name: Decrypt GoogleService-Info.plist
+        run: |
+          echo "::add-mask::${GOOGLE_SERVICE_INFO_PWD}"
+          gpg -d -o GimiFeedback/GimiFeedback/App/GoogleService-Info.plist \
+            --pinentry-mode=loopback \
+            --passphrase "$GOOGLE_SERVICE_INFO_PWD" \
+            .github/secrets/GoogleService-Info.plist.gpg
+          chmod 600 GimiFeedback/GimiFeedback/App/GoogleService-Info.plist
+        env:
+          GOOGLE_SERVICE_INFO_PWD: ${{ secrets.GOOGLE_SERVICE_INFO_PWD }}
 
       - name: Start xcode build 🛠
         run: |
