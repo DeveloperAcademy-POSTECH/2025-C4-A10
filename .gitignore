@@ -145,6 +145,3 @@ iOSInjectionProject/
 **/Config.xcconfig
 */GoogleService-Info.plist
 **/GoogleService-Info.plist
-
-*/*.mlpackage
-**/*.mlpackage
