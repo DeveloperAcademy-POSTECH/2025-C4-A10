@@ -49,24 +49,27 @@ jobs:
         run: |
           sudo xcodebuild -version
 
-      - name: 🔍 Detect Latest iPhone Simulator 
-        id: detect_latest_simulator
-        run: |
-          DEVICE=$(xcrun simctl list devices available | grep -Eo 'iPhone .* \([0-9A-F\-]+\)' | head -n 1)
-          UDID=$(echo "$DEVICE" | grep -Eo '[0-9A-F\-]{36}')
-          NAME=$(echo "$DEVICE" | cut -d '(' -f1 | xargs)
-          echo "Detected simulator: $NAME ($UDID)"
-          echo "sim_name=$NAME" >> "$GITHUB_OUTPUT"
-          echo "sim_udid=$UDID" >> "$GITHUB_OUTPUT"
+      - name: Download iOS Platform 
+        run: xcodebuild -downloadPlatform iOS
 
-      - name: 🔎 Show destinations (why none?)
-        run: |
-          xcodebuild -project GimiFeedback/GimiFeedback.xcodeproj -scheme GimiFeedback -showdestinations || true
+      # - name: 🔍 Detect Latest iPhone Simulator 
+      #   id: detect_latest_simulator
+      #   run: |
+      #     DEVICE=$(xcrun simctl list devices available | grep -Eo 'iPhone .* \([0-9A-F\-]+\)' | head -n 1)
+      #     UDID=$(echo "$DEVICE" | grep -Eo '[0-9A-F\-]{36}')
+      #     NAME=$(echo "$DEVICE" | cut -d '(' -f1 | xargs)
+      #     echo "Detected simulator: $NAME ($UDID)"
+      #     echo "sim_name=$NAME" >> "$GITHUB_OUTPUT"
+      #     echo "sim_udid=$UDID" >> "$GITHUB_OUTPUT"
 
-      - name: 🔎 Key build settings
-        run: |
-          xcodebuild -project GimiFeedback/GimiFeedback.xcodeproj -target GimiFeedback -configuration Debug -showBuildSettings \
-          | egrep 'SUPPORTED_PLATFORMS|EXCLUDED_ARCHS|TARGETED_DEVICE_FAMILY' || true
+      # - name: 🔎 Show destinations (why none?)
+      #   run: |
+      #     xcodebuild -project GimiFeedback/GimiFeedback.xcodeproj -scheme GimiFeedback -showdestinations || true
+
+      # - name: 🔎 Key build settings
+      #   run: |
+      #     xcodebuild -project GimiFeedback/GimiFeedback.xcodeproj -target GimiFeedback -configuration Debug -showBuildSettings \
+      #     | egrep 'SUPPORTED_PLATFORMS|EXCLUDED_ARCHS|TARGETED_DEVICE_FAMILY' || true
 
       - name: 🛠 Start xcode build 
         run: |
