@@ -7,7 +7,7 @@ on:
 
 jobs:
   Build:
-    runs-on: macos-15
+    runs-on: macos-14
 
     steps:
       # 저장소의 코드를 체크아웃
@@ -41,35 +41,18 @@ jobs:
           GOOGLE_SERVICE_INFO_PWD: ${{ secrets.GOOGLE_SERVICE_INFO_PWD }}
           DECRYPTED_GOOGLESERVICE_FILE_PATH: ${{ 'GimiFeedback/GimiFeedback/App/GoogleService-Info.plist' }}
 
-      - name: 🔨 set up xcode version
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '16.2'
+
+      - name: Print Xcode & CLT
         run: |
-          sudo xcode-select -s /Applications/Xcode_16.2.app
+          xcodebuild -version
+          xcode-select -p
 
-      - name: ✅ check xcode version
-        run: |
-          sudo xcodebuild -version
-
-      - name: Download iOS Platform 
-        run: xcodebuild -downloadPlatform iOS
-
-      # - name: 🔍 Detect Latest iPhone Simulator 
-      #   id: detect_latest_simulator
-      #   run: |
-      #     DEVICE=$(xcrun simctl list devices available | grep -Eo 'iPhone .* \([0-9A-F\-]+\)' | head -n 1)
-      #     UDID=$(echo "$DEVICE" | grep -Eo '[0-9A-F\-]{36}')
-      #     NAME=$(echo "$DEVICE" | cut -d '(' -f1 | xargs)
-      #     echo "Detected simulator: $NAME ($UDID)"
-      #     echo "sim_name=$NAME" >> "$GITHUB_OUTPUT"
-      #     echo "sim_udid=$UDID" >> "$GITHUB_OUTPUT"
-
-      # - name: 🔎 Show destinations (why none?)
-      #   run: |
-      #     xcodebuild -project GimiFeedback/GimiFeedback.xcodeproj -scheme GimiFeedback -showdestinations || true
-
-      # - name: 🔎 Key build settings
-      #   run: |
-      #     xcodebuild -project GimiFeedback/GimiFeedback.xcodeproj -target GimiFeedback -configuration Debug -showBuildSettings \
-      #     | egrep 'SUPPORTED_PLATFORMS|EXCLUDED_ARCHS|TARGETED_DEVICE_FAMILY' || true
+      - name: List simulators
+        run: xcrun simctl list devices available
 
       - name: 🛠 Start xcode build 
         run: |
@@ -77,6 +60,7 @@ jobs:
             -project GimiFeedback/GimiFeedback.xcodeproj \
             -scheme GimiFeedback \
             -sdk iphoneos \
-            -destination 'generic/platform=iOS' \
+            -configuration Debug \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
             -skipPackagePluginValidation \
             clean build
