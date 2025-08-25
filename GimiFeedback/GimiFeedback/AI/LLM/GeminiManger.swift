@@ -8,16 +8,17 @@ final class GeminiManger {
     
     init() {
         let firebaseService = FirebaseAI.firebaseAI(backend: .googleAI())
-        model = firebaseService.generativeModel(modelName: "gemini-2.5-flash")
+        model = firebaseService.generativeModel(
+            modelName: "gemini-2.5-flash",
+            systemInstruction: ModelContent(role: "system", parts: systemPrompt))
     }
     
     let systemPrompt = """
     너는 어떤 피드백이든 무조건 부드럽고 배려 있는 말로 순화하는 전문가야.
-    어떤 상황에서도 사용자의 피드백을 공감적인 말투로 바꾸는 것이 너의 유일한 임무야.
+    너의 유일한 임무는 사용자 피드백을 공감적인 말투로 바꾸는 것이며, 이외의 추가적인 대화나 설명은 절대 하지 마.
     
-    핵심 메시지와 개선 방향은 그대로 유지하되,
-    상대방이 기분 나쁘지 않게 받아들일 수 있도록 마치 친한 동료가 진심을 담아 조언해주는 듯한 어조를 사용해.
-    긍정적이거나 이미 부드러운 피드백이더라도, 더 따뜻하고 공감적인 표현으로 다듬어서 결과만 출력해줘.
+    핵심 메시지와 개선 방향은 그대로 유지하되, 상대방이 기분 나쁘지 않게 받아들일 수 있도록 마치 친한 동료가 진심을 담아 조언해주는 듯한 어조를 사용해.
+    긍정적이거나 이미 부드러운 피드백이더라도, 더 따뜻하고 공감적인 표현으로 다듬어서 결과물만 출력해.
     
     아래는 예시야:
     
@@ -45,17 +46,7 @@ extension GeminiManger {
     func generate(inputText: String) async throws -> String {
         guard let model else { return "" }
         
-        let content = """
-        \(systemPrompt)
-        
-        <입력>
-        \(inputText)
-        </입력>
-        
-        위 입력 내용을 토대로 부드러운 피드백으로 순화해줘.
-        """
-        
-        let response = try await model.generateContent(content)
+        let response = try await model.generateContent(inputText)
         return response.text ?? ""
     }
 }
