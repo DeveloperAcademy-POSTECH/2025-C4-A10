@@ -143,15 +143,10 @@ extension AppDelegate {
 final class YourAppCheckProviderFactory: NSObject, AppCheckProviderFactory {
     func createProvider(with app: FirebaseApp) -> AppCheckProvider? {
         // 시뮬레이터 환경에서는 AppCheckDebugProvider를 사용하도록 설정합니다.
-#if targetEnvironment(simulator)
+        #if targetEnvironment(simulator)
         return AppCheckDebugProvider(app: app)
-#else
-        // 실제 기기에서는 OS 버전에 따라 올바른 프로바이더를 선택합니다.
-        if #available(iOS 14.0, *) {
-            return AppAttestProvider(app: app)
-        } else {
-            return DeviceCheckProvider(app: app)
-        }
-#endif
+        #else
+        return AppAttestProvider(app: app)
+        #endif
     }
 }

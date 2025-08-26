@@ -6,7 +6,7 @@ final class GeminiManger {
     
     private let model: GenerativeModel?
     
-    init() {
+    private init() {
         let firebaseService = FirebaseAI.firebaseAI(backend: .googleAI())
         model = firebaseService.generativeModel(
             modelName: "gemini-2.5-flash",
