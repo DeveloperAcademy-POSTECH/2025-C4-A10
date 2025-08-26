@@ -1,66 +1,101 @@
-name: Build Test
+# name: Build Test
 
-on:
-  pull_request:
-    branches:
-      - dev
+# on:
+#   pull_request:
+#     branches:
+#       - dev
 
-jobs:
-  Build:
-    runs-on: macos-14
+# jobs:
+#   Build:
+#     runs-on: macos-14
 
-    steps:
-      # 저장소의 코드를 체크아웃
-      - name: Checkout project
-        uses: actions/checkout@v4
-        with:
-          lfs: true
+#     env: 
+#       KEYCHAIN: ${{ 'test.keychain' }} 
 
-      - name: Check LFS files
-        run: git lfs ls-files
+#       ENCRYPTED_DEV_FILE_PATH: ${{ '.github/secrets/devkey.p12.gpg' }}
+#       DECRYPTED_DEV_FILE_PATH: ${{ '.github/secrets/devkey.p12' }} 
+#       ENCRYPTED_PROD_FILE_PATH: ${{ '.github/secrets/prodkey.p12.gpg' }}
+#       DECRYPTED_PROD_FILE_PATH: ${{ '.github/secrets/prodkey.p12' }} 
 
-      - name: ⚙️ Write xcconfig
-        run: |
-          echo "GPT_API_KEY = $GPT_API_KEY" >> $CONFIG_FILE_PATH
-          echo "KAKAO_NATIVE_APP_KEY = $KAKAO_NATIVE_APP_KEY" >> $CONFIG_FILE_PATH
-          echo "NOTIFICATION_KEY = $NOTIFICATION_KEY" >> $CONFIG_FILE_PATH
-        env:
-          GPT_API_KEY: ${{ secrets.GPT_API_KEY }}
-          KAKAO_NATIVE_APP_KEY: ${{ secrets.KAKAO_NATIVE_APP_KEY }}
-          NOTIFICATION_KEY: ${{ secrets.NOTIFICATION_KEY }}
-          CONFIG_FILE_PATH: ${{ 'GimiFeedback/GimiFeedback/App/Config.xcconfig' }}
+#       ENCRYPTED_PROVISION_DEV_FILE_PATH: ${{ '.github/secrets/GimiFeedbackDevelopment.mobileprovision.gpg' }}
+#       DECRYPTED_PROVISION_DEV_FILE_PATH: ${{ '.github/secrets/GimiFeedbackDevelopment.mobileprovision' }}
+#       ENCRYPTED_PROVISION_PROD_FILE_PATH: ${{ '.github/secrets/GimiFeedbackAppStore.mobileprovision.gpg' }}
+#       DECRYPTED_PROVISION_PROD_FILE_PATH: ${{ '.github/secrets/GimiFeedbackAppStore.mobileprovision' }}
 
-      - name: Decrypt GoogleService-Info.plist
-        run: |
-          echo "::add-mask::${GOOGLE_SERVICE_INFO_PWD}"
-          gpg -d -o $DECRYPTED_GOOGLESERVICE_FILE_PATH \
-            --pinentry-mode=loopback \
-            --passphrase "$GOOGLE_SERVICE_INFO_PWD" \
-            .github/secrets/GoogleService-Info.plist.gpg
-        env:
-          GOOGLE_SERVICE_INFO_PWD: ${{ secrets.GOOGLE_SERVICE_INFO_PWD }}
-          DECRYPTED_GOOGLESERVICE_FILE_PATH: ${{ 'GimiFeedback/GimiFeedback/App/GoogleService-Info.plist' }}
+#       CONFIG_FILE_PATH: ${{ 'GimiFeedback/GimiFeedback/App/Config.xcconfig' }}
+#       DECRYPTED_GOOGLESERVICE_FILE_PATH: ${{ 'GimiFeedback/GimiFeedback/App/GoogleService-Info.plist' }}
 
-      - name: Select Xcode
-        uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: '16.2'
+#       GPT_API_KEY: ${{ secrets.GPT_API_KEY }}
+#       KAKAO_NATIVE_APP_KEY: ${{ secrets.KAKAO_NATIVE_APP_KEY }}
+#       NOTIFICATION_KEY: ${{ secrets.NOTIFICATION_KEY }}
 
-      - name: Print Xcode & CLT
-        run: |
-          xcodebuild -version
-          xcode-select -p
+#       GOOGLE_SERVICE_INFO_PWD: ${{ secrets.GOOGLE_SERVICE_INFO_PWD }}
+#       PROVISION_PWD: ${{ secrets.PROVISION_PWD }}
 
-      - name: List simulators
-        run: xcrun simctl list devices available
+#     steps:
+#       # 저장소의 코드를 체크아웃
+#       - name: Checkout project
+#         uses: actions/checkout@v4
+#         with:
+#           lfs: true
 
-      - name: 🛠 Start xcode build 
-        run: |
-          xcodebuild \
-            -project GimiFeedback/GimiFeedback.xcodeproj \
-            -scheme GimiFeedback \
-            -sdk iphoneos \
-            -configuration Debug \
-            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
-            -skipPackagePluginValidation \
-            clean build
+#       - name: Check LFS files
+#         run: git lfs ls-files
+
+#       - name: ⚙️ Write xcconfig
+#         run: |
+#           echo "GPT_API_KEY = $GPT_API_KEY" >> $CONFIG_FILE_PATH
+#           echo "KAKAO_NATIVE_APP_KEY = $KAKAO_NATIVE_APP_KEY" >> $CONFIG_FILE_PATH
+#           echo "NOTIFICATION_KEY = $NOTIFICATION_KEY" >> $CONFIG_FILE_PATH
+
+#       - name: Decrypt GoogleService-Info.plist
+#         run: |
+#           echo "::add-mask::${GOOGLE_SERVICE_INFO_PWD}"
+#           gpg -d -o $DECRYPTED_GOOGLESERVICE_FILE_PATH \
+#             --pinentry-mode=loopback \
+#             --passphrase "$GOOGLE_SERVICE_INFO_PWD" \
+#             .github/secrets/GoogleService-Info.plist.gpg
+
+#       - name: Configure Keychain 
+#         run: | 
+#           security create-keychain -p "" "$KEYCHAIN" 
+#           security list-keychains -s "$KEYCHAIN" 
+#           security default-keychain -s "$KEYCHAIN" 
+#           security unlock-keychain -p "" "$KEYCHAIN"
+
+#       - name : Configure Code Signing
+#         run: | 
+#           gpg -d -o "$DECRYPTED_DEV_FILE_PATH" --pinentry-mode=loopback --passphrase "$PROVISION_PWD" "$ENCRYPTED_DEV_FILE_PATH"
+#           gpg -d -o "$DECRYPTED_PROD_FILE_PATH" --pinentry-mode=loopback --passphrase "$PROVISION_PWD" "$ENCRYPTED_PROD_FILE_PATH"
+#           gpg -d -o "$DECRYPTED_PROVISION_DEV_FILE_PATH" --pinentry-mode=loopback --passphrase "$PROVISION_PWD" "$ENCRYPTED_PROVISION_DEV_FILE_PATH"
+#           gpg -d -o "$DECRYPTED_PROVISION_PROD_FILE_PATH" --pinentry-mode=loopback --passphrase "$PROVISION_PWD" "$ENCRYPTED_PROVISION_PROD_FILE_PATH"
+#           security import "$DECRYPTED_DEV_FILE_PATH" -k "$KEYCHAIN" -P "$PROVISION_PWD" -A
+#           security import "$DECRYPTED_PROD_FILE_PATH" -k "$KEYCHAIN" -P "$PROVISION_PWD" -A
+#           security set-key-partition-list -S apple-tool:,apple: -s -k "" "$KEYCHAIN"
+#           mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
+
+#           ls -l .github/secrets/*.mobileprovision
+
+#       - name: Select Xcode
+#         uses: maxim-lobanov/setup-xcode@v1
+#         with:
+#           xcode-version: '16.2'
+
+#       - name: Print Xcode & CLT
+#         run: |
+#           xcodebuild -version
+#           xcode-select -p
+
+#       - name: List simulators
+#         run: xcrun simctl list devices available
+
+#       - name: 🛠 Start xcode build 
+#         run: |
+#           xcodebuild \
+#             -project GimiFeedback/GimiFeedback.xcodeproj \
+#             -scheme GimiFeedback \
+#             -sdk iphoneos \
+#             -configuration Debug \
+#             -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+#             -skipPackagePluginValidation \
+#             clean build
