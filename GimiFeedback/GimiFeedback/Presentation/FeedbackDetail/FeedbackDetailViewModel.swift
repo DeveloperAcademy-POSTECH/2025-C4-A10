@@ -73,7 +73,7 @@ extension FeedbackDetailViewModel {
     private func transFeedbackContent(content: FeedbackContent) {
         Task {
             isTransLoading = true
-            let response = try await GPTManger.shared.sendChatCompletion(inputText: content.content)
+            let response = try await GeminiManger.shared.generate(inputText: content.content)
                     
             guard let index = feedbackItem.content.firstIndex(where: { $0.id == content.id }) else { return }
             

@@ -18,6 +18,9 @@
 		D306028E2E377EC500908D1D /* FeedbackWriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306028C2E377EC500908D1D /* FeedbackWriteViewModel.swift */; };
 		D30602962E3782A200908D1D /* KcELECTRA-base-v2022.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = D30602952E3782A200908D1D /* KcELECTRA-base-v2022.mlpackage */; };
 		D36C43842E38A029006A027E /* TokenizerREADME.md in Resources */ = {isa = PBXBuildFile; fileRef = D36C43832E38A025006A027E /* TokenizerREADME.md */; };
+		EC25CC332E5975880087EC50 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = EC25CC322E5975880087EC50 /* FirebaseAppCheck */; };
+		EC371D842E55E9AA008E4AB7 /* GeminiManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC371D832E55E9AA008E4AB7 /* GeminiManger.swift */; };
+		EC371DC92E560D76008E4AB7 /* FirebaseAI in Frameworks */ = {isa = PBXBuildFile; productRef = EC371DC82E560D76008E4AB7 /* FirebaseAI */; };
 		EC6A4C842E31284F0087DB5C /* ChannelDetail+DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C832E31284F0087DB5C /* ChannelDetail+DescriptionView.swift */; };
 		EC6A4C862E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C852E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift */; };
 		EC6A4C882E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A4C872E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift */; };
@@ -131,6 +134,7 @@
 		D306028C2E377EC500908D1D /* FeedbackWriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackWriteViewModel.swift; sourceTree = "<group>"; };
 		D30602952E3782A200908D1D /* KcELECTRA-base-v2022.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = "KcELECTRA-base-v2022.mlpackage"; sourceTree = "<group>"; };
 		D36C43832E38A025006A027E /* TokenizerREADME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TokenizerREADME.md; sourceTree = "<group>"; };
+		EC371D832E55E9AA008E4AB7 /* GeminiManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiManger.swift; sourceTree = "<group>"; };
 		EC6A4C832E31284F0087DB5C /* ChannelDetail+DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+DescriptionView.swift"; sourceTree = "<group>"; };
 		EC6A4C852E3129300087DB5C /* ChannelDetail+EmptyFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+EmptyFeedbackView.swift"; sourceTree = "<group>"; };
 		EC6A4C872E312A3B0087DB5C /* ChannelDetail+FeedbackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetail+FeedbackListView.swift"; sourceTree = "<group>"; };
@@ -237,10 +241,12 @@
 				EEDBB1BE2E2913CE00F16407 /* FirebaseFunctions in Frameworks */,
 				D306027D2E377E8400908D1D /* Transformers in Frameworks */,
 				EE41FEDE2E2250DF0002E595 /* KakaoSDKCommon in Frameworks */,
+				EC25CC332E5975880087EC50 /* FirebaseAppCheck in Frameworks */,
 				EE3755462E1E5B8D009AD262 /* FirebaseAuth in Frameworks */,
 				ECC980B12E290DC4004A483B /* KakaoSDKTemplate in Frameworks */,
 				EE3755482E1E5B8D009AD262 /* FirebaseFirestore in Frameworks */,
 				EE41FEE02E2250DF0002E595 /* KakaoSDKUser in Frameworks */,
+				EC371DC92E560D76008E4AB7 /* FirebaseAI in Frameworks */,
 				EE41FEDC2E2250DF0002E595 /* KakaoSDKAuth in Frameworks */,
 				ECC980AF2E290DC4004A483B /* KakaoSDKShare in Frameworks */,
 			);
@@ -297,6 +303,15 @@
 				D30602882E377EA100908D1D /* MLREADME.md */,
 			);
 			path = MLWeights;
+			sourceTree = "<group>";
+		};
+		EC371D822E55E99C008E4AB7 /* LLM */ = {
+			isa = PBXGroup;
+			children = (
+				EC94C0F22E3746130020E59D /* GPTManger.swift */,
+				EC371D832E55E9AA008E4AB7 /* GeminiManger.swift */,
+			);
+			path = LLM;
 			sourceTree = "<group>";
 		};
 		EC6A4C822E31274B0087DB5C /* SubViews */ = {
@@ -593,7 +608,6 @@
 				EE856A4B2E1CD3AA006820B9 /* FirestoreManager.swift */,
 				EE41FEEC2E225A1C0002E595 /* FirebaseAuthManager.swift */,
 				EEDBB1BB2E28DEB900F16407 /* FCMManager.swift */,
-				EC94C0F22E3746130020E59D /* GPTManger.swift */,
 				ECC980AB2E28E91E004A483B /* DeepLinkManager.swift */,
 				ECC980B42E294835004A483B /* KakaoShareManager.swift */,
 				EE41FEEA2E2259980002E595 /* KakaoAuthManager.swift */,
@@ -666,6 +680,7 @@
 		EEFEBF592E4B7EFB001D824D /* AI */ = {
 			isa = PBXGroup;
 			children = (
+				EC371D822E55E99C008E4AB7 /* LLM */,
 				D30602832E377E9700908D1D /* MLModel */,
 				D30602892E377EA100908D1D /* MLWeights */,
 			);
@@ -700,6 +715,8 @@
 				EEDBB1B72E28D45700F16407 /* FirebaseMessaging */,
 				EEDBB1BD2E2913CE00F16407 /* FirebaseFunctions */,
 				D306027C2E377E8400908D1D /* Transformers */,
+				EC371DC82E560D76008E4AB7 /* FirebaseAI */,
+				EC25CC322E5975880087EC50 /* FirebaseAppCheck */,
 			);
 			productName = A10;
 			productReference = EE856A262E1CD093006820B9 /* GimiFeedback.app */;
@@ -836,6 +853,7 @@
 				EC6A4CA52E350B720087DB5C /* Spicy+Extension.swift in Sources */,
 				EE37553D2E1E10EA009AD262 /* FeedbackContentType.swift in Sources */,
 				EE37554A2E1E5BBD009AD262 /* AppDelegate.swift in Sources */,
+				EC371D842E55E9AA008E4AB7 /* GeminiManger.swift in Sources */,
 				D30602962E3782A200908D1D /* KcELECTRA-base-v2022.mlpackage in Sources */,
 				EE3755412E1E1105009AD262 /* FeedbackChannel.swift in Sources */,
 				EE37553F2E1E10F9009AD262 /* FeedbackContent.swift in Sources */,
@@ -1152,6 +1170,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D306027B2E377E8400908D1D /* XCRemoteSwiftPackageReference "swift-transformers" */;
 			productName = Transformers;
+		};
+		EC25CC322E5975880087EC50 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE3755442E1E5B8D009AD262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+		EC371DC82E560D76008E4AB7 /* FirebaseAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE3755442E1E5B8D009AD262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAI;
 		};
 		ECC980AE2E290DC4004A483B /* KakaoSDKShare */ = {
 			isa = XCSwiftPackageProductDependency;

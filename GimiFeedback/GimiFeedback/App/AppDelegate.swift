@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseCore
 import UserNotifications
 import FirebaseMessaging
+import FirebaseAppCheck
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
     var saveUserInfo: [AnyHashable: Any]?
@@ -17,6 +18,10 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
+        
+        let providerFactory = YourAppCheckProviderFactory()
+        AppCheck.setAppCheckProviderFactory(providerFactory)
+        
         FirebaseApp.configure()
         setUIAppearance()
         
@@ -132,5 +137,16 @@ extension AppDelegate {
             object: nil,
             userInfo: ["destination": "feedbackDetail", "feedbackId": feedbackId]
         )
+    }
+}
+
+final class YourAppCheckProviderFactory: NSObject, AppCheckProviderFactory {
+    func createProvider(with app: FirebaseApp) -> AppCheckProvider? {
+        // 시뮬레이터 환경에서는 AppCheckDebugProvider를 사용하도록 설정합니다.
+        #if targetEnvironment(simulator)
+        return AppCheckDebugProvider(app: app)
+        #else
+        return AppAttestProvider(app: app)
+        #endif
     }
 }
