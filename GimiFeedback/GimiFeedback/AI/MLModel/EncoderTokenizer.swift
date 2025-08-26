@@ -3,7 +3,7 @@ import Foundation
 import Hub
 import Tokenizers
 
-class EncoderTokenizer {
+final class EncoderTokenizer {
     private let tokenizer: Tokenizer
     private var maxLength: Int
     private var padTokenId: Int

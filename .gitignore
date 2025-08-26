@@ -145,3 +145,5 @@ iOSInjectionProject/
 **/Config.xcconfig
 */GoogleService-Info.plist
 **/GoogleService-Info.plist
+*/.env
+**/.env
