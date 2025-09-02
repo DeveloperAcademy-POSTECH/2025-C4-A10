@@ -10,6 +10,7 @@
 		0D7BFA2A2E3378E40056C579 /* ChannelCreateView+TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7BFA292E3378E40056C579 /* ChannelCreateView+TitleView.swift */; };
 		0D7BFA2C2E34ED810056C579 /* ChannelCreateView+DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7BFA2B2E34ED810056C579 /* ChannelCreateView+DescriptionView.swift */; };
 		0DC2A3D52E263E1500FF91BC /* FeedbackDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC2A3D42E263E1500FF91BC /* FeedbackDetailViewModel.swift */; };
+		A020E2802E66B87C00305D2B /* KcELECTRA-base-v2022-int8.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = A020E27F2E66B87C00305D2B /* KcELECTRA-base-v2022-int8.mlpackage */; };
 		D306027D2E377E8400908D1D /* Transformers in Frameworks */ = {isa = PBXBuildFile; productRef = D306027C2E377E8400908D1D /* Transformers */; };
 		D30602862E377E9700908D1D /* EncoderTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30602822E377E9700908D1D /* EncoderTokenizer.swift */; };
 		D30602872E377E9700908D1D /* EncoderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30602812E377E9700908D1D /* EncoderModel.swift */; };
@@ -127,6 +128,7 @@
 		0D7BFA292E3378E40056C579 /* ChannelCreateView+TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelCreateView+TitleView.swift"; sourceTree = "<group>"; };
 		0D7BFA2B2E34ED810056C579 /* ChannelCreateView+DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelCreateView+DescriptionView.swift"; sourceTree = "<group>"; };
 		0DC2A3D42E263E1500FF91BC /* FeedbackDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackDetailViewModel.swift; sourceTree = "<group>"; };
+		A020E27F2E66B87C00305D2B /* KcELECTRA-base-v2022-int8.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = "KcELECTRA-base-v2022-int8.mlpackage"; sourceTree = "<group>"; };
 		D30602812E377E9700908D1D /* EncoderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoderModel.swift; sourceTree = "<group>"; };
 		D30602822E377E9700908D1D /* EncoderTokenizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoderTokenizer.swift; sourceTree = "<group>"; };
 		D30602882E377EA100908D1D /* MLREADME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = MLREADME.md; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 		D30602892E377EA100908D1D /* MLWeights */ = {
 			isa = PBXGroup;
 			children = (
+				A020E27F2E66B87C00305D2B /* KcELECTRA-base-v2022-int8.mlpackage */,
 				D30602952E3782A200908D1D /* KcELECTRA-base-v2022.mlpackage */,
 				D30602882E377EA100908D1D /* MLREADME.md */,
 			);
@@ -809,6 +812,7 @@
 				EE61A4342E3361550079E7A6 /* CustomPaddingModifier.swift in Sources */,
 				EE465EEE2E2630F20096109A /* ChannelEditView.swift in Sources */,
 				EEA0BBB62E2D41C6009A25D8 /* DeepLinkViewModel.swift in Sources */,
+				A020E2802E66B87C00305D2B /* KcELECTRA-base-v2022-int8.mlpackage in Sources */,
 				EC9959B32E24E646001555B1 /* ChannelDetailViewModel.swift in Sources */,
 				ECC980B52E294835004A483B /* KakaoShareManager.swift in Sources */,
 				EC6A4C842E31284F0087DB5C /* ChannelDetail+DescriptionView.swift in Sources */,
