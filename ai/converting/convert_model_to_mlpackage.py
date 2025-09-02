@@ -109,19 +109,94 @@ print(
     f"Input dtypes: input_ids={input_ids.dtype}, attention_mask={attention_mask.dtype}, token_type_ids={token_type_ids.dtype}"
 )
 
-output = mlmodel.predict(
-    {
-        "input_ids": input_ids,
-        "attention_mask": attention_mask,
-        "token_type_ids": token_type_ids,
-    }
-)
+test_input = {
+    "input_ids": input_ids,
+    "attention_mask": attention_mask,
+    "token_type_ids": token_type_ids,
+}
+
+output = mlmodel.predict(test_input)
 print(output)
 
+from pathlib import Path
 
+model_name = "KcELECTRA-base-v2022"
+
+directory = Path(f"{model_name}.mlpackage").absolute().as_posix()
+weights_dir = f"{directory}/Data/com.apple.CoreML/weights/weight.bin"
 # 모델 저장
-mlmodel.save("KcELECTRA-base-v2022.mlpackage")
-print("\n✅ Model successfully converted and saved as 'KcELECTRA-base-v2022.mlpackage'")
+mlmodel.save(directory)
+print(f"\n✅ Model successfully converted and saved as '{directory}'")
 print(
     f"✅ Test prediction successful: {output['classLabel']} (confidence: {max(output['classLabel_probs'].values()):.4f})"
+)
+
+# mlmodel_fp32 = ct.models.MLModel(directory)
+from coremltools.optimize.coreml import OptimizationConfig, OpLinearQuantizerConfig
+
+config = OptimizationConfig(
+    global_config=OpLinearQuantizerConfig(
+        mode="linear_symmetric",  # 대칭적 선형 양자화
+        dtype="int8",  # INT8로 양자화
+        granularity="per_channel",  # 채널별 양자화
+        weight_threshold=512,  # 512개 이상 가중치만 양자화
+    )
+)
+
+
+model_int8 = ct.optimize.coreml.linear_quantize_weights(mlmodel, config)
+print("Model test int8")
+
+output_int8 = model_int8.predict(test_input)
+print(output_int8)
+
+
+def analyze_quantization(
+    original_path: str,
+    quantized_path: str,
+    test_input: dict,
+) -> None:
+    """양자화 결과를 분석하는 함수"""
+
+    original_model = ct.models.MLModel(original_path)
+    quantized_model = ct.models.MLModel(quantized_path)
+
+    # 크기 비교
+    orig_size = sum(
+        f.stat().st_size for f in Path(original_path).rglob("*") if f.is_file()
+    )
+    quant_size = sum(
+        f.stat().st_size for f in Path(quantized_path).rglob("*") if f.is_file()
+    )
+
+    print("🔍 양자화 분석 결과:")
+    print(f"   원본 크기: {orig_size / (1024**2):.2f} MB")
+    print(f"   양자화 크기: {quant_size / (1024**2):.2f} MB")
+    print(f"   압축 비율: {orig_size / quant_size:.2f}x")
+
+    orig_output = original_model.predict(test_input)
+    quant_output = quantized_model.predict(test_input)
+
+    # 확률 차이 계산
+    orig_probs = list(orig_output["classLabel_probs"].values())
+    quant_probs = list(quant_output["classLabel_probs"].values())
+
+    max_diff = max(abs(o - q) for o, q in zip(orig_probs, quant_probs))
+
+    print(
+        f"   예측 클래스: 원본={orig_output['classLabel']}, 양자화={quant_output['classLabel']}"
+    )
+    print(f"   최대 확률 차이: {max_diff:.6f}")
+    print(f"   양자화 성공: {'✅' if quant_size < orig_size * 0.8 else '❌'}")
+
+
+analyze_quantization(
+    f"{model_name}.mlpackage", f"{model_name}-int8.mlpackage", test_input
+)
+
+fp_dir = Path(f"{model_name}-int8.mlpackage").absolute().as_posix()
+model_int8.save(fp_dir)
+print(f"\n✅ Model successfully converted and saved as '{fp_dir}'")
+print(
+    f"✅ Test prediction successful: {output_int8['classLabel']} (confidence: {max(output_int8['classLabel_probs'].values()):.4f})"
 )
