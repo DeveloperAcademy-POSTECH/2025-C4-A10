@@ -29,7 +29,7 @@ final class FeedbackWriteViewModel: ViewModelable {
     
     let minimumFeedbackLength: Int = 10
     var sequenceClassifier: SequenceClassifier?
-    let modelNameOrPath: String = "KcELECTRA-base-v2022"
+    let modelNameOrPath: String = "KcELECTRA-base-v2022-int8"
     
     let feedbackChannel: FeedbackChannel
     let nickName: String
